@@ -56,7 +56,7 @@ function generarCalaveras() {
  
   for (let i = 0; i < numCalaveras; i++) {
     const img = document.createElement("img");
-    img.src = "../static/img/skull.gif";
+    img.src = "static/img/skull.gif";
     img.alt = "Calavera shake";
 
     // Aplicar la clase para reflejar cada segunda calavera
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Crear la imagen y agregarla al div
   const img = document.createElement("img");
-  img.src = "../static/img/skullglitched2.gif";
+  img.src = "static/img/skullglitched2.gif";
   img.alt = "DedSec Skull";
   img.classList.add("glitched-skull"); // Clase opcional para estilos en CSS
   container.appendChild(img);
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Crear la imagen y agregarla al div
   const img = document.createElement("img");
-  img.src = "../static/img/skullglitched.gif";
+  img.src = "static/img/skullglitched.gif";
   img.alt = "DedSec Skull";
   img.classList.add("glitched-skull2"); // Clase opcional para estilos en CSS
   container.appendChild(img);
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Función principal para crear los efectos de cascada
 function createRain(containerId, maxItems = 30) {
   const container = document.getElementById(containerId);
-  const gifUrl = '../static/img/cascade.gif'; // Ruta del GIF
+  const gifUrl = 'static/img/cascade.gif'; // Ruta del GIF
 
   function addGif() {
       if (container.children.length >= maxItems) return; // Limita el número de elementos activos
