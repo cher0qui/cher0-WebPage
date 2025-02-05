@@ -1,0 +1,325 @@
+body {
+  font-family: 'Source Code Pro', monospace;
+  background-color: #2C2C2C;
+  color: #D3D3D3;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+/*fondo animau*/
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #0d0d0d, #001f3f, #0d0d0d);
+  z-index: -1;
+  animation: bg-animation 10s infinite alternate;
+}
+
+
+
+@keyframes bg-animation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Estilo para el hada */
+#hada {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-image: url("../img/hada.gif");
+  background-size: cover;
+  pointer-events: none;
+  animation: volar 6s infinite ease-in-out;  /* Animación de vuelo */
+  cursor: grab; /* Cambia el cursor al pasar sobre el hada */
+}
+
+
+
+
+
+/* Estilo para el bocadillo */
+.bocadillo {
+  position: absolute;
+  top: -60px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  text-align: center;
+}
+
+@keyframes volar {
+  0% {
+      top: 50%;
+      left: 50%;
+  }
+  25% {
+      top: 10%;
+      left: 90%;
+  }
+  50% {
+      top: 90%;
+      left: 80%;
+  }
+  75% {
+      top: 30%;
+      left: 10%;
+  }
+  100% {
+      top: 50%;
+      left: 50%;
+  }
+}
+
+
+
+
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Term Hello World */
+
+h1 {
+  font-size: 2.5rem;
+  color: #D3D3D3;
+  text-shadow: 0 0 8px #00FF00, 0 0 3px #00FF07;
+  animation: moving 5s infinite;
+}
+
+@keyframes moving {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(10); }
+}
+
+typed {
+  color: #00FF00;
+}
+
+
+
+/* los putos ojos */
+#rain-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Ignora interacciones del usuario */
+  z-index: -2;
+}
+
+.gif-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Estilos para el contenedor de la calavera */
+.calavera-shake {
+  position: relative;
+  display: inline-block;
+  margin-top: 30px; 
+}
+
+/* Estilos para el GIF de la calavera */
+
+.calavera-shake img {
+  width: 150px; 
+  height: auto;
+  animation: none 1s infinite;
+  mix-blend-mode: screen;
+  opacity: 1;
+  z-index: 1;
+  
+}
+
+/* calavera invertida */
+.invertida {
+  mix-blend-mode: screen;
+  background-color: transparent; /* Asegura que el fondo sea transparente */
+  transform: scaleX(-1); /* Invierte la imagen horizontalmente */
+  filter: invert(0); /* color en negativo */
+  display: inline-block; /* Asegura que el transform se aplique correctamente */
+  animation: shake 1s infinite ;
+}
+
+
+
+
+#writeups {
+  position: relative;
+  margin-bottom: 20px;
+  background-color: rgba(10, 10, 20, 0.85);
+  padding: 15px;
+  border: 1px solid #0b60b4; /*azulito*/
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(20, 20, 77, 0.8);
+
+}
+
+.glitched-skull {
+  position: absolute;
+  background-color: transparent;
+  mix-blend-mode: screen;
+  bottom: 0;
+  right: 0;
+  width: 5cm; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+  z-index: 1;
+  opacity: 1;
+}
+
+
+
+
+#about {
+  position: relative;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 15px;
+  border: 1px solid #ffffff; /*negro*/
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(176, 176, 194, 0.8);
+  zoom: 90%;
+}
+
+.glitched-skull2 {
+  position: absolute;
+  background-color: transparent;
+  mix-blend-mode: screen;
+  bottom: 0;
+  right: 0;
+  width: 4.5cm; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+  transition: transform 0.2s ease; /* Suaviza el movimiento y el flip */
+  z-index: 1;
+  opacity: 1;
+}
+
+/*
+@keyframes shake2 {
+  0% {
+    transform: translate(0) scaleX(-1);
+  }
+  25% {
+    transform: translate(20px, 20px) scaleX(-1) rotate(10deg);
+  }
+  50% {
+    transform: translate(-20px, -20px) scaleX(-1) rotate(-10deg);
+  }
+  75% {
+    transform: translate(20px, -20px) scaleX(-1) rotate(10deg);
+  }
+  100% {
+    transform: translate(0) scaleX(-1);
+  }
+}
+
+
+/* Animación shake */
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(5px, -5px);
+  }
+  60% {
+    transform: translate(-5px, 5px);
+  }
+  80% {
+    transform: translate(-10px, -5px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+
+
+
+main {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Texto del fondo */
+footer {
+  background-color: #;
+  color: #00;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #D3D3D3;
+}
+
+
+/* Goodnight! */
+
+.Punpun-eyes-container {
+  position: absolute; /* Posicionamiento absoluto */
+  bottom: auto; /* Coloca el contenedor en la parte inferior */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta el centro exacto */
+  z-index: -2;
+  
+}
+.punpuneyes img {
+  max-width: 100%; /* Asegura que la imagen no se desborde */
+  height: auto; /* Mantén la proporción */
+
+}
+.gif-background {
+  position: fixed;
+  mix-blend-mode: multiply;
+  background-color: rgba(160, 5, 5, 0.911);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Asegura que el fondo esté debajo de todo */
+  opacity: 1; /* Ajusta la transparencia si es necesario */
+}
+
+.gif-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen al tamaño del fondo */
+}
+
+
+
+
+/* Iconos maquinas */
+.icon-bigbang {
+  width: 25px; /* Ajusta el tamaño */
+  height: 25px;
+  margin-left: 2%; /* Espacio entre el texto y la imagen */
+  vertical-align: middle; /* Alinea con el texto */
+}
+
+
+
+
