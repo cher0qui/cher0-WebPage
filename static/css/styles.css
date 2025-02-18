@@ -353,6 +353,23 @@ footer {
   vertical-align: middle; /* Alinea con el texto */
 }
 
+.icon-cat {
+  width: 25px; /* Ajusta el tamaño */
+  height: 25px;
+  margin-left: 10%; /* Espacio entre el texto y la imagen */
+  vertical-align: middle; /* Alinea con el texto */
+}
 
+.icon-trickster {
+  width: 25px; /* Ajusta el tamaño */
+  height: 25px;
+  margin-left: 10%; /* Espacio entre el texto y la imagen */
+  vertical-align: middle; /* Alinea con el texto */
+}
 
-
+.icon-titanic {
+  width: 25px; /* Ajusta el tamaño */
+  height: 25px;
+  margin-left: 10%; /* Espacio entre el texto y la imagen */
+  vertical-align: middle; /* Alinea con el texto */
+}
