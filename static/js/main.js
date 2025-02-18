@@ -72,27 +72,46 @@ window.addEventListener("load", generarCalaveras);
 window.addEventListener("resize", generarCalaveras);
 
 
+// Seccion de writeups
+// Configuración general
+const CONFIG = {
+  animation: {
+    duration: 100,
+    chars: 'qwertyuiopasdfghjkl;zxcvbnm0123456789!@#$%^&*+-{}[]<>?',
+  },
+};
 
+// Funciones utilitarias
+function getRandomChar() {
+  const chars = CONFIG.animation.chars;
+  return chars[Math.floor(Math.random() * chars.length)];
+}
 
-//Calavera Dedsec que hace flipp
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".calaveradedsec");
-  if (!container) return; // Asegurar que el contenedor exista
+function scrambleText(text) {
+  return text.split('').map(() => getRandomChar()).join('');
+}
 
-  // Crear la imagen y agregarla al div
-  const img = document.createElement("img");
-  img.src = "static/img/skullglitched2.gif";
-  img.alt = "DedSec Skull";
-  img.classList.add("glitched-skull"); // Clase opcional para estilos en CSS
-  container.appendChild(img);
+// Inicialización de elementos
+document.querySelectorAll('.scramble').forEach(link => {
+  const originalText = link.textContent.trim(); // Guarda el texto original del enlace
 
-  let flipped = false;
+  link.addEventListener('mouseenter', () => {
+    let scrambledText = scrambleText(originalText); // Genera el texto encriptado inicial
+    link.textContent = scrambledText; // Reemplaza el contenido del enlace con el texto encriptado
 
-  setInterval(() => {
-      flipped = !flipped;
-      img.style.transform = flipped ? "scaleX(-1)" : "scaleX(1)";
-  }, 200);
+    const interval = setInterval(() => {
+      scrambledText = scrambleText(originalText); // Actualiza el texto encriptado
+      link.textContent = scrambledText; // Vuelve a reemplazar el contenido del enlace
+    }, 100);
+
+    link.addEventListener('mouseleave', () => {
+      clearInterval(interval); // Detiene la generación de texto encriptado
+      link.textContent = originalText; // Restaura el texto original del enlace
+    });
+  });
 });
+
+// fin writeups
 
 //Calavera Dedsec2
 document.addEventListener("DOMContentLoaded", () => {
