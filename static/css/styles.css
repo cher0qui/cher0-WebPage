@@ -97,12 +97,23 @@ typed {
 
 /* Estilo para la lista de writeups */
 /* Estilo base para todos los elementos <li> */
+a {
+  display: none; /* Organiza el texto e imagen */
+  align-items: baseline; /* Alinea verticalmente */
+  justify-content: center; /* Coloca el texto a la izquierda y la imagen a la derecha */
+  padding: 10px 20px; /* Espaciado interno */
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Hereda el color del padre */
+  transition: background-color 0.2s ease; /* Transición suave */
+}
+
+
 #writeups ul li {
   list-style: none; /* Elimina los marcadores predeterminados */
   margin: 10px 0; /* Espaciado vertical entre elementos */
   padding: 10px 20px; /* Espaciado interno */
   border-radius: 5px; /* Bordes redondeados */
-  background-color: rgba(0, 0, 0, 0.1); /* Fondo semi-transparente */
+  background-color: rgba(131, 126, 126, 0.1); /* Fondo semi-transparente */
   border: 2px solid rgba(255, 255, 255, 0.3); /* Borde suave */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
   font-size: 1.2em; /* Tamaño de fuente más grande */
@@ -112,7 +123,7 @@ typed {
 
 /* Cambios al pasar el ratón sobre un <li> */
 #writeups ul li:hover {
-  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  transform: scale(1.01); /* Aumenta ligeramente el tamaño */
   background-color: rgba(0, 0, 0, 0.2); /* Cambia el color de fondo */
   cursor: pointer; /* Cambia el cursor a "mano" */
 }
@@ -144,6 +155,7 @@ typed {
   height: 35px;
   margin-left: auto; /* Alinea las imágenes a la derecha */
   vertical-align: middle; /* Alinea con el texto */
+  position: relative;
   transition: transform 0.2s ease; /* Agrega una transición suave */
 }
 
