@@ -96,33 +96,61 @@ typed {
 }
 
 /* Estilo para la lista de writeups */
+/* Estilo base para todos los elementos <li> */
+#writeups ul li {
+  list-style: none; /* Elimina los marcadores predeterminados */
+  margin: 10px 0; /* Espaciado vertical entre elementos */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: rgba(0, 0, 0, 0.1); /* Fondo semi-transparente */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Borde suave */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  font-size: 1.2em; /* Tamaño de fuente más grande */
+  font-weight: bold; /* Texto en negrita */
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Transición suave */
+}
+
+/* Cambios al pasar el ratón sobre un <li> */
+#writeups ul li:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  background-color: rgba(0, 0, 0, 0.2); /* Cambia el color de fondo */
+  cursor: pointer; /* Cambia el cursor a "mano" */
+}
+
+/* Separación adicional entre los ítems de la lista */
 #writeups ul {
-  list-style: none; /* Quita los puntos de la lista */
-  padding: 0;
+  padding: 0; /* Elimina el relleno predeterminado */
+  margin: 0; /* Elimina el margen predeterminado */
 }
 
-#writeups li {
-  margin-bottom: 20px; /* Espacio entre los enlaces */
-  position: relative; /* Para posicionar el divisor */
+/* Estilo para los enlaces dentro de los <li> */
+#writeups ul li a {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Hereda el color del padre */
+  display: inline-block; /* Hace que el enlace ocupe todo el espacio del <li> */
 }
 
-/* Divisor entre enlaces */
-#writeups li::after {
-  content: ''; /* Crea un elemento generado */
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: #ccc; /* Color del divisor */
-  margin-top: 10px; /* Espacio entre el texto y el divisor */
+/* Efecto de hover para los enlaces dentro de los <li> */
+#writeups ul li a:hover {
+  color: #ff6f61; /* Cambia el color del texto al pasar el ratón */
 }
 
-/* Último elemento sin divisor */
-#writeups li:last-child::after {
-  display: none; /* Oculta el divisor del último enlace */
+/* Estilo para los íconos */
+.icon-bigbang,
+.icon-cat,
+.icon-trickster,
+.icon-titanic {
+  width: 35px; /* Ajusta el tamaño */
+  height: 35px;
+  margin-left: auto; /* Alinea las imágenes a la derecha */
+  vertical-align: middle; /* Alinea con el texto */
+  transition: transform 0.2s ease; /* Agrega una transición suave */
 }
 
-
-/*  Efecto buggeado
+/* Efecto de hover para los íconos */
+#writeups ul li:hover img {
+  transform: scale(1.2); /* Aumenta ligeramente el tamaño de la imagen */
+}
 
 /* Estilo base para todos los enlaces */
 
@@ -345,31 +373,3 @@ footer {
 
 
 
-/* Iconos maquinas */
-.icon-bigbang {
-  width: 25px; /* Ajusta el tamaño */
-  height: 25px;
-  margin-left: 10%; /* Espacio entre el texto y la imagen */
-  vertical-align: middle; /* Alinea con el texto */
-}
-
-.icon-cat {
-  width: 25px; /* Ajusta el tamaño */
-  height: 25px;
-  margin-left: 10%; /* Espacio entre el texto y la imagen */
-  vertical-align: middle; /* Alinea con el texto */
-}
-
-.icon-trickster {
-  width: 25px; /* Ajusta el tamaño */
-  height: 25px;
-  margin-left: 10%; /* Espacio entre el texto y la imagen */
-  vertical-align: middle; /* Alinea con el texto */
-}
-
-.icon-titanic {
-  width: 25px; /* Ajusta el tamaño */
-  height: 25px;
-  margin-left: 10%; /* Espacio entre el texto y la imagen */
-  vertical-align: middle; /* Alinea con el texto */
-}

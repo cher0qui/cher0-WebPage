@@ -111,6 +111,40 @@ document.querySelectorAll('.scramble').forEach(link => {
   });
 });
 
+
+/// boton scamble
+// Variable de estado para controlar si el efecto está activado
+let isScrambled = false;
+
+// Función para aplicar/eliminar el efecto scramble a todos los elementos .scramble
+function toggleGlobalScramble() {
+  isScrambled = !isScrambled; // Cambia el estado del efecto
+
+  document.querySelectorAll('.scramble').forEach(link => {
+    const originalText = link.textContent.trim(); // Guarda el texto original
+
+    if (isScrambled) {
+      // Activa el efecto scramble
+      let scrambledText = scrambleText(originalText);
+      link.textContent = scrambledText;
+
+      // Crea un intervalo para actualizar el texto encriptado
+      link.interval = setInterval(() => {
+        scrambledText = scrambleText(originalText);
+        link.textContent = scrambledText;
+      }, 100);
+    } else {
+      // Desactiva el efecto scramble
+      clearInterval(link.interval); // Limpia el intervalo
+      link.textContent = originalText; // Restaura el texto original
+    }
+  });
+}
+
+// Agrega un evento de clic a la imagen de los ojos
+document.querySelector('.Punpun-eyes-container img').addEventListener('click', () => {
+  toggleGlobalScramble(); // Llama a la función para alternar el efecto
+});
 // fin writeups
 
 //Calavera Dedsec2
