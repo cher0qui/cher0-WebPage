@@ -150,7 +150,8 @@ a {
 .icon-bigbang,
 .icon-cat,
 .icon-trickster,
-.icon-titanic {
+.icon-titanic,
+.icon-strutted{
   width: 35px; /* Ajusta el tamaño */
   height: 35px;
   margin-left: auto; /* Alinea las imágenes a la derecha */
@@ -203,25 +204,25 @@ a[data-encrypted="true"] {
 }
 
 /* Estilos para el contenedor de la calavera */
-.calavera-shake {
-  position: relative;
-  display: inline-block;
-  margin-top: 30px; 
-}
+
 
 /* Estilos para el GIF de la calavera */
 
 .calavera-shake img {
+  position: relative;
+  display: inline-block;
+  margin-top: 30px; 
   width: 150px; 
   height: auto;
-  animation: none 1s infinite;
+  /*animation: shake 1s infinite;*/ /* esto hace que giren*/
+  animation: none infinite;
   mix-blend-mode: screen;
   opacity: 1;
   z-index: 1;
   
 }
 
-/* calavera invertida */
+/* calavera invertida  esta hace que una de cada dos vaya invertida*/
 .invertida {
   mix-blend-mode: screen;
   background-color: transparent; /* Asegura que el fondo sea transparente */
@@ -243,18 +244,6 @@ a[data-encrypted="true"] {
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(20, 20, 77, 0.8);
 
-}
-
-.glitched-skull {
-  position: absolute;
-  background-color: transparent;
-  mix-blend-mode: screen;
-  bottom: 0;
-  right: 0;
-  width: 5cm; /* Ajusta el tamaño según sea necesario */
-  height: auto;
-  z-index: 1;
-  opacity: 1;
 }
 
 

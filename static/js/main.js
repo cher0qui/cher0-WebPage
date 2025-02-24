@@ -175,96 +175,108 @@ function createRain(containerId, maxItems = 30) {
   const container = document.getElementById(containerId);
   const gifUrl = 'static/img/cascade.gif'; // Ruta del GIF
 
+  let isPageVisible = true; // Controlar la visibilidad de la página
+
+  // Detectar cambios en la visibilidad de la página
+  document.addEventListener('visibilitychange', () => {
+    isPageVisible = !document.hidden; // Actualizar el estado de visibilidad
+  });
+
   function addGif() {
-      if (container.children.length >= maxItems) return; // Limita el número de elementos activos
+    if (!isPageVisible || container.children.length >= maxItems) return; // Limita el número de elementos activos y verifica visibilidad
 
-      const gif = document.createElement('img');
-      gif.src = gifUrl;
-      gif.classList.add('gif-item');
+    const gif = document.createElement('img');
+    gif.src = gifUrl;
+    gif.classList.add('gif-item');
 
-      // Tamaño aleatorio (entre 20px y 100px)
-      const randomSize = Math.random() * 80 + 20;
-      gif.style.width = `${randomSize}px`;
+    // Tamaño aleatorio (entre 20px y 100px)
+    const randomSize = Math.random() * 80 + 20;
+    gif.style.width = `${randomSize}px`;
 
-      // Posición inicial aleatoria (solo en el eje X)
-      const randomX = Math.random() * (window.innerWidth - randomSize);
-      gif.style.left = `${randomX}px`;
-      gif.style.top = `-${randomSize}px`; // Comienza fuera de la pantalla superior
+    // Posición inicial aleatoria (solo en el eje X)
+    const randomX = Math.random() * (window.innerWidth - randomSize);
+    gif.style.left = `${randomX}px`;
+    gif.style.top = `-${randomSize}px`; // Comienza fuera de la pantalla superior
 
-      // Aplicar efectos aleatorios
-      applyRandomEffects(gif);
+    // Aplicar efectos aleatorios
+    applyRandomEffects(gif);
 
-      // Animación de aparición
-      setTimeout(() => {
-          gif.style.opacity = '1';
-      }, 10);
+    // Animación de aparición
+    setTimeout(() => {
+      gif.style.opacity = '1';
+    }, 10);
 
-      // Agregar al contenedor
-      container.appendChild(gif);
+    // Agregar al contenedor
+    container.appendChild(gif);
 
-      // Movimiento en cascada con variaciones
-      let moveInterval;
-      if (Math.random() > 0.9) { // 10% de probabilidad de un movimiento especial
-          moveInterval = handleSpecialMovement(gif, randomSize);
-      } else {
-          moveInterval = handleCascadeMovement(gif, randomSize);
-      }
+    // Movimiento en cascada con variaciones
+    let moveInterval;
+    if (Math.random() > 0.9) { // 10% de probabilidad de un movimiento especial
+      moveInterval = handleSpecialMovement(gif, randomSize);
+    } else {
+      moveInterval = handleCascadeMovement(gif, randomSize);
+    }
 
-      // Eliminar el GIF cuando salga de la vista
-      gif.addEventListener('remove', () => clearInterval(moveInterval));
+    // Eliminar el GIF cuando salga de la vista (bajo el fondo de la página)
+    gif.addEventListener('remove', () => clearInterval(moveInterval));
   }
 
   // Manejar el movimiento en cascada
   function handleCascadeMovement(gif, size) {
-      return setInterval(() => {
-          gif.style.top = `${parseFloat(gif.style.top) + Math.random() * 3 + 2}px`; // Caer hacia abajo
-          if (parseFloat(gif.style.top) > window.innerHeight + size) {
-              gif.remove();
-          }
-      }, 30);
+    return setInterval(() => {
+      gif.style.top = `${parseFloat(gif.style.top) + Math.random() * 3 + 2}px`; // Caer hacia abajo
+      const windowBottom = window.innerHeight + window.scrollY;
+      if (parseFloat(gif.style.top)  > windowBottom + size  ) {
+        gif.remove(); // Eliminar solo cuando esté completamente fuera de la pantalla
+      }
+    }, 30);
   }
 
   // Manejar un movimiento especial (oscilación lateral mientras cae)
   function handleSpecialMovement(gif, size) {
-      let directionX = Math.random() > 0.5 ? 1 : -1; // Dirección inicial (izquierda o derecha)
-      return setInterval(() => {
-          gif.style.top = `${parseFloat(gif.style.top) + Math.random() * 3 + 2}px`; // Caer hacia abajo
-          gif.style.left = `${parseFloat(gif.style.left) + directionX * Math.random() * 2}px`; // Oscilar lateralmente
+    let directionX = Math.random() > 0.5 ? 1 : -1; // Dirección inicial (izquierda o derecha)
+    return setInterval(() => {
+      gif.style.top = `${parseFloat(gif.style.top) + Math.random() * 3 + 2}px`; // Caer hacia abajo
+      gif.style.left = `${parseFloat(gif.style.left) + directionX * Math.random() * 2}px`; // Oscilar lateralmente
 
-          // Cambiar dirección si llega a los bordes laterales
-          if (
-              parseFloat(gif.style.left) < -size ||
-              parseFloat(gif.style.left) > window.innerWidth
-          ) {
-              directionX *= -1; // Invertir dirección
-          }
+      // Cambiar dirección si llega a los bordes laterales
+      if (
+        parseFloat(gif.style.left) < -size ||
+        parseFloat(gif.style.left) > window.innerWidth
+      ) {
+        directionX *= -1; // Invertir dirección
+      }
 
-          // Eliminar si sale de la pantalla inferior
-          if (parseFloat(gif.style.top) > window.innerHeight + size) {
-              gif.remove();
-          }
-      }, 30);
+      if (parseFloat(gif.style.top) > window.innerHeight + size) {
+        gif.remove();
+      }
+
+    }, 30);
   }
 
   // Aplicar efectos aleatorios a los GIFs
   function applyRandomEffects(gif) {
-      // Color invertido (aleatorio)
-      if (Math.random() > 75) {
-          gif.style.filter = 'invert(1)';
-      }
+    // Color invertido (aleatorio)
+    if (Math.random() > 10) {
+      gif.style.filter = 'invert(1)';
+    }
 
-      // Reproducción al revés (usando CSS animation-direction)
-      if (Math.random() > 60) {
-          gif.style.animationDirection = 'reverse';
-      }
+    // Reproducción al revés (usando CSS animation-direction)
+    if (Math.random() > 60) {
+      gif.style.animationDirection = 'reverse';
+    }
 
-      // Rotación aleatoria (hasta 180 grados)
-      const randomRotation = Math.random() * 360 - 180; // Entre -180 y 180 grados
-      gif.style.transform = `rotate(${randomRotation}deg)`;
+    // Rotación aleatoria (hasta 180 grados)
+    const randomRotation = Math.random() * 360 - 180; // Entre -180 y 180 grados
+    gif.style.transform = `rotate(${randomRotation}deg)`;
   }
 
-  // Crear nuevos GIFs cada X milisegundos
-  setInterval(addGif, Math.random() * 1000 + 500); // Intervalo aleatorio entre 500ms y 1500ms
+  // Crear nuevos GIFs cada X milisegundos, pero solo si la página está visible
+  setInterval(() => {
+    if (isPageVisible) {
+      addGif();
+    }
+  }, Math.random() * 1000 + 500); // Intervalo aleatorio entre 500ms y 1500ms
 }
 
 // Iniciar el efecto
