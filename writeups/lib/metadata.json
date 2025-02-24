@@ -1,28 +1,265 @@
 {
   "vaultName": "HTB",
-  "lastExport": 1739823665571,
+  "lastExport": 1740412148108,
   "pluginVersion": "1.8.01",
   "validBodyClasses": "publish css-settings-manager theme-dark show-inline-title show-ribbon",
   "useCustomHeadContent": false,
   "useCustomFavicon": false,
   "files": [
+    "Machines/Alert/images/Pasted image 20241126162252.png",
+    "Machines/Alert/0-0.md",
+    "Machines/Alert/00-index.md",
+    "Machines/Alert/01-recon.md",
+    "Machines/Alert/02-exploitation.md",
+    "Machines/Alert/03-post-exploitation.md",
+    "Machines/Alert/Alert.md",
+    "Machines/Alert/Pasted image 20241129010955.png",
+    "Machines/Alert/Pasted image 20241129022709.png",
+    "Machines/Alert/Pasted image 20241129025915.png",
+    "Machines/Alert/Pasted image 20241129025934.png",
+    "Machines/BigBang/imgs/Pasted image 20250131121917.png",
+    "Machines/BigBang/imgs/Pasted image 20250131141905.png",
+    "Machines/BigBang/imgs/Pasted image 20250131142115.png",
+    "Machines/BigBang/imgs/Pasted image 20250202141748.png",
+    "Machines/BigBang/imgs/Pasted image 20250202143150.png",
+    "Machines/BigBang/imgs/Pasted image 20250202210905.png",
+    "Machines/BigBang/imgs/Pasted image 20250203003144.png",
+    "Machines/BigBang/imgs/Pasted image 20250203003751.png",
+    "Machines/BigBang/imgs/Pasted image 20250204001633.png",
+    "Machines/BigBang/imgs/Pasted image 20250204001637.png",
+    "Machines/BigBang/imgs/Pasted image 20250204110951.png",
+    "Machines/BigBang/imgs/Pasted image 20250204111114.png",
+    "Machines/BigBang/imgs/Pasted image 20250205114416.png",
+    "Machines/BigBang/imgs/Pasted image 20250205123026.png",
+    "Machines/BigBang/imgs/Pasted image 20250205123032.png",
+    "Machines/BigBang/01-Recon.md",
+    "Machines/BigBang/02-exploitation.md",
+    "Machines/BigBang/03-User-Shawking.md",
+    "Machines/BigBang/04-Post-Exploit.md",
+    "Machines/BigBang/BigBang.md",
+    "Machines/Cat/imgs/Pasted image 20250206115548.png",
+    "Machines/Cat/imgs/Pasted image 20250206115612.png",
+    "Machines/Cat/imgs/Pasted image 20250206120226.png",
+    "Machines/Cat/imgs/Pasted image 20250206120341.png",
+    "Machines/Cat/imgs/Pasted image 20250206120416.png",
+    "Machines/Cat/imgs/Pasted image 20250206120536.png",
+    "Machines/Cat/imgs/Pasted image 20250206120915.png",
+    "Machines/Cat/imgs/Pasted image 20250206162924.png",
+    "Machines/Cat/imgs/Pasted image 20250206164029.png",
+    "Machines/Cat/imgs/Pasted image 20250206172905.png",
+    "Machines/Cat/imgs/Pasted image 20250207131612.png",
+    "Machines/Cat/imgs/Pasted image 20250207131614.png",
+    "Machines/Cat/imgs/Pasted image 20250207131820.png",
+    "Machines/Cat/imgs/Pasted image 20250207132842.png",
+    "Machines/Cat/imgs/Pasted image 20250207135527.png",
+    "Machines/Cat/imgs/Pasted image 20250207135540.png",
+    "Machines/Cat/imgs/Pasted image 20250207140253.png",
+    "Machines/Cat/imgs/Pasted image 20250207180808.png",
+    "Machines/Cat/imgs/Pasted image 20250207180840.png",
+    "Machines/Cat/imgs/Pasted image 20250208180832.png",
+    "Machines/Cat/imgs/Pasted image 20250208180856.png",
+    "Machines/Cat/imgs/Pasted image 20250208181220.png",
+    "Machines/Cat/imgs/Pasted image 20250208182307.png",
+    "Machines/Cat/imgs/Pasted image 20250208182320.png",
+    "Machines/Cat/imgs/Pasted image 20250208182334.png",
+    "Machines/Cat/imgs/Pasted image 20250208182641.png",
+    "Machines/Cat/imgs/Pasted image 20250208183008.png",
+    "Machines/Cat/imgs/Pasted image 20250208185925.png",
+    "Machines/Cat/imgs/Pasted image 20250208185930.png",
+    "Machines/Cat/imgs/Pasted image 20250208190356.png",
+    "Machines/Cat/imgs/Pasted image 20250208190401.png",
+    "Machines/Cat/imgs/Pasted image 20250208190522.png",
+    "Machines/Cat/imgs/Pasted image 20250210152307.png",
+    "Machines/Cat/imgs/Pasted image 20250210152417.png",
+    "Machines/Cat/imgs/Pasted image 20250210154828.png",
+    "Machines/Cat/imgs/Pasted image 20250210155145.png",
+    "Machines/Cat/imgs/Pasted image 20250210155147.png",
+    "Machines/Cat/imgs/Pasted image 20250210155157.png",
+    "Machines/Cat/imgs/Pasted image 20250210155200.png",
+    "Machines/Cat/imgs/Pasted image 20250210155410.png",
+    "Machines/Cat/imgs/Pasted image 20250210155527.png",
+    "Machines/Cat/imgs/Pasted image 20250211094521.png",
+    "Machines/Cat/imgs/Pasted image 20250211094751.png",
+    "Machines/Cat/imgs/Pasted image 20250211095138.png",
+    "Machines/Cat/imgs/Pasted image 20250211095254.png",
+    "Machines/Cat/imgs/Pasted image 20250211095608.png",
+    "Machines/Cat/imgs/Pasted image 20250211103602.png",
+    "Machines/Cat/imgs/Pasted image 20250211103818.png",
+    "Machines/Cat/imgs/Pasted image 20250211103836.png",
+    "Machines/Cat/imgs/Pasted image 20250211105340.png",
+    "Machines/Cat/imgs/Pasted image 20250211105458.png",
+    "Machines/Cat/1 - Recon.md",
+    "Machines/Cat/2 -PrivEsc.md",
+    "Machines/Certified/00-index.md",
+    "Machines/Certified/01-recon.md",
+    "Machines/Certified/02-exploitation.md",
+    "Machines/Certified/03-post-exploitation.md",
+    "Machines/Certified/Certified.md",
+    "Machines/Heal/imgs/Pasted image 20250125191149.png",
+    "Machines/Heal/imgs/Pasted image 20250125191214.png",
+    "Machines/Heal/imgs/Pasted image 20250125192941.png",
+    "Machines/Heal/imgs/Pasted image 20250125200410.png",
+    "Machines/Heal/imgs/Pasted image 20250125201341.png",
+    "Machines/Heal/imgs/Pasted image 20250125201412.png",
+    "Machines/Heal/imgs/Pasted image 20250125201606.png",
+    "Machines/Heal/imgs/Pasted image 20250125201930.png",
+    "Machines/Heal/imgs/Pasted image 20250125202206.png",
+    "Machines/Heal/imgs/Pasted image 20250125202623.png",
+    "Machines/Heal/imgs/Pasted image 20250125202648.png",
+    "Machines/Heal/imgs/Pasted image 20250125202755.png",
+    "Machines/Heal/imgs/Pasted image 20250125203351.png",
+    "Machines/Heal/imgs/Pasted image 20250126124939.png",
+    "Machines/Heal/imgs/Pasted image 20250126124947.png",
+    "Machines/Heal/imgs/Pasted image 20250126125105.png",
+    "Machines/Heal/00-index.md",
+    "Machines/Heal/01-recon.md",
+    "Machines/Heal/02-exploitation.md",
+    "Machines/Heal/03-post-exploitation.md",
+    "Machines/Heal/Heal.md",
+    "Machines/LinkVortex/00-index.md",
+    "Machines/LinkVortex/01-recon.md",
+    "Machines/LinkVortex/02-exploitation.md",
+    "Machines/LinkVortex/03-post-exploitation.md",
+    "Machines/LinkVortex/LinkVortex.md",
+    "Machines/Sea/sea-images/Pasted image 20241121134058.png",
+    "Machines/Sea/sea-images/Pasted image 20241121134217.png",
+    "Machines/Sea/sea-images/Pasted image 20241121134527.png",
+    "Machines/Sea/sea-images/Pasted image 20241121145410.png",
+    "Machines/Sea/sea-images/Pasted image 20241121145502.png",
+    "Machines/Sea/sea-images/Pasted image 20241121150235.png",
+    "Machines/Sea/sea-images/Pasted image 20241121150504.png",
+    "Machines/Sea/sea-images/Pasted image 20241121151054.png",
+    "Machines/Sea/sea-images/Pasted image 20241121152216.png",
+    "Machines/Sea/sea-images/Pasted image 20241121153213.png",
+    "Machines/Sea/sea-images/Pasted image 20241121153624.png",
+    "Machines/Sea/sea-images/Pasted image 20241122132336.png",
+    "Machines/Sea/sea-images/Pasted image 20241122132341.png",
+    "Machines/Sea/sea-images/Pasted image 20241122132704.png",
+    "Machines/Sea/sea-images/Pasted image 20241122132806.png",
+    "Machines/Sea/sea-images/Pasted image 20241122141551.png",
+    "Machines/Sea/sea-images/Pasted image 20241122142646.png",
+    "Machines/Sea/sea-images/Pasted image 20241122143542.png",
+    "Machines/Sea/sea-images/Pasted image 20241122143711.png",
+    "Machines/Sea/sea-images/Pasted image 20241122143748.png",
+    "Machines/Sea/sea-images/Pasted image 20241122145305.png",
+    "Machines/Sea/sea-images/Pasted image 20241122153243.png",
+    "Machines/Sea/00-index.md",
+    "Machines/Sea/01-recon.md",
+    "Machines/Sea/02-exploitation.md",
+    "Machines/Sea/03-post-exploitation.md",
+    "Machines/Sea/Sea.md",
+    "Machines/Sightless/CVES/CVE-2022-0944.md",
+    "Machines/Sightless/sightless-images/Pasted image 20241118170222.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241118171243.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241118171259.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241118173418.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241118183714.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241119185337.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241119191009.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241119200213.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241119200602.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241119202313.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120131317.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120131428.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120132610.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120132745.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120132829.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120132929.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120133655.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120134124.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120134204.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120134313.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120134541.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120134755.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120134944.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120135012.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120135704.png",
+    "Machines/Sightless/sightless-images/Pasted image 20241120135848.png",
+    "Machines/Sightless/00-index.md",
+    "Machines/Sightless/01-recon.md",
+    "Machines/Sightless/02-exploitation.md",
+    "Machines/Sightless/03-post-exploitation.md",
+    "Machines/Sightless/Sightless.md",
+    "Machines/Strutted/imgs/Pasted image 20250218190201.png",
+    "Machines/Strutted/imgs/Pasted image 20250218190327.png",
+    "Machines/Strutted/imgs/Pasted image 20250218190544.png",
+    "Machines/Strutted/imgs/Pasted image 20250218190552.png",
+    "Machines/Strutted/imgs/Pasted image 20250218190630.png",
+    "Machines/Strutted/imgs/Pasted image 20250218190740.png",
+    "Machines/Strutted/imgs/Pasted image 20250218191247.png",
+    "Machines/Strutted/imgs/Pasted image 20250218191249.png",
+    "Machines/Strutted/imgs/Pasted image 20250218193053.png",
+    "Machines/Strutted/imgs/Pasted image 20250218193125.png",
+    "Machines/Strutted/imgs/Pasted image 20250218193134.png",
+    "Machines/Strutted/imgs/Pasted image 20250218193237.png",
+    "Machines/Strutted/imgs/Pasted image 20250218193246.png",
+    "Machines/Strutted/imgs/Pasted image 20250219190254.png",
+    "Machines/Strutted/imgs/Pasted image 20250219190345.png",
+    "Machines/Strutted/imgs/Pasted image 20250219191858.png",
+    "Machines/Strutted/imgs/Pasted image 20250219193306.png",
+    "Machines/Strutted/imgs/Pasted image 20250219193309.png",
+    "Machines/Strutted/imgs/Pasted image 20250219193832.png",
+    "Machines/Strutted/imgs/Pasted image 20250219194256.png",
+    "Machines/Strutted/imgs/Pasted image 20250219194843.png",
+    "Machines/Strutted/imgs/Pasted image 20250219200340.png",
+    "Machines/Strutted/imgs/Pasted image 20250219200651.png",
+    "Machines/Strutted/imgs/Pasted image 20250219201859.png",
+    "Machines/Strutted/imgs/Pasted image 20250219202116.png",
+    "Machines/Strutted/imgs/Pasted image 20250219202222.png",
+    "Machines/Strutted/imgs/Pasted image 20250219202933.png",
+    "Machines/Strutted/imgs/Pasted image 20250219203006.png",
+    "Machines/Strutted/imgs/Pasted image 20250219203634.png",
+    "Machines/Strutted/imgs/Pasted image 20250219203857.png",
+    "Machines/Strutted/imgs/Pasted image 20250219203905.png",
+    "Machines/Strutted/1.Recon.md",
+    "Machines/Strutted/2.PrivESC.md",
+    "Machines/Titanic/imgs/fuck.gif",
+    "Machines/Titanic/imgs/Pasted image 20250217165949.png",
+    "Machines/Titanic/imgs/Pasted image 20250217170046.png",
+    "Machines/Titanic/imgs/Pasted image 20250217170358.png",
+    "Machines/Titanic/imgs/Pasted image 20250217170935.png",
+    "Machines/Titanic/imgs/Pasted image 20250217171840.png",
+    "Machines/Titanic/imgs/Pasted image 20250217183141.png",
+    "Machines/Titanic/imgs/Pasted image 20250217183246.png",
+    "Machines/Titanic/imgs/Pasted image 20250217183543.png",
+    "Machines/Titanic/imgs/Pasted image 20250217184713.png",
+    "Machines/Titanic/imgs/Pasted image 20250217193814.png",
+    "Machines/Titanic/imgs/Pasted image 20250217200648.png",
+    "Machines/Titanic/imgs/Pasted image 20250217203145.png",
+    "Machines/Titanic/imgs/Pasted image 20250217211039.png",
+    "Machines/Titanic/imgs/Pasted image 20250217211424.png",
+    "Machines/Titanic/imgs/Pasted image 20250217211512.png",
     "Machines/Titanic/1.Recon.md",
     "Machines/Titanic/2.PrivESC.md",
-    "machines/titanic/imgs/pasted-image-20250217165949.png",
-    "machines/titanic/imgs/pasted-image-20250217170046.png",
-    "machines/titanic/imgs/pasted-image-20250217170358.png",
-    "machines/titanic/imgs/pasted-image-20250217170935.png",
-    "machines/titanic/imgs/pasted-image-20250217171840.png",
-    "machines/titanic/imgs/pasted-image-20250217183141.png",
-    "machines/titanic/imgs/pasted-image-20250217183246.png",
-    "machines/titanic/imgs/pasted-image-20250217183543.png",
-    "machines/titanic/imgs/pasted-image-20250217184713.png",
-    "machines/titanic/imgs/fuck.gif",
-    "machines/titanic/imgs/pasted-image-20250217193814.png",
-    "machines/titanic/imgs/pasted-image-20250217200648.png",
-    "machines/titanic/imgs/pasted-image-20250217203145.png",
-    "lib/media/pasted-image-20250217211424.png",
-    "lib/media/pasted-image-20250217211512.png",
+    "Machines/Trickster/imgs/Pasted image 20250212101724.png",
+    "Machines/Trickster/imgs/Pasted image 20250212122214.png",
+    "Machines/Trickster/imgs/Pasted image 20250212122216.png",
+    "Machines/Trickster/imgs/Pasted image 20250213103742.png",
+    "Machines/Trickster/imgs/Pasted image 20250213103827.png",
+    "Machines/Trickster/imgs/Pasted image 20250213104457.png",
+    "Machines/Trickster/imgs/Pasted image 20250213112611.png",
+    "Machines/Trickster/imgs/Pasted image 20250213112717.png",
+    "Machines/Trickster/imgs/Pasted image 20250213112820.png",
+    "Machines/Trickster/imgs/Pasted image 20250213120710.png",
+    "Machines/Trickster/imgs/Pasted image 20250213163524.png",
+    "Machines/Trickster/imgs/Pasted image 20250214113934.png",
+    "Machines/Trickster/imgs/Pasted image 20250214124021.png",
+    "Machines/Trickster/imgs/Pasted image 20250214124105.png",
+    "Machines/Trickster/imgs/Pasted image 20250214124110.png",
+    "Machines/Trickster/imgs/Pasted image 20250214124302.png",
+    "Machines/Trickster/imgs/Pasted image 20250214125115.png",
+    "Machines/Trickster/imgs/Pasted image 20250214125118.png",
+    "Machines/Trickster/imgs/Pasted image 20250214125626.png",
+    "Machines/Trickster/imgs/Pasted image 20250214130533.png",
+    "Machines/Trickster/imgs/Pasted image 20250214130827.png",
+    "Machines/Trickster/imgs/Pasted image 20250214131310.png",
+    "Machines/Trickster/imgs/Pasted image 20250214174849.png",
+    "Machines/Trickster/imgs/Pasted image 20250214175709.png",
+    "Machines/Trickster/imgs/Pasted image 20250214181500.png",
+    "Machines/Trickster/imgs/Pasted image 20250214190407.png",
+    "Machines/Trickster/imgs/PrivEsc.md",
+    "Machines/Trickster/1.Recon.md",
+    "Machines/Trickster/2.PrivEsc.md",
     "lib/scripts/graph-wasm.wasm",
     "lib/fonts/94f2f163d4b698242fef.otf",
     "lib/fonts/72505e6a122c6acd5471.woff2",
@@ -38,28 +275,6 @@
     "lib/fonts/05b618077343fbbd92b7.ttf",
     "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
     "lib/media/6155340132a851f6089e.svg",
-    "lib/fonts/mathjax_zero.woff",
-    "lib/fonts/mathjax_main-regular.woff",
-    "lib/fonts/mathjax_main-bold.woff",
-    "lib/fonts/mathjax_math-italic.woff",
-    "lib/fonts/mathjax_main-italic.woff",
-    "lib/fonts/mathjax_math-bolditalic.woff",
-    "lib/fonts/mathjax_size1-regular.woff",
-    "lib/fonts/mathjax_size2-regular.woff",
-    "lib/fonts/mathjax_size3-regular.woff",
-    "lib/fonts/mathjax_size4-regular.woff",
-    "lib/fonts/mathjax_ams-regular.woff",
-    "lib/fonts/mathjax_calligraphic-regular.woff",
-    "lib/fonts/mathjax_calligraphic-bold.woff",
-    "lib/fonts/mathjax_fraktur-regular.woff",
-    "lib/fonts/mathjax_fraktur-bold.woff",
-    "lib/fonts/mathjax_sansserif-regular.woff",
-    "lib/fonts/mathjax_sansserif-bold.woff",
-    "lib/fonts/mathjax_sansserif-italic.woff",
-    "lib/fonts/mathjax_script-regular.woff",
-    "lib/fonts/mathjax_typewriter-regular.woff",
-    "lib/fonts/mathjax_vector-regular.woff",
-    "lib/fonts/mathjax_vector-bold.woff",
     "lib/html/file-tree.html",
     "lib/scripts/webpage.js",
     "lib/scripts/graph-view.js",
@@ -91,28 +306,6 @@
     "lib/fonts/05b618077343fbbd92b7.ttf",
     "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
     "lib/media/6155340132a851f6089e.svg",
-    "lib/fonts/mathjax_zero.woff",
-    "lib/fonts/mathjax_main-regular.woff",
-    "lib/fonts/mathjax_main-bold.woff",
-    "lib/fonts/mathjax_math-italic.woff",
-    "lib/fonts/mathjax_main-italic.woff",
-    "lib/fonts/mathjax_math-bolditalic.woff",
-    "lib/fonts/mathjax_size1-regular.woff",
-    "lib/fonts/mathjax_size2-regular.woff",
-    "lib/fonts/mathjax_size3-regular.woff",
-    "lib/fonts/mathjax_size4-regular.woff",
-    "lib/fonts/mathjax_ams-regular.woff",
-    "lib/fonts/mathjax_calligraphic-regular.woff",
-    "lib/fonts/mathjax_calligraphic-bold.woff",
-    "lib/fonts/mathjax_fraktur-regular.woff",
-    "lib/fonts/mathjax_fraktur-bold.woff",
-    "lib/fonts/mathjax_sansserif-regular.woff",
-    "lib/fonts/mathjax_sansserif-bold.woff",
-    "lib/fonts/mathjax_sansserif-italic.woff",
-    "lib/fonts/mathjax_script-regular.woff",
-    "lib/fonts/mathjax_typewriter-regular.woff",
-    "lib/fonts/mathjax_vector-regular.woff",
-    "lib/fonts/mathjax_vector-bold.woff",
     "lib/html/file-tree.html",
     "lib/scripts/webpage.js",
     "lib/scripts/graph-view.js",
@@ -129,9 +322,1496 @@
     "lib/styles/main-styles.css"
   ],
   "fileInfo": {
+    "Machines/Alert/images/Pasted image 20241126162252.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 52949,
+      "exportedPath": "machines/alert/images/pasted-image-20241126162252.png",
+      "dependencies": []
+    },
+    "Machines/Alert/0-0.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 282,
+      "exportedPath": "machines/alert/0-0.html",
+      "dependencies": []
+    },
+    "Machines/Alert/00-index.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 677,
+      "exportedPath": "machines/alert/00-index.html",
+      "dependencies": []
+    },
+    "Machines/Alert/01-recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 8236,
+      "exportedPath": "machines/alert/01-recon.html",
+      "dependencies": [
+        "machines/alert/images/pasted-image-20241126162252.png"
+      ]
+    },
+    "Machines/Alert/02-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 8336,
+      "exportedPath": "machines/alert/02-exploitation.html",
+      "dependencies": [
+        "machines/alert/pasted-image-20241129010955.png",
+        "machines/alert/pasted-image-20241129022709.png",
+        "machines/alert/pasted-image-20241129025934.png"
+      ]
+    },
+    "Machines/Alert/03-post-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 56,
+      "exportedPath": "machines/alert/03-post-exploitation.html",
+      "dependencies": []
+    },
+    "Machines/Alert/Alert.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 3217,
+      "exportedPath": "machines/alert/alert.html",
+      "dependencies": []
+    },
+    "Machines/Alert/Pasted image 20241129010955.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 121956,
+      "exportedPath": "machines/alert/pasted-image-20241129010955.png",
+      "dependencies": []
+    },
+    "Machines/Alert/Pasted image 20241129022709.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 291166,
+      "exportedPath": "machines/alert/pasted-image-20241129022709.png",
+      "dependencies": []
+    },
+    "Machines/Alert/Pasted image 20241129025915.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 83401,
+      "exportedPath": "machines/alert/pasted-image-20241129025915.png",
+      "dependencies": []
+    },
+    "Machines/Alert/Pasted image 20241129025934.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69497,
+      "exportedPath": "machines/alert/pasted-image-20241129025934.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250131121917.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 777565,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250131121917.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250131141905.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 118642,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250131141905.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250131142115.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 185784,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250131142115.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250202141748.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 256421,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250202141748.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250202143150.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 54154,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250202143150.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250202210905.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 140768,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250202210905.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250203003144.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 121247,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250203003144.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250203003751.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 21753,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250203003751.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250204001633.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 215709,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250204001633.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250204001637.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 215709,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250204001637.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250204110951.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 84576,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250204110951.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250204111114.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 34363,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250204111114.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250205114416.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 61731,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250205114416.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250205123026.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 61612,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250205123026.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/imgs/Pasted image 20250205123032.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 61612,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250205123032.png",
+      "dependencies": []
+    },
+    "Machines/BigBang/01-Recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 52423,
+      "exportedPath": "machines/bigbang/01-recon.html",
+      "dependencies": [
+        "machines/bigbang/imgs/pasted-image-20250131121917.png",
+        "machines/bigbang/imgs/pasted-image-20250202141748.png",
+        "machines/bigbang/imgs/pasted-image-20250131141905.png",
+        "machines/bigbang/imgs/pasted-image-20250131142115.png",
+        "machines/bigbang/imgs/pasted-image-20250202143150.png",
+        "machines/bigbang/imgs/pasted-image-20250202210905.png"
+      ]
+    },
+    "Machines/BigBang/02-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 11492,
+      "exportedPath": "machines/bigbang/02-exploitation.html",
+      "dependencies": [
+        "machines/bigbang/imgs/pasted-image-20250203003144.png",
+        "machines/bigbang/imgs/pasted-image-20250203003751.png"
+      ]
+    },
+    "Machines/BigBang/03-User-Shawking.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 8494,
+      "exportedPath": "machines/bigbang/03-user-shawking.html",
+      "dependencies": [
+        "machines/bigbang/imgs/pasted-image-20250204001637.png",
+        "machines/bigbang/imgs/pasted-image-20250204110951.png",
+        "machines/bigbang/imgs/pasted-image-20250204111114.png",
+        "machines/bigbang/imgs/pasted-image-20250205114416.png",
+        "machines/bigbang/imgs/pasted-image-20250205123032.png"
+      ]
+    },
+    "Machines/BigBang/04-Post-Exploit.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 9246,
+      "exportedPath": "machines/bigbang/04-post-exploit.html",
+      "dependencies": []
+    },
+    "Machines/BigBang/BigBang.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 933,
+      "exportedPath": "machines/bigbang/bigbang.html",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206115548.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 91241,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206115548.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206115612.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 32014,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206115612.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206120226.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 128391,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120226.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206120341.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 98509,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120341.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206120416.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 21239,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120416.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206120536.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 109241,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120536.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206120915.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69022,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120915.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206162924.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 90085,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206162924.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206164029.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 79219,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206164029.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250206172905.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 137144,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206172905.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207131612.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 66637,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207131612.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207131614.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 66637,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207131614.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207131820.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 57861,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207131820.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207132842.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 276370,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207132842.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207135527.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 50694,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207135527.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207135540.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 55018,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207135540.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207140253.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49769,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207140253.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207180808.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69931,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207180808.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250207180840.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 65340,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207180840.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208180832.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 53644,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208180832.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208180856.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 54729,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208180856.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208181220.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 33142,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208181220.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208182307.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 36916,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208182307.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208182320.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 36916,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208182320.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208182334.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 38851,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208182334.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208182641.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 41081,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208182641.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208183008.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 72000,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208183008.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208185925.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 46464,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208185925.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208185930.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 46464,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208185930.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208190356.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 37950,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208190356.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208190401.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 37950,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208190401.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250208190522.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 39286,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208190522.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210152307.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 18934,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210152307.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210152417.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 62042,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210152417.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210154828.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 120952,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210154828.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210155145.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 32387,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155145.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210155147.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 32387,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155147.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210155157.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 33811,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155157.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210155200.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 33811,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155200.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210155410.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 56845,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155410.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250210155527.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 81274,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155527.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211094521.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 93471,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211094521.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211094751.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 23217,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211094751.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211095138.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 166949,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211095138.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211095254.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 12225,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211095254.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211095608.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 84170,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211095608.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211103602.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 24269,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211103602.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211103818.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 31098,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211103818.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211103836.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 32252,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211103836.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211105340.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 64123,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211105340.png",
+      "dependencies": []
+    },
+    "Machines/Cat/imgs/Pasted image 20250211105458.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 14403,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211105458.png",
+      "dependencies": []
+    },
+    "Machines/Cat/1 - Recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 39309,
+      "exportedPath": "machines/cat/1-recon.html",
+      "dependencies": [
+        "machines/cat/imgs/pasted-image-20250206115548.png",
+        "machines/cat/imgs/pasted-image-20250206120226.png",
+        "machines/cat/imgs/pasted-image-20250206120341.png",
+        "machines/cat/imgs/pasted-image-20250206120416.png",
+        "machines/cat/imgs/pasted-image-20250206120536.png",
+        "machines/cat/imgs/pasted-image-20250206120915.png",
+        "machines/cat/imgs/pasted-image-20250206115612.png",
+        "machines/cat/imgs/pasted-image-20250206162924.png",
+        "machines/cat/imgs/pasted-image-20250206164029.png",
+        "machines/cat/imgs/pasted-image-20250207131614.png",
+        "machines/cat/imgs/pasted-image-20250207131820.png",
+        "machines/cat/imgs/pasted-image-20250207132842.png",
+        "machines/cat/imgs/pasted-image-20250207135540.png",
+        "machines/cat/imgs/pasted-image-20250207140253.png",
+        "machines/cat/imgs/pasted-image-20250207180808.png",
+        "machines/cat/imgs/pasted-image-20250207180840.png",
+        "machines/cat/imgs/pasted-image-20250208180856.png",
+        "machines/cat/imgs/pasted-image-20250208181220.png",
+        "machines/cat/imgs/pasted-image-20250208182307.png",
+        "machines/cat/imgs/pasted-image-20250208182334.png",
+        "machines/cat/imgs/pasted-image-20250208182641.png",
+        "machines/cat/imgs/pasted-image-20250208183008.png",
+        "machines/cat/imgs/pasted-image-20250208185930.png",
+        "machines/cat/imgs/pasted-image-20250208190401.png",
+        "machines/cat/imgs/pasted-image-20250208190522.png",
+        "machines/cat/imgs/pasted-image-20250210152417.png"
+      ]
+    },
+    "Machines/Cat/2 -PrivEsc.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 12101,
+      "exportedPath": "machines/cat/2-privesc.html",
+      "dependencies": [
+        "machines/cat/imgs/pasted-image-20250210154828.png",
+        "machines/cat/imgs/pasted-image-20250210155200.png",
+        "machines/cat/imgs/pasted-image-20250210155410.png",
+        "machines/cat/imgs/pasted-image-20250210155527.png",
+        "machines/cat/imgs/pasted-image-20250211094521.png",
+        "machines/cat/imgs/pasted-image-20250211094751.png",
+        "machines/cat/imgs/pasted-image-20250211095138.png",
+        "machines/cat/imgs/pasted-image-20250211095254.png",
+        "machines/cat/imgs/pasted-image-20250211095608.png",
+        "machines/cat/imgs/pasted-image-20250211103602.png",
+        "machines/cat/imgs/pasted-image-20250211103836.png",
+        "machines/cat/imgs/pasted-image-20250211105340.png",
+        "machines/cat/imgs/pasted-image-20250211105458.png"
+      ]
+    },
+    "Machines/Certified/00-index.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 676,
+      "exportedPath": "machines/certified/00-index.html",
+      "dependencies": []
+    },
+    "Machines/Certified/01-recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 5643,
+      "exportedPath": "machines/certified/01-recon.html",
+      "dependencies": []
+    },
+    "Machines/Certified/02-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 109,
+      "exportedPath": "machines/certified/02-exploitation.html",
+      "dependencies": []
+    },
+    "Machines/Certified/03-post-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 4030,
+      "exportedPath": "machines/certified/03-post-exploitation.html",
+      "dependencies": []
+    },
+    "Machines/Certified/Certified.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 3233,
+      "exportedPath": "machines/certified/certified.html",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125191149.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 131307,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125191149.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125191214.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 198364,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125191214.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125192941.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 171744,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125192941.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125200410.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 65512,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125200410.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125201341.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 94920,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125201341.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125201412.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 144966,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125201412.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125201606.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 223694,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125201606.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125201930.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 147296,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125201930.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125202206.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 130549,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125202206.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125202623.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 24048,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125202623.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125202648.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 43230,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125202648.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125202755.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 110727,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125202755.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250125203351.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49512,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125203351.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250126124939.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 68676,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250126124939.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250126124947.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 68676,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250126124947.png",
+      "dependencies": []
+    },
+    "Machines/Heal/imgs/Pasted image 20250126125105.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 71908,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250126125105.png",
+      "dependencies": []
+    },
+    "Machines/Heal/00-index.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 677,
+      "exportedPath": "machines/heal/00-index.html",
+      "dependencies": []
+    },
+    "Machines/Heal/01-recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 4199,
+      "exportedPath": "machines/heal/01-recon.html",
+      "dependencies": [
+        "machines/heal/imgs/pasted-image-20250125191214.png",
+        "machines/heal/imgs/pasted-image-20250125192941.png",
+        "machines/heal/imgs/pasted-image-20250125200410.png",
+        "machines/heal/imgs/pasted-image-20250125201341.png",
+        "machines/heal/imgs/pasted-image-20250125201412.png"
+      ]
+    },
+    "Machines/Heal/02-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 9701,
+      "exportedPath": "machines/heal/02-exploitation.html",
+      "dependencies": [
+        "machines/heal/imgs/pasted-image-20250125201606.png",
+        "machines/heal/imgs/pasted-image-20250125201930.png",
+        "machines/heal/imgs/pasted-image-20250125202206.png",
+        "machines/heal/imgs/pasted-image-20250125202623.png",
+        "machines/heal/imgs/pasted-image-20250125202648.png",
+        "machines/heal/imgs/pasted-image-20250125202755.png",
+        "machines/heal/imgs/pasted-image-20250125203351.png"
+      ]
+    },
+    "Machines/Heal/03-post-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 454,
+      "exportedPath": "machines/heal/03-post-exploitation.html",
+      "dependencies": [
+        "machines/heal/imgs/pasted-image-20250126124947.png",
+        "machines/heal/imgs/pasted-image-20250126125105.png"
+      ]
+    },
+    "Machines/Heal/Heal.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 3212,
+      "exportedPath": "machines/heal/heal.html",
+      "dependencies": []
+    },
+    "Machines/LinkVortex/00-index.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 677,
+      "exportedPath": "machines/linkvortex/00-index.html",
+      "dependencies": []
+    },
+    "Machines/LinkVortex/01-recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 4525,
+      "exportedPath": "machines/linkvortex/01-recon.html",
+      "dependencies": []
+    },
+    "Machines/LinkVortex/02-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 2445,
+      "exportedPath": "machines/linkvortex/02-exploitation.html",
+      "dependencies": []
+    },
+    "Machines/LinkVortex/03-post-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 56,
+      "exportedPath": "machines/linkvortex/03-post-exploitation.html",
+      "dependencies": []
+    },
+    "Machines/LinkVortex/LinkVortex.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 3227,
+      "exportedPath": "machines/linkvortex/linkvortex.html",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121134058.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 716824,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121134058.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121134217.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 136638,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121134217.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121134527.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 96406,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121134527.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121145410.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 18383,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121145410.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121145502.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122980,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121145502.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121150235.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 206840,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121150235.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121150504.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 616073,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121150504.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121151054.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 340377,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121151054.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121152216.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 115761,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121152216.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121153213.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 389373,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121153213.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241121153624.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 198076,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121153624.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122132336.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49365,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122132336.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122132341.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49365,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122132341.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122132704.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 231396,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122132704.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122132806.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 183214,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122132806.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122141551.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 75145,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122141551.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122142646.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 199234,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122142646.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122143542.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 91323,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122143542.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122143711.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 104748,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122143711.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122143748.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 262067,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122143748.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122145305.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 266100,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122145305.png",
+      "dependencies": []
+    },
+    "Machines/Sea/sea-images/Pasted image 20241122153243.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 186876,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122153243.png",
+      "dependencies": []
+    },
+    "Machines/Sea/00-index.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 678,
+      "exportedPath": "machines/sea/00-index.html",
+      "dependencies": []
+    },
+    "Machines/Sea/01-recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 14470,
+      "exportedPath": "machines/sea/01-recon.html",
+      "dependencies": [
+        "machines/sea/sea-images/pasted-image-20241121145410.png",
+        "machines/sea/sea-images/pasted-image-20241121145502.png",
+        "machines/sea/sea-images/pasted-image-20241121150235.png",
+        "machines/sea/sea-images/pasted-image-20241121153213.png",
+        "machines/sea/sea-images/pasted-image-20241121152216.png",
+        "machines/sea/sea-images/pasted-image-20241121153624.png",
+        "machines/sea/sea-images/pasted-image-20241121134058.png",
+        "machines/sea/sea-images/pasted-image-20241121134527.png",
+        "machines/sea/sea-images/pasted-image-20241121134217.png"
+      ]
+    },
+    "Machines/Sea/02-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 5756,
+      "exportedPath": "machines/sea/02-exploitation.html",
+      "dependencies": [
+        "machines/sea/sea-images/pasted-image-20241122132341.png",
+        "machines/sea/sea-images/pasted-image-20241122132806.png"
+      ]
+    },
+    "Machines/Sea/03-post-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 7881,
+      "exportedPath": "machines/sea/03-post-exploitation.html",
+      "dependencies": [
+        "machines/sea/sea-images/pasted-image-20241122141551.png",
+        "machines/sea/sea-images/pasted-image-20241122142646.png",
+        "machines/sea/sea-images/pasted-image-20241122143542.png",
+        "machines/sea/sea-images/pasted-image-20241122143711.png",
+        "machines/sea/sea-images/pasted-image-20241122143748.png",
+        "machines/sea/sea-images/pasted-image-20241122145305.png",
+        "machines/sea/sea-images/pasted-image-20241122153243.png"
+      ]
+    },
+    "Machines/Sea/Sea.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 3217,
+      "exportedPath": "machines/sea/sea.html",
+      "dependencies": []
+    },
+    "Machines/Sightless/CVES/CVE-2022-0944.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 199,
+      "exportedPath": "machines/sightless/cves/cve-2022-0944.html",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241118170222.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 831250,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118170222.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241118171243.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 50462,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118171243.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241118171259.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 50675,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118171259.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241118173418.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 36717,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118173418.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241118183714.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 27925,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118183714.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241119185337.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 61611,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119185337.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241119191009.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 51999,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119191009.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241119200213.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 44810,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119200213.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241119200602.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 40770,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119200602.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241119202313.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 50085,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119202313.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120131317.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 12188,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120131317.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120131428.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 50154,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120131428.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120132610.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 153730,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120132610.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120132745.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 127006,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120132745.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120132829.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 55167,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120132829.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120132929.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 221247,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120132929.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120133655.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 47335,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120133655.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120134124.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 0,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134124.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120134204.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 96883,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134204.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120134313.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 128267,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134313.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120134541.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 78572,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134541.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120134755.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 13511,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134755.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120134944.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 52241,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134944.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120135012.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69651,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120135012.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120135704.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 8785,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120135704.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/sightless-images/Pasted image 20241120135848.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 30287,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120135848.png",
+      "dependencies": []
+    },
+    "Machines/Sightless/00-index.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 678,
+      "exportedPath": "machines/sightless/00-index.html",
+      "dependencies": []
+    },
+    "Machines/Sightless/01-recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 4678,
+      "exportedPath": "machines/sightless/01-recon.html",
+      "dependencies": [
+        "machines/sightless/sightless-images/pasted-image-20241118170222.png",
+        "machines/sightless/sightless-images/pasted-image-20241118171259.png",
+        "machines/sightless/sightless-images/pasted-image-20241118173418.png",
+        "machines/sightless/sightless-images/pasted-image-20241118183714.png"
+      ]
+    },
+    "Machines/Sightless/02-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 5593,
+      "exportedPath": "machines/sightless/02-exploitation.html",
+      "dependencies": [
+        "machines/sightless/sightless-images/pasted-image-20241119185337.png",
+        "machines/sightless/sightless-images/pasted-image-20241119191009.png"
+      ]
+    },
+    "Machines/Sightless/03-post-exploitation.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 4606,
+      "exportedPath": "machines/sightless/03-post-exploitation.html",
+      "dependencies": [
+        "machines/sightless/sightless-images/pasted-image-20241119200213.png",
+        "machines/sightless/sightless-images/pasted-image-20241119200602.png",
+        "machines/sightless/sightless-images/pasted-image-20241120132610.png",
+        "machines/sightless/sightless-images/pasted-image-20241120132745.png",
+        "machines/sightless/sightless-images/pasted-image-20241120132829.png",
+        "machines/sightless/sightless-images/pasted-image-20241119202313.png",
+        "machines/sightless/sightless-images/pasted-image-20241120132929.png",
+        "machines/sightless/sightless-images/pasted-image-20241120133655.png",
+        "machines/sightless/sightless-images/pasted-image-20241120134204.png",
+        "machines/sightless/sightless-images/pasted-image-20241120134313.png",
+        "machines/sightless/sightless-images/pasted-image-20241120134541.png",
+        "machines/sightless/sightless-images/pasted-image-20241120134755.png",
+        "machines/sightless/sightless-images/pasted-image-20241120135012.png",
+        "machines/sightless/sightless-images/pasted-image-20241120135704.png",
+        "machines/sightless/sightless-images/pasted-image-20241120135848.png"
+      ]
+    },
+    "Machines/Sightless/Sightless.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 3745,
+      "exportedPath": "machines/sightless/sightless.html",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218190201.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 124438,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190201.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218190327.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 63085,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190327.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218190544.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122122,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190544.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218190552.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122122,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190552.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218190630.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 155592,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190630.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218190740.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 87826,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190740.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218191247.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 43588,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218191247.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218191249.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 43588,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218191249.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218193053.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 64882,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218193053.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218193125.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122270,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218193125.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218193134.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122270,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218193134.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218193237.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 92533,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218193237.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250218193246.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 92533,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218193246.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219190254.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 72830,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219190254.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219190345.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 66429,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219190345.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219191858.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 138950,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219191858.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219193306.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 27765,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219193306.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219193309.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 27765,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219193309.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219193832.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 72589,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219193832.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219194256.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 17287,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219194256.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219194843.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49496,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219194843.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219200340.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 11039,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219200340.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219200651.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 20867,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219200651.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219201859.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 22588,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219201859.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219202116.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 51151,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219202116.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219202222.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 61486,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219202222.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219202933.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 68282,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219202933.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219203006.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 76205,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219203006.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219203634.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 13235,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219203634.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219203857.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49849,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219203857.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/imgs/Pasted image 20250219203905.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 19881,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219203905.png",
+      "dependencies": []
+    },
+    "Machines/Strutted/1.Recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 43282,
+      "exportedPath": "machines/strutted/1.recon.html",
+      "dependencies": [
+        "machines/strutted/imgs/pasted-image-20250218190201.png",
+        "machines/strutted/imgs/pasted-image-20250218190327.png",
+        "machines/strutted/imgs/pasted-image-20250218190630.png",
+        "machines/strutted/imgs/pasted-image-20250218190740.png",
+        "machines/strutted/imgs/pasted-image-20250218191249.png",
+        "machines/strutted/imgs/pasted-image-20250218193053.png",
+        "machines/strutted/imgs/pasted-image-20250218193125.png",
+        "machines/strutted/imgs/pasted-image-20250218193246.png",
+        "machines/strutted/imgs/pasted-image-20250219190254.png",
+        "machines/strutted/imgs/pasted-image-20250219190345.png",
+        "machines/strutted/imgs/pasted-image-20250219191858.png",
+        "machines/strutted/imgs/pasted-image-20250219193309.png",
+        "machines/strutted/imgs/pasted-image-20250219193832.png",
+        "machines/strutted/imgs/pasted-image-20250219194256.png",
+        "machines/strutted/imgs/pasted-image-20250219194843.png",
+        "machines/strutted/imgs/pasted-image-20250219200651.png",
+        "machines/strutted/imgs/pasted-image-20250219201859.png",
+        "machines/strutted/imgs/pasted-image-20250219202933.png",
+        "machines/strutted/imgs/pasted-image-20250219203006.png"
+      ]
+    },
+    "Machines/Strutted/2.PrivESC.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 5345,
+      "exportedPath": "machines/strutted/2.privesc.html",
+      "dependencies": [
+        "machines/strutted/imgs/pasted-image-20250219203634.png",
+        "machines/strutted/imgs/pasted-image-20250219203905.png",
+        "machines/strutted/imgs/pasted-image-20250219203857.png"
+      ]
+    },
+    "Machines/Titanic/imgs/fuck.gif": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 9068,
+      "exportedPath": "machines/titanic/imgs/fuck.gif",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217165949.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 1794533,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217165949.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217170046.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 33272,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217170046.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217170358.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 67339,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217170358.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217170935.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 25640,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217170935.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217171840.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 115357,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217171840.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217183141.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 95138,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217183141.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217183246.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 55886,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217183246.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217183543.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 216275,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217183543.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217184713.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 249552,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217184713.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217193814.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 8811,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217193814.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217200648.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 397288,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217200648.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217203145.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 13713,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217203145.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217211039.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 64396,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217211039.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217211424.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 67268,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217211424.png",
+      "dependencies": []
+    },
+    "Machines/Titanic/imgs/Pasted image 20250217211512.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 10910,
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217211512.png",
+      "dependencies": []
+    },
     "Machines/Titanic/1.Recon.md": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 36455,
+      "modifiedTime": 1740412148108,
+      "sourceSize": 36464,
       "exportedPath": "machines/titanic/1.recon.html",
       "dependencies": [
         "machines/titanic/imgs/pasted-image-20250217165949.png",
@@ -146,412 +1826,1353 @@
       ]
     },
     "Machines/Titanic/2.PrivESC.md": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 10761,
+      "modifiedTime": 1740412148108,
+      "sourceSize": 10748,
       "exportedPath": "machines/titanic/2.privesc.html",
       "dependencies": [
-        "machines/titanic/imgs/fuck.gif",
         "machines/titanic/imgs/fuck.gif",
         "machines/titanic/imgs/fuck.gif",
         "machines/titanic/imgs/pasted-image-20250217193814.png",
         "machines/titanic/imgs/pasted-image-20250217200648.png",
         "machines/titanic/imgs/pasted-image-20250217203145.png",
-        "lib/media/pasted-image-20250217211424.png",
-        "lib/media/pasted-image-20250217211512.png"
+        "machines/titanic/imgs/pasted-image-20250217211424.png",
+        "machines/titanic/imgs/pasted-image-20250217211512.png"
       ]
     },
+    "Machines/Trickster/imgs/Pasted image 20250212101724.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 2325550,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250212101724.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250212122214.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49235,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250212122214.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250212122216.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49235,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250212122216.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250213103742.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 63220,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213103742.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250213103827.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49089,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213103827.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250213104457.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122842,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213104457.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250213112611.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 50613,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213112611.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250213112717.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69896,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213112717.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250213112820.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 73728,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213112820.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250213120710.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 200492,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213120710.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250213163524.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 36757,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213163524.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214113934.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 193283,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214113934.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214124021.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 67177,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214124021.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214124105.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 58038,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214124105.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214124110.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 58038,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214124110.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214124302.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 97233,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214124302.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214125115.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 282355,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214125115.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214125118.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 282355,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214125118.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214125626.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 191400,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214125626.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214130533.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 219828,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214130533.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214130827.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 281732,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214130827.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214131310.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 138189,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214131310.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214174849.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 37005,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214174849.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214175709.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 120544,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214175709.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214181500.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 171389,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214181500.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/Pasted image 20250214190407.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 152095,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214190407.png",
+      "dependencies": []
+    },
+    "Machines/Trickster/imgs/PrivEsc.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 1839,
+      "exportedPath": "machines/trickster/imgs/privesc.html",
+      "dependencies": []
+    },
+    "Machines/Trickster/1.Recon.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 27545,
+      "exportedPath": "machines/trickster/1.recon.html",
+      "dependencies": [
+        "machines/trickster/imgs/pasted-image-20250212101724.png",
+        "machines/trickster/imgs/pasted-image-20250212122216.png",
+        "machines/trickster/imgs/pasted-image-20250213103827.png",
+        "machines/trickster/imgs/pasted-image-20250213104457.png",
+        "machines/trickster/imgs/pasted-image-20250213112820.png",
+        "machines/trickster/imgs/pasted-image-20250213120710.png"
+      ]
+    },
+    "Machines/Trickster/2.PrivEsc.md": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 34994,
+      "exportedPath": "machines/trickster/2.privesc.html",
+      "dependencies": [
+        "machines/trickster/imgs/pasted-image-20250213163524.png",
+        "machines/trickster/imgs/pasted-image-20250214113934.png",
+        "machines/trickster/imgs/pasted-image-20250214124302.png",
+        "machines/trickster/imgs/pasted-image-20250214125118.png",
+        "machines/trickster/imgs/pasted-image-20250214130533.png",
+        "machines/trickster/imgs/pasted-image-20250214130827.png",
+        "machines/trickster/imgs/pasted-image-20250214131310.png",
+        "machines/trickster/imgs/pasted-image-20250214174849.png",
+        "machines/trickster/imgs/pasted-image-20250214175709.png",
+        "machines/trickster/imgs/pasted-image-20250214181500.png"
+      ]
+    },
+    "machines/alert/images/pasted-image-20241126162252.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 52949,
+      "exportedPath": "machines/alert/images/pasted-image-20241126162252.png",
+      "dependencies": []
+    },
+    "machines/alert/pasted-image-20241129010955.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 121956,
+      "exportedPath": "machines/alert/pasted-image-20241129010955.png",
+      "dependencies": []
+    },
+    "machines/alert/pasted-image-20241129022709.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 291166,
+      "exportedPath": "machines/alert/pasted-image-20241129022709.png",
+      "dependencies": []
+    },
+    "machines/alert/pasted-image-20241129025934.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69497,
+      "exportedPath": "machines/alert/pasted-image-20241129025934.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250131121917.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 777565,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250131121917.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250202141748.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 256421,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250202141748.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250131141905.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 118642,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250131141905.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250131142115.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 185784,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250131142115.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250202143150.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 54154,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250202143150.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250202210905.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 140768,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250202210905.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250203003144.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 121247,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250203003144.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250203003751.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 21753,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250203003751.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250204001637.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 215709,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250204001637.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250204110951.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 84576,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250204110951.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250204111114.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 34363,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250204111114.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250205114416.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 61731,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250205114416.png",
+      "dependencies": []
+    },
+    "machines/bigbang/imgs/pasted-image-20250205123032.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 61612,
+      "exportedPath": "machines/bigbang/imgs/pasted-image-20250205123032.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206115548.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 91241,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206115548.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206120226.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 128391,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120226.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206120341.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 98509,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120341.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206120416.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 21239,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120416.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206120536.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 109241,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120536.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206120915.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69022,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206120915.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206115612.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 32014,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206115612.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206162924.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 90085,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206162924.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250206164029.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 79219,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250206164029.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250207131614.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 66637,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207131614.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250207131820.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 57861,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207131820.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250207132842.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 276370,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207132842.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250207135540.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 55018,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207135540.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250207140253.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49769,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207140253.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250207180808.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69931,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207180808.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250207180840.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 65340,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250207180840.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208180856.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 54729,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208180856.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208181220.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 33142,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208181220.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208182307.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 36916,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208182307.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208182334.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 38851,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208182334.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208182641.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 41081,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208182641.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208183008.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 72000,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208183008.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208185930.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 46464,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208185930.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208190401.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 37950,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208190401.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250208190522.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 39286,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250208190522.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250210152417.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 62042,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210152417.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250210154828.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 120952,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210154828.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250210155200.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 33811,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155200.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250210155410.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 56845,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155410.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250210155527.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 81274,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250210155527.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211094521.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 93471,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211094521.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211094751.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 23217,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211094751.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211095138.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 166949,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211095138.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211095254.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 12225,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211095254.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211095608.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 84170,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211095608.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211103602.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 24269,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211103602.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211103836.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 32252,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211103836.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211105340.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 64123,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211105340.png",
+      "dependencies": []
+    },
+    "machines/cat/imgs/pasted-image-20250211105458.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 14403,
+      "exportedPath": "machines/cat/imgs/pasted-image-20250211105458.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125191214.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 198364,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125191214.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125192941.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 171744,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125192941.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125200410.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 65512,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125200410.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125201341.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 94920,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125201341.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125201412.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 144966,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125201412.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125201606.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 223694,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125201606.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125201930.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 147296,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125201930.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125202206.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 130549,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125202206.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125202623.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 24048,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125202623.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125202648.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 43230,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125202648.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125202755.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 110727,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125202755.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250125203351.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49512,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250125203351.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250126124947.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 68676,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250126124947.png",
+      "dependencies": []
+    },
+    "machines/heal/imgs/pasted-image-20250126125105.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 71908,
+      "exportedPath": "machines/heal/imgs/pasted-image-20250126125105.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121145410.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 18383,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121145410.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121145502.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122980,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121145502.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121150235.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 206840,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121150235.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121153213.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 389373,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121153213.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121152216.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 115761,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121152216.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121153624.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 198076,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121153624.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121134058.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 716824,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121134058.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121134527.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 96406,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121134527.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241121134217.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 136638,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241121134217.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122132341.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49365,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122132341.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122132806.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 183214,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122132806.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122141551.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 75145,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122141551.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122142646.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 199234,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122142646.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122143542.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 91323,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122143542.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122143711.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 104748,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122143711.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122143748.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 262067,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122143748.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122145305.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 266100,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122145305.png",
+      "dependencies": []
+    },
+    "machines/sea/sea-images/pasted-image-20241122153243.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 186876,
+      "exportedPath": "machines/sea/sea-images/pasted-image-20241122153243.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241118170222.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 831250,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118170222.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241118171259.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 50675,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118171259.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241118173418.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 36717,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118173418.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241118183714.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 27925,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241118183714.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241119185337.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 61611,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119185337.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241119191009.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 51999,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119191009.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241119200213.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 44810,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119200213.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241119200602.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 40770,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119200602.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120132610.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 153730,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120132610.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120132745.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 127006,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120132745.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120132829.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 55167,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120132829.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241119202313.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 50085,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241119202313.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120132929.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 221247,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120132929.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120133655.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 47335,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120133655.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120134204.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 96883,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134204.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120134313.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 128267,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134313.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120134541.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 78572,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134541.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120134755.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 13511,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120134755.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120135012.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 69651,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120135012.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120135704.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 8785,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120135704.png",
+      "dependencies": []
+    },
+    "machines/sightless/sightless-images/pasted-image-20241120135848.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 30287,
+      "exportedPath": "machines/sightless/sightless-images/pasted-image-20241120135848.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250218190201.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 124438,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190201.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250218190327.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 63085,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190327.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250218190630.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 155592,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190630.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250218190740.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 87826,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218190740.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250218191249.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 43588,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218191249.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250218193053.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 64882,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218193053.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250218193125.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122270,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218193125.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250218193246.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 92533,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250218193246.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219190254.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 72830,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219190254.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219190345.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 66429,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219190345.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219191858.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 138950,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219191858.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219193309.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 27765,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219193309.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219193832.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 72589,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219193832.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219194256.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 17287,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219194256.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219194843.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49496,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219194843.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219200651.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 20867,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219200651.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219201859.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 22588,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219201859.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219202933.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 68282,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219202933.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219203006.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 76205,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219203006.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219203634.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 13235,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219203634.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219203905.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 19881,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219203905.png",
+      "dependencies": []
+    },
+    "machines/strutted/imgs/pasted-image-20250219203857.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49849,
+      "exportedPath": "machines/strutted/imgs/pasted-image-20250219203857.png",
+      "dependencies": []
+    },
     "machines/titanic/imgs/pasted-image-20250217165949.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 1794533,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217165949.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217170046.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 33272,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217170046.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217170358.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 67339,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217170358.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217170935.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 25640,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217170935.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217171840.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 115357,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217171840.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217183141.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 95138,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217183141.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217183246.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 55886,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217183246.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217183543.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 216275,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217183543.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217184713.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 249552,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217184713.png",
       "dependencies": []
     },
     "machines/titanic/imgs/fuck.gif": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 9068,
       "exportedPath": "machines/titanic/imgs/fuck.gif",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217193814.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 8811,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217193814.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217200648.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 397288,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217200648.png",
       "dependencies": []
     },
     "machines/titanic/imgs/pasted-image-20250217203145.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 13713,
       "exportedPath": "machines/titanic/imgs/pasted-image-20250217203145.png",
       "dependencies": []
     },
-    "lib/media/pasted-image-20250217211424.png": {
-      "modifiedTime": 1739823665571,
+    "machines/titanic/imgs/pasted-image-20250217211424.png": {
+      "modifiedTime": 1740412148108,
       "sourceSize": 67268,
-      "exportedPath": "lib/media/pasted-image-20250217211424.png",
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217211424.png",
       "dependencies": []
     },
-    "lib/media/pasted-image-20250217211512.png": {
-      "modifiedTime": 1739823665571,
+    "machines/titanic/imgs/pasted-image-20250217211512.png": {
+      "modifiedTime": 1740412148108,
       "sourceSize": 10910,
-      "exportedPath": "lib/media/pasted-image-20250217211512.png",
+      "exportedPath": "machines/titanic/imgs/pasted-image-20250217211512.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250212101724.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 2325550,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250212101724.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250212122216.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49235,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250212122216.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250213103827.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 49089,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213103827.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250213104457.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 122842,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213104457.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250213112820.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 73728,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213112820.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250213120710.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 200492,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213120710.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250213163524.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 36757,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250213163524.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214113934.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 193283,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214113934.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214124302.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 97233,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214124302.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214125118.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 282355,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214125118.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214130533.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 219828,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214130533.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214130827.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 281732,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214130827.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214131310.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 138189,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214131310.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214174849.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 37005,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214174849.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214175709.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 120544,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214175709.png",
+      "dependencies": []
+    },
+    "machines/trickster/imgs/pasted-image-20250214181500.png": {
+      "modifiedTime": 1740412148108,
+      "sourceSize": 171389,
+      "exportedPath": "machines/trickster/imgs/pasted-image-20250214181500.png",
       "dependencies": []
     },
     "lib/scripts/graph-wasm.wasm": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 23377,
       "exportedPath": "lib/scripts/graph-wasm.wasm",
       "dependencies": []
     },
     "lib/fonts/94f2f163d4b698242fef.otf": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 66800,
       "exportedPath": "lib/fonts/94f2f163d4b698242fef.otf",
       "dependencies": []
     },
     "lib/fonts/72505e6a122c6acd5471.woff2": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 104232,
       "exportedPath": "lib/fonts/72505e6a122c6acd5471.woff2",
       "dependencies": []
     },
     "lib/fonts/2d5198822ab091ce4305.woff2": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 104332,
       "exportedPath": "lib/fonts/2d5198822ab091ce4305.woff2",
       "dependencies": []
     },
     "lib/fonts/c8ba52b05a9ef10f4758.woff2": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 98868,
       "exportedPath": "lib/fonts/c8ba52b05a9ef10f4758.woff2",
       "dependencies": []
     },
     "lib/fonts/cb10ffd7684cd9836a05.woff2": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 106876,
       "exportedPath": "lib/fonts/cb10ffd7684cd9836a05.woff2",
       "dependencies": []
     },
     "lib/fonts/b5f0f109bc88052d4000.woff2": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 105804,
       "exportedPath": "lib/fonts/b5f0f109bc88052d4000.woff2",
       "dependencies": []
     },
     "lib/fonts/cbe0ae49c52c920fd563.woff2": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 106108,
       "exportedPath": "lib/fonts/cbe0ae49c52c920fd563.woff2",
       "dependencies": []
     },
     "lib/fonts/535a6cf662596b3bd6a6.woff2": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 111708,
       "exportedPath": "lib/fonts/535a6cf662596b3bd6a6.woff2",
       "dependencies": []
     },
     "lib/fonts/70cc7ff27245e82ad414.ttf": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 192740,
       "exportedPath": "lib/fonts/70cc7ff27245e82ad414.ttf",
       "dependencies": []
     },
     "lib/fonts/454577c22304619db035.ttf": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 161376,
       "exportedPath": "lib/fonts/454577c22304619db035.ttf",
       "dependencies": []
     },
     "lib/fonts/52ac8f3034507f1d9e53.ttf": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 191568,
       "exportedPath": "lib/fonts/52ac8f3034507f1d9e53.ttf",
       "dependencies": []
     },
     "lib/fonts/05b618077343fbbd92b7.ttf": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 155288,
       "exportedPath": "lib/fonts/05b618077343fbbd92b7.ttf",
       "dependencies": []
     },
     "lib/fonts/4bb6ac751d1c5478ff3a.woff2": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 7876,
       "exportedPath": "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
       "dependencies": []
     },
     "lib/media/6155340132a851f6089e.svg": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 315,
       "exportedPath": "lib/media/6155340132a851f6089e.svg",
       "dependencies": []
     },
-    "lib/fonts/mathjax_zero.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 1368,
-      "exportedPath": "lib/fonts/mathjax_zero.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_main-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 34160,
-      "exportedPath": "lib/fonts/mathjax_main-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_main-bold.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 34464,
-      "exportedPath": "lib/fonts/mathjax_main-bold.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_math-italic.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 19360,
-      "exportedPath": "lib/fonts/mathjax_math-italic.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_main-italic.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 20832,
-      "exportedPath": "lib/fonts/mathjax_main-italic.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_math-bolditalic.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 19776,
-      "exportedPath": "lib/fonts/mathjax_math-bolditalic.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_size1-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 5792,
-      "exportedPath": "lib/fonts/mathjax_size1-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_size2-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 5464,
-      "exportedPath": "lib/fonts/mathjax_size2-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_size3-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 3244,
-      "exportedPath": "lib/fonts/mathjax_size3-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_size4-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 5148,
-      "exportedPath": "lib/fonts/mathjax_size4-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_ams-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 40808,
-      "exportedPath": "lib/fonts/mathjax_ams-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_calligraphic-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 9600,
-      "exportedPath": "lib/fonts/mathjax_calligraphic-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_calligraphic-bold.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 9908,
-      "exportedPath": "lib/fonts/mathjax_calligraphic-bold.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_fraktur-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 21480,
-      "exportedPath": "lib/fonts/mathjax_fraktur-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_fraktur-bold.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 22340,
-      "exportedPath": "lib/fonts/mathjax_fraktur-bold.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_sansserif-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 12660,
-      "exportedPath": "lib/fonts/mathjax_sansserif-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_sansserif-bold.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 15944,
-      "exportedPath": "lib/fonts/mathjax_sansserif-bold.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_sansserif-italic.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 14628,
-      "exportedPath": "lib/fonts/mathjax_sansserif-italic.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_script-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 11852,
-      "exportedPath": "lib/fonts/mathjax_script-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_typewriter-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 17604,
-      "exportedPath": "lib/fonts/mathjax_typewriter-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_vector-regular.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 1136,
-      "exportedPath": "lib/fonts/mathjax_vector-regular.woff",
-      "dependencies": []
-    },
-    "lib/fonts/mathjax_vector-bold.woff": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 1116,
-      "exportedPath": "lib/fonts/mathjax_vector-bold.woff",
-      "dependencies": []
-    },
     "lib/html/file-tree.html": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 4214,
+      "modifiedTime": 1740412148108,
+      "sourceSize": 239641,
       "exportedPath": "lib/html/file-tree.html",
       "dependencies": []
     },
     "lib/scripts/webpage.js": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 47290,
       "exportedPath": "lib/scripts/webpage.js",
       "dependencies": []
     },
     "lib/scripts/graph-view.js": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 15519,
       "exportedPath": "lib/scripts/graph-view.js",
       "dependencies": []
     },
     "lib/scripts/graph-wasm.js": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 14021,
       "exportedPath": "lib/scripts/graph-wasm.js",
       "dependencies": []
     },
     "lib/scripts/graph-render-worker.js": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 5179,
       "exportedPath": "lib/scripts/graph-render-worker.js",
       "dependencies": []
     },
     "lib/scripts/tinycolor.js": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 29832,
       "exportedPath": "lib/scripts/tinycolor.js",
       "dependencies": []
     },
     "lib/scripts/pixi.js": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 449509,
       "exportedPath": "lib/scripts/pixi.js",
       "dependencies": []
     },
     "lib/scripts/minisearch.js": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 29422,
       "exportedPath": "lib/scripts/minisearch.js",
       "dependencies": []
     },
     "lib/media/favicon.png": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 1105,
       "exportedPath": "lib/media/favicon.png",
       "dependencies": []
     },
     "lib/scripts/graph-data.js": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 338,
+      "modifiedTime": 1740412148108,
+      "sourceSize": 2622,
       "exportedPath": "lib/scripts/graph-data.js",
       "dependencies": []
     },
     "lib/styles/obsidian.css": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 137329,
+      "modifiedTime": 1740412148108,
+      "sourceSize": 137406,
       "exportedPath": "lib/styles/obsidian.css",
       "dependencies": []
     },
     "lib/styles/theme.css": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 12922,
       "exportedPath": "lib/styles/theme.css",
       "dependencies": []
     },
     "lib/styles/global-variable-styles.css": {
-      "modifiedTime": 1739823665571,
-      "sourceSize": 264,
+      "modifiedTime": 1740412148108,
+      "sourceSize": 262,
       "exportedPath": "lib/styles/global-variable-styles.css",
       "dependencies": []
     },
     "lib/styles/main-styles.css": {
-      "modifiedTime": 1739823665571,
+      "modifiedTime": 1740412148108,
       "sourceSize": 23130,
       "exportedPath": "lib/styles/main-styles.css",
       "dependencies": []
